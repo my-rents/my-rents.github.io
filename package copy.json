@@ -1,0 +1,24 @@
+{
+  "name": "my-rents-website",
+  "version": "1.0.0",
+  "description": "Example [Hugo](https://gohugo.io) website using [GitLab Pages](https://about.gitlab.com/stages-devops-lifecycle/pages/).",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel public/index.html",
+    "format": "prettier --write \"public/**/*.{js,html,css,scss}\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/erperejildo/my-rents-website.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/erperejildo/my-rents-website/issues"
+  },
+  "homepage": "https://gitlab.com/erperejildo/my-rents-website#readme",
+  "devDependencies": {
+    "parcel": "^1.12.3",
+    "prettier": "^2.6.2"
+  }
+}
