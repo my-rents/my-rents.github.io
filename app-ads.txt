@@ -5,6 +5,8 @@ appodeal.com, 139360, RESELLER
 bidmachine.io, 139360, RESELLER
 #AdMob
 google.com, pub-2945024608555072, DIRECT, f08c47fec0942fa0
+#Notsy
+google.com, pub-2945024608555072, RESELLER, f08c47fec0942fa0
 #Facebook
 #Replace the Business ID below with your Facebook Business ID
 facebook.com, 545471189843973, RESELLER, c3e20eee3f780d68
