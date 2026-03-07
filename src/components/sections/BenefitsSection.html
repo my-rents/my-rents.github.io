@@ -1,0 +1,22 @@
+<section id="features" class="benefits-section">
+  <div class="section-shell benefits-section__shell">
+    <SectionIntro
+      eyebrow="Features"
+      title="Key benefits that set us apart from other firms"
+      description="High-touch support, sharper decision frameworks, and execution-minded consulting that keeps moving."
+      v-reveal
+    />
+
+    <div class="benefits-section__grid">
+      <article
+        v-for="(item, index) in benefitItems"
+        :key="item.title"
+        class="benefits-section__card surface-card"
+        v-reveal="index * 70"
+      >
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.description }}</p>
+      </article>
+    </div>
+  </div>
+</section>

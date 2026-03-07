@@ -1,0 +1,31 @@
+<section class="impact-section">
+  <div class="section-shell impact-section__shell">
+    <SectionIntro
+      eyebrow="Impact"
+      title="Real results that drive lasting impact for everyone"
+      description="We deliver tailored strategies, innovative solutions, and dedicated support to drive durable growth."
+      v-reveal
+    />
+
+    <div class="impact-section__grid">
+      <div class="impact-section__visual surface-card" v-reveal="100">
+        <img
+          src="https://placehold.co/960x760/365954/f5ede0?text=Results+Dashboard"
+          alt="Dashboard style visual showing business growth results"
+        />
+      </div>
+
+      <div class="impact-section__stats">
+        <article
+          v-for="(stat, index) in impactStats"
+          :key="stat.label"
+          class="impact-section__stat surface-card"
+          v-reveal="index * 70"
+        >
+          <strong>{{ stat.value }}</strong>
+          <span>{{ stat.label }}</span>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>

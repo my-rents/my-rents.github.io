@@ -1,0 +1,88 @@
+@use '@/styles/breakpoints' as *;
+@use '@/styles/mixins' as *;
+
+.contact-section {
+  padding-block: var(--space-xl);
+  background: var(--color-brand);
+}
+
+.contact-section__shell {
+  display: grid;
+  gap: var(--space-xl);
+  align-items: start;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr);
+}
+
+.contact-section__form {
+  display: grid;
+  gap: var(--space-m);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  padding: var(--space-xl);
+  border-radius: var(--radius-xl);
+  background: var(--color-surface-inverse-muted);
+  color: var(--color-brand-contrast);
+}
+
+.contact-section__field {
+  display: grid;
+  gap: var(--space-2xs);
+}
+
+.contact-section__field span {
+  font-size: var(--text-small);
+  color: var(--color-contrast-muted);
+}
+
+.contact-section__field input,
+.contact-section__field select,
+.contact-section__field textarea {
+  inline-size: 100%;
+  border: var(--border-inverse);
+  border-radius: var(--radius-m);
+  background: var(--color-surface-inverse-faint);
+  padding: var(--space-s) var(--space-m);
+  color: var(--color-brand-contrast);
+}
+
+.contact-section__field input::placeholder,
+.contact-section__field textarea::placeholder {
+  color: var(--color-contrast-subtle);
+}
+
+.contact-section__field input:focus-visible,
+.contact-section__field select:focus-visible,
+.contact-section__field textarea:focus-visible,
+.contact-section__submit:focus-visible {
+  @include focus-ring;
+}
+
+.contact-section__field--wide {
+  grid-column: 1 / -1;
+}
+
+.contact-section__submit {
+  justify-self: start;
+  border: none;
+  border-radius: var(--radius-pill);
+  background: var(--color-surface-inverse-soft);
+  color: var(--color-brand-contrast);
+  padding: var(--space-s) var(--space-l);
+  font-weight: 600;
+
+  @include interactive-lift;
+}
+
+.contact-section__status {
+  grid-column: 1 / -1;
+  padding: var(--space-s) var(--space-m);
+  border-radius: var(--radius-m);
+  background: var(--color-success);
+  color: var(--color-success-ink);
+}
+
+@include below(small) {
+  .contact-section__shell,
+  .contact-section__form {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

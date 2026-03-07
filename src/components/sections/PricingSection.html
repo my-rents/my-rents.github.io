@@ -1,0 +1,41 @@
+<section id="pricing" class="pricing-section">
+  <div class="section-shell pricing-section__shell">
+    <SectionIntro
+      eyebrow="Pricing"
+      title="Flexible pricing tailored to your business needs"
+      description="Choose the level of support that fits your current stage and expand only when the work justifies it."
+      v-reveal
+    />
+
+    <div class="pricing-section__grid">
+      <article
+        v-for="(plan, index) in pricingPlans"
+        :key="plan.name"
+        class="pricing-section__card surface-card"
+        :class="{ 'pricing-section__card--featured': plan.featured }"
+        v-reveal="index * 100"
+      >
+        <div class="pricing-section__head">
+          <div>
+            <div class="pricing-section__title-row">
+              <h3>{{ plan.name }}</h3>
+              <span v-if="plan.featured" class="pricing-section__badge">Popular</span>
+            </div>
+            <p>{{ plan.summary }}</p>
+          </div>
+
+          <div class="pricing-section__price-block">
+            <strong>{{ plan.price }}</strong>
+            <span>{{ plan.period }}</span>
+          </div>
+        </div>
+
+        <AppButton :label="plan.ctaLabel" :to="{ name: 'home', hash: '#contact' }" />
+
+        <ul class="pricing-section__list">
+          <li v-for="benefit in plan.benefits" :key="benefit">{{ benefit }}</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>

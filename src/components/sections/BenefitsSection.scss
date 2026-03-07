@@ -1,0 +1,31 @@
+@use '@/styles/mixins' as *;
+
+.benefits-section {
+  padding-block: var(--section-space);
+}
+
+.benefits-section__shell {
+  display: grid;
+  gap: var(--space-xl);
+}
+
+.benefits-section__grid {
+  @include fluid-grid(3);
+}
+
+.benefits-section__card {
+  display: grid;
+  gap: var(--space-s);
+  min-block-size: var(--measure-benefit-card-min-block);
+  padding: var(--space-l);
+
+  @include interactive-lift;
+}
+
+.benefits-section__card h3 {
+  font-size: var(--text-card-title);
+}
+
+.benefits-section__card p {
+  color: var(--color-ink-muted);
+}

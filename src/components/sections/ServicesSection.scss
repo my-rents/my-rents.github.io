@@ -1,0 +1,90 @@
+@use '@/styles/breakpoints' as *;
+@use '@/styles/mixins' as *;
+
+.services-section {
+  --carousel-gap: var(--space-l);
+
+  padding-block: var(--section-space);
+  background: var(--color-surface-soft);
+}
+
+.services-section__shell {
+  display: grid;
+  gap: var(--space-xl);
+}
+
+.services-section__header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: var(--space-l);
+}
+
+.services-section__viewport {
+  overflow: hidden;
+}
+
+.services-section__track {
+  display: flex;
+  gap: var(--carousel-gap);
+  transform: translateX(
+    calc(
+      var(--current-index) * -1 *
+        (
+          (100% - (var(--carousel-gap) * (var(--cards-per-view) - 1))) / var(--cards-per-view) +
+            var(--carousel-gap)
+        )
+    )
+  );
+  transition: transform var(--duration-slow) var(--ease-standard);
+}
+
+.services-section__card {
+  overflow: hidden;
+  flex: 0 0
+    calc((100% - (var(--carousel-gap) * (var(--cards-per-view) - 1))) / var(--cards-per-view));
+}
+
+.services-section__media {
+  overflow: hidden;
+  aspect-ratio: 16 / 11;
+}
+
+.services-section__media img {
+  block-size: 100%;
+  object-fit: cover;
+  transition: transform var(--duration-slow) var(--ease-standard);
+}
+
+.services-section__card:hover .services-section__media img {
+  transform: scale(1.04);
+}
+
+.services-section__body {
+  display: grid;
+  gap: var(--space-s);
+  padding: var(--space-l);
+}
+
+.services-section__eyebrow {
+  font-size: var(--text-label);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+.services-section__title {
+  font-size: var(--text-card-title);
+}
+
+.services-section__description {
+  color: var(--color-ink-muted);
+}
+
+@include below(small) {
+  .services-section__header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

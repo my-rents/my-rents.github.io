@@ -1,0 +1,32 @@
+<section id="team" class="team-section" :style="carouselStyle">
+  <div class="section-shell team-section__shell">
+    <div class="team-section__header" v-reveal>
+      <SectionIntro
+        eyebrow="Our team"
+        title="Meet the experts behind your business success"
+        description="Operators, advisors, and growth specialists who know how to turn strategy into traction."
+      />
+
+      <CarouselControls @previous="previous" @next="next" />
+    </div>
+
+    <div class="team-section__viewport" v-reveal="120">
+      <div class="team-section__track">
+        <article
+          v-for="member in teamMembers"
+          :key="member.name"
+          class="team-section__card surface-card"
+        >
+          <div class="team-section__media">
+            <img :src="member.image" :alt="member.name" />
+          </div>
+
+          <div class="team-section__body">
+            <h3>{{ member.name }}</h3>
+            <p>{{ member.role }}</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,22 @@
+<section class="testimonial-section">
+  <div class="section-shell testimonial-section__shell">
+    <div class="testimonial-section__visual" v-reveal>
+      <div class="testimonial-section__avatar-stack">
+        <span v-for="avatar in testimonial.avatars" :key="avatar">{{ avatar }}</span>
+      </div>
+      <p class="testimonial-section__rating">Rated 4.9/5</p>
+    </div>
+
+    <article class="testimonial-section__card surface-card" v-reveal="120">
+      <h3 class="testimonial-section__quote">{{ testimonial.quote }}</h3>
+
+      <div class="testimonial-section__meta">
+        <span class="testimonial-section__author">{{ testimonial.author }}</span>
+        <div class="testimonial-section__stats">
+          <span>{{ testimonial.statA }}</span>
+          <span>{{ testimonial.statB }}</span>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>

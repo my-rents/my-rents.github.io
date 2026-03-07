@@ -1,0 +1,30 @@
+<div class="carousel-controls" :class="{ 'carousel-controls--light': light }">
+  <button
+    class="carousel-controls__button"
+    type="button"
+    aria-label="Previous"
+    @click="emit('previous')"
+  >
+    <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M12.5 15L7.5 10L12.5 5"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="1.5"
+      />
+    </svg>
+  </button>
+
+  <button class="carousel-controls__button" type="button" aria-label="Next" @click="emit('next')">
+    <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M7.5 15L12.5 10L7.5 5"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="1.5"
+      />
+    </svg>
+  </button>
+</div>

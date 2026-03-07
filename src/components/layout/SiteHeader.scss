@@ -1,0 +1,63 @@
+@use '@/styles/breakpoints' as *;
+@use '@/styles/mixins' as *;
+
+.site-header {
+  position: relative;
+  z-index: 10;
+  background: var(--color-surface);
+}
+
+.site-header__bar {
+  display: grid;
+  align-items: center;
+  grid-template-columns: auto 1fr auto;
+  gap: var(--space-m);
+  padding-block: var(--space-m);
+}
+
+.site-header__brand {
+  font-family: var(--font-heading);
+  font-size: var(--size-brand-mark);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.site-header__nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-m);
+}
+
+.site-header__link {
+  color: var(--color-ink-muted);
+  font-size: var(--text-small);
+  font-weight: 500;
+  transition: color var(--duration-fast) var(--ease-standard);
+
+  &:hover,
+  &:focus-visible {
+    color: var(--color-ink);
+  }
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+}
+
+@include below(small) {
+  .site-header__bar {
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: start;
+    gap: var(--space-s);
+  }
+
+  .site-header__nav {
+    gap: var(--space-s) var(--space-m);
+    justify-content: flex-start;
+  }
+
+  .site-header__cta {
+    display: none;
+  }
+}

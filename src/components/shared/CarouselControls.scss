@@ -1,0 +1,35 @@
+@use '@/styles/mixins' as *;
+
+.carousel-controls {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.carousel-controls__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: var(--size-control);
+  block-size: var(--size-control);
+  border: none;
+  border-radius: var(--radius-circle);
+  background: var(--color-brand);
+  color: var(--color-brand-contrast);
+
+  @include interactive-lift;
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+
+  svg {
+    inline-size: var(--size-icon);
+    block-size: var(--size-icon);
+  }
+}
+
+.carousel-controls--light .carousel-controls__button {
+  background: var(--color-surface-inverse-soft);
+  color: var(--color-brand-contrast);
+}
