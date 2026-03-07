@@ -1,4 +1,4 @@
-# Stratex Consulting Clone
+# My Rents
 
 This project recreates the reference consulting landing page in Vue with routed legal pages, responsive behavior, and CI-friendly tooling.
 

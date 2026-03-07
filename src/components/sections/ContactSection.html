@@ -1,76 +1,30 @@
 <section id="contact" class="contact-section">
   <div class="section-shell contact-section__shell">
     <div class="contact-section__intro" v-reveal>
-      <SectionIntro
-        eyebrow="Contact us"
-        title="Get in touch with our experts team"
+      <SectionIntro eyebrow="Contact us" title="Get in touch with our experts team"
         description="Share the challenge you are solving, the support you need, and the timeline you are aiming for."
-        tone="light"
-      />
+        tone="light" />
     </div>
 
     <form class="contact-section__form" @submit.prevent="handleSubmit" v-reveal="120">
       <label class="contact-section__field">
         <span>Name</span>
-        <input
-          v-model="form.name"
-          type="text"
-          name="name"
-          autocomplete="name"
-          placeholder="Your name"
-          required
-        />
+        <input v-model="form.name" type="text" name="name" autocomplete="name" placeholder="Your name" required />
       </label>
 
       <label class="contact-section__field">
         <span>Email</span>
-        <input
-          v-model="form.email"
-          type="email"
-          name="email"
-          autocomplete="email"
-          placeholder="you@example.com"
-          required
-        />
-      </label>
-
-      <label class="contact-section__field">
-        <span>Date</span>
-        <input v-model="form.date" type="date" name="date" required />
-      </label>
-
-      <label class="contact-section__field">
-        <span>Service</span>
-        <select v-model="form.service" name="service" required>
-          <option value="" disabled>Select a service</option>
-          <option v-for="service in contactOptions.services" :key="service" :value="service">
-            {{ service }}
-          </option>
-        </select>
-      </label>
-
-      <label class="contact-section__field">
-        <span>Budget</span>
-        <select v-model="form.budget" name="budget" required>
-          <option value="" disabled>Select a budget</option>
-          <option v-for="budget in contactOptions.budgets" :key="budget" :value="budget">
-            {{ budget }}
-          </option>
-        </select>
+        <input v-model="form.email" type="email" name="email" autocomplete="email" placeholder="you@example.com"
+          required />
       </label>
 
       <label class="contact-section__field contact-section__field--wide">
         <span>Project details</span>
-        <textarea
-          v-model="form.message"
-          name="message"
-          rows="5"
-          placeholder="Tell us what you are trying to achieve."
-          required
-        ></textarea>
+        <textarea v-model="form.message" name="message" rows="5" placeholder="Tell use what you are looking for."
+          required></textarea>
       </label>
 
-      <button class="contact-section__submit" type="submit">Submit your Form</button>
+      <button class="contact-section__submit" type="submit">Submit</button>
 
       <p v-if="submitted" class="contact-section__status">
         Thanks. Your request has been captured and the team will follow up shortly.

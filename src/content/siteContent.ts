@@ -28,7 +28,7 @@ export interface PricingPlan {
     period: string
     ctaLabel: string
     featured?: boolean
-    benefits: string[]
+    benefits: Array<string | { title: string; description: string }>
 }
 
 export interface ProcessStep {
@@ -89,9 +89,9 @@ export const comparisonColumns = [
             },
             {
                 badge: 'LG',
-                title: 'Limited Guidance',
+                title: 'Confusing Versions',
                 description:
-                    'Clients are handed documents instead of practical support, leaving execution risk squarely on their side.',
+                    'Multiple product versions with no clear understanding of differences, leading to confusion and inefficiency when landing into the app.',
             },
             {
                 badge: 'HF',
@@ -102,7 +102,7 @@ export const comparisonColumns = [
         ] satisfies IconCard[],
     },
     {
-        label: 'With Stratex',
+        label: 'With My Rents',
         tone: 'brand',
         items: [
             {
@@ -112,10 +112,10 @@ export const comparisonColumns = [
                     'Every recommendation is tuned to your goals, customer reality, and the pace your team can sustain.',
             },
             {
-                badge: 'DS',
-                title: 'Dedicated Support',
+                badge: 'PRO',
+                title: 'Single Version: PRO',
                 description:
-                    'Hands-on guidance stays available from kickoff through rollout, iteration, and long-term refinement.',
+                    'All users have same access to everything. Just decide if you want the subscription for 1 month, 1 year... or if you want a single payment with unlimited time access.',
             },
             {
                 badge: 'TP',
@@ -160,7 +160,7 @@ export const serviceItems: ServiceItem[] = [
 
 export const testimonial = {
     quote:
-        'Stratex revolutionized our customer understanding, which helped us tighten retention, increase conversion quality, and move with far more confidence.',
+        'My Rents revolutionized our customer understanding, which helped us tighten retention, increase conversion quality, and move with far more confidence.',
     author: 'Muzamal Hussain',
     statA: 'High conversion',
     statB: '2x sales',
@@ -226,12 +226,26 @@ export const pricingPlans: PricingPlan[] = [
         ctaLabel: 'Get Started',
         featured: true,
         benefits: [
-            'Unlimited strategy consultations',
-            'Advanced business analytics',
-            'Comprehensive reporting suite',
-            'Up to 10 team members',
-            'Priority email and chat support',
-            'Quarterly implementation reviews',
+            {
+                title: 'Unlimited portfolios',
+                description: 'Create different groups to have a better control of your investments.'
+            },
+            {
+                title: 'Unlimited properties',
+                description: 'There is no limit. Create as much as you need.'
+            },
+            {
+                title: 'Invoice generator',
+                description: 'Create invoices with all your details and save them into your properties.'
+            },
+            {
+                title: 'Personal and direct support',
+                description: 'No AI. No bots. Real people to help you with all your questions.'
+            },
+            {
+                title: 'CSV generator',
+                description: 'Export your numbers to have a clear vision of your investments.'
+            },
         ],
     },
 ]
@@ -291,34 +305,9 @@ export const teamMembers: TeamMember[] = [
 
 export const faqItems: FaqItem[] = [
     {
-        question: 'How does your consulting process work?',
+        question: 'Will I lose my data after finishing the trial period?',
         answer:
-            'We begin with a focused consultation to understand your goals, current obstacles, and available leverage points. From there, we define a roadmap, prioritize execution, and stay involved while the work turns into results.',
-    },
-    {
-        question: 'What industries do you specialize in?',
-        answer:
-            'Our process is strongest in service-led, digital, and operationally complex businesses where clear positioning and reliable systems matter. The framework adapts across sectors without forcing generic advice onto very different teams.',
-    },
-    {
-        question: 'How long does it take to see results?',
-        answer:
-            'Early clarity often appears in the first few sessions. Measurable business outcomes depend on scope, but most clients start seeing directional impact within the first quarter of consistent execution.',
-    },
-    {
-        question: 'Do you offer one-time consultations?',
-        answer:
-            'Yes. You can start with a focused consultation and expand later if the engagement proves useful. That keeps the commitment light while still giving you concrete next moves.',
-    },
-    {
-        question: 'Can small businesses afford your services?',
-        answer:
-            'That is exactly why the plans are tiered. Smaller teams can start with a lighter engagement and move up only when they need deeper support or broader implementation help.',
-    },
-    {
-        question: 'How do I get started?',
-        answer:
-            'Use the contact form, choose the type of support you need, and tell us what you are solving for. We will follow up with the right next step rather than forcing a generic sales flow.',
+            'No. If you finish the trial period and you do not want to subscribe to PRO right away, your data will be waiting for you once you decide to upgrade.',
     },
 ]
 
@@ -431,21 +420,21 @@ export const legalPages: Record<string, LegalPage> = {
             },
         ],
     },
-        dataDeletion: {
-            eyebrow: 'Data Deletion',
-            title: 'Data Deletion for My Rents',
-            intro:
-                'To remove completely your account and with this all the data saved in our databases you can simply click on "Delete my account" inside the options within the app.',
-            updatedAt: 'March 7, 2026',
-            sections: [
-                {
-                    title: 'Data Deletion',
-                    paragraphs: [
-                        'To remove completely your account and with this all the data saved in our databases you can simply click on "Delete my account" inside the options within the app.'
-                    ],
-                },
-            ],
-        },
+    dataDeletion: {
+        eyebrow: 'Data Deletion',
+        title: 'Data Deletion for My Rents',
+        intro:
+            'To remove completely your account and with this all the data saved in our databases you can simply click on "Delete my account" inside the options within the app.',
+        updatedAt: 'March 7, 2026',
+        sections: [
+            {
+                title: 'Data Deletion',
+                paragraphs: [
+                    'To remove completely your account and with this all the data saved in our databases you can simply click on "Delete my account" inside the options within the app.'
+                ],
+            },
+        ],
+    },
     privacy: {
         eyebrow: 'Privacy Policy',
         title: 'Privacy Policy for My Rents',

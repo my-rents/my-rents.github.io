@@ -19,7 +19,7 @@ describe('App', () => {
 
     await flushPromises()
 
-    expect(wrapper.text()).toContain('Expert consulting that drives real growth')
+    expect(wrapper.text()).toContain('The smartest way to manage your properties')
     expect(wrapper.text()).toContain('Flexible pricing tailored to your business needs')
   })
 
@@ -34,6 +34,6 @@ describe('App', () => {
 
     await flushPromises()
 
-    expect(wrapper.text()).toContain('How we handle form submissions and visitor information')
+    expect(wrapper.text()).toContain('The only data collected is the email, name and profile picture of the user when they create the account')
   })
 })

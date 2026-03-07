@@ -6,7 +6,7 @@ const routes = [
     name: 'home',
     component: () => import('@/views/HomeView.vue'),
     meta: {
-      title: 'Stratex | Expert Consulting That Drives Real Growth',
+      title: 'My Rents | Property Management That Drives Real Growth',
     },
   },
   {
@@ -15,7 +15,7 @@ const routes = [
     component: () => import('@/views/LegalView.vue'),
     props: { pageKey: 'terms' },
     meta: {
-      title: 'Terms of Service | Stratex',
+      title: 'Terms of Service | My Rents',
     },
   },
   {
@@ -24,7 +24,7 @@ const routes = [
     component: () => import('@/views/LegalView.vue'),
     props: { pageKey: 'privacy' },
     meta: {
-      title: 'Privacy Policy | Stratex',
+      title: 'Privacy Policy | My Rents',
     },
   },
   {
@@ -33,7 +33,7 @@ const routes = [
     component: () => import('@/views/LegalView.vue'),
     props: { pageKey: 'eula' },
     meta: {
-      title: 'EULA | Stratex',
+      title: 'EULA | My Rents',
     },
   },
   {
@@ -42,7 +42,7 @@ const routes = [
     component: () => import('@/views/LegalView.vue'),
     props: { pageKey: 'dataDeletion' },
     meta: {
-      title: 'Data Deletion | Stratex',
+      title: 'Data Deletion | My Rents',
     },
   },
   {
@@ -64,7 +64,7 @@ const router = createRouter({
         window.setTimeout(() => {
           resolve({
             el: to.hash,
-            top: 16,
+            top: 80, // match header height
             behavior: 'smooth',
           })
         }, 180)
