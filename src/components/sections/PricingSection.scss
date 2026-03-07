@@ -1,5 +1,26 @@
 @use '@/styles/breakpoints' as *;
 
+.pricing-section__benefit-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.pricing-section__benefit-title {
+  font-weight: 500;
+  color: var(--color-ink);
+  font-size: var(--text-base);
+}
+
+.pricing-section__benefit-desc {
+  font-size: var(--text-small);
+  color: var(--color-ink-muted);
+  font-weight: 400;
+  margin-top: 0.1em;
+  line-height: 1.4;
+  display: block;
+}
+
 .pricing-section {
   padding-block: var(--section-space);
 }
@@ -80,18 +101,24 @@
 
 .pricing-section__list li {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: var(--space-xs);
   color: var(--color-ink-muted);
 }
 
 .pricing-section__list li::before {
-  display: inline-flex;
-  inline-size: var(--size-icon-medium);
-  block-size: var(--size-icon-medium);
-  align-items: center;
+  display: flex;
+  align-items: flex-start;
   justify-content: center;
-  border-radius: var(--radius-circle);
+  width: var(--size-icon-medium);
+  height: var(--size-icon-medium);
+  min-width: var(--size-icon-medium);
+  min-height: var(--size-icon-medium);
+  max-width: var(--size-icon-medium);
+  max-height: var(--size-icon-medium);
+  aspect-ratio: 1/1;
+  flex-shrink: 0;
+  border-radius: 50%;
   background: var(--color-brand-tint-soft);
   color: var(--color-brand);
   content: '✓';

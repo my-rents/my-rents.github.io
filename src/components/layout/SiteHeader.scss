@@ -2,9 +2,11 @@
 @use '@/styles/mixins' as *;
 
 .site-header {
-  position: relative;
-  z-index: 10;
+  position: sticky;
+  top: 0;
+  z-index: 100;
   background: var(--color-surface);
+  width: 100%;
 }
 
 .site-header__bar {

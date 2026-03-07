@@ -7,9 +7,9 @@
   --color-surface: #ffffff;
   --color-surface-soft: #fafafa;
   --color-surface-warm: #f5ede0;
-  --color-brand: #1f514c;
-  --color-brand-deep: #163c38;
-  --color-brand-soft: #315f5a;
+  --color-brand: #281b60;
+  --color-brand-deep: #1c1344;
+  --color-brand-soft: #463788;
   --color-brand-contrast: #f6eee2;
   --color-contrast-body: rgba(246, 238, 226, 0.84);
   --color-contrast-muted: rgba(246, 238, 226, 0.82);
@@ -97,11 +97,9 @@
   --focus-ring: 0 0 0 0.1875rem rgba(31, 81, 76, 0.18);
   --size-accordion-stroke: 0.125rem;
   --blur-glass: 10px;
-  --gradient-hero-accent: radial-gradient(
-    circle at top right,
-    rgba(246, 238, 226, 0.12),
-    transparent 36%
-  );
+  --gradient-hero-accent: radial-gradient(circle at top right,
+      rgba(246, 238, 226, 0.12),
+      transparent 36%);
   --reveal-distance: 1.5rem;
 
   --hero-shell-padding: var(--space-2xl);

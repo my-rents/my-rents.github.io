@@ -8,8 +8,6 @@
 .section-intro__content {
   display: grid;
   gap: var(--space-m);
-  align-items: end;
-  grid-template-columns: minmax(0, 1fr) minmax(0, var(--measure-section-intro));
 
   @include below(small) {
     grid-template-columns: minmax(0, 1fr);
