@@ -244,7 +244,6 @@ const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=com.drodri
 const CONTACT_EMAIL = 'drodriguez.apps@gmail.com'
 const FORUM_URL = 'https://erperejildo.github.io/projects-forum/'
 const FEATURE_SPOTLIGHT_IMAGE = screenshotEs1
-const CLIENT_TYPE_IMAGE = user1
 
 const createPlaceholder = (
   width: number,
