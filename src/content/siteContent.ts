@@ -1,9 +1,9 @@
 import screenshotEn1 from '@/assets/features/main_EN.png'
 import screenshotEs1 from '@/assets/features/main_ES.png'
-import client1 from '@/assets/users/landlord.jpg'
-import client2 from '@/assets/users/portfolio_owner.jpg'
-import client3 from '@/assets/users/property_manager.jpg'
-import client4 from '@/assets/users/company.jpg'
+import user1 from '@/assets/users/landlord.jpg'
+import user2 from '@/assets/users/portfolio_owner.jpg'
+import user3 from '@/assets/users/property_manager.jpg'
+import user4 from '@/assets/users/company.jpg'
 import calendarImage from '@/assets/features/calendar_EN.png'
 import contactsListImage from '@/assets/features/contacts_list_EN.png'
 
@@ -244,7 +244,7 @@ const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=com.drodri
 const CONTACT_EMAIL = 'drodriguez.apps@gmail.com'
 const FORUM_URL = 'https://erperejildo.github.io/projects-forum/'
 const FEATURE_SPOTLIGHT_IMAGE = screenshotEs1
-const CLIENT_TYPE_IMAGE = client1
+const CLIENT_TYPE_IMAGE = user1
 
 const createPlaceholder = (
   width: number,
@@ -672,22 +672,22 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
         {
           name: 'New landlord',
           role: 'Useful even with a single property, especially when you want leases, due dates, expenses, contacts, and documents to stay organised from day one.',
-          image: client1,
+          image: user1,
         },
         {
           name: 'Small portfolio owner',
           role: 'Helps when you manage several units and need rent tracking, invoice generation, expenses, reminders, and documents connected without jumping between tools.',
-          image: client2,
+          image: user2,
         },
         {
           name: 'Property manager',
           role: 'Built for day-to-day follow-up, with quick access to lease records, tenant communication, maintenance notes, supplier contacts, and property history.',
-          image: client3,
+          image: user3,
         },
         {
           name: 'Company or management team',
           role: 'Useful when a business needs invoice generation, expense control, reporting, CSV exports, and consistent records across multiple properties or portfolios.',
-          image: client4,
+          image: user4,
         },
       ],
     },
@@ -1227,7 +1227,7 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
         description:
           'Si tu negocio necesita varios usuarios, cuentas separadas o una configuración distinta, escríbenos y te ayudaremos a encontrar la mejor opción.',
       },
-      businessCtaLabel: 'Contactar con nosotros por cuentas de empresa',
+      businessCtaLabel: 'Contactar con nosotros para cuentas deempresa',
     },
     process: {
       intro: {
@@ -1333,22 +1333,22 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
         {
           name: 'Nuevo propietario',
           role: 'Útil incluso si empiezas con una sola propiedad y quieres tener contratos, vencimientos, gastos, contactos y documentos bien organizados desde el principio.',
-          image: CLIENT_TYPE_IMAGE,
+          image: user1,
         },
         {
           name: 'Propietario con pequeño porfolio',
           role: 'Ayuda cuando ya gestionas varias unidades y necesitas control de cobros, generación de facturas, gastos, recordatorios y documentación sin saltar entre herramientas.',
-          image: CLIENT_TYPE_IMAGE,
+          image: user2,
         },
         {
           name: 'Gestor inmobiliario',
           role: 'Pensada para el seguimiento diario, con acceso rápido a contratos, comunicación, incidencias, proveedores y el historial operativo de cada inmueble.',
-          image: CLIENT_TYPE_IMAGE,
+          image: user3,
         },
         {
           name: 'Empresa o equipo de gestión',
           role: 'Útil cuando el negocio necesita generación de facturas, control de gastos, informes, exportaciones CSV y registros consistentes entre varias propiedades o porfolios.',
-          image: CLIENT_TYPE_IMAGE,
+          image: user4,
         },
       ],
     },
