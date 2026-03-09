@@ -1,0 +1,37 @@
+@use './breakpoints' as *;
+
+@mixin focus-ring {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+@mixin interactive-lift {
+  transition:
+    transform var(--duration-normal) var(--ease-standard),
+    box-shadow var(--duration-normal) var(--ease-standard),
+    background-color var(--duration-fast) var(--ease-standard),
+    border-color var(--duration-fast) var(--ease-standard),
+    color var(--duration-fast) var(--ease-standard);
+
+  &:hover {
+    transform: translateY(calc(var(--space-3xs) * -1));
+    box-shadow: var(--shadow-card-hover);
+  }
+}
+
+@mixin section-card {
+  border: var(--card-border);
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+}
+
+@mixin fluid-grid($columns) {
+  display: grid;
+  grid-template-columns: repeat($columns, minmax(0, 1fr));
+  gap: var(--space-l);
+
+  @include below(small) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

@@ -1,0 +1,22 @@
+<section id="features" class="benefits-section">
+  <div class="section-shell benefits-section__shell">
+    <SectionIntro
+      :eyebrow="content.benefits.intro.eyebrow"
+      :title="content.benefits.intro.title"
+      :description="content.benefits.intro.description"
+      v-reveal
+    />
+
+    <div class="benefits-section__grid">
+      <article
+        v-for="(item, index) in content.benefits.items"
+        :key="item.title"
+        class="benefits-section__card surface-card"
+        v-reveal="index * 70"
+      >
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.description }}</p>
+      </article>
+    </div>
+  </div>
+</section>

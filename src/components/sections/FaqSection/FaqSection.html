@@ -1,0 +1,22 @@
+<section id="faq" class="faq-section">
+  <div class="section-shell faq-section__shell">
+    <div class="faq-section__intro" v-reveal>
+      <SectionIntro
+        :eyebrow="content.faq.intro.eyebrow"
+        :title="content.faq.intro.title"
+        :description="content.faq.intro.description"
+      />
+    </div>
+
+    <div class="faq-section__list" v-reveal="120">
+      <AccordionItem
+        v-for="(item, index) in faqItems"
+        :key="item.question"
+        :question="item.question"
+        :answer="item.answer"
+        :expanded="openIndex === index"
+        @toggle="toggleItem(index)"
+      />
+    </div>
+  </div>
+</section>
