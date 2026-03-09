@@ -13,8 +13,8 @@ const route = useRoute()
 const { locale } = useSiteContent()
 
 watchEffect(() => {
-	document.documentElement.lang = locale.value === 'es' ? 'es-ES' : 'en'
-	document.title = getRouteTitle(locale.value, route.name)
+  document.documentElement.lang = locale.value === 'es' ? 'es-ES' : 'en'
+  document.title = getRouteTitle(locale.value, route.name)
 })
 </script>
 

@@ -29,7 +29,7 @@ if (typeof globalThis.IntersectionObserver === 'undefined') {
     readonly rootMargin = '0px'
     readonly thresholds = [0]
 
-    constructor(private readonly callback: IntersectionObserverCallback) { }
+    constructor(private readonly callback: IntersectionObserverCallback) {}
 
     disconnect = vi.fn()
 

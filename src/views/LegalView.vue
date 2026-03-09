@@ -14,7 +14,9 @@ interface Props {
 const props = defineProps<Props>()
 const { content } = useSiteContent()
 
-const page = computed(() => content.value.legalPages[props.pageKey] ?? content.value.legalPages.terms)
+const page = computed(
+  () => content.value.legalPages[props.pageKey] ?? content.value.legalPages.terms,
+)
 </script>
 
 <style scoped src="./LegalView.scss" lang="scss"></style>

@@ -9,19 +9,25 @@
           <span>{{ content.hero.rating }}</span>
         </div>
 
-        <h1 class="hero-section__title">
-          {{ content.hero.title }}
-        </h1>
+        <h1 class="hero-section__title">{{ content.hero.title }}</h1>
 
-        <p class="hero-section__copy">
-          {{ content.hero.copy }}
-        </p>
+        <p class="hero-section__copy">{{ content.hero.copy }}</p>
 
         <div class="hero-section__actions">
-          <AppButton :label="content.hero.playStoreCtaLabel" :href="content.playStoreUrl" variant="light" size="large"
-            target="_blank" rel="noopener noreferrer" />
-          <AppButton :label="content.hero.contactCtaLabel" size="large" variant="ghost"
-            :to="{ name: 'home', hash: '#contact' }" />
+          <AppButton
+            :label="content.hero.playStoreCtaLabel"
+            :href="content.playStoreUrl"
+            variant="light"
+            size="large"
+            target="_blank"
+            rel="noopener noreferrer"
+          />
+          <AppButton
+            :label="content.hero.contactCtaLabel"
+            size="large"
+            variant="ghost"
+            :to="{ name: 'home', hash: '#contact' }"
+          />
         </div>
       </div>
 

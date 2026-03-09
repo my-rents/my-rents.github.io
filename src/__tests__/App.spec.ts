@@ -53,7 +53,9 @@ describe('App', () => {
 
     await flushPromises()
 
-    expect(wrapper.text()).toContain('Gestiona propiedades, contratos, gastos, recordatorios y documentos en un solo lugar')
+    expect(wrapper.text()).toContain(
+      'Gestiona propiedades, contratos, gastos, recordatorios y documentos en un solo lugar',
+    )
     expect(wrapper.text()).toContain('Elige cómo quieres activar PRO')
   })
 })

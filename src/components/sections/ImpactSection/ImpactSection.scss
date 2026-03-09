@@ -104,7 +104,6 @@
 }
 
 @include below(small) {
-
   .impact-section__grid,
   .impact-section__stats {
     grid-template-columns: minmax(0, 1fr);

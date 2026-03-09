@@ -1,7 +1,11 @@
 <section id="pricing" class="pricing-section">
   <div class="section-shell pricing-section__shell">
-    <SectionIntro :eyebrow="content.pricing.intro.eyebrow" :title="content.pricing.intro.title"
-      :description="content.pricing.intro.description" v-reveal />
+    <SectionIntro
+      :eyebrow="content.pricing.intro.eyebrow"
+      :title="content.pricing.intro.title"
+      :description="content.pricing.intro.description"
+      v-reveal
+    />
 
     <article class="pricing-section__message surface-card" v-reveal="60">
       <h3>{{ content.pricing.message.title }}</h3>
@@ -9,8 +13,12 @@
     </article>
 
     <div class="pricing-section__grid">
-      <article v-for="(plan, index) in content.pricing.plans" :key="plan.name"
-        class="pricing-section__card surface-card" v-reveal="index * 100">
+      <article
+        v-for="(plan, index) in content.pricing.plans"
+        :key="plan.name"
+        class="pricing-section__card surface-card"
+        v-reveal="index * 100"
+      >
         <div class="pricing-section__head">
           <div>
             <div class="pricing-section__title-row">
@@ -26,7 +34,12 @@
           </div>
         </div>
 
-        <AppButton :label="plan.ctaLabel" :href="content.playStoreUrl" target="_blank" rel="noopener noreferrer" />
+        <AppButton
+          :label="plan.ctaLabel"
+          :href="content.playStoreUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+        />
       </article>
     </div>
 
@@ -54,13 +67,21 @@
         </div>
 
         <div class="pricing-section__policy-list">
-          <div v-for="notice in pricingNotes" :key="notice.title" class="pricing-section__policy-item">
+          <div
+            v-for="notice in pricingNotes"
+            :key="notice.title"
+            class="pricing-section__policy-item"
+          >
             <h4>{{ notice.title }}</h4>
             <p>{{ notice.description }}</p>
           </div>
         </div>
 
-        <AppButton :label="content.pricing.businessCtaLabel" :to="{ name: 'home', hash: '#contact' }" variant="light" />
+        <AppButton
+          :label="content.pricing.businessCtaLabel"
+          :to="{ name: 'home', hash: '#contact' }"
+          variant="light"
+        />
       </article>
     </div>
   </div>

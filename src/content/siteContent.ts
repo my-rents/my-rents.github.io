@@ -247,7 +247,8 @@ const createPlaceholder = (
   background: string,
   foreground: string,
   text: string,
-) => `https://placehold.co/${width}x${height}/${background}/${foreground}?text=${encodeURIComponent(text)}`
+) =>
+  `https://placehold.co/${width}x${height}/${background}/${foreground}?text=${encodeURIComponent(text)}`
 
 const sharedLanguages: LanguageOption[] = [
   { code: 'en', label: 'English' },
@@ -298,8 +299,7 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
     hero: {
       rating: 'Rated 4.8/5 on Google Play',
       title: 'Manage properties, leases, expenses, reminders, and documents in one place',
-      copy:
-        'My Rents helps landlords and property managers keep portfolios, due dates, invoices, contacts, reports, photos, and paperwork together in a single app.',
+      copy: 'My Rents helps landlords and property managers keep portfolios, due dates, invoices, contacts, reports, photos, and paperwork together in a single app.',
       playStoreCtaLabel: 'Download on Google Play',
       contactCtaLabel: 'Contact us',
       snapshot: screenshotEn,
@@ -541,8 +541,7 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
       },
       singleUser: {
         title: 'Each PRO purchase is for one person',
-        description:
-          'The PRO options on this page are single-user purchases for one account.',
+        description: 'The PRO options on this page are single-user purchases for one account.',
       },
       companies: {
         title: 'Need several accounts for a company or team?',
@@ -677,8 +676,7 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
       intro: {
         eyebrow: 'FAQ',
         title: 'Answers to the questions owners ask before choosing PRO',
-        description:
-          'Straight answers about pricing, daily workflows, reporting, and support.',
+        description: 'Straight answers about pricing, daily workflows, reporting, and support.',
       },
       items: [
         {
@@ -777,7 +775,7 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
           {
             title: 'Intellectual Property',
             paragraphs: [
-              'You agree that all materials, products, and services provided on our app are the property of Daniel Rodriguez, including copyrights, trade secrets, trademarks, patents, and other intellectual property. You also agree that you will not reproduce or redistribute Daniel Rodriguez\'s intellectual property in any way, including electronic or digital formats and trademark registrations.',
+              "You agree that all materials, products, and services provided on our app are the property of Daniel Rodriguez, including copyrights, trade secrets, trademarks, patents, and other intellectual property. You also agree that you will not reproduce or redistribute Daniel Rodriguez's intellectual property in any way, including electronic or digital formats and trademark registrations.",
               'You grant My Rents a royalty-free and non-exclusive license to display, use, copy, transmit, and broadcast the content you upload and publish. For issues regarding intellectual property claims, you should contact the company in order to come to an agreement.',
             ],
           },
@@ -833,7 +831,7 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
             title: 'Information Collection and Use',
             paragraphs: [
               'The main personal data collected is the email address, name, and profile picture of the user when an account is created. This information is only used to provide authentication and account-related services inside the app.',
-              'Users can also save personal information within their rental records, such as other people\'s emails or phone numbers. This information is stored solely to provide the features requested by the user.',
+              "Users can also save personal information within their rental records, such as other people's emails or phone numbers. This information is stored solely to provide the features requested by the user.",
               'The app may use third-party services that collect information used to identify you. You can review the privacy policies of those third-party services in the app under Options, About Us, and View Licences.',
             ],
           },
@@ -960,8 +958,7 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
     hero: {
       rating: 'Valorada con 4,8/5 en Google Play',
       title: 'Gestiona propiedades, contratos, gastos, recordatorios y documentos en un solo lugar',
-      copy:
-        'My Rents ayuda a propietarios y gestores a tener portafolios, vencimientos, facturas, contactos, informes, fotos y documentación dentro de una sola app.',
+      copy: 'My Rents ayuda a propietarios y gestores a tener portafolios, vencimientos, facturas, contactos, informes, fotos y documentación dentro de una sola app.',
       playStoreCtaLabel: 'Descargar en Google Play',
       contactCtaLabel: 'Contactar con nosotros',
       snapshot: screenshotEs,
@@ -1301,7 +1298,8 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
           description:
             'Ajusta fiscalidad local, abre direcciones de propiedades y conserva cerca proveedores o contactos de servicio importantes.',
           image: FEATURE_SPOTLIGHT_IMAGE,
-          imageAlt: 'Captura en español de las herramientas fiscales, mapas y contactos de My Rents',
+          imageAlt:
+            'Captura en español de las herramientas fiscales, mapas y contactos de My Rents',
         },
       ],
     },
@@ -1339,8 +1337,7 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
       intro: {
         eyebrow: 'FAQ',
         title: 'Respuestas a las preguntas que suelen aparecer antes de elegir PRO',
-        description:
-          'Respuestas claras sobre precios, operativa diaria, informes y soporte.',
+        description: 'Respuestas claras sobre precios, operativa diaria, informes y soporte.',
       },
       items: [
         {

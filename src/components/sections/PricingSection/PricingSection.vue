@@ -10,7 +10,10 @@ import { revealDirective as vReveal } from '@/directives/reveal'
 
 const { content } = useSiteContent()
 
-const pricingNotes = computed(() => [content.value.pricing.singleUser, content.value.pricing.companies])
+const pricingNotes = computed(() => [
+  content.value.pricing.singleUser,
+  content.value.pricing.companies,
+])
 </script>
 
 <style scoped src="./PricingSection.scss" lang="scss"></style>

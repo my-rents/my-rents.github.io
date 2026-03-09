@@ -12,19 +12,21 @@ const featureItems = computed(() => content.value.impact.items)
 const activeFeatureIndex = ref(0)
 
 watch(
-	featureItems,
-	(items) => {
-		if (!items[activeFeatureIndex.value]) {
-			activeFeatureIndex.value = 0
-		}
-	},
-	{ immediate: true },
+  featureItems,
+  (items) => {
+    if (!items[activeFeatureIndex.value]) {
+      activeFeatureIndex.value = 0
+    }
+  },
+  { immediate: true },
 )
 
-const activeFeature = computed(() => featureItems.value[activeFeatureIndex.value] ?? featureItems.value[0])
+const activeFeature = computed(
+  () => featureItems.value[activeFeatureIndex.value] ?? featureItems.value[0],
+)
 
 const selectFeature = (index: number) => {
-	activeFeatureIndex.value = index
+  activeFeatureIndex.value = index
 }
 </script>
 

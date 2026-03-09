@@ -97,9 +97,11 @@
   --focus-ring: 0 0 0 0.1875rem rgba(40, 27, 96, 0.18);
   --size-accordion-stroke: 0.125rem;
   --blur-glass: 10px;
-  --gradient-hero-accent: radial-gradient(circle at top right,
-      rgba(247, 244, 255, 0.16),
-      transparent 36%);
+  --gradient-hero-accent: radial-gradient(
+    circle at top right,
+    rgba(247, 244, 255, 0.16),
+    transparent 36%
+  );
   --reveal-distance: 1.5rem;
 
   --hero-shell-padding: var(--space-2xl);
