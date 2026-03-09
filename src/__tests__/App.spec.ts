@@ -19,8 +19,10 @@ describe('App', () => {
 
     await flushPromises()
 
-    expect(wrapper.text()).toContain('The smartest way to manage your properties')
-    expect(wrapper.text()).toContain('Flexible pricing tailored to your business needs')
+    expect(wrapper.text()).toContain(
+      'Manage properties, leases, expenses, reminders, and documents in one place',
+    )
+    expect(wrapper.text()).toContain('Choose how you want to unlock PRO')
   })
 
   it('renders the legal page route', async () => {
@@ -34,6 +36,26 @@ describe('App', () => {
 
     await flushPromises()
 
-    expect(wrapper.text()).toContain('The only data collected is the email, name and profile picture of the user when they create the account')
+    expect(wrapper.text()).toContain('Privacy Policy for My Rents')
+    expect(wrapper.text()).toContain('Information Collection and Use')
+  })
+
+  it('renders spanish copy when the locale is set to spanish', async () => {
+    window.localStorage.setItem('my-rents-locale', 'es')
+
+    await router.push('/')
+
+    const wrapper = mount(App, {
+      global: {
+        plugins: [router],
+      },
+    })
+
+    await flushPromises()
+
+    expect(wrapper.text()).toContain(
+      'Gestiona propiedades, contratos, gastos, recordatorios y documentos en un solo lugar',
+    )
+    expect(wrapper.text()).toContain('Elige cómo quieres activar PRO')
   })
 })

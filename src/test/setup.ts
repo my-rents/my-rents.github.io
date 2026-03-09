@@ -1,4 +1,4 @@
-import { vi } from 'vitest'
+import { beforeEach, vi } from 'vitest'
 
 const matchMediaMock = (query: string) => ({
   matches: false,
@@ -60,3 +60,8 @@ if (typeof globalThis.IntersectionObserver === 'undefined') {
     value: IntersectionObserverMock,
   })
 }
+
+beforeEach(() => {
+  window.localStorage.clear()
+  window.localStorage.setItem('my-rents-locale', 'en')
+})
