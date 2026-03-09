@@ -1,6 +1,11 @@
-import screenshotEn from '@/assets/Screenshot_1773015017_EN.png'
-import screenshotEs from '@/assets/Screenshot_1773015017_ES.png'
-import clientTypeImage from '@/assets/clients/becoming-a-landlord.png'
+import screenshotEn1 from '@/assets/features/main_EN.png'
+import screenshotEs1 from '@/assets/features/main_ES.png'
+import client1 from '@/assets/users/landlord.jpg'
+import client2 from '@/assets/users/portfolio_owner.jpg'
+import client3 from '@/assets/users/property_manager.jpg'
+import client4 from '@/assets/users/company.jpg'
+import calendarImage from '@/assets/features/calendar_EN.png'
+import contactsListImage from '@/assets/features/contacts_list_EN.png'
 
 export type SiteLocale = 'en' | 'es'
 
@@ -238,8 +243,8 @@ export const defaultLocale: SiteLocale = 'en'
 const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=com.drodriguez.my_rents'
 const CONTACT_EMAIL = 'drodriguez.apps@gmail.com'
 const FORUM_URL = 'https://erperejildo.github.io/projects-forum/'
-const FEATURE_SPOTLIGHT_IMAGE = screenshotEs
-const CLIENT_TYPE_IMAGE = clientTypeImage
+const FEATURE_SPOTLIGHT_IMAGE = screenshotEs1
+const CLIENT_TYPE_IMAGE = client1
 
 const createPlaceholder = (
   width: number,
@@ -274,7 +279,7 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
     playStoreUrl: PLAY_STORE_URL,
     meta: {
       routeTitles: {
-        home: 'My Rents | Property management app for landlords',
+        home: 'My Rents | Property management',
         terms: 'Terms of Service | My Rents',
         privacy: 'Privacy Policy | My Rents',
         eula: 'EULA | My Rents',
@@ -302,7 +307,7 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
       copy: 'My Rents helps landlords and property managers keep portfolios, due dates, invoices, contacts, reports, photos, and paperwork together in a single app.',
       playStoreCtaLabel: 'Download on Google Play',
       contactCtaLabel: 'Contact us',
-      snapshot: screenshotEn,
+      snapshot: screenshotEn1,
       snapshotAlt: 'English screenshot of the My Rents dashboard',
       partnersLabel: 'Built for',
       partners: [
@@ -640,6 +645,20 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
           image: FEATURE_SPOTLIGHT_IMAGE,
           imageAlt: 'English screenshot of the My Rents tax, map, and contact tools',
         },
+        {
+          title: 'Events',
+          description:
+            'Track repairs, inspections, reminders, and tasks so nothing slips through the cracks. Stay on top of every event in your rental workflow.',
+          image: calendarImage,
+          imageAlt: 'Calendar and events screenshot',
+        },
+        {
+          title: 'Contact List',
+          description:
+            'Keep key contacts—tenants, suppliers, and advisors—organized and accessible. Find the right person fast when you need help or follow-up.',
+          image: contactsListImage,
+          imageAlt: 'Contact list screenshot',
+        },
       ],
     },
     team: {
@@ -653,22 +672,22 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
         {
           name: 'New landlord',
           role: 'Useful even with a single property, especially when you want leases, due dates, expenses, contacts, and documents to stay organised from day one.',
-          image: CLIENT_TYPE_IMAGE,
+          image: client1,
         },
         {
           name: 'Small portfolio owner',
           role: 'Helps when you manage several units and need rent tracking, invoice generation, expenses, reminders, and documents connected without jumping between tools.',
-          image: CLIENT_TYPE_IMAGE,
+          image: client2,
         },
         {
           name: 'Property manager',
           role: 'Built for day-to-day follow-up, with quick access to lease records, tenant communication, maintenance notes, supplier contacts, and property history.',
-          image: CLIENT_TYPE_IMAGE,
+          image: client3,
         },
         {
           name: 'Company or management team',
           role: 'Useful when a business needs invoice generation, expense control, reporting, CSV exports, and consistent records across multiple properties or portfolios.',
-          image: CLIENT_TYPE_IMAGE,
+          image: client4,
         },
       ],
     },
@@ -933,7 +952,7 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
     playStoreUrl: PLAY_STORE_URL,
     meta: {
       routeTitles: {
-        home: 'My Rents | App de gestión de alquileres para propietarios',
+        home: 'My Rents | Gestion de alquileres',
         terms: 'Términos del servicio | My Rents',
         privacy: 'Política de privacidad | My Rents',
         eula: 'EULA | My Rents',
@@ -958,15 +977,15 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
     hero: {
       rating: 'Valorada con 4,8/5 en Google Play',
       title: 'Gestiona propiedades, contratos, gastos, recordatorios y documentos en un solo lugar',
-      copy: 'My Rents ayuda a propietarios y gestores a tener portafolios, vencimientos, facturas, contactos, informes, fotos y documentación dentro de una sola app.',
+      copy: 'My Rents ayuda a propietarios y gestores a tener porfolios, vencimientos, facturas, contactos, informes, fotos y documentación dentro de una sola app.',
       playStoreCtaLabel: 'Descargar en Google Play',
       contactCtaLabel: 'Contactar con nosotros',
-      snapshot: screenshotEs,
+      snapshot: screenshotEs1,
       snapshotAlt: 'Captura en español del panel de My Rents',
       partnersLabel: 'Pensada para',
       partners: [
         'Propietarios individuales',
-        'Portafolios pequeños',
+        'Porfolios pequeños',
         'Edificios con varias unidades',
         'Gestores inmobiliarios',
         'Inversores en crecimiento',
@@ -1010,9 +1029,9 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
           items: [
             {
               badge: 'VP',
-              title: 'Visión del portafolio',
+              title: 'Visión del porfolio',
               description:
-                'Propiedades, unidades y portafolios quedan organizados en una sola app con la información importante siempre a mano.',
+                'Propiedades, unidades y porfolios quedan organizados en una sola app con la información importante siempre a mano.',
             },
             {
               badge: 'CR',
@@ -1039,11 +1058,11 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
       },
       items: [
         {
-          eyebrow: 'Gestión de portafolios',
-          title: 'Añade propiedades y organízalas en portafolios',
+          eyebrow: 'Gestión de porfolios',
+          title: 'Añade propiedades y organízalas en porfolios',
           description:
             'Crea cada inmueble con su ubicación, tipo y datos clave, y agrupa activos por ciudad, estrategia o estructura de inversión.',
-          image: createPlaceholder(960, 720, '281b60', 'f4efff', 'Estructura del portafolio'),
+          image: createPlaceholder(960, 720, '281b60', 'f4efff', 'Estructura del porfolio'),
         },
         {
           eyebrow: 'Contratos y cobros',
@@ -1089,9 +1108,9 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
       },
       items: [
         {
-          title: 'Estructura de portafolios',
+          title: 'Estructura de porfolios',
           description:
-            'Visualiza tus propiedades tal y como las gestionas, ya sea una unidad, un edificio o un portafolio más amplio.',
+            'Visualiza tus propiedades tal y como las gestionas, ya sea una unidad, un edificio o un porfolio más amplio.',
         },
         {
           title: 'Seguimiento de contratos',
@@ -1166,7 +1185,7 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
         'Cualquiera de las opciones de abajo activa el mismo conjunto de funciones PRO. Solo cambia la duración.',
       features: [
         {
-          title: 'Portafolios ilimitados',
+          title: 'Porfolios ilimitados',
           description:
             'Crea todos los grupos que necesites para entender tus inversiones tal y como realmente las gestionas.',
         },
@@ -1226,9 +1245,9 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
         },
         {
           index: '02',
-          title: 'Crea portafolios y empieza a añadir propiedades',
+          title: 'Crea porfolios y empieza a añadir propiedades',
           description:
-            'Monta primero la estructura que vas a usar y empieza a añadir inmuebles dentro de cada portafolio para organizarte desde el inicio.',
+            'Monta primero la estructura que vas a usar y empieza a añadir inmuebles dentro de cada porfolio para organizarte desde el inicio.',
         },
         {
           index: '03',
@@ -1259,11 +1278,11 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
       },
       items: [
         {
-          title: 'Portafolios',
+          title: 'Porfolios',
           description:
-            'Agrupa alquileres por ciudad, estrategia o estructura de propiedad para que la visión global siga siendo clara a medida que crece el portafolio.',
+            'Agrupa alquileres por ciudad, estrategia o estructura de propiedad para que la visión global siga siendo clara a medida que crece el porfolio.',
           image: FEATURE_SPOTLIGHT_IMAGE,
-          imageAlt: 'Captura en español del área de portafolios de My Rents',
+          imageAlt: 'Captura en español del área de porfolios de My Rents',
         },
         {
           title: 'Propiedades',
@@ -1308,7 +1327,7 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
         eyebrow: 'Para quién es',
         title: 'Útil para distintos tipos de propietarios y gestores',
         description:
-          'My Rents está pensada para propietarios, gestores y empresas que necesitan más claridad administrativa, tanto si gestionan una sola propiedad como si trabajan con un portafolio amplio.',
+          'My Rents está pensada para propietarios, gestores y empresas que necesitan más claridad administrativa, tanto si gestionan una sola propiedad como si trabajan con un porfolio amplio.',
       },
       members: [
         {
@@ -1317,7 +1336,7 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
           image: CLIENT_TYPE_IMAGE,
         },
         {
-          name: 'Propietario con pequeño portafolio',
+          name: 'Propietario con pequeño porfolio',
           role: 'Ayuda cuando ya gestionas varias unidades y necesitas control de cobros, generación de facturas, gastos, recordatorios y documentación sin saltar entre herramientas.',
           image: CLIENT_TYPE_IMAGE,
         },
@@ -1328,7 +1347,7 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
         },
         {
           name: 'Empresa o equipo de gestión',
-          role: 'Útil cuando el negocio necesita generación de facturas, control de gastos, informes, exportaciones CSV y registros consistentes entre varias propiedades o portafolios.',
+          role: 'Útil cuando el negocio necesita generación de facturas, control de gastos, informes, exportaciones CSV y registros consistentes entre varias propiedades o porfolios.',
           image: CLIENT_TYPE_IMAGE,
         },
       ],
@@ -1343,7 +1362,7 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
         {
           question: '¿Cómo me ayuda My Rents a gestionar varias propiedades?',
           answer:
-            'Puedes añadir cada propiedad con sus propios datos y agruparlas en portafolios, lo que facilita revisar distintas partes de tu negocio sin perder estructura.',
+            'Puedes añadir cada propiedad con sus propios datos y agruparlas en porfolios, lo que facilita revisar distintas partes de tu negocio sin perder estructura.',
         },
         {
           question: '¿Qué cambia entre los planes de 1 mes, 6 meses y 1 año?',
