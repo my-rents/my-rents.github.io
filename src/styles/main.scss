@@ -1,7 +1,0 @@
-@use './tokens';
-@use './base';
-
-/* Fix anchor scroll for sticky header */
-[id] {
-  scroll-margin-top: 80px;
-}
