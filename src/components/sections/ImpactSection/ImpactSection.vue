@@ -7,23 +7,43 @@ import { useSiteContent } from '@/composables/useSiteContent'
 import { revealDirective as vReveal } from '@/directives/reveal'
 
 // Import images from src/assets/features
-import img1 from '@/assets/features/main_EN.png'
-import img2 from '@/assets/features/rent_EN.png'
-import img3 from '@/assets/features/lease_EN.png'
-import img4 from '@/assets/features/portfolio_info_EN.png'
-import img5 from '@/assets/features/rents2_EN.png'
-import img6 from '@/assets/features/taxes_EN.png'
-import img7 from '@/assets/features/calendar_EN.png'
-import img8 from '@/assets/features/contacts_list_EN.png'
 
-const featureImages = [img1, img2, img3, img4, img5, img6, img7, img8]
+// Use import.meta.glob to map all feature images
+const featureImageMap = import.meta.glob('@/assets/features/*.png', {
+  eager: true,
+  as: 'url',
+}) as Record<string, string>
 
-const { content } = useSiteContent()
+function getFeatureImage(idx: number, locale: string): string {
+  const baseNames = [
+    'main',
+    'rent',
+    'lease',
+    'portfolio_info',
+    'rents2',
+    'taxes',
+    'calendar',
+    'contacts_list',
+  ]
+  const code = locale.toUpperCase()
+  const suffix = code === 'ES' ? 'ES' : 'EN'
+  const name = baseNames[idx % baseNames.length]
+  // Build the expected file path
+  const relPath = `/src/assets/features/${name}_${suffix}.png`
+  // Try to find the image in the map
+  if (featureImageMap[relPath]) {
+    return featureImageMap[relPath]
+  }
+  // Fallback to EN
+  const fallbackPath = `/src/assets/features/${name}_EN.png`
+  return featureImageMap[fallbackPath] || ''
+}
+
+const { content, locale } = useSiteContent()
 const featureItems = computed(() => {
-  // Assign a different image to each feature item
   return content.value.impact.items.map((item, idx) => ({
     ...item,
-    image: featureImages[idx % featureImages.length],
+    image: getFeatureImage(idx, locale.value),
     imageAlt: item.imageAlt || item.title,
   }))
 })
