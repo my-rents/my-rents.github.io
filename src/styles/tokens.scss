@@ -1,0 +1,132 @@
+:root {
+  --font-heading: 'Hedvig Letters Serif', serif;
+  --font-body: 'Inter', sans-serif;
+
+  --color-ink: #141414;
+  --color-ink-muted: #5f675f;
+  --color-surface: #ffffff;
+  --color-surface-soft: #f8f6fc;
+  --color-surface-warm: #f1ecfb;
+  --color-brand: #281b60;
+  --color-brand-deep: #181041;
+  --color-brand-soft: #5b46ad;
+  --color-brand-contrast: #f7f4ff;
+  --color-contrast-body: rgba(247, 244, 255, 0.88);
+  --color-contrast-muted: rgba(247, 244, 255, 0.8);
+  --color-contrast-subtle: rgba(247, 244, 255, 0.58);
+  --color-border: rgba(20, 20, 20, 0.08);
+  --color-border-strong: rgba(20, 20, 20, 0.16);
+  --color-overlay: rgba(15, 11, 37, 0.36);
+  --color-surface-inverse-muted: rgba(255, 255, 255, 0.08);
+  --color-surface-inverse-soft: rgba(255, 255, 255, 0.12);
+  --color-surface-inverse-faint: rgba(255, 255, 255, 0.06);
+  --color-surface-overlay-strong: rgba(255, 255, 255, 0.75);
+  --color-surface-overlay-brand: rgba(255, 255, 255, 0.14);
+  --color-brand-tint-soft: rgba(40, 27, 96, 0.08);
+  --color-success: #d5f3df;
+  --color-success-ink: #153f2c;
+
+  --space-4xs: 0.125rem;
+  --space-3xs: 0.25rem;
+  --space-2xs: 0.5rem;
+  --space-xs: 0.75rem;
+  --space-s: 1rem;
+  --space-m: 1.5rem;
+  --space-l: 2rem;
+  --space-xl: 2.5rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+  --space-4xl: 5rem;
+
+  --radius-xs: 0.75rem;
+  --radius-s: 1rem;
+  --radius-m: 1.5rem;
+  --radius-l: 1.75rem;
+  --radius-xl: 2.25rem;
+  --radius-circle: 50%;
+  --radius-pill: 999px;
+  --radius-card: 1.75rem;
+
+  --shadow-card: 0 1.5rem 3rem rgba(21, 14, 55, 0.08);
+  --shadow-card-hover: 0 2rem 3.5rem rgba(20, 13, 58, 0.16);
+  --shadow-panel: 0 2.5rem 5rem rgba(12, 8, 34, 0.28);
+
+  --duration-fast: 180ms;
+  --duration-normal: 300ms;
+  --duration-slow: 520ms;
+  --ease-standard: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --container-width: 75rem;
+  --container-narrow: 54rem;
+  --section-space: 4rem;
+  --section-space-hero: 4.5rem;
+  --scroll-offset: 1rem;
+  --size-hairline: 1px;
+  --size-brand-mark: 2rem;
+  --size-control: 2.75rem;
+  --size-icon: 1rem;
+  --size-icon-small: 1.25rem;
+  --size-icon-medium: 1.5rem;
+  --size-icon-large: 1.75rem;
+  --size-icon-xl: 2rem;
+  --size-badge: 3rem;
+  --size-step-index: 4rem;
+  --button-min-inline-medium: 9rem;
+  --button-min-inline-large: 11rem;
+  --measure-section-intro: 25rem;
+  --measure-footer-summary: 20rem;
+  --measure-hero-title: 38rem;
+  --measure-hero-copy: 34rem;
+  --measure-legal-copy: 40rem;
+  --measure-benefit-card-min-block: 15rem;
+  --measure-process-line-mobile-offset: 1.9375rem;
+
+  --text-body: 1rem;
+  --text-small: 0.9375rem;
+  --text-label: 0.8125rem;
+  --text-accordion: 1.0625rem;
+  --text-title: clamp(2.4rem, 4vw, 3.1rem);
+  --text-display: clamp(3rem, 5vw, 3.5rem);
+  --text-card-title: 1.375rem;
+  --text-price: clamp(3rem, 5vw, 3.75rem);
+  --line-body: 1.65;
+  --line-tight: 1.1;
+
+  --card-border: 1px solid var(--color-border);
+  --border-inverse: 1px solid var(--color-surface-inverse-soft);
+  --focus-ring: 0 0 0 0.1875rem rgba(40, 27, 96, 0.18);
+  --size-accordion-stroke: 0.125rem;
+  --blur-glass: 10px;
+  --gradient-hero-accent: radial-gradient(
+    circle at top right,
+    rgba(247, 244, 255, 0.16),
+    transparent 36%
+  );
+  --reveal-distance: 1.5rem;
+
+  --hero-shell-padding: var(--space-2xl);
+  --hero-visual-height: 36rem;
+  --hero-main-image-size: min(100%, 28rem);
+  --floating-card-width: 14rem;
+}
+
+@media (max-width: 64rem) {
+  :root {
+    --section-space: 3.5rem;
+    --section-space-hero: 4rem;
+    --hero-shell-padding: var(--space-xl);
+    --hero-visual-height: 30rem;
+  }
+}
+
+@media (max-width: 48rem) {
+  :root {
+    --section-space: 3rem;
+    --section-space-hero: 3rem;
+    --hero-shell-padding: var(--space-l);
+    --hero-visual-height: 24rem;
+    --text-display: clamp(2.6rem, 11vw, 3.4rem);
+    --text-title: clamp(2.2rem, 9vw, 2.8rem);
+    --floating-card-width: 11.5rem;
+  }
+}

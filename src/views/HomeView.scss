@@ -1,0 +1,15 @@
+@use '@/styles/breakpoints' as *;
+
+.home-view {
+  display: grid;
+}
+
+.home-view :deep(section[id]) {
+  scroll-margin-top: 8rem;
+}
+
+@include below(small) {
+  .home-view :deep(section[id]) {
+    scroll-margin-top: 11rem;
+  }
+}

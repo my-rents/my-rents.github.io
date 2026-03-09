@@ -1,0 +1,12 @@
+<div class="accordion-item" :class="{ 'accordion-item--open': expanded }">
+  <button class="accordion-item__trigger" type="button" @click="emit('toggle')">
+    <span>{{ question }}</span>
+    <span class="accordion-item__icon" aria-hidden="true"></span>
+  </button>
+
+  <div class="accordion-item__content">
+    <div class="accordion-item__content-inner">
+      <p>{{ answer }}</p>
+    </div>
+  </div>
+</div>
