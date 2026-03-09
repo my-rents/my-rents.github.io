@@ -1,0 +1,44 @@
+<section class="hero-section">
+  <div class="hero-section__shell section-shell">
+    <div class="hero-section__panel">
+      <div class="hero-section__content" v-reveal>
+        <div class="hero-section__rating">
+          <ul class="hero-section__stars" aria-hidden="true">
+            <li v-for="index in 5" :key="index"></li>
+          </ul>
+          <span>{{ content.hero.rating }}</span>
+        </div>
+
+        <h1 class="hero-section__title">
+          {{ content.hero.title }}
+        </h1>
+
+        <p class="hero-section__copy">
+          {{ content.hero.copy }}
+        </p>
+
+        <div class="hero-section__actions">
+          <AppButton :label="content.hero.playStoreCtaLabel" :href="content.playStoreUrl" variant="light" size="large"
+            target="_blank" rel="noopener noreferrer" />
+          <AppButton :label="content.hero.contactCtaLabel" size="large" variant="ghost"
+            :to="{ name: 'home', hash: '#contact' }" />
+        </div>
+      </div>
+
+      <div class="hero-section__visual" v-reveal="140">
+        <div class="hero-section__image-frame">
+          <img :src="content.hero.snapshot" :alt="content.hero.snapshotAlt" />
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-section__partners" v-reveal="220">
+      <p class="hero-section__partners-label">{{ content.hero.partnersLabel }}:</p>
+      <ul class="hero-section__partners-list">
+        <li v-for="logo in content.hero.partners" :key="logo" class="hero-section__partner-pill">
+          {{ logo }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>

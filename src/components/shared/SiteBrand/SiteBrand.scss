@@ -1,0 +1,22 @@
+@use '@/styles/mixins' as *;
+
+.site-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-s);
+  font-family: var(--font-heading);
+  font-size: var(--size-brand-mark);
+  line-height: 1;
+  letter-spacing: -0.04em;
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+}
+
+.site-brand__icon {
+  inline-size: 2.75rem;
+  block-size: 2.75rem;
+  border-radius: var(--radius-circle);
+  box-shadow: var(--shadow-card);
+}

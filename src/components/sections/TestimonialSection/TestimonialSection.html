@@ -1,0 +1,28 @@
+<section id="forum" class="testimonial-section">
+  <div class="section-shell testimonial-section__shell">
+    <div class="testimonial-section__visual" v-reveal>
+      <div class="testimonial-section__avatar-stack">
+        <span v-for="avatar in content.testimonial.avatars" :key="avatar">{{ avatar }}</span>
+      </div>
+      <p class="testimonial-section__community-label">{{ content.testimonial.communityLabel }}</p>
+    </div>
+
+    <article class="testimonial-section__card surface-card" v-reveal="120">
+      <h3 class="testimonial-section__quote">{{ content.testimonial.quote }}</h3>
+      <p class="testimonial-section__description">{{ content.testimonial.description }}</p>
+
+      <div class="testimonial-section__meta">
+        <div class="testimonial-section__author-block">
+          <span class="testimonial-section__author">{{ content.testimonial.author }}</span>
+          <a class="testimonial-section__forum-link" :href="content.testimonial.forumUrl" target="_blank"
+            rel="noreferrer">{{
+            content.testimonial.forumLabel }}</a>
+        </div>
+        <div class="testimonial-section__stats">
+          <span>{{ content.testimonial.statA }}</span>
+          <span>{{ content.testimonial.statB }}</span>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>

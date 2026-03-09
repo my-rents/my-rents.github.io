@@ -1,0 +1,24 @@
+<section class="comparison-section">
+  <div class="section-shell comparison-section__shell">
+    <SectionIntro :eyebrow="content.comparison.intro.eyebrow" :title="content.comparison.intro.title"
+      :description="content.comparison.intro.description" v-reveal />
+
+    <div class="comparison-section__grid">
+      <article v-for="(column, columnIndex) in content.comparison.columns" :key="column.label"
+        class="comparison-section__column" :class="`comparison-section__column--${column.tone}`"
+        v-reveal="columnIndex * 120">
+        <p class="comparison-section__column-label">{{ column.label }}</p>
+
+        <div class="comparison-section__cards">
+          <div v-for="card in column.items" :key="card.title" class="comparison-section__card">
+            <span class="comparison-section__badge">{{ card.badge }}</span>
+            <div class="comparison-section__card-copy">
+              <h3>{{ card.title }}</h3>
+              <p>{{ card.description }}</p>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,14 @@
+<header class="site-header">
+  <div class="site-header__bar section-shell">
+    <SiteBrand :label="content.header.brandLabel" />
+
+    <nav class="site-header__nav" :aria-label="content.header.navAriaLabel">
+      <RouterLink v-for="item in content.primaryNav" :key="item.hash" class="site-header__link"
+        :to="{ name: 'home', hash: item.hash }">
+        {{ item.label }}
+      </RouterLink>
+    </nav>
+
+    <AppButton class="site-header__cta" :label="content.header.ctaLabel" :to="{ name: 'home', hash: '#pricing' }" />
+  </div>
+</header>

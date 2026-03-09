@@ -5,45 +5,30 @@ const routes = [
     path: '/',
     name: 'home',
     component: () => import('@/views/HomeView.vue'),
-    meta: {
-      title: 'My Rents | Property Management That Drives Real Growth',
-    },
   },
   {
     path: '/terms-of-service',
     name: 'terms',
     component: () => import('@/views/LegalView.vue'),
     props: { pageKey: 'terms' },
-    meta: {
-      title: 'Terms of Service | My Rents',
-    },
   },
   {
     path: '/privacy-policy',
     name: 'privacy',
     component: () => import('@/views/LegalView.vue'),
     props: { pageKey: 'privacy' },
-    meta: {
-      title: 'Privacy Policy | My Rents',
-    },
   },
   {
     path: '/eula',
     name: 'eula',
     component: () => import('@/views/LegalView.vue'),
     props: { pageKey: 'eula' },
-    meta: {
-      title: 'EULA | My Rents',
-    },
   },
   {
     path: '/data-deletion',
     name: 'dataDeletion',
     component: () => import('@/views/LegalView.vue'),
     props: { pageKey: 'dataDeletion' },
-    meta: {
-      title: 'Data Deletion | My Rents',
-    },
   },
   {
     path: '/:pathMatch(.*)*',
@@ -76,12 +61,6 @@ const router = createRouter({
       behavior: 'smooth',
     }
   },
-})
-
-router.afterEach((to) => {
-  if (typeof to.meta.title === 'string') {
-    document.title = to.meta.title
-  }
 })
 
 export default router

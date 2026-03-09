@@ -7,14 +7,14 @@
         <p>{{ page.intro }}</p>
       </div>
 
-      <AppButton label="Back to home" variant="light" :to="{ name: 'home' }" />
+      <AppButton :label="content.legalUi.backHomeLabel" variant="light" :to="{ name: 'home' }" />
     </div>
   </section>
 
   <section class="legal-view__body">
     <div class="section-shell section-shell--narrow">
       <article class="legal-view__card surface-card">
-        <p class="legal-view__updated">Last updated {{ page.updatedAt }}</p>
+        <p class="legal-view__updated">{{ content.legalUi.lastUpdatedPrefix }} {{ page.updatedAt }}</p>
 
         <section v-for="section in page.sections" :key="section.title" class="legal-view__section">
           <h2>{{ section.title }}</h2>

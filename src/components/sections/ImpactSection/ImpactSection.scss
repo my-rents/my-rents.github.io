@@ -1,0 +1,112 @@
+@use '@/styles/breakpoints' as *;
+@use '@/styles/mixins' as *;
+
+.impact-section {
+  padding-block: var(--section-space);
+}
+
+.impact-section__shell {
+  display: grid;
+  gap: var(--space-xl);
+}
+
+.impact-section__grid {
+  display: grid;
+  gap: var(--space-l);
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+}
+
+.impact-section__visual {
+  overflow: hidden;
+  padding: var(--space-s);
+}
+
+.impact-section__feature-frame {
+  display: grid;
+  gap: var(--space-s);
+}
+
+.impact-section__feature-frame img {
+  border-radius: var(--radius-l);
+  aspect-ratio: 16 / 13;
+  object-fit: cover;
+}
+
+.impact-section__visual-caption {
+  display: inline-flex;
+  justify-self: start;
+  padding: var(--space-3xs) var(--space-s);
+  border-radius: var(--radius-pill);
+  background: var(--color-brand-tint-soft);
+  color: var(--color-brand);
+  font-size: var(--text-label);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.impact-section__stats {
+  display: grid;
+  gap: var(--space-s);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.impact-section__stat {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+  gap: var(--space-s);
+  padding: var(--space-l);
+  border: var(--card-border);
+  text-align: left;
+
+  @include interactive-lift;
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+}
+
+.impact-section__stat strong {
+  font-family: var(--font-heading);
+  font-size: clamp(1.65rem, 1.75vw, 2.35rem);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  text-wrap: balance;
+}
+
+.impact-section__stat-copy {
+  display: grid;
+  gap: var(--space-2xs);
+}
+
+.impact-section__stat-copy span {
+  color: var(--color-ink-muted);
+}
+
+.impact-section__stat--active {
+  border-color: rgb(40 27 96 / 18%);
+  background: linear-gradient(135deg, rgb(40 27 96 / 4%), rgb(91 70 173 / 10%));
+  box-shadow: var(--shadow-card);
+}
+
+.impact-feature-enter-active,
+.impact-feature-leave-active {
+  transition:
+    opacity var(--duration-normal) var(--ease-standard),
+    transform var(--duration-normal) var(--ease-standard);
+}
+
+.impact-feature-enter-from,
+.impact-feature-leave-to {
+  opacity: 0;
+  transform: translateY(var(--space-xs));
+}
+
+@include below(small) {
+
+  .impact-section__grid,
+  .impact-section__stats {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

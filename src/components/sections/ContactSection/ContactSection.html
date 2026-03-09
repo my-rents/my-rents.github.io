@@ -1,0 +1,39 @@
+<section id="contact" class="contact-section">
+  <div class="section-shell contact-section__shell">
+    <div class="contact-section__intro" v-reveal>
+      <SectionIntro :eyebrow="content.contact.intro.eyebrow" :title="content.contact.intro.title"
+        :description="content.contact.intro.description" tone="light" />
+
+      <div class="contact-section__actions">
+        <AppButton :label="content.contact.forumCtaLabel" :href="content.contact.forumUrl" variant="light"
+          target="_blank" rel="noreferrer" />
+      </div>
+    </div>
+
+    <form class="contact-section__form" @submit.prevent="handleSubmit" v-reveal="120">
+      <label class="contact-section__field">
+        <span>{{ content.contact.form.nameLabel }}</span>
+        <input v-model="form.name" type="text" name="name" autocomplete="name"
+          :placeholder="content.contact.form.namePlaceholder" required />
+      </label>
+
+      <label class="contact-section__field">
+        <span>{{ content.contact.form.emailLabel }}</span>
+        <input v-model="form.email" type="email" name="email" autocomplete="email"
+          :placeholder="content.contact.form.emailPlaceholder" required />
+      </label>
+
+      <label class="contact-section__field contact-section__field--wide">
+        <span>{{ content.contact.form.messageLabel }}</span>
+        <textarea v-model="form.message" name="message" rows="5" :placeholder="content.contact.form.messagePlaceholder"
+          required></textarea>
+      </label>
+
+      <button class="contact-section__submit" type="submit">{{ content.contact.form.submitLabel }}</button>
+
+      <p v-if="submitted" class="contact-section__status">
+        {{ content.contact.form.success }}
+      </p>
+    </form>
+  </div>
+</section>

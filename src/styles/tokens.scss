@@ -5,24 +5,24 @@
   --color-ink: #141414;
   --color-ink-muted: #5f675f;
   --color-surface: #ffffff;
-  --color-surface-soft: #fafafa;
-  --color-surface-warm: #f5ede0;
+  --color-surface-soft: #f8f6fc;
+  --color-surface-warm: #f1ecfb;
   --color-brand: #281b60;
-  --color-brand-deep: #1c1344;
-  --color-brand-soft: #463788;
-  --color-brand-contrast: #f6eee2;
-  --color-contrast-body: rgba(246, 238, 226, 0.84);
-  --color-contrast-muted: rgba(246, 238, 226, 0.82);
-  --color-contrast-subtle: rgba(246, 238, 226, 0.58);
+  --color-brand-deep: #181041;
+  --color-brand-soft: #5b46ad;
+  --color-brand-contrast: #f7f4ff;
+  --color-contrast-body: rgba(247, 244, 255, 0.88);
+  --color-contrast-muted: rgba(247, 244, 255, 0.8);
+  --color-contrast-subtle: rgba(247, 244, 255, 0.58);
   --color-border: rgba(20, 20, 20, 0.08);
   --color-border-strong: rgba(20, 20, 20, 0.16);
-  --color-overlay: rgba(14, 30, 28, 0.36);
+  --color-overlay: rgba(15, 11, 37, 0.36);
   --color-surface-inverse-muted: rgba(255, 255, 255, 0.08);
   --color-surface-inverse-soft: rgba(255, 255, 255, 0.12);
   --color-surface-inverse-faint: rgba(255, 255, 255, 0.06);
   --color-surface-overlay-strong: rgba(255, 255, 255, 0.75);
-  --color-surface-overlay-brand: rgba(255, 255, 255, 0.1);
-  --color-brand-tint-soft: rgba(31, 81, 76, 0.08);
+  --color-surface-overlay-brand: rgba(255, 255, 255, 0.14);
+  --color-brand-tint-soft: rgba(40, 27, 96, 0.08);
   --color-success: #d5f3df;
   --color-success-ink: #153f2c;
 
@@ -47,9 +47,9 @@
   --radius-pill: 999px;
   --radius-card: 1.75rem;
 
-  --shadow-card: 0 1.5rem 3rem rgba(15, 34, 32, 0.08);
-  --shadow-card-hover: 0 2rem 3.5rem rgba(15, 34, 32, 0.14);
-  --shadow-panel: 0 2.5rem 5rem rgba(8, 16, 15, 0.28);
+  --shadow-card: 0 1.5rem 3rem rgba(21, 14, 55, 0.08);
+  --shadow-card-hover: 0 2rem 3.5rem rgba(20, 13, 58, 0.16);
+  --shadow-panel: 0 2.5rem 5rem rgba(12, 8, 34, 0.28);
 
   --duration-fast: 180ms;
   --duration-normal: 300ms;
@@ -94,11 +94,11 @@
 
   --card-border: 1px solid var(--color-border);
   --border-inverse: 1px solid var(--color-surface-inverse-soft);
-  --focus-ring: 0 0 0 0.1875rem rgba(31, 81, 76, 0.18);
+  --focus-ring: 0 0 0 0.1875rem rgba(40, 27, 96, 0.18);
   --size-accordion-stroke: 0.125rem;
   --blur-glass: 10px;
   --gradient-hero-accent: radial-gradient(circle at top right,
-      rgba(246, 238, 226, 0.12),
+      rgba(247, 244, 255, 0.16),
       transparent 36%);
   --reveal-distance: 1.5rem;
 

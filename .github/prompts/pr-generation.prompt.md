@@ -1,6 +1,6 @@
 ---
 description: 'Automated PR workflow: creates branch, commits with proper message, pushes, opens PR, merges, cleans up. Follows project commit and PR rules.'
-model: Raptor mini (Preview) (copilot)
+model: GPT-4.1 (copilot)
 ---
 
 # PR Command Automation Prompt
