@@ -241,7 +241,7 @@ export const supportedLocales = ['en', 'es'] as const
 export const defaultLocale: SiteLocale = 'en'
 
 const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=com.drodriguez.my_rents'
-const CONTACT_EMAIL = 'drodriguez.apps@gmail.com'
+const CONTACT_EMAIL = 'info@myrents-app.com'
 const FORUM_URL = 'https://drodriguez-support.com'
 const FEATURE_SPOTLIGHT_IMAGE = screenshotEs1
 
@@ -750,7 +750,7 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
           'Tell us what you manage, what feels messy today, or which subscription option you are considering.',
         submitLabel: 'Open email draft',
         success:
-          'Your email app should open with a prefilled draft. If it does not, write directly to drodriguez.apps@gmail.com.',
+          'Your email app should open with a prefilled draft. If it does not, write directly to info@myrents-app.com.',
       },
     },
     footer: {
@@ -885,7 +885,7 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
           {
             title: 'Contact Us',
             paragraphs: [
-              'If you have any questions or suggestions about this Privacy Policy, do not hesitate to contact us at drodriguez.apps@gmail.com.',
+              'If you have any questions or suggestions about this Privacy Policy, do not hesitate to contact us at info@myrents-app.com.',
             ],
           },
         ],
@@ -1411,7 +1411,7 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
           'Cuéntanos qué gestionas, qué se te hace pesado hoy o qué duración de suscripción estás valorando.',
         submitLabel: 'Abrir borrador de email',
         success:
-          'Tu aplicación de correo debería abrirse con un borrador preparado. Si no ocurre, escribe directamente a drodriguez.apps@gmail.com.',
+          'Tu aplicación de correo debería abrirse con un borrador preparado. Si no ocurre, escribe directamente a info@myrents-app.com.',
       },
     },
     footer: {
@@ -1546,7 +1546,7 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
           {
             title: 'Contacto',
             paragraphs: [
-              'Si tienes preguntas o sugerencias sobre esta Política de privacidad, puedes escribirnos a drodriguez.apps@gmail.com.',
+              'Si tienes preguntas o sugerencias sobre esta Política de privacidad, puedes escribirnos a info@myrents-app.com.',
             ],
           },
         ],
