@@ -76,26 +76,6 @@ ol {
   margin-inline: auto;
 }
 
-.eyebrow-label {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-xs);
-  margin-bottom: var(--space-s);
-  font-size: var(--text-label);
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--color-ink-muted);
-}
-
-.eyebrow-label::before {
-  inline-size: var(--space-s);
-  block-size: var(--space-4xs);
-  border-radius: var(--radius-pill);
-  background: currentcolor;
-  content: '';
-}
-
 .surface-card {
   @include section-card;
 }
