@@ -5,6 +5,7 @@ import ContactSection from '@/components/sections/ContactSection/ContactSection.
 import FaqSection from '@/components/sections/FaqSection/FaqSection.vue'
 import HeroSection from '@/components/sections/HeroSection/HeroSection.vue'
 import ImpactSection from '@/components/sections/ImpactSection/ImpactSection.vue'
+import LanguageSupportSection from '@/components/sections/LanguageSupportSection/LanguageSupportSection.vue'
 import PricingSection from '@/components/sections/PricingSection/PricingSection.vue'
 import ProcessSection from '@/components/sections/ProcessSection/ProcessSection.vue'
 import TeamSection from '@/components/sections/TeamSection/TeamSection.vue'

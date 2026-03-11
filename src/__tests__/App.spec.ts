@@ -23,6 +23,7 @@ describe('App', () => {
       'Manage properties, leases, expenses, reminders, and documents in one place',
     )
     expect(wrapper.text()).toContain('Choose how you want to unlock PRO')
+    expect(wrapper.text()).toContain('Multilingual support')
   })
 
   it('renders the legal page route', async () => {
@@ -37,7 +38,7 @@ describe('App', () => {
     await flushPromises()
 
     expect(wrapper.text()).toContain('Privacy Policy for My Rents')
-    expect(wrapper.text()).toContain('Information Collection and Use')
+    expect(wrapper.text()).toContain('Who Controls Your Data')
   })
 
   it('renders spanish copy when the locale is set to spanish', async () => {
