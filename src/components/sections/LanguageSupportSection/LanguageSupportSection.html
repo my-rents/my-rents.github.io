@@ -1,0 +1,31 @@
+<section class="language-support-section">
+  <div class="section-shell">
+    <article class="language-support-section__card surface-card">
+      <div class="language-support-section__copy" v-reveal>
+        <SectionIntro
+          :eyebrow="content.appLanguages.intro.eyebrow"
+          :title="content.appLanguages.intro.title"
+          :description="content.appLanguages.intro.description"
+          tone="light"
+        />
+        <!-- <p class="language-support-section__summary">{{ content.appLanguages.summary }}</p> -->
+      </div>
+
+      <div class="language-support-section__details" v-reveal="120">
+        <!-- <p class="language-support-section__label">{{ content.appLanguages.listLabel }}</p> -->
+
+        <ul class="language-support-section__list" :aria-label="content.appLanguages.listLabel">
+          <li
+            v-for="language in content.appLanguages.languages"
+            :key="language"
+            class="language-support-section__pill"
+          >
+            {{ language }}
+          </li>
+        </ul>
+
+        <!-- <p class="language-support-section__note">{{ content.appLanguages.note }}</p> -->
+      </div>
+    </article>
+  </div>
+</section>

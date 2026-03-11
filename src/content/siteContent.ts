@@ -86,6 +86,14 @@ export interface TeamMember {
   image: string
 }
 
+export interface AppLanguageSupport {
+  intro: SectionIntroContent
+  listLabel: string
+  languages: string[]
+  summary: string
+  note: string
+}
+
 export interface FaqItem {
   question: string
   answer: string
@@ -192,6 +200,7 @@ export interface SiteContent {
     intro: SectionIntroContent
     members: TeamMember[]
   }
+  appLanguages: AppLanguageSupport
   faq: {
     intro: SectionIntroContent
     items: FaqItem[]
@@ -690,6 +699,17 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
         },
       ],
     },
+    appLanguages: {
+      intro: {
+        eyebrow: 'Language support',
+        title: 'Multilingual support',
+        description: 'Use My Rents in the language that best fits your day-to-day rental workflow.',
+      },
+      listLabel: 'Supported in the app',
+      languages: ['Español', 'English', 'Italiano', 'Deutsch', 'Français', 'Português'],
+      summary: 'Supported in the app: Spanish, English, Italian, German, French, and Portuguese.',
+      note: 'The website itself currently switches between English and Spanish. The My Rents app supports all six languages listed here.',
+    },
     faq: {
       intro: {
         eyebrow: 'FAQ',
@@ -775,65 +795,110 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
         eyebrow: 'Terms and Conditions',
         title: 'Terms and Conditions for My Rents',
         intro:
-          'Please read these terms and conditions carefully before using My Rents operated by Daniel Rodriguez.',
-        updatedAt: 'March 9, 2026',
+          'These Terms and Conditions govern your use of My Rents, this website, and the related public forum operated by Daniel Rodríguez.',
+        updatedAt: 'March 11, 2026',
         sections: [
           {
-            title: 'Conditions of Use',
+            title: 'Who We Are',
             paragraphs: [
-              'We provide these services to you subject to the conditions stated in this document. Every time you use the app, use its services, or make a purchase, you accept these conditions. Please read them carefully.',
+              'My Rents is a property management app and related online service provided by Daniel Rodríguez.',
+              'These terms apply to the mobile app, this website, the public forum, and any related content or support channels unless a separate agreement expressly says otherwise.',
             ],
           },
           {
-            title: 'Privacy Policy',
+            title: 'Acceptance and Eligibility',
             paragraphs: [
-              'Before you continue using our website, we advise you to read our Privacy Policy regarding our user data collection. It will help you better understand our practices.',
+              'By downloading, creating an account for, purchasing PRO for, or using My Rents, you agree to these terms and to the Privacy Policy.',
+              'You must be at least 13 years old to use My Rents. The service is not directed to children under 13, and you may not create an account on behalf of someone who does not meet that age requirement.',
+            ],
+          },
+          {
+            title: 'Accounts and Security',
+            paragraphs: [
+              'You may need to create an account to use some features. You agree to provide accurate information and to keep your login credentials confidential.',
+              'You are responsible for activity that happens under your account. Contact us promptly if you believe your account has been accessed without authorization.',
+              'We may suspend or close accounts if we reasonably believe there has been misuse, fraud, security abuse, or a material breach of these terms.',
+            ],
+          },
+          {
+            title: 'What My Rents Provides',
+            paragraphs: [
+              'My Rents lets users create and organize properties, portfolios, leases, expenses, contacts, events, reminders, notes, links, images, documents, statistics, tax settings, reports, and related records.',
+              'My Rents is an organizational tool. You remain responsible for the accuracy of your data and for complying with landlord, tax, accounting, consumer, privacy, and other laws that apply to your business or personal activity.',
+            ],
+          },
+          {
+            title: 'PRO Features, Purchases, and Promotions',
+            paragraphs: [
+              'Some features require a paid PRO subscription or in-app purchase. Pricing, billing periods, taxes, renewal terms, cancellation options, and refunds may be handled by the relevant app store and may vary by country or currency.',
+              "If you purchase through Google Play or another store, the store's payment and subscription rules also apply and control where they conflict with these terms.",
+              'We may offer trials, discounts, or promotions from time to time. Unless an offer states otherwise, promotions may be changed, limited, or withdrawn at any time to the extent permitted by law.',
+            ],
+          },
+          {
+            title: 'Your Content',
+            paragraphs: [
+              'You keep ownership of the information and files you upload or enter into My Rents, including property details, tenant or contact information, notes, images, documents, invoices, and other records.',
+              'You grant us a limited, non-exclusive right to host, store, process, back up, transmit, and display that content only as needed to operate, secure, support, and improve My Rents for you.',
+              'You are responsible for making sure you have the right to upload or store the content you place in the service and that doing so does not violate the law or third-party rights.',
+            ],
+          },
+          {
+            title: 'Acceptable Use',
+            paragraphs: [
+              "You may not use My Rents to break the law, infringe someone else's rights, upload malicious code, interfere with the service, attempt unauthorized access, scrape the service, or reverse engineer the app except where non-waivable law permits it.",
+              'If you use the forum or other public areas, do not post unlawful, abusive, defamatory, spam, or confidential content, and do not share personal information you are not entitled to disclose.',
             ],
           },
           {
             title: 'Intellectual Property',
             paragraphs: [
-              "You agree that all materials, products, and services provided on our app are the property of Daniel Rodriguez, including copyrights, trade secrets, trademarks, patents, and other intellectual property. You also agree that you will not reproduce or redistribute Daniel Rodriguez's intellectual property in any way, including electronic or digital formats and trademark registrations.",
-              'You grant My Rents a royalty-free and non-exclusive license to display, use, copy, transmit, and broadcast the content you upload and publish. For issues regarding intellectual property claims, you should contact the company in order to come to an agreement.',
+              'The app software, code, text, screenshots, visual design, branding, logos, trademarks, and other original My Rents content are the exclusive property of Daniel Rodríguez or the relevant licensors and are protected by applicable intellectual property laws.',
+              'These terms do not transfer ownership of My Rents or its intellectual property to you. Except for the limited rights needed to use the service, all rights are reserved.',
             ],
           },
           {
-            title: 'License to Use the App',
+            title: 'Third-Party Services',
             paragraphs: [
-              'You have a non-exclusive, limited, non-transferable, and revocable licence to use the materials available on My Rents. The materials may not be used for any other purpose, and the licence is terminated the moment you stop using the app.',
+              'My Rents may rely on or link to third-party services such as Google Play, mapping tools, analytics providers, Firebase services, or the public forum platform. Those services are controlled by their own providers and may be governed by separate terms and privacy notices.',
+              'We are not responsible for third-party services, content, or policies except as required by applicable law.',
             ],
           },
           {
-            title: 'Communications',
+            title: 'Availability, Changes, and Disclaimer',
             paragraphs: [
-              'All communication with us is electronic. Every time you send us an email or visit our app, you are communicating with us electronically. You consent to receive communications from us electronically.',
-              'We will continue to communicate with you by posting notices on our website and by sending emails when required. You agree that all notices, disclosures, agreements, and other communications we provide to you electronically satisfy any legal requirement that such communications be in writing.',
+              'We may update, change, suspend, or discontinue all or part of My Rents to improve the service, maintain security, comply with law, or respond to operational needs.',
+              'To the maximum extent permitted by law, My Rents is provided on an as is and as available basis. We do not guarantee that the service will always be uninterrupted, error-free, or suitable for every use case.',
+              'My Rents does not provide legal, tax, accounting, or investment advice.',
             ],
           },
           {
-            title: 'Applicable Law',
+            title: 'Limitation of Liability',
             paragraphs: [
-              'By visiting this website, you agree that the laws of Spain, without regard to conflict of law principles, govern these terms and any dispute that may arise between Daniel Rodriguez and you, or its business partners and associates.',
+              'To the fullest extent permitted by law, Daniel Rodríguez will not be liable for indirect, incidental, special, consequential, exemplary, or punitive damages, or for loss of profits, revenue, data, goodwill, or business interruption arising from or related to your use of My Rents.',
+              'If liability cannot be excluded, our total liability for claims arising out of or related to My Rents will be limited to the amount you paid for PRO in the 12 months before the event giving rise to the claim.',
+              'Nothing in these terms excludes liability that cannot lawfully be excluded or limited under applicable consumer or other mandatory law.',
             ],
           },
           {
-            title: 'Disputes',
+            title: 'Termination',
             paragraphs: [
-              'Any dispute related in any way to your visit to this website, the app, or products you purchase from us shall be resolved in Spain and you consent to the exclusive jurisdiction and venue of such courts.',
+              'You may stop using My Rents at any time and may delete your account through the app or by contacting us through the methods described on this website.',
+              'We may suspend or terminate access if you materially breach these terms, create legal or security risk, or misuse the service. Sections that by their nature should survive termination will continue to apply.',
             ],
           },
           {
-            title: 'Comments, Reviews, and Emails',
+            title: 'Governing Law and Consumer Rights',
             paragraphs: [
-              'Visitors may post content if it is not obscene, illegal, defamatory, threatening, infringing on intellectual property rights, invasive of privacy, or otherwise harmful to third parties. Content must be free of software viruses, political campaigning, and commercial solicitation.',
-              'We reserve all rights, but not the obligation, to remove and edit such content. When you post your content, you grant Daniel Rodriguez a non-exclusive, royalty-free, and irrevocable right to use, reproduce, and publish such content worldwide in any media.',
+              'These terms are governed by the laws of Spain, without regard to conflict-of-law rules.',
+              'If you are a consumer who lives in a place that gives you mandatory consumer protections or venue rights, those protections continue to apply to the extent required by law.',
             ],
           },
           {
-            title: 'User Account',
+            title: 'Changes and Contact',
             paragraphs: [
-              'If you are the owner of an account on My Rents, you are solely responsible for maintaining the confidentiality of your private user details, including your username and password. You are responsible for all activities that occur under your account or password.',
-              'We reserve all rights to terminate accounts, edit or remove content, and cancel orders at our sole discretion.',
+              'We may update these terms from time to time. When we do, we will post the updated version on this page and change the effective date.',
+              'If you have questions about these terms, contact us by email at info@myrents-app.com, through this website, or through the public support forum.',
             ],
           },
         ],
@@ -842,50 +907,106 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
         eyebrow: 'Privacy Policy',
         title: 'Privacy Policy for My Rents',
         intro:
-          'Daniel Rodriguez provides My Rents with a free experience and optional PRO purchases. This page explains our policies regarding the collection, use, and disclosure of personal information when you use the service.',
-        updatedAt: 'March 9, 2026',
+          'This Privacy Policy explains how Daniel Rodríguez collects, uses, stores, and shares personal information when you use My Rents, this website, and related support channels.',
+        updatedAt: 'March 11, 2026',
         sections: [
           {
-            title: 'Information Collection and Use',
+            title: 'Who Controls Your Data',
             paragraphs: [
-              'The main personal data collected is the email address, name, and profile picture of the user when an account is created. This information is only used to provide authentication and account-related services inside the app.',
-              "Users can also save personal information within their rental records, such as other people's emails or phone numbers. This information is stored solely to provide the features requested by the user.",
-              'The app may use third-party services that collect information used to identify you. You can review the privacy policies of those third-party services in the app under Options, About Us, and View Licences.',
+              'My Rents is operated by Daniel Rodríguez. For questions, privacy requests, or support, you can contact us at info@myrents-app.com, through this website, or through the public support forum.',
+              'For privacy-law purposes, Daniel Rodríguez is the controller of the personal information described in this policy unless another notice explicitly says otherwise.',
             ],
           },
           {
-            title: 'Cookies',
+            title: 'Information We Collect',
             paragraphs: [
-              'Cookies are files with a small amount of data that are commonly used as anonymous unique identifiers. They are sent to your browser from the website that you visit and stored on your device.',
-              'This service does not use cookies explicitly. However, the app may use third-party code and libraries that rely on cookies to collect information and improve their services.',
-              'You have the option to accept or refuse cookies and to know when a cookie is being sent to your device. If you choose to refuse cookies, you may not be able to use some portions of this service.',
+              'We collect the information you provide directly, such as your email address, account details, messages you send for support, and any information you choose to place in the app or on the website.',
+              'You can upload or create content inside the app, including property and portfolio records, lease information, contacts, events, tasks, notes, expenses, manual bills or invoices, reports, links, images, documents, and similar files or records. We use that uploaded content to provide the app features you request and to show the content back to you. We do not use that content for advertising, remarketing, or unrelated commercial profiling.',
+              'We also collect technical and usage information such as app activity, device or browser data, approximate diagnostics, crash information, logs, and analytics events. If you purchase PRO, we may receive subscription or transaction status information from the relevant app store, but we do not receive your full payment card details from the store.',
+              'If you choose to post in the public forum, the information you publish there can be visible to other people who use the forum.',
             ],
           },
           {
-            title: 'Service Providers',
+            title: 'How We Use Your Information',
             paragraphs: [
-              'We may employ third-party companies and individuals for the following reasons: to facilitate our service, to provide the service on our behalf, to perform service-related tasks, or to help us analyse how the service is used.',
-              'These third parties may have access to your personal information only to perform the tasks assigned to them on our behalf and are obligated not to disclose or use it for any other purpose.',
+              'We use personal information to create and secure accounts, provide the features of My Rents, store and display your uploaded content, synchronize data where applicable, respond to support requests, manage subscriptions and purchases, and maintain the service.',
+              'We also use information to monitor performance, understand how the app and website are used, diagnose problems, improve the product, prevent misuse, and comply with legal obligations.',
+              'We do not show third-party ads in My Rents. We do not use remarketing services for marketing or advertising purposes, and we do not use your uploaded property information, images, or documents for anything other than operating and supporting the service for you.',
             ],
           },
           {
-            title: 'Links to Other Sites',
+            title: 'Legal Bases for Processing Under GDPR',
             paragraphs: [
-              'This service may contain links to other sites. If you click on a third-party link, you will be directed to that site. Those external sites are not operated by us, so we strongly advise you to review their privacy policies.',
-              'We have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party sites or services.',
+              'Where the GDPR or similar laws apply, we process personal information under one or more of the following legal bases: performance of a contract with you, legitimate interests in operating and securing My Rents, compliance with legal obligations, and your consent where consent is required.',
+              'Some information, such as account details and the content needed to provide app features, is necessary if you want to create an account or use certain parts of the service. If you do not provide that information, some features may not work or may not be available.',
+              'We do not use automated decision-making or profiling that produces legal effects or similarly significant effects about you.',
+            ],
+          },
+          {
+            title: 'Analytics, Cookies, and Similar Technologies',
+            paragraphs: [
+              'We use Google Analytics and Firebase-related analytics tools to understand general product usage, diagnose problems, and improve My Rents. These tools may collect technical identifiers, device information, app events, and similar usage data.',
+              'Our website or app may use cookies or similar technologies for analytics, preference storage, or essential operation. We do not use advertising or remarketing cookies for cross-context behavioral advertising.',
+              'You can usually control cookies through your browser or device settings, but some features may work differently if certain technologies are disabled.',
+            ],
+          },
+          {
+            title: 'Sharing of Information',
+            paragraphs: [
+              'We may share information with service providers that help us operate My Rents, such as analytics, hosting, infrastructure, storage, authentication, support, app-store, or technical service providers, but only for the purposes described in this policy.',
+              'We may also disclose information when required by law, to respond to lawful requests, to protect rights or safety, to investigate fraud or abuse, or in connection with a business transfer if one ever occurs.',
+              'We do not sell personal information. We do not share personal information for cross-context behavioral advertising.',
+            ],
+          },
+          {
+            title: 'International Transfers and Retention',
+            paragraphs: [
+              'Some service providers may process information in countries other than your own. Where required by law, we rely on appropriate safeguards for international transfers.',
+              'We keep account information and user content for as long as your account remains active or as long as needed to provide the service you requested. If you delete your account, we will delete or anonymize personal information unless we need to keep limited records for legal, tax, accounting, security, fraud-prevention, dispute-resolution, or backup-recovery purposes.',
+              'The exact retention period can vary depending on the type of information and the reason we hold it, but we aim to keep personal information only for as long as reasonably necessary.',
+            ],
+          },
+          {
+            title: 'Your Privacy Rights',
+            paragraphs: [
+              'Depending on where you live, you may have the right to access, correct, update, delete, restrict, or object to the processing of your personal information, and to request data portability. Where processing is based on consent, you may withdraw consent at any time for future processing.',
+              'If you are in the European Economic Area, the United Kingdom, or another jurisdiction with similar rights, you may also have the right to lodge a complaint with your local data protection authority.',
+              'To exercise rights, contact us at info@myrents-app.com or use the contact options on this website. We may need to verify your identity before completing certain requests.',
+            ],
+          },
+          {
+            title: 'California Privacy Notice (CCPA and CPRA)',
+            paragraphs: [
+              'If you are a California resident and California privacy law applies to your use of My Rents, this section describes categories of personal information we may have collected in the previous 12 months and your related rights.',
+              'The categories of personal information we may collect include identifiers such as email address and account details; commercial information such as subscription or purchase status supplied by the relevant app store; internet or electronic network activity such as app events, diagnostics, and analytics; user-generated content such as property records, leases, contacts, notes, invoices, images, documents, and links; and any sensitive personal information you choose to store in the app.',
+              'We collect this information from you, from your devices when you use the app or website, from service providers such as Google Analytics and Firebase, and from app-store providers when they confirm purchase or subscription status. We use it to operate the service, secure accounts, provide support, manage subscriptions, analyze usage, comply with law, and enforce our terms.',
+              'Subject to applicable law, California residents may request to know, access, correct, or delete personal information, opt out of sale or sharing, and limit the use and disclosure of sensitive personal information. Because My Rents does not sell personal information and does not share personal information for cross-context behavioral advertising, there is currently no sale or sharing activity to opt out of. If sensitive personal information is present in user-uploaded content, we use it only to provide the services you request and not to infer characteristics about you.',
+              'We will not discriminate against you for exercising applicable privacy rights. However, some services may not work if necessary information is deleted or no longer available.',
+            ],
+          },
+          {
+            title: "Children's Privacy",
+            paragraphs: [
+              'My Rents is not directed to children under 13, and we do not knowingly collect personal information from children under 13.',
+              'If we learn that an account was created by or for a child under 13 without appropriate legal authorization, we will take steps to delete the account and associated personal information.',
+            ],
+          },
+          {
+            title: 'Security',
+            paragraphs: [
+              'We use reasonable administrative, technical, and organizational measures designed to protect personal information. No internet or storage system can be guaranteed to be completely secure, so we cannot promise absolute security.',
             ],
           },
           {
             title: 'Changes to This Privacy Policy',
             paragraphs: [
-              'We may update this Privacy Policy from time to time. You are advised to review this page periodically for any changes.',
-              'We will notify you of changes by posting the new Privacy Policy on this page. These changes become effective immediately after they are posted.',
+              'We may update this Privacy Policy from time to time. When we do, we will post the new version here and update the effective date.',
             ],
           },
           {
             title: 'Contact Us',
             paragraphs: [
-              'If you have any questions or suggestions about this Privacy Policy, do not hesitate to contact us at info@myrents-app.com.',
+              'If you have questions, suggestions, or privacy requests, contact us at info@myrents-app.com, through this website, or through the public support forum.',
             ],
           },
         ],
@@ -894,34 +1015,86 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
         eyebrow: 'End-User License Agreement',
         title: 'EULA for My Rents',
         intro:
-          'This EULA governs your acquisition and use of My Rents software directly from Daniel Rodriguez or indirectly through an authorised reseller or distributor. Please read this agreement carefully before completing the installation process and using the software.',
-        updatedAt: 'March 9, 2026',
+          'This End-User License Agreement governs your download, installation, access to, and use of the My Rents software provided by Daniel Rodríguez.',
+        updatedAt: 'March 11, 2026',
         sections: [
           {
             title: 'License Grant',
             paragraphs: [
-              'Daniel Rodriguez grants you a personal, non-transferable, non-exclusive licence to use My Rents software on your devices in accordance with this EULA. You are responsible for ensuring that your device meets the minimum requirements of the software.',
-              'You are not permitted to edit, alter, modify, adapt, translate, decompile, disassemble, reverse engineer, reproduce, copy, distribute, resell, or otherwise use the software for any commercial purpose beyond the scope allowed in this agreement.',
+              'Subject to this EULA, Daniel Rodríguez grants you a limited, personal, revocable, non-exclusive, non-transferable, and non-sublicensable license to install and use My Rents on devices you control for its intended purpose.',
+              'The software is licensed to you, not sold. Your right to use My Rents depends on your compliance with this EULA and any applicable app-store terms.',
             ],
           },
           {
-            title: 'Intellectual Property and Ownership',
+            title: 'Accounts, Connectivity, and Purchases',
             paragraphs: [
-              'Daniel Rodriguez shall at all times retain ownership of the software as originally downloaded by you and of all subsequent downloads of the software by you. The software, including all copyright and other intellectual property rights in it, remains the property of Daniel Rodriguez.',
-              'Daniel Rodriguez reserves the right to grant licences to use the software to third parties.',
+              'Some features of My Rents require an account, internet access, or an active PRO subscription. Subscriptions and in-app purchases may be billed and managed by the app store from which you downloaded the app.',
+              'Store terms, billing rules, renewal practices, and refund processes may apply in addition to this EULA and will control where mandatory store rules conflict with this EULA.',
             ],
           },
           {
-            title: 'Termination',
+            title: 'Restrictions',
             paragraphs: [
-              'This EULA is effective from the date you first use the software and continues until terminated. You may terminate it at any time upon written notice to Daniel Rodriguez.',
-              'It will also terminate immediately if you fail to comply with any term of this EULA. Upon termination, the licences granted under this EULA end immediately and you agree to stop all access and use of the software.',
+              'Except to the extent non-waivable law allows otherwise, you may not copy, modify, distribute, sell, lease, sublicense, decompile, reverse engineer, scrape, or create derivative works from My Rents or any part of it.',
+              'You may not bypass security or technical restrictions, use the software for unlawful purposes, or permit unauthorized third parties to access the software through your account.',
             ],
           },
           {
-            title: 'Governing Law',
+            title: 'Your Data and Content',
             paragraphs: [
-              'This EULA, and any dispute arising out of or in connection with it, shall be governed by and construed in accordance with the laws of Spain.',
+              'You retain ownership of the content you upload to My Rents, including images, documents, notes, property records, invoices, and related information.',
+              'You grant us the limited rights needed to host, process, back up, transmit, and display that content in order to operate, support, secure, and improve My Rents for you.',
+              'You are responsible for the legality, accuracy, and permissions associated with the content you upload or store through the software.',
+            ],
+          },
+          {
+            title: 'Ownership of My Rents',
+            paragraphs: [
+              'My Rents, including the software, source code, text, layout, visual design, logos, trademarks, and other original content, remains the exclusive property of Daniel Rodríguez or the relevant licensors.',
+              'This EULA gives you only the limited use rights expressly stated here. All other rights are reserved.',
+            ],
+          },
+          {
+            title: 'Updates and Third-Party Components',
+            paragraphs: [
+              'We may release updates, fixes, patches, or new versions of My Rents. Some updates may be required for security, compatibility, or continued use of certain features.',
+              'My Rents may include or rely on third-party services or components, including app-store services, Google services, Firebase services, or mapping tools. Those third parties may be governed by their own legal terms and privacy notices.',
+            ],
+          },
+          {
+            title: 'Disclaimer of Warranties',
+            paragraphs: [
+              'To the maximum extent permitted by law, My Rents is provided on an as is and as available basis without warranties of any kind, whether express, implied, or statutory.',
+              'We do not guarantee that the software will be uninterrupted, error-free, fully secure, or suitable for every workflow, legal requirement, or business need.',
+            ],
+          },
+          {
+            title: 'Limitation of Liability',
+            paragraphs: [
+              'To the fullest extent permitted by law, Daniel Rodríguez will not be liable for indirect, incidental, consequential, special, exemplary, or punitive damages, or for loss of profits, revenue, goodwill, data, or business interruption arising out of or related to My Rents.',
+              'If liability cannot be excluded, the total liability arising from or related to My Rents will be limited to the amount you paid for PRO in the 12 months before the event giving rise to the claim.',
+              'Nothing in this EULA excludes liability that cannot lawfully be excluded or limited under applicable law.',
+            ],
+          },
+          {
+            title: 'Term and Termination',
+            paragraphs: [
+              'This EULA starts when you first install, access, or use My Rents and continues until terminated.',
+              'You may terminate it at any time by stopping use of the software and deleting your account where applicable. We may suspend or terminate your license immediately if you materially breach this EULA, misuse the software, or create legal or security risk.',
+              'On termination, your right to use the software ends immediately and you must stop using My Rents. If you subscribed through an app store, you must also manage cancellation through the relevant store where required.',
+            ],
+          },
+          {
+            title: 'Governing Law and Consumer Rights',
+            paragraphs: [
+              'This EULA is governed by the laws of Spain, without regard to conflict-of-law rules.',
+              'If you live in a jurisdiction that gives you mandatory consumer protections, those protections remain available to you to the extent required by law.',
+            ],
+          },
+          {
+            title: 'Contact',
+            paragraphs: [
+              'If you have questions about this EULA, contact us at info@myrents-app.com, through this website, or through the public support forum.',
             ],
           },
         ],
@@ -930,13 +1103,38 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
         eyebrow: 'Data Deletion',
         title: 'Data Deletion for My Rents',
         intro:
-          'To remove your account completely, together with all data stored in our databases, you can use the Delete my account option inside the app settings.',
-        updatedAt: 'March 9, 2026',
+          'This page explains how to request deletion of your My Rents account and associated personal data, both inside the app and from the web.',
+        updatedAt: 'March 11, 2026',
         sections: [
           {
-            title: 'How to delete your data',
+            title: 'Request Deletion From the Web',
             paragraphs: [
-              'To remove your account completely and erase all data stored in our databases, open the app, go to the settings or options area, and choose Delete my account.',
+              'You can request deletion by contacting info@myrents-app.com or by using the contact options on this website. Please send the request from, or clearly identify, the email address associated with your account so we can verify it.',
+              'For privacy and security reasons, we may ask for additional information before completing a deletion request.',
+            ],
+          },
+          {
+            title: 'What We Delete',
+            paragraphs: [
+              'When an account deletion request is completed, we aim to delete or anonymize the personal information associated with that account, including account profile information, property and portfolio records, leases, reminders, events, contacts, notes, expenses, invoices or manual bills, uploaded images, uploaded documents, links, and other in-app content connected to the account.',
+            ],
+          },
+          {
+            title: 'What We May Retain',
+            paragraphs: [
+              'We may retain limited information if it is reasonably necessary for legal, tax, accounting, fraud-prevention, security, backup-recovery, or dispute-resolution purposes, or where an app store requires us to keep transaction-related records.',
+            ],
+          },
+          {
+            title: 'Timing',
+            paragraphs: [
+              'We aim to act on verified deletion requests without undue delay. In most cases, requests are completed within 30 days, although some backup systems or legally required retention periods may take longer to clear fully.',
+            ],
+          },
+          {
+            title: 'Need Help?',
+            paragraphs: [
+              'If you need help with deletion, write to info@myrents-app.com or use the contact options on this website.',
             ],
           },
         ],
@@ -1351,6 +1549,18 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
         },
       ],
     },
+    appLanguages: {
+      intro: {
+        eyebrow: 'Idiomas',
+        title: 'Soporte para 6 idiomas',
+        description:
+          'Usa My Rents en el idioma que mejor encaje con tu forma de gestionar alquileres.',
+      },
+      listLabel: 'Idiomas disponibles',
+      languages: ['Español', 'English', 'Italiano', 'Deutsch', 'Français', 'Português'],
+      summary: 'Disponible en la app: español, inglés, italiano, alemán, francés y portugués.',
+      note: 'El selector de esta web cambia entre español e inglés. La app My Rents sí está disponible en los seis idiomas indicados aquí.',
+    },
     faq: {
       intro: {
         eyebrow: 'FAQ',
@@ -1436,65 +1646,110 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
         eyebrow: 'Términos y condiciones',
         title: 'Términos y condiciones de My Rents',
         intro:
-          'Lee estos términos y condiciones detenidamente antes de usar My Rents, operado por Daniel Rodriguez.',
-        updatedAt: '9 de marzo de 2026',
+          'Estos Términos y Condiciones regulan el uso de My Rents, de esta web y del foro público relacionado, operados por Daniel Rodríguez.',
+        updatedAt: '11 de marzo de 2026',
         sections: [
           {
-            title: 'Condiciones de uso',
+            title: 'Quién es el responsable de My Rents',
             paragraphs: [
-              'Te prestamos estos servicios sujetos a las condiciones indicadas en este documento. Cada vez que utilizas la app, sus servicios o realizas una compra, aceptas estas condiciones. Te pedimos que las leas con atención.',
+              'My Rents es una app de gestión de alquileres y un servicio online relacionado prestado por Daniel Rodríguez como desarrollador individual y no como sociedad mercantil.',
+              'Estos términos se aplican a la app móvil, a esta web, al foro público y a cualquier contenido o canal de soporte relacionado, salvo que exista un acuerdo separado que indique expresamente lo contrario.',
             ],
           },
           {
-            title: 'Política de privacidad',
+            title: 'Aceptación y requisitos de edad',
             paragraphs: [
-              'Antes de seguir utilizando nuestro sitio web, te recomendamos leer nuestra Política de privacidad sobre la recopilación de datos de los usuarios. Te ayudará a entender mejor nuestras prácticas.',
+              'Al descargar My Rents, crear una cuenta, comprar PRO o usar el servicio, aceptas estos términos y también la Política de privacidad.',
+              'Debes tener al menos 13 años para usar My Rents. El servicio no está dirigido a menores de 13 años y no puedes crear una cuenta en nombre de una persona que no cumpla ese requisito de edad.',
+            ],
+          },
+          {
+            title: 'Cuentas y seguridad',
+            paragraphs: [
+              'Puede que necesites crear una cuenta para utilizar algunas funciones. Aceptas proporcionar información exacta y mantener en secreto tus credenciales de acceso.',
+              'Eres responsable de la actividad que se realice con tu cuenta. Ponte en contacto con nosotros cuanto antes si crees que alguien ha accedido sin autorización.',
+              'Podemos suspender o cerrar cuentas si consideramos razonablemente que ha existido un uso indebido, fraude, abuso de seguridad o un incumplimiento material de estos términos.',
+            ],
+          },
+          {
+            title: 'Qué ofrece My Rents',
+            paragraphs: [
+              'My Rents permite crear y organizar propiedades, porfolios, contratos, gastos, contactos, eventos, recordatorios, notas, enlaces, imágenes, documentos, estadísticas, ajustes fiscales, informes y registros relacionados.',
+              'My Rents es una herramienta de organización. Sigues siendo responsable de la exactitud de tus datos y de cumplir las leyes de arrendamiento, fiscales, contables, de consumo, de privacidad y cualquier otra normativa que te resulte aplicable.',
+            ],
+          },
+          {
+            title: 'Funciones PRO, compras y promociones',
+            paragraphs: [
+              'Algunas funciones requieren una suscripción PRO o una compra dentro de la app. Los precios, periodos de cobro, impuestos, renovaciones, cancelaciones y reembolsos pueden ser gestionados por la tienda de aplicaciones correspondiente y pueden variar según el país o la moneda.',
+              'Si compras a través de Google Play u otra tienda, también se aplican las reglas de pago y suscripción de esa tienda, y prevalecerán cuando entren en conflicto con estos términos.',
+              'Podemos ofrecer pruebas, descuentos o promociones en determinados momentos. Salvo que la oferta indique otra cosa, dichas promociones pueden modificarse, limitarse o retirarse en cualquier momento dentro de lo permitido por la ley.',
+            ],
+          },
+          {
+            title: 'Tu contenido',
+            paragraphs: [
+              'Conservas la titularidad de la información y de los archivos que subes o introduces en My Rents, incluidos datos de propiedades, datos de inquilinos o contactos, notas, imágenes, documentos, facturas y demás registros.',
+              'Nos concedes un derecho limitado y no exclusivo para alojar, almacenar, procesar, copiar de seguridad, transmitir y mostrar ese contenido únicamente en la medida necesaria para operar, proteger, dar soporte y mejorar My Rents para ti.',
+              'Eres responsable de asegurarte de que tienes derecho a subir o almacenar el contenido que introduces en el servicio y de que hacerlo no infringe la ley ni derechos de terceros.',
+            ],
+          },
+          {
+            title: 'Uso aceptable',
+            paragraphs: [
+              'No puedes usar My Rents para incumplir la ley, infringir derechos ajenos, subir código malicioso, interferir con el servicio, intentar accesos no autorizados, extraer datos del servicio o hacer ingeniería inversa de la app, salvo cuando una ley imperativa permita lo contrario.',
+              'Si utilizas el foro u otras zonas públicas, no publiques contenido ilegal, abusivo, difamatorio, spam o confidencial, ni compartas datos personales que no estés autorizado a divulgar.',
             ],
           },
           {
             title: 'Propiedad intelectual',
             paragraphs: [
-              'Aceptas que todos los materiales, productos y servicios proporcionados en nuestra app son propiedad de Daniel Rodriguez, incluidos los derechos de autor, secretos comerciales, marcas, patentes y demás derechos de propiedad intelectual. También aceptas que no reproducirás ni redistribuirás la propiedad intelectual de Daniel Rodriguez de ninguna forma, ya sea electrónica, digital o mediante registros de nuevas marcas.',
-              'Concedes a My Rents una licencia gratuita y no exclusiva para mostrar, usar, copiar, transmitir y difundir el contenido que subas y publiques. Si surge algún problema relacionado con reclamaciones de propiedad intelectual, debes contactar con la empresa para intentar llegar a un acuerdo.',
+              'El software de la app, el código, los textos, las capturas, el diseño visual, la marca, los logotipos, las marcas registradas y el resto del contenido original de My Rents son propiedad exclusiva de Daniel Rodríguez o de sus licenciantes y están protegidos por la normativa de propiedad intelectual aplicable.',
+              'Estos términos no te transfieren la propiedad de My Rents ni de sus derechos de propiedad intelectual. Salvo por los derechos limitados necesarios para usar el servicio, todos los derechos quedan reservados.',
             ],
           },
           {
-            title: 'Licencia de uso de la app',
+            title: 'Servicios de terceros',
             paragraphs: [
-              'Dispones de una licencia no exclusiva, limitada, intransferible y revocable para utilizar los materiales disponibles en My Rents. Los materiales no pueden usarse para ningún otro fin y la licencia finaliza en el momento en que dejas de utilizar la app.',
+              'My Rents puede depender de servicios de terceros o enlazar con ellos, como Google Play, herramientas de mapas, proveedores de analítica, servicios de Firebase o la plataforma del foro público. Esos servicios están controlados por sus propios proveedores y pueden regirse por condiciones y políticas de privacidad independientes.',
+              'No somos responsables del contenido, funcionamiento o políticas de servicios de terceros salvo en la medida exigida por la ley aplicable.',
             ],
           },
           {
-            title: 'Comunicaciones',
+            title: 'Disponibilidad, cambios y exención de garantías',
             paragraphs: [
-              'Toda la comunicación con nosotros es electrónica. Cada vez que nos envías un correo electrónico o visitas nuestra app, te comunicas con nosotros por medios electrónicos. Aceptas recibir nuestras comunicaciones por esta vía.',
-              'Seguiremos comunicándonos contigo publicando avisos en nuestro sitio web y enviando correos cuando sea necesario. Aceptas que todos los avisos, divulgaciones, acuerdos y demás comunicaciones que te proporcionemos electrónicamente cumplen con cualquier requisito legal de que dichas comunicaciones se realicen por escrito.',
+              'Podemos actualizar, modificar, suspender o interrumpir todo o parte de My Rents para mejorar el servicio, mantener la seguridad, cumplir la ley o responder a necesidades operativas.',
+              'En la máxima medida permitida por la ley, My Rents se ofrece tal cual y según disponibilidad. No garantizamos que el servicio esté siempre libre de interrupciones, errores o que resulte adecuado para cualquier uso concreto.',
+              'My Rents no ofrece asesoramiento jurídico, fiscal, contable ni de inversión.',
             ],
           },
           {
-            title: 'Ley aplicable',
+            title: 'Limitación de responsabilidad',
             paragraphs: [
-              'Al visitar este sitio web aceptas que las leyes de España, sin tener en cuenta los principios sobre conflictos de leyes, regirán estos términos y cualquier disputa que pueda surgir entre Daniel Rodriguez y tú, así como con sus socios o colaboradores.',
+              'En la máxima medida permitida por la ley, Daniel Rodríguez no será responsable de daños indirectos, incidentales, especiales, consecuenciales, ejemplares o punitivos, ni de pérdidas de beneficios, ingresos, datos, reputación comercial o interrupciones de negocio derivadas del uso de My Rents o relacionadas con él.',
+              'Si la responsabilidad no puede excluirse, nuestra responsabilidad total por reclamaciones derivadas de My Rents o relacionadas con el servicio quedará limitada al importe que hayas pagado por PRO en los 12 meses anteriores al hecho que origine la reclamación.',
+              'Nada de lo previsto en estos términos excluye o limita una responsabilidad que no pueda excluirse o limitarse legalmente conforme a normas imperativas o de protección del consumidor.',
             ],
           },
           {
-            title: 'Disputas',
+            title: 'Terminación',
             paragraphs: [
-              'Cualquier disputa relacionada de alguna manera con tu visita a este sitio web, con la app o con productos adquiridos a través de nosotros se resolverá en España y aceptas la jurisdicción y competencia exclusivas de sus tribunales.',
+              'Puedes dejar de usar My Rents en cualquier momento y eliminar tu cuenta desde la app o contactando con nosotros por los medios descritos en esta web.',
+              'Podemos suspender o terminar el acceso si incumples materialmente estos términos, generas un riesgo legal o de seguridad, o haces un uso indebido del servicio. Las cláusulas que por su naturaleza deban seguir vigentes continuarán aplicándose tras la terminación.',
             ],
           },
           {
-            title: 'Comentarios, reseñas y correos electrónicos',
+            title: 'Ley aplicable y derechos del consumidor',
             paragraphs: [
-              'Los visitantes pueden publicar contenido siempre que no sea obsceno, ilegal, difamatorio, amenazante, que infrinja derechos de propiedad intelectual, que invada la privacidad o que resulte perjudicial para terceros. El contenido debe estar libre de virus, campañas políticas y solicitudes comerciales.',
-              'Nos reservamos todos los derechos, aunque no la obligación, de retirar y editar dicho contenido. Cuando publicas contenido, concedes a Daniel Rodriguez un derecho no exclusivo, gratuito e irrevocable para usar, reproducir y publicar ese contenido en cualquier medio y en cualquier parte del mundo.',
+              'Estos términos se rigen por las leyes de España, sin aplicar sus normas sobre conflicto de leyes.',
+              'Si eres consumidor y la legislación de tu lugar de residencia te reconoce protecciones obligatorias o derechos procesales irrenunciables, esas protecciones seguirán siendo aplicables en la medida exigida por la ley.',
             ],
           },
           {
-            title: 'Cuenta de usuario',
+            title: 'Cambios y contacto',
             paragraphs: [
-              'Si eres titular de una cuenta en My Rents, eres el único responsable de mantener la confidencialidad de tus datos privados, incluidos tu nombre de usuario y tu contraseña. También eres responsable de todas las actividades que se realicen con tu cuenta o contraseña.',
-              'Nos reservamos todos los derechos para cancelar cuentas, editar o eliminar contenido y cancelar pedidos a nuestra entera discreción.',
+              'Podemos actualizar estos términos de vez en cuando. Cuando lo hagamos, publicaremos la versión actualizada en esta página y cambiaremos la fecha de entrada en vigor.',
+              'Si tienes preguntas sobre estos términos, puedes escribirnos a info@myrents-app.com, contactar a través de esta web o usar el foro público de soporte.',
             ],
           },
         ],
@@ -1503,50 +1758,106 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
         eyebrow: 'Política de privacidad',
         title: 'Política de privacidad de My Rents',
         intro:
-          'Daniel Rodriguez ofrece My Rents con una experiencia gratuita y compras opcionales de PRO. Esta página explica nuestras políticas sobre la recopilación, uso y divulgación de información personal cuando utilizas el servicio.',
-        updatedAt: '9 de marzo de 2026',
+          'Esta Política de privacidad explica cómo Daniel Rodríguez recopila, utiliza, conserva y comparte información personal cuando usas My Rents, esta web y los canales de soporte relacionados.',
+        updatedAt: '11 de marzo de 2026',
         sections: [
           {
-            title: 'Recogida y uso de la información',
+            title: 'Quién controla tus datos',
             paragraphs: [
-              'Los principales datos personales recopilados son el correo electrónico, el nombre y la imagen de perfil del usuario cuando crea una cuenta. Esta información se utiliza únicamente para prestar servicios de autenticación y gestión de cuenta dentro de la app.',
-              'Los usuarios también pueden guardar información personal dentro de sus registros de alquiler, como correos electrónicos o números de teléfono de otras personas. Esa información se almacena únicamente para proporcionar las funciones que el propio usuario solicita.',
-              'La app puede utilizar servicios de terceros que recopilan información que podría identificarte. Puedes consultar sus políticas de privacidad dentro de la app, en Opciones, Acerca de y Ver licencias.',
+              'My Rents está gestionada por Daniel Rodríguez como desarrollador individual. Para preguntas, solicitudes de privacidad o soporte, puedes escribir a info@myrents-app.com, contactar a través de esta web o utilizar el foro público de soporte.',
+              'A efectos de la normativa de privacidad, Daniel Rodríguez actúa como responsable del tratamiento de la información personal descrita en esta política, salvo que otro aviso indique expresamente lo contrario.',
             ],
           },
           {
-            title: 'Cookies',
+            title: 'Información que recopilamos',
             paragraphs: [
-              'Las cookies son archivos con una pequeña cantidad de datos que se utilizan habitualmente como identificadores anónimos únicos. Se envían a tu navegador desde el sitio web que visitas y se almacenan en tu dispositivo.',
-              'Este servicio no utiliza cookies de forma explícita. No obstante, la app puede usar código y librerías de terceros que sí empleen cookies para recopilar información y mejorar sus servicios.',
-              'Tienes la opción de aceptar o rechazar estas cookies y de saber cuándo se está enviando una cookie a tu dispositivo. Si decides rechazarlas, es posible que no puedas utilizar algunas partes del servicio.',
+              'Recopilamos la información que nos proporcionas directamente, como tu dirección de correo electrónico, los datos de tu cuenta, los mensajes que envías a soporte y cualquier información que decidas introducir en la app o en la web.',
+              'Puedes subir o crear contenido dentro de la app, como registros de propiedades y porfolios, datos de contratos, contactos, eventos, tareas, notas, gastos, facturas o recibos manuales, informes, enlaces, imágenes, documentos y archivos o registros similares. Ese contenido subido se utiliza para ofrecerte las funciones de la app y para mostrártelo de vuelta a ti. No usamos ese contenido para publicidad, remarketing ni perfiles comerciales ajenos al servicio.',
+              'También recopilamos información técnica y de uso, como actividad dentro de la app, datos del dispositivo o navegador, diagnósticos aproximados, información de fallos, logs y eventos analíticos. Si compras PRO, podemos recibir información sobre el estado de la suscripción o de la transacción desde la tienda correspondiente, pero no recibimos de la tienda los datos completos de tu tarjeta de pago.',
+              'Si decides publicar contenido en el foro público, la información que compartas allí puede ser visible para otras personas que usen el foro.',
             ],
           },
           {
-            title: 'Proveedores de servicios',
+            title: 'Cómo usamos tu información',
             paragraphs: [
-              'Podemos emplear empresas o personas de terceros por los siguientes motivos: para facilitar nuestro servicio, prestarlo en nuestro nombre, realizar tareas relacionadas con el servicio o ayudarnos a analizar cómo se usa.',
-              'Estos terceros pueden tener acceso a tu información personal únicamente para realizar las tareas asignadas en nuestro nombre y están obligados a no divulgarla ni utilizarla para ningún otro fin.',
+              'Usamos la información personal para crear y proteger cuentas, ofrecer las funciones de My Rents, almacenar y mostrar el contenido que subes, sincronizar datos cuando corresponda, responder a solicitudes de soporte, gestionar suscripciones y compras, y mantener el servicio.',
+              'También utilizamos la información para controlar el rendimiento, comprender cómo se usa la app y la web, diagnosticar problemas, mejorar el producto, prevenir usos indebidos y cumplir obligaciones legales.',
+              'No mostramos anuncios de terceros en My Rents. No usamos servicios de remarketing con fines de marketing o publicidad y no utilizamos la información de propiedades, imágenes o documentos que subes para nada distinto de operar y darte soporte en el servicio.',
             ],
           },
           {
-            title: 'Enlaces a otros sitios',
+            title: 'Bases jurídicas del tratamiento bajo el GDPR',
             paragraphs: [
-              'Este servicio puede contener enlaces a otros sitios. Si haces clic en un enlace de terceros, serás redirigido a ese sitio. Esos sitios externos no están gestionados por nosotros, por lo que te recomendamos revisar sus políticas de privacidad.',
-              'No tenemos control sobre el contenido, las políticas de privacidad ni las prácticas de sitios o servicios de terceros y no asumimos responsabilidad alguna por ellos.',
+              'Cuando se aplica el GDPR u otras leyes similares, tratamos la información personal con base en una o varias de estas bases jurídicas: ejecución de un contrato contigo, interés legítimo en operar y proteger My Rents, cumplimiento de obligaciones legales y tu consentimiento cuando el consentimiento sea necesario.',
+              'Algunos datos, como los de la cuenta y el contenido necesario para prestar funciones de la app, son imprescindibles si quieres crear una cuenta o utilizar determinadas partes del servicio. Si no facilitas esa información, algunas funciones pueden no estar disponibles o no funcionar correctamente.',
+              'No utilizamos decisiones automatizadas ni perfiles que produzcan efectos jurídicos o efectos significativamente similares sobre ti.',
             ],
           },
           {
-            title: 'Cambios en esta política de privacidad',
+            title: 'Analítica, cookies y tecnologías similares',
             paragraphs: [
-              'Podemos actualizar esta Política de privacidad ocasionalmente. Te recomendamos revisar esta página periódicamente para conocer cualquier cambio.',
-              'Te avisaremos publicando la nueva Política de privacidad en esta página. Los cambios entran en vigor inmediatamente después de su publicación.',
+              'Usamos Google Analytics y herramientas de analítica relacionadas con Firebase para entender el uso general del producto, diagnosticar problemas y mejorar My Rents. Estas herramientas pueden recopilar identificadores técnicos, información del dispositivo, eventos de uso y datos similares.',
+              'Nuestra web o la app pueden utilizar cookies o tecnologías parecidas para analítica, almacenamiento de preferencias o funcionamiento esencial. No usamos cookies publicitarias ni de remarketing para publicidad comportamental entre contextos.',
+              'Normalmente puedes controlar las cookies desde la configuración del navegador o del dispositivo, aunque algunas funciones pueden comportarse de forma diferente si se desactivan ciertas tecnologías.',
+            ],
+          },
+          {
+            title: 'Cómo compartimos la información',
+            paragraphs: [
+              'Podemos compartir información con proveedores de servicios que nos ayudan a operar My Rents, como proveedores de analítica, alojamiento, infraestructura, almacenamiento, autenticación, soporte, tienda de aplicaciones o servicios técnicos, pero solo para las finalidades descritas en esta política.',
+              'También podemos divulgar información cuando sea necesario para cumplir la ley, responder a solicitudes válidas, proteger derechos o la seguridad, investigar fraude o abuso, o en relación con una transferencia del servicio si alguna vez se produjera.',
+              'No vendemos información personal. No compartimos información personal para publicidad comportamental entre contextos.',
+            ],
+          },
+          {
+            title: 'Transferencias internacionales y conservación',
+            paragraphs: [
+              'Algunos proveedores de servicios pueden tratar información en países distintos al tuyo. Cuando la ley lo exige, utilizamos garantías adecuadas para las transferencias internacionales.',
+              'Conservamos la información de la cuenta y el contenido del usuario mientras la cuenta siga activa o mientras sea necesario para prestar el servicio solicitado. Si eliminas tu cuenta, eliminaremos o anonimizaremos la información personal salvo que necesitemos conservar registros limitados por motivos legales, fiscales, contables, de seguridad, prevención del fraude, resolución de disputas o recuperación desde copias de seguridad.',
+              'El periodo exacto de conservación puede variar según el tipo de información y la razón por la que la mantenemos, pero procuramos conservar la información personal solo durante el tiempo razonablemente necesario.',
+            ],
+          },
+          {
+            title: 'Tus derechos de privacidad',
+            paragraphs: [
+              'Dependiendo de dónde vivas, puedes tener derecho a acceder, corregir, actualizar, eliminar, limitar u oponerte al tratamiento de tu información personal, y a solicitar la portabilidad de los datos. Cuando el tratamiento se base en tu consentimiento, puedes retirarlo en cualquier momento con efectos hacia el futuro.',
+              'Si estás en el Espacio Económico Europeo, en el Reino Unido o en otra jurisdicción con derechos similares, también puedes presentar una reclamación ante tu autoridad local de protección de datos.',
+              'Para ejercer tus derechos, escribe a info@myrents-app.com o utiliza las opciones de contacto de esta web. Puede que necesitemos verificar tu identidad antes de completar determinadas solicitudes.',
+            ],
+          },
+          {
+            title: 'Aviso de privacidad para California (CCPA y CPRA)',
+            paragraphs: [
+              'Si resides en California y la legislación de privacidad de California resulta aplicable a tu uso de My Rents, esta sección describe las categorías de información personal que podríamos haber recopilado durante los 12 meses anteriores y los derechos relacionados.',
+              'Las categorías de información personal que podemos recopilar incluyen identificadores como dirección de correo electrónico y datos de cuenta; información comercial como estado de suscripción o compra facilitado por la tienda de aplicaciones correspondiente; actividad en internet o en redes electrónicas como eventos de la app, diagnósticos y analítica; contenido generado por el usuario como registros de propiedades, contratos, contactos, notas, facturas, imágenes, documentos y enlaces; y cualquier información sensible que decidas almacenar en la app.',
+              'Recopilamos esa información de ti, de tus dispositivos cuando utilizas la app o la web, de proveedores de servicios como Google Analytics y Firebase, y de las tiendas de aplicaciones cuando confirman el estado de una compra o suscripción. La usamos para operar el servicio, proteger cuentas, dar soporte, gestionar suscripciones, analizar el uso, cumplir la ley y hacer cumplir nuestros términos.',
+              'Sujeto a la ley aplicable, los residentes de California pueden solicitar conocer, acceder, corregir o eliminar información personal, oponerse a la venta o sharing de información personal y limitar el uso y la divulgación de información personal sensible. Como My Rents no vende información personal ni la comparte para publicidad comportamental entre contextos, actualmente no existe actividad de venta o sharing de la que puedas darte de baja. Si en el contenido que subes hay información personal sensible, solo la usamos para prestarte los servicios que solicitas y no para inferir características sobre ti.',
+              'No te discriminaremos por ejercer derechos de privacidad aplicables. No obstante, algunos servicios pueden dejar de funcionar si se elimina información necesaria o deja de estar disponible.',
+            ],
+          },
+          {
+            title: 'Privacidad de menores',
+            paragraphs: [
+              'My Rents no está dirigida a menores de 13 años y no recopilamos conscientemente información personal de menores de 13 años.',
+              'Si descubrimos que se ha creado una cuenta por o para un menor de 13 años sin la autorización legal correspondiente, tomaremos medidas para eliminar la cuenta y la información personal asociada.',
+            ],
+          },
+          {
+            title: 'Seguridad',
+            paragraphs: [
+              'Utilizamos medidas administrativas, técnicas y organizativas razonables para proteger la información personal. Ningún sistema de internet o almacenamiento puede garantizarse como completamente seguro, por lo que no podemos prometer seguridad absoluta.',
+            ],
+          },
+          {
+            title: 'Cambios en esta Política de privacidad',
+            paragraphs: [
+              'Podemos actualizar esta Política de privacidad ocasionalmente. Cuando lo hagamos, publicaremos aquí la nueva versión y actualizaremos la fecha de entrada en vigor.',
             ],
           },
           {
             title: 'Contacto',
             paragraphs: [
-              'Si tienes preguntas o sugerencias sobre esta Política de privacidad, puedes escribirnos a info@myrents-app.com.',
+              'Si tienes preguntas, sugerencias o solicitudes de privacidad, puedes escribirnos a info@myrents-app.com, contactar a través de esta web o utilizar el foro público de soporte.',
             ],
           },
         ],
@@ -1555,34 +1866,86 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
         eyebrow: 'Contrato de licencia de usuario final',
         title: 'EULA de My Rents',
         intro:
-          'Este EULA regula la adquisición y el uso del software My Rents directamente desde Daniel Rodriguez o indirectamente a través de un distribuidor o revendedor autorizado. Lee este acuerdo detenidamente antes de completar la instalación y usar el software.',
-        updatedAt: '9 de marzo de 2026',
+          'Este Contrato de Licencia de Usuario Final regula la descarga, instalación, acceso y uso del software My Rents proporcionado por Daniel Rodríguez.',
+        updatedAt: '11 de marzo de 2026',
         sections: [
           {
             title: 'Concesión de licencia',
             paragraphs: [
-              'Daniel Rodriguez te concede una licencia personal, intransferible y no exclusiva para usar el software My Rents en tus dispositivos conforme a este EULA. Eres responsable de asegurarte de que tu dispositivo cumple con los requisitos mínimos del software.',
-              'No está permitido editar, alterar, modificar, adaptar, traducir, descompilar, desmontar, aplicar ingeniería inversa, reproducir, copiar, distribuir o revender el software para un propósito comercial distinto del permitido en este acuerdo.',
+              'Sujeto a este EULA, Daniel Rodríguez te concede una licencia limitada, personal, revocable, no exclusiva, intransferible y no sublicenciable para instalar y usar My Rents en dispositivos que controles y para su finalidad prevista.',
+              'El software se licencia, no se vende. Tu derecho a utilizar My Rents depende de que cumplas este EULA y, en su caso, las condiciones de la tienda de aplicaciones correspondiente.',
             ],
           },
           {
-            title: 'Propiedad intelectual y titularidad',
+            title: 'Cuentas, conectividad y compras',
             paragraphs: [
-              'Daniel Rodriguez conservará en todo momento la titularidad del software tal y como fue descargado originalmente por ti y de todas las descargas posteriores realizadas por ti. El software, incluidos todos sus derechos de autor y demás derechos de propiedad intelectual, sigue siendo propiedad de Daniel Rodriguez.',
-              'Daniel Rodriguez se reserva el derecho a conceder licencias de uso del software a terceros.',
+              'Algunas funciones de My Rents requieren una cuenta, acceso a internet o una suscripción PRO activa. Las suscripciones y compras dentro de la app pueden ser cobradas y gestionadas por la tienda de aplicaciones desde la que descargaste la app.',
+              'Las condiciones de la tienda, sus reglas de cobro, renovación y reembolso pueden aplicarse además de este EULA y prevalecerán cuando una regla obligatoria de la tienda entre en conflicto con este EULA.',
             ],
           },
           {
-            title: 'Terminación',
+            title: 'Restricciones',
             paragraphs: [
-              'Este EULA es efectivo desde la fecha en que utilizas por primera vez el software y continuará vigente hasta su terminación. Puedes terminarlo en cualquier momento mediante notificación escrita a Daniel Rodriguez.',
-              'También finalizará de inmediato si incumples cualquiera de sus términos. Tras la terminación, las licencias concedidas en este EULA finalizarán inmediatamente y aceptas dejar de acceder y utilizar el software.',
+              'Salvo en la medida en que una ley imperativa permita otra cosa, no puedes copiar, modificar, distribuir, vender, alquilar, sublicenciar, descompilar, hacer ingeniería inversa, extraer datos ni crear obras derivadas de My Rents o de cualquiera de sus partes.',
+              'No puedes eludir restricciones técnicas o de seguridad, usar el software con fines ilícitos ni permitir que terceros no autorizados accedan al software a través de tu cuenta.',
             ],
           },
           {
-            title: 'Legislación aplicable',
+            title: 'Tus datos y tu contenido',
             paragraphs: [
-              'Este EULA y cualquier disputa derivada de él o relacionada con él se regirán e interpretarán de acuerdo con las leyes de España.',
+              'Conservas la titularidad del contenido que subes a My Rents, incluidas imágenes, documentos, notas, registros de propiedades, facturas y demás información relacionada.',
+              'Nos concedes los derechos limitados necesarios para alojar, procesar, copiar de seguridad, transmitir y mostrar ese contenido con el fin de operar, dar soporte, proteger y mejorar My Rents para ti.',
+              'Eres responsable de la legalidad, exactitud y permisos asociados al contenido que subas o almacenes mediante el software.',
+            ],
+          },
+          {
+            title: 'Titularidad de My Rents',
+            paragraphs: [
+              'My Rents, incluyendo el software, el código fuente, los textos, la estructura visual, los logotipos, las marcas y el resto del contenido original, sigue siendo propiedad exclusiva de Daniel Rodríguez o de los licenciantes correspondientes.',
+              'Este EULA solo te concede los derechos de uso limitados que se indican expresamente aquí. Todos los demás derechos quedan reservados.',
+            ],
+          },
+          {
+            title: 'Actualizaciones y componentes de terceros',
+            paragraphs: [
+              'Podemos publicar actualizaciones, correcciones, parches o nuevas versiones de My Rents. Algunas actualizaciones pueden ser necesarias por motivos de seguridad, compatibilidad o para seguir utilizando determinadas funciones.',
+              'My Rents puede incluir o depender de servicios o componentes de terceros, incluidos servicios de tiendas de aplicaciones, servicios de Google, servicios de Firebase o herramientas de mapas. Esos terceros pueden regirse por sus propios términos legales y avisos de privacidad.',
+            ],
+          },
+          {
+            title: 'Exención de garantías',
+            paragraphs: [
+              'En la máxima medida permitida por la ley, My Rents se ofrece tal cual y según disponibilidad, sin garantías de ningún tipo, ya sean expresas, implícitas o legales.',
+              'No garantizamos que el software esté libre de interrupciones o errores, que sea completamente seguro o que resulte adecuado para cualquier flujo de trabajo, exigencia legal o necesidad empresarial concreta.',
+            ],
+          },
+          {
+            title: 'Limitación de responsabilidad',
+            paragraphs: [
+              'En la máxima medida permitida por la ley, Daniel Rodríguez no será responsable de daños indirectos, incidentales, consecuenciales, especiales, ejemplares o punitivos, ni de pérdidas de beneficios, ingresos, reputación, datos o interrupciones del negocio derivadas de My Rents o relacionadas con ella.',
+              'Si la responsabilidad no puede excluirse, la responsabilidad total derivada de My Rents o relacionada con ella quedará limitada al importe que hayas pagado por PRO en los 12 meses anteriores al hecho que origine la reclamación.',
+              'Nada de lo previsto en este EULA excluye o limita una responsabilidad que no pueda excluirse o limitarse legalmente conforme a la ley aplicable.',
+            ],
+          },
+          {
+            title: 'Duración y terminación',
+            paragraphs: [
+              'Este EULA entra en vigor cuando instalas, accedes o usas My Rents por primera vez y continuará vigente hasta su terminación.',
+              'Puedes terminarlo en cualquier momento dejando de usar el software y eliminando tu cuenta, cuando corresponda. Podemos suspender o terminar tu licencia de forma inmediata si incumples materialmente este EULA, haces un uso indebido del software o generas un riesgo legal o de seguridad.',
+              'Al terminar, tu derecho a usar el software finaliza de inmediato y debes dejar de utilizar My Rents. Si te suscribiste a través de una tienda de aplicaciones, también deberás gestionar la cancelación en la tienda correspondiente cuando así proceda.',
+            ],
+          },
+          {
+            title: 'Ley aplicable y derechos del consumidor',
+            paragraphs: [
+              'Este EULA se rige por las leyes de España, sin aplicar sus normas sobre conflicto de leyes.',
+              'Si resides en una jurisdicción que te reconoce protecciones obligatorias como consumidor, dichas protecciones seguirán a tu disposición en la medida exigida por la ley.',
+            ],
+          },
+          {
+            title: 'Contacto',
+            paragraphs: [
+              'Si tienes preguntas sobre este EULA, puedes escribirnos a info@myrents-app.com, contactar a través de esta web o utilizar el foro público de soporte.',
             ],
           },
         ],
@@ -1591,13 +1954,38 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
         eyebrow: 'Eliminación de datos',
         title: 'Eliminación de datos de My Rents',
         intro:
-          'Para eliminar por completo tu cuenta y todos los datos guardados en nuestras bases de datos, puedes usar la opción Eliminar mi cuenta dentro de los ajustes de la app.',
-        updatedAt: '9 de marzo de 2026',
+          'Esta página explica cómo solicitar la eliminación de tu cuenta de My Rents y de los datos personales asociados, tanto desde la app como desde la web.',
+        updatedAt: '11 de marzo de 2026',
         sections: [
           {
-            title: 'Cómo eliminar tus datos',
+            title: 'Solicitar la eliminación desde la web',
             paragraphs: [
-              'Para borrar por completo tu cuenta y todos los datos almacenados en nuestras bases de datos, abre la app, entra en la zona de ajustes u opciones y elige Eliminar mi cuenta.',
+              'Puedes solicitar la eliminación escribiendo a info@myrents-app.com o utilizando las opciones de contacto de esta web. Envía la solicitud desde la dirección de correo asociada a tu cuenta, o identifícala claramente, para que podamos verificarla.',
+              'Por razones de privacidad y seguridad, es posible que necesitemos solicitar información adicional antes de completar la solicitud de eliminación.',
+            ],
+          },
+          {
+            title: 'Qué eliminamos',
+            paragraphs: [
+              'Cuando se completa una solicitud de eliminación de cuenta, nuestro objetivo es borrar o anonimizar la información personal asociada a esa cuenta, incluidos los datos del perfil, los registros de propiedades y porfolios, contratos, recordatorios, eventos, contactos, notas, gastos, facturas o cargos manuales, imágenes subidas, documentos subidos, enlaces y el resto del contenido de la app vinculado a la cuenta.',
+            ],
+          },
+          {
+            title: 'Qué podemos conservar',
+            paragraphs: [
+              'Podemos conservar información limitada cuando sea razonablemente necesaria por motivos legales, fiscales, contables, de prevención del fraude, de seguridad, de recuperación desde copias de seguridad o de resolución de disputas, o cuando una tienda de aplicaciones nos exija conservar determinados registros relacionados con transacciones.',
+            ],
+          },
+          {
+            title: 'Plazos',
+            paragraphs: [
+              'Intentamos actuar sobre las solicitudes verificadas de eliminación sin dilación indebida. En la mayoría de los casos, las solicitudes se completan en un plazo de 30 días, aunque algunos sistemas de copia de seguridad o periodos de conservación exigidos por la ley pueden tardar más en quedar totalmente depurados.',
+            ],
+          },
+          {
+            title: '¿Necesitas ayuda?',
+            paragraphs: [
+              'Si necesitas ayuda con la eliminación de datos, escribe a info@myrents-app.com o utiliza las opciones de contacto disponibles en esta web.',
             ],
           },
         ],
