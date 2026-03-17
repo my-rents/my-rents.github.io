@@ -14,14 +14,18 @@
         <p class="hero-section__copy">{{ content.hero.copy }}</p>
 
         <div class="hero-section__actions">
-          <AppButton
-            :label="content.hero.playStoreCtaLabel"
-            :href="content.playStoreUrl"
-            variant="light"
-            size="large"
-            target="_blank"
-            rel="noopener noreferrer"
-          />
+          <div class="hero-section__download">
+            <AppButton
+              :label="content.hero.playStoreCtaLabel"
+              :href="content.playStoreUrl"
+              variant="light"
+              size="large"
+              target="_blank"
+              rel="noopener noreferrer"
+            />
+            <span class="hero-section__ios-note">{{ content.hero.iosDevelopmentLabel }}</span>
+          </div>
+
           <AppButton
             :label="content.hero.contactCtaLabel"
             size="large"
