@@ -9,34 +9,40 @@ import { revealDirective as vReveal } from '@/directives/reveal'
 // Import images from src/assets/features
 
 // Use import.meta.glob to map all feature images
-const featureImageMap = import.meta.glob('@/assets/features/*.png', {
+const featureImageMap = import.meta.glob('@/assets/features/*.jpg', {
   eager: true,
-  as: 'url',
+  query: '?url',
+  import: 'default',
 }) as Record<string, string>
 
+const featureImageBaseNames = [
+  { en: 'main', es: 'main' },
+  { en: 'rent', es: 'rent' },
+  { en: 'lease', es: 'lease' },
+  { en: 'portfolio_info', es: 'portfolio_info' },
+  { en: 'rent2', es: 'rent2' },
+  { en: 'taxes', es: 'taxes' },
+  { en: 'calendar', es: 'calendar' },
+  { en: 'contacts_list', es: 'contacts_list' },
+] as const
+
+const getImageFromMap = (name: string, suffix: 'EN' | 'ES') => {
+  const imagePath = `/src/assets/features/${name}_${suffix}.jpg`
+  return featureImageMap[imagePath]
+}
+
 function getFeatureImage(idx: number, locale: string): string {
-  const baseNames = [
-    'main',
-    'rent',
-    'lease',
-    'portfolio_info',
-    'rents2',
-    'taxes',
-    'calendar',
-    'contacts_list',
-  ]
-  const code = locale.toUpperCase()
-  const suffix = code === 'ES' ? 'ES' : 'EN'
-  const name = baseNames[idx % baseNames.length]
-  // Build the expected file path
-  const relPath = `/src/assets/features/${name}_${suffix}.png`
-  // Try to find the image in the map
-  if (featureImageMap[relPath]) {
-    return featureImageMap[relPath]
+  const imageNames =
+    featureImageBaseNames[idx % featureImageBaseNames.length] || featureImageBaseNames[0]
+  const suffix = locale.toUpperCase() === 'ES' ? 'ES' : 'EN'
+  const localizedName = suffix === 'ES' ? imageNames.es : imageNames.en
+
+  const localizedImage = getImageFromMap(localizedName, suffix)
+  if (localizedImage) {
+    return localizedImage
   }
-  // Fallback to EN
-  const fallbackPath = `/src/assets/features/${name}_EN.png`
-  return featureImageMap[fallbackPath] || ''
+
+  return getImageFromMap(imageNames.en, 'EN') || ''
 }
 
 const { content, locale } = useSiteContent()
