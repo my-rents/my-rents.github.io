@@ -37,6 +37,17 @@
   align-items: center;
 }
 
+.hero-section__download {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+}
+
+.hero-section__ios-note {
+  font-size: var(--text-label);
+  color: var(--color-contrast-body);
+}
+
 .hero-section__rating {
   display: inline-flex;
   align-items: center;
