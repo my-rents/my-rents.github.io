@@ -135,6 +135,7 @@ export interface SiteContent {
     title: string
     copy: string
     playStoreCtaLabel: string
+    iosDevelopmentLabel: string
     contactCtaLabel: string
     snapshot: string
     snapshotAlt: string
@@ -314,6 +315,7 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
       title: 'Manage properties, leases, expenses, reminders, and documents in one place',
       copy: 'My Rents helps landlords and property managers keep portfolios, due dates, invoices, contacts, reports, photos, and paperwork together in a single app.',
       playStoreCtaLabel: 'Download on Google Play',
+      iosDevelopmentLabel: '* iOS version currently under development',
       contactCtaLabel: 'Contact us',
       snapshot: screenshotEn1,
       snapshotAlt: 'English screenshot of the My Rents dashboard',
@@ -1176,6 +1178,7 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
       title: 'Gestiona propiedades, contratos, gastos, recordatorios y documentos en un solo lugar',
       copy: 'My Rents ayuda a propietarios y gestores a tener porfolios, vencimientos, facturas, contactos, informes, fotos y documentación dentro de una sola app.',
       playStoreCtaLabel: 'Descargar en Google Play',
+      iosDevelopmentLabel: '* versión para iOS actualmente en desarrollo',
       contactCtaLabel: 'Contactar con nosotros',
       snapshot: screenshotEs1,
       snapshotAlt: 'Captura en español del panel de My Rents',
