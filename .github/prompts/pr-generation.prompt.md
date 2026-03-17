@@ -1,11 +1,15 @@
 ---
 description: 'Automated PR workflow: creates branch, commits with proper message, pushes, opens PR, merges, cleans up. Follows project commit and PR rules.'
-model: GPT-4.1 (copilot)
+model: Raptor mini (Preview) (copilot)
 ---
 
 # PR Command Automation Prompt
 
-First, run npm run format to prettier all files.
+First, run these commands:
+
+- npm run format
+- npm run lint:fix
+
 Then, execute the following workflow using github's MCP:
 
 1. Create a new branch with a simple, descriptive name related to the uncommitted changes and check it out.
