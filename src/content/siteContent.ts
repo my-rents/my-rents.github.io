@@ -1,11 +1,11 @@
-import screenshotEn1 from '@/assets/features/main_EN.png'
-import screenshotEs1 from '@/assets/features/main_ES.png'
+import screenshotEn1 from '@/assets/features/main_EN.jpg'
+import screenshotEs1 from '@/assets/features/main_ES.jpg'
 import user1 from '@/assets/users/landlord.jpg'
 import user2 from '@/assets/users/portfolio_owner.jpg'
 import user3 from '@/assets/users/property_manager.jpg'
 import user4 from '@/assets/users/company.jpg'
-import calendarImage from '@/assets/features/calendar_EN.png'
-import contactsListImage from '@/assets/features/contacts_list_EN.png'
+import calendarImage from '@/assets/features/calendar_EN.jpg'
+import contactsListImage from '@/assets/features/contacts_list_EN.jpg'
 
 export type SiteLocale = 'en' | 'es'
 
@@ -1516,6 +1516,20 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
           image: FEATURE_SPOTLIGHT_IMAGE,
           imageAlt:
             'Captura en español de las herramientas fiscales, mapas y contactos de My Rents',
+        },
+        {
+          title: 'Eventos',
+          description:
+            'Controla reparaciones, inspecciones, recordatorios y tareas para que nada se quede pendiente en tu operativa de alquiler.',
+          image: calendarImage,
+          imageAlt: 'Captura en español del calendario y eventos',
+        },
+        {
+          title: 'Lista de contactos',
+          description:
+            'Mantén ordenados los contactos clave, como inquilinos, proveedores y asesores, para encontrar rápido a la persona adecuada.',
+          image: contactsListImage,
+          imageAlt: 'Captura en español de la lista de contactos',
         },
       ],
     },
