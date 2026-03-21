@@ -1,6 +1,7 @@
 <template src="./HomeView.html"></template>
 
 <script setup lang="ts">
+import ComparisonSection from '@/components/sections/ComparisonSection/ComparisonSection.vue'
 import ContactSection from '@/components/sections/ContactSection/ContactSection.vue'
 import FaqSection from '@/components/sections/FaqSection/FaqSection.vue'
 import HeroSection from '@/components/sections/HeroSection/HeroSection.vue'

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://my-rents.github.io/sitemap.xml
+Sitemap: https://myrents-app.com/sitemap.xml

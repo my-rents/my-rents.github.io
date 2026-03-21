@@ -19,9 +19,9 @@ const featureImageBaseNames = [
   { en: 'main', es: 'main' },
   { en: 'rent', es: 'rent' },
   { en: 'lease', es: 'lease' },
-  { en: 'portfolio_info', es: 'portfolio_info' },
   { en: 'rent2', es: 'rent2' },
-  { en: 'taxes', es: 'taxes' },
+  { en: 'expense', es: 'expense' },
+  { en: 'portfolio_info', es: 'portfolio_info' },
   { en: 'calendar', es: 'calendar' },
   { en: 'contacts_list', es: 'contacts_list' },
 ] as const

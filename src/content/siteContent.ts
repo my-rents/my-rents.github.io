@@ -288,7 +288,7 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
     playStoreUrl: PLAY_STORE_URL,
     meta: {
       routeTitles: {
-        home: 'My Rents | Property management',
+        home: 'My Rents | Rental App for Landlords',
         terms: 'Terms of Service | My Rents',
         privacy: 'Privacy Policy | My Rents',
         eula: 'EULA | My Rents',
@@ -303,7 +303,7 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
       languages: sharedLanguages,
     },
     primaryNav: [
-      { label: 'Features', hash: '#features' },
+      { label: 'How it helps', hash: '#features' },
       { label: 'How to start', hash: '#how-to-start' },
       { label: 'PRO', hash: '#pricing' },
       { label: "Who it's for", hash: '#who-its-for' },
@@ -312,75 +312,87 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
     ],
     hero: {
       rating: 'Rated 4.8/5 on Google Play',
-      title: 'Manage properties, leases, expenses, reminders, and documents in one place',
-      copy: 'My Rents helps landlords and property managers keep portfolios, due dates, invoices, contacts, reports, photos, and paperwork together in a single app.',
+      title: 'Stop rental admin chaos',
+      copy: 'A few properties are enough to create real admin chaos: rent arrives late or in parts, repair invoices end up in your car or WhatsApp, lease dates live in PDFs, and tax season becomes a rebuild project. My Rents gives small landlords one place for properties, leases, payments, expenses, documents, and contacts.',
       playStoreCtaLabel: 'Download on Google Play',
       iosDevelopmentLabel: '* iOS version currently under development',
       contactCtaLabel: 'Contact us',
       snapshot: screenshotEn1,
       snapshotAlt: 'English screenshot of the My Rents dashboard',
-      partnersLabel: 'Built for',
+      partnersLabel: 'Built for landlords who have outgrown DIY admin',
       partners: [
-        'Solo landlords',
-        'Small portfolios',
-        'Multi-unit owners',
-        'Property managers',
-        'Growing investors',
+        'Side-income landlords',
+        '2 to 10 rentals',
+        'Self-managing owners',
+        'Small investors',
+        'Growing portfolios',
       ],
     },
     comparison: {
       intro: {
-        eyebrow: 'Why My Rents',
-        title: 'A rental workflow built around real property admin',
+        eyebrow: 'The real problem',
+        title: 'Why it gets messy',
         description:
-          'Instead of splitting records between spreadsheets, chats, folders, and photos, My Rents keeps the operational picture connected.',
+          'The friction is not usually one dramatic event. It is the constant effort of reconstructing what happened, what is due, and what belongs to which property.',
       },
       columns: [
         {
-          label: 'Without a central workflow',
+          label: 'When everything is scattered',
           tone: 'muted',
           items: [
             {
-              badge: 'SS',
-              title: 'Scattered spreadsheets',
+              badge: 'RG',
+              title: 'Rent becomes guesswork',
               description:
-                'Property details, rent tracking, expenses, and tenant notes live in different tools, so the full picture is rarely visible at once.',
+                'Late, partial, or manual payments force you to remember who paid, who still owes, and how far behind they are.',
             },
             {
-              badge: 'MR',
-              title: 'Missed reminders',
+              badge: 'RC',
+              title: 'Receipts lose context',
               description:
-                'Renewals, inspections, maintenance follow-ups, and payment chases depend on memory or separate calendar entries.',
+                'Cash repairs, supplier invoices, screenshots, and emailed bills stop being useful when they are no longer tied to the right property.',
             },
             {
-              badge: 'FR',
-              title: 'Fragmented records',
+              badge: 'LD',
+              title: 'Lease dates hide in documents',
               description:
-                'Bills, contracts, photos, and service contacts are stored in too many places to review quickly when something goes wrong.',
+                'Renewals, end dates, inspections, and reminders live across PDFs, chats, and calendars instead of inside one workflow.',
+            },
+            {
+              badge: 'TX',
+              title: 'Tax season turns into recovery work',
+              description:
+                'You spend days rebuilding the year from folders, notifications, and bank statements because the records were never truly connected.',
             },
           ],
         },
         {
-          label: 'With My Rents',
+          label: 'When the story lives in one app',
           tone: 'brand',
           items: [
             {
-              badge: 'PO',
-              title: 'Portfolio overview',
+              badge: 'PH',
+              title: 'Property history stays attached',
               description:
-                'Properties, units, and portfolios stay organised in one app with the details you need close at hand.',
+                'Each property keeps its leases, payments, expenses, files, photos, and contacts together so the context is always there.',
             },
             {
-              badge: 'RR',
-              title: 'Rent and reminder control',
+              badge: 'PS',
+              title: 'Payment status is visible fast',
               description:
-                'Track due dates, invoices, payment status, and follow-up actions without rebuilding the workflow every month.',
+                'See what was paid, what is overdue, and what needs follow-up without stitching together notes from different tools.',
             },
             {
-              badge: 'DR',
-              title: 'Documents and reporting',
+              badge: 'EV',
+              title: 'Events and deadlines stay findable',
               description:
-                'Photos, notes, contracts, expenses, and CSV-ready reports stay connected to the properties they belong to.',
+                'Important dates, reminders, inspections, and renewals stay connected to the property instead of depending on memory.',
+            },
+            {
+              badge: 'RP',
+              title: 'Reports stop being a scramble',
+              description:
+                'Your numbers, exports, and supporting documents are already organized when you need to review performance or prepare for taxes.',
             },
           ],
         },
@@ -479,14 +491,14 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
     pricing: {
       intro: {
         eyebrow: 'My Rents PRO',
-        title: 'Choose how you want to unlock PRO',
+        title: 'Choose your PRO plan',
         description:
-          'There is only one PRO product. The 1-month, 6-month, and 1-year plans unlock the same tools, and the exact amount is shown inside the app based on your country.',
+          'PRO is for landlords who want cleaner records, faster answers, and less monthly reconstruction. The 1-month, 6-month, and 1-year plans unlock the same tools, and the exact amount is shown inside the app based on your country.',
       },
       message: {
-        title: 'One PRO, three billing options',
+        title: 'One PRO, three options',
         description:
-          'Choose the subscription length that suits you. After downloading My Rents, the app shows the exact local price for 1 month, 6 months, and 1 year before you confirm anything.',
+          'Choose the duration that matches how you want to adopt My Rents. After downloading the app, you will see your exact local price for 1 month, 6 months, and 1 year before you confirm anything.',
       },
       plans: [
         {
@@ -550,16 +562,16 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
         },
       ],
       storePricing: {
-        title: 'Download the app to see your local PRO price',
+        title: 'See your PRO price in the app',
         description:
           'PRO pricing depends on country and appears inside My Rents. Download the app, open the PRO screen, and you will see the exact 1-month, 6-month, and 1-year amount for your region before you pay.',
       },
       singleUser: {
-        title: 'Each PRO purchase is for one person',
+        title: 'One user per PRO plan',
         description: 'The PRO options on this page are single-user purchases for one account.',
       },
       companies: {
-        title: 'Need several accounts for a company or team?',
+        title: 'Need team accounts?',
         description:
           'If your business needs multiple users, separate accounts, or a different setup, contact us and we will help you choose the best option.',
       },
@@ -567,105 +579,105 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
     },
     process: {
       intro: {
-        eyebrow: 'How to start',
+        eyebrow: 'How landlords regain control',
         title: 'How to start',
         description:
-          'Set up the app with a real rental workflow from day one, then keep building from the same structure.',
+          'You do not need a perfect migration project. Start with the properties, leases, and documents you need today, then keep every new payment, expense, and reminder organized from there.',
       },
       steps: [
         {
           index: '01',
-          title: 'Download the app and start your 7-day trial',
+          title: 'Download the app and test it with your real workflow',
           description:
-            'Test My Rents with your own workflow and confirm that the app fits how you manage rentals before you subscribe.',
+            'Use the 7-day trial with live properties, not dummy data, so you can quickly see whether the structure fits how you already work.',
         },
         {
           index: '02',
-          title: 'Create portfolios and start adding properties',
+          title: 'Add your properties and units first',
           description:
-            'Build the structure first, then add properties inside each portfolio so the app already matches how you want to organise the business.',
+            'Build the backbone of your portfolio so every payment, document, and reminder has a clear place to live.',
         },
         {
           index: '03',
-          title: 'Create leases and upload the main documents',
+          title: 'Attach active leases and the documents you always hunt for',
           description:
-            'Add leases so each property starts generating the right rent due events, then keep contracts and key files attached to the same record.',
+            'Store the contracts, insurance files, invoices, and key records that usually disappear into folders, email chains, or screenshots.',
         },
         {
           index: '04',
-          title: 'Start recording expenses',
+          title: 'Start logging payments, expenses, and events in one place',
           description:
-            'Track repairs, utilities, purchases, and one-off costs so every property keeps its operating history connected.',
+            'Track overdue rent, repairs, recurring bills, and supplier activity without rebuilding the same story every month.',
         },
         {
           index: '05',
-          title: 'Generate billing and CSV exports',
+          title: 'Review reports and exports when you need answers',
           description:
-            'Create invoices, review what is due, and export CSV data whenever you need a clearer external view of the portfolio.',
+            'When you want to check profitability, debts, taxes, or supporting records, the information is already tied to the right property.',
         },
       ],
     },
     impact: {
       intro: {
-        eyebrow: 'My Rents',
-        title: 'Features',
+        eyebrow: 'What changes',
+        title: 'How My Rents helps',
         description:
-          'These are some of the features that My Rents provides for landlords, managers, and growing rental businesses.',
+          'My Rents is still feature-rich, but the value is that each feature helps answer a landlord question faster instead of creating another place to look.',
       },
       items: [
         {
-          title: 'Portfolios',
+          title: 'Portfolio view',
           description:
-            'Group rentals by city, strategy, or ownership structure so the big picture stays readable as the portfolio grows.',
+            'Move from portfolio view to property details with the leases, contacts, files, and notes already connected.',
           image: FEATURE_SPOTLIGHT_IMAGE,
           imageAlt: 'English screenshot of the My Rents portfolio area',
         },
         {
-          title: 'Properties',
+          title: 'Payment status',
           description:
-            'Store each property with its own details, units, and context so the app mirrors how you actually organise assets.',
+            'Track rent status, invoices, and follow-up actions without wondering which tenant is two weeks late and which one only made a partial payment.',
           image: FEATURE_SPOTLIGHT_IMAGE,
           imageAlt: 'English screenshot of the My Rents properties area',
         },
         {
-          title: 'Leases and rent due',
+          title: 'Lease details',
           description:
-            'Create leases, review payment status, generate invoices, and trigger follow-up actions from the same workflow.',
+            'Review the active agreement, due dates, and billing workflow from the same record instead of jumping between contracts and spreadsheets.',
           image: FEATURE_SPOTLIGHT_IMAGE,
           imageAlt: 'English screenshot of the My Rents lease and rent due workflow',
         },
         {
-          title: 'Expenses and reports',
+          title: 'Property details',
           description:
-            'Track repairs, utilities, purchases, debt, profitability, and CSV exports without rebuilding your numbers elsewhere.',
+            'Property details, units, notes, and linked records stay together so you can understand an asset quickly after days or weeks away from it.',
           image: FEATURE_SPOTLIGHT_IMAGE,
           imageAlt: 'English screenshot of the My Rents expenses and reports area',
         },
         {
-          title: 'Documents and photos',
+          title: 'Expense tracking',
           description:
-            'Keep contracts, inspection notes, room evidence, and other files attached to the right property when you need proof fast.',
+            'Log repairs, utilities, and ad hoc costs while they are fresh so the numbers stay accurate and the proof stays attached.',
           image: FEATURE_SPOTLIGHT_IMAGE,
           imageAlt: 'English screenshot of the My Rents documents and photos area',
         },
         {
-          title: 'Taxes, maps, and contacts',
+          title: 'Reports',
           description:
-            'Adjust local tax settings, jump to property directions, and keep key suppliers or service contacts close at hand.',
+            'Use reports, debt tracking, profitability views, and exports without rebuilding the year from bank statements.',
           image: FEATURE_SPOTLIGHT_IMAGE,
           imageAlt: 'English screenshot of the My Rents tax, map, and contact tools',
         },
         {
           title: 'Events',
           description:
-            'Track repairs, inspections, reminders, and tasks so nothing slips through the cracks. Stay on top of every event in your rental workflow.',
+            'Repairs, inspections, reminders, and recurring tasks stay visible so important follow-ups do not live only in your head.',
           image: calendarImage,
           imageAlt: 'Calendar and events screenshot',
         },
         {
-          title: 'Contact List',
+          title: 'Contacts',
           description:
-            'Keep key contacts—tenants, suppliers, and advisors—organized and accessible. Find the right person fast when you need help or follow-up.',
+            'Keep tenants, suppliers, and advisors organised by property so you are not digging through chats when something breaks.',
           image: contactsListImage,
           imageAlt: 'Contact list screenshot',
         },
@@ -674,29 +686,29 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
     team: {
       intro: {
         eyebrow: "Who it's for",
-        title: 'Useful for different types of owners and managers',
+        title: "Who it's for",
         description:
-          'My Rents is designed for owners, managers, and companies that need clearer rental admin, whether they manage one property or a broader portfolio.',
+          'My Rents is for owners who have outgrown ad hoc spreadsheets and folders but are not looking for enterprise software or a management company to sit in the middle.',
       },
       members: [
         {
           name: 'New landlord',
-          role: 'Useful even with a single property, especially when you want leases, due dates, expenses, contacts, and documents to stay organised from day one.',
+          role: 'Useful when you want good habits from the first lease instead of creating a messy system you have to replace later.',
           image: user1,
         },
         {
           name: 'Small portfolio owner',
-          role: 'Helps when you manage several units and need rent tracking, invoice generation, expenses, reminders, and documents connected without jumping between tools.',
+          role: 'Ideal when two or three properties already mean late-rent follow-up, repair receipts, lease dates, and paperwork are getting hard to keep straight.',
           image: user2,
         },
         {
           name: 'Property manager',
-          role: 'Built for day-to-day follow-up, with quick access to lease records, tenant communication, maintenance notes, supplier contacts, and property history.',
+          role: 'Helpful for day-to-day follow-up when you need fast access to payment status, maintenance history, contacts, and property context.',
           image: user3,
         },
         {
           name: 'Company or management team',
-          role: 'Useful when a business needs invoice generation, expense control, reporting, CSV exports, and consistent records across multiple properties or portfolios.',
+          role: 'Useful when a small business needs consistent records, reporting, invoices, and clearer oversight across several properties or portfolios.',
           image: user4,
         },
       ],
@@ -704,7 +716,7 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
     appLanguages: {
       intro: {
         eyebrow: 'Language support',
-        title: 'Multilingual support',
+        title: 'Available in 6 languages',
         description: 'Use My Rents in the language that best fits your day-to-day rental workflow.',
       },
       listLabel: 'Supported in the app',
@@ -715,14 +727,14 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
     faq: {
       intro: {
         eyebrow: 'FAQ',
-        title: 'Answers to the questions owners ask before choosing PRO',
-        description: 'Straight answers about pricing, daily workflows, reporting, and support.',
+        title: 'Common questions',
+        description: 'Straight answers about pricing, workflows, reporting, and support.',
       },
       items: [
         {
-          question: 'How does My Rents help me manage multiple properties?',
+          question: 'Can My Rents replace spreadsheets for a small portfolio?',
           answer:
-            'You can add each property with its own details and group them into portfolios, which makes it easier to review different parts of your rental business without losing structure.',
+            'That is exactly the use case for many owners. My Rents helps you stop splitting rent tracking, expenses, documents, reminders, and property notes across separate sheets and folders.',
         },
         {
           question: 'What changes between the 1 month, 6 months, and 1 year plans?',
@@ -755,10 +767,10 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
       emailAddress: CONTACT_EMAIL,
       forumUrl: FORUM_URL,
       intro: {
-        eyebrow: 'Questions before you subscribe?',
-        title: 'Ask about PRO, local pricing, or business use',
+        eyebrow: 'Still managing rentals from too many places?',
+        title: 'Tell us what feels messy',
         description:
-          'Tell us what you manage and what you want to improve, and we will have better context when we reply.',
+          'If payments, documents, expenses, or lease dates are slipping across tools, tell us what feels messy today and we will point you to the best setup inside My Rents.',
       },
       forumPrefix: 'Public forum',
       forumCtaLabel: 'Open public forum',
@@ -776,8 +788,7 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
       },
     },
     footer: {
-      summary:
-        'Rental management for owners who want leases, expenses, reminders, documents, and reports in one place.',
+      summary: 'Rental admin for landlords who want the full story of each property in one place.',
       menuHeading: 'Menu',
       legalHeading: 'Legal',
       contactHeading: 'Contact',
@@ -1151,7 +1162,7 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
     playStoreUrl: PLAY_STORE_URL,
     meta: {
       routeTitles: {
-        home: 'My Rents | Gestion de alquileres',
+        home: 'My Rents | App para gestionar alquileres',
         terms: 'Términos del servicio | My Rents',
         privacy: 'Política de privacidad | My Rents',
         eula: 'EULA | My Rents',
@@ -1166,7 +1177,7 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
       languages: sharedLanguages,
     },
     primaryNav: [
-      { label: 'Funciones', hash: '#features' },
+      { label: 'Cómo ayuda', hash: '#features' },
       { label: 'Cómo empezar', hash: '#how-to-start' },
       { label: 'PRO', hash: '#pricing' },
       { label: 'Para quién es', hash: '#who-its-for' },
@@ -1175,75 +1186,87 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
     ],
     hero: {
       rating: 'Valorada con 4,8/5 en Google Play',
-      title: 'Gestiona propiedades, contratos, gastos, recordatorios y documentos en un solo lugar',
-      copy: 'My Rents ayuda a propietarios y gestores a tener porfolios, vencimientos, facturas, contactos, informes, fotos y documentación dentro de una sola app.',
+      title: 'Pon fin al caos administrativo',
+      copy: 'Unas pocas propiedades bastan para crear un caos administrativo real: cobros que llegan tarde o por partes, facturas de reparaciones que acaban en el coche o en WhatsApp, vencimientos escondidos en PDFs y una campaña de impuestos que obliga a reconstruir el año. My Rents reúne propiedades, contratos, pagos, gastos, documentos y contactos en un solo lugar.',
       playStoreCtaLabel: 'Descargar en Google Play',
       iosDevelopmentLabel: '* versión para iOS actualmente en desarrollo',
       contactCtaLabel: 'Contactar con nosotros',
       snapshot: screenshotEs1,
       snapshotAlt: 'Captura en español del panel de My Rents',
-      partnersLabel: 'Pensada para',
+      partnersLabel: 'Pensada para propietarios que ya han superado el sistema DIY',
       partners: [
-        'Propietarios individuales',
-        'Porfolios pequeños',
-        'Edificios con varias unidades',
-        'Gestores inmobiliarios',
-        'Inversores en crecimiento',
+        'Propietarios con ingresos extra',
+        '2 a 10 unidades',
+        'Autogestión diaria',
+        'Pequeños inversores',
+        'Porfolios en crecimiento',
       ],
     },
     comparison: {
       intro: {
-        eyebrow: 'Por qué My Rents',
-        title: 'Un flujo de gestión de alquileres pensado para la operativa real',
+        eyebrow: 'El problema real',
+        title: 'Por qué se complica',
         description:
-          'En vez de repartir la información entre hojas de cálculo, chats, carpetas y fotos, My Rents mantiene todo conectado.',
+          'La fricción no suele ser un gran desastre puntual. Es el esfuerzo constante de reconstruir qué pasó, qué está pendiente y a qué propiedad pertenece cada cosa.',
       },
       columns: [
         {
-          label: 'Sin un flujo centralizado',
+          label: 'Cuando todo está disperso',
           tone: 'muted',
           items: [
             {
-              badge: 'HC',
-              title: 'Hojas dispersas',
+              badge: 'CR',
+              title: 'Cobros en modo adivinanza',
               description:
-                'Los datos de propiedades, cobros, gastos y notas de inquilinos viven en herramientas distintas, así que rara vez ves el conjunto de un vistazo.',
+                'Los pagos tardíos, parciales o manuales te obligan a recordar quién ha pagado, quién debe todavía y cuánto retraso lleva.',
             },
             {
-              badge: 'OL',
-              title: 'Olvidos y avisos sueltos',
+              badge: 'RC',
+              title: 'Los recibos pierden contexto',
               description:
-                'Renovaciones, inspecciones, mantenimientos y seguimientos de pago dependen de la memoria o de calendarios separados.',
+                'Reparaciones pagadas en efectivo, facturas de proveedores, capturas y correos dejan de servir cuando ya no están ligados al inmueble correcto.',
             },
             {
-              badge: 'RG',
-              title: 'Registros fragmentados',
+              badge: 'FC',
+              title: 'Las fechas se esconden en documentos',
               description:
-                'Facturas, contratos, fotos y contactos de servicio están repartidos en demasiados sitios para revisarlos con rapidez cuando hace falta.',
+                'Renovaciones, vencimientos, inspecciones y recordatorios viven entre PDFs, chats y calendarios en vez de formar parte del mismo flujo.',
+            },
+            {
+              badge: 'IM',
+              title: 'La campaña fiscal se convierte en rescate',
+              description:
+                'Acabas reconstruyendo el año desde carpetas, notificaciones y extractos bancarios porque los registros nunca estuvieron realmente conectados.',
             },
           ],
         },
         {
-          label: 'Con My Rents',
+          label: 'Cuando toda la historia vive en una sola app',
           tone: 'brand',
           items: [
             {
-              badge: 'VP',
-              title: 'Visión del porfolio',
+              badge: 'HI',
+              title: 'El historial queda unido al inmueble',
               description:
-                'Propiedades, unidades y porfolios quedan organizados en una sola app con la información importante siempre a mano.',
+                'Cada propiedad conserva unidos contratos, pagos, gastos, archivos, fotos y contactos para que el contexto siga ahí cuando lo necesites.',
             },
             {
-              badge: 'CR',
-              title: 'Control de cobros y recordatorios',
+              badge: 'EC',
+              title: 'El estado de cobro se ve rápido',
               description:
-                'Sigue vencimientos, facturas, estado de pago y acciones de seguimiento sin reconstruir el proceso cada mes.',
+                'Ves qué se ha pagado, qué está vencido y qué necesita seguimiento sin recomponer notas de varias herramientas.',
             },
             {
-              badge: 'DI',
-              title: 'Documentos e informes',
+              badge: 'EV',
+              title: 'Eventos y vencimientos siguen localizables',
               description:
-                'Fotos, notas, contratos, gastos e informes preparados para exportar permanecen unidos a la propiedad correspondiente.',
+                'Fechas importantes, recordatorios, inspecciones y renovaciones siguen ligadas al inmueble en vez de depender de la memoria.',
+            },
+            {
+              badge: 'RP',
+              title: 'Los informes dejan de ser una carrera de última hora',
+              description:
+                'Tus cifras, exportaciones y documentos de apoyo ya están organizados cuando toca revisar rentabilidad o preparar impuestos.',
             },
           ],
         },
@@ -1342,14 +1365,14 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
     pricing: {
       intro: {
         eyebrow: 'My Rents PRO',
-        title: 'Elige cómo quieres activar PRO',
+        title: 'Elige tu plan PRO',
         description:
-          'Solo existe un PRO. Los planes de 1 mes, 6 meses y 1 año desbloquean las mismas funciones, y el importe exacto se muestra dentro de la app según tu país.',
+          'PRO está pensado para propietarios que quieren registros más limpios, respuestas más rápidas y menos reconstrucción mensual. Los planes de 1 mes, 6 meses y 1 año desbloquean las mismas funciones, y el importe exacto se muestra dentro de la app según tu país.',
       },
       message: {
-        title: 'Un solo PRO, tres formas de pago',
+        title: 'Un PRO, tres opciones',
         description:
-          'Elige la duración de suscripción que mejor te encaje. Después de descargar My Rents, la app te muestra el precio local exacto para 1 mes, 6 meses y 1 año antes de confirmar nada.',
+          'Elige la duración que mejor encaje con tu ritmo de adopción. Después de descargar la app verás el precio local exacto para 1 mes, 6 meses y 1 año antes de confirmar nada.',
       },
       plans: [
         {
@@ -1413,17 +1436,17 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
         },
       ],
       storePricing: {
-        title: 'Descarga la app para ver tu precio local de PRO',
+        title: 'Mira tu precio en la app',
         description:
           'El precio de PRO depende del país y aparece dentro de My Rents. Descarga la app, abre la pantalla de PRO y verás el importe exacto de 1 mes, 6 meses y 1 año para tu región antes de pagar.',
       },
       singleUser: {
-        title: 'Cada compra PRO es para un solo usuario',
+        title: 'Un usuario por plan',
         description:
           'Las opciones PRO de esta página están pensadas para una sola cuenta y una sola persona.',
       },
       companies: {
-        title: '¿Tu empresa necesita varias cuentas?',
+        title: '¿Necesitas cuentas de equipo?',
         description:
           'Si tu negocio necesita varios usuarios, cuentas separadas o una configuración distinta, escríbenos y te ayudaremos a encontrar la mejor opción.',
       },
@@ -1431,91 +1454,91 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
     },
     process: {
       intro: {
-        eyebrow: 'Cómo empezar',
+        eyebrow: 'Cómo recuperar el control',
         title: 'Cómo empezar',
         description:
-          'Empieza con una operativa real desde el primer día y sigue construyendo sobre la misma estructura dentro de la app.',
+          'No hace falta hacer una migración perfecta. Empieza con los inmuebles, contratos y documentos que necesitas hoy y a partir de ahí mantén cada nuevo cobro, gasto y recordatorio en orden.',
       },
       steps: [
         {
           index: '01',
-          title: 'Descarga la app y empieza la prueba de 7 días',
+          title: 'Descarga la app y pruébala con tu operativa real',
           description:
-            'Prueba My Rents con tu operativa real y confirma si la app encaja antes de suscribirte.',
+            'Usa la prueba de 7 días con propiedades reales, no con datos de ejemplo, para comprobar rápido si la estructura encaja contigo.',
         },
         {
           index: '02',
-          title: 'Crea porfolios y empieza a añadir propiedades',
+          title: 'Añade primero tus propiedades y unidades',
           description:
-            'Monta primero la estructura que vas a usar y empieza a añadir inmuebles dentro de cada porfolio para organizarte desde el inicio.',
+            'Crea la base de tu porfolio para que cada pago, documento y recordatorio tenga desde el principio un sitio claro.',
         },
         {
           index: '03',
-          title: 'Crea contratos y sube los documentos principales',
+          title: 'Adjunta los contratos activos y los documentos que siempre acabas buscando',
           description:
-            'Añade contratos para empezar a generar los eventos de cobro y mantén contratos u otros archivos clave unidos a cada propiedad.',
+            'Guarda contratos, seguros, facturas y archivos clave que normalmente acaban repartidos entre carpetas, correos y capturas.',
         },
         {
           index: '04',
-          title: 'Empieza a registrar gastos',
+          title: 'Empieza a registrar pagos, gastos y eventos en un solo sitio',
           description:
-            'Anota reparaciones, suministros, compras y costes puntuales para que cada inmueble conserve su historial operativo.',
+            'Controla impagos, reparaciones, suministros y actividad de proveedores sin reconstruir la misma historia cada mes.',
         },
         {
           index: '05',
-          title: 'Genera facturación y exportaciones CSV',
+          title: 'Revisa informes y exportaciones cuando necesites respuestas',
           description:
-            'Crea facturas, revisa lo que está pendiente y exporta datos en CSV cuando necesites una vista externa más clara.',
+            'Cuando quieras revisar rentabilidad, deudas, impuestos o documentación de apoyo, la información ya estará ligada al inmueble correcto.',
         },
       ],
     },
     impact: {
       intro: {
-        eyebrow: 'My Rents',
-        title: 'Funciones',
+        eyebrow: 'Lo que cambia',
+        title: 'Cómo ayuda My Rents',
         description:
-          'Estas son algunas de las funciones que My Rents ofrece para propietarios, gestores y negocios de alquiler en crecimiento.',
+          'My Rents sigue teniendo muchas funciones, pero el valor real es que cada una te ayuda a responder una pregunta más rápido, en vez de abrir otro sitio donde buscar.',
       },
       items: [
         {
-          title: 'Porfolios',
+          title: 'Vista del porfolio',
           description:
-            'Agrupa alquileres por ciudad, estrategia o estructura de propiedad para que la visión global siga siendo clara a medida que crece el porfolio.',
+            'Pasa de la vista de porfolio al detalle del inmueble con contratos, contactos, archivos y notas ya conectados.',
           image: FEATURE_SPOTLIGHT_IMAGE,
           imageAlt: 'Captura en español del área de porfolios de My Rents',
         },
         {
-          title: 'Propiedades',
+          title: 'Estado de cobro',
           description:
-            'Guarda cada inmueble con sus propios datos, unidades y contexto para que la app refleje cómo organizas realmente los activos.',
+            'Controla estados de cobro, facturas y acciones de seguimiento sin preguntarte qué inquilino va dos semanas tarde y cuál solo hizo un pago parcial.',
           image: FEATURE_SPOTLIGHT_IMAGE,
           imageAlt: 'Captura en español del área de propiedades de My Rents',
         },
         {
-          title: 'Contratos y cobros',
+          title: 'Datos del contrato',
           description:
-            'Crea contratos, revisa estados de pago, genera facturas y activa acciones de seguimiento dentro del mismo flujo.',
+            'Revisa acuerdo activo, vencimientos y flujo de facturación desde la misma ficha en vez de saltar entre contratos y hojas de cálculo.',
           image: FEATURE_SPOTLIGHT_IMAGE,
           imageAlt: 'Captura en español del flujo de contratos y cobros de My Rents',
         },
         {
-          title: 'Gastos e informes',
+          title: 'Datos del inmueble',
           description:
-            'Controla reparaciones, suministros, compras, deuda, rentabilidad y exportaciones CSV sin rehacer los números en otras herramientas.',
+            'Datos del inmueble, unidades, notas y registros enlazados permanecen juntos para entender un activo rápido aunque lleves días sin mirarlo.',
           image: FEATURE_SPOTLIGHT_IMAGE,
           imageAlt: 'Captura en español del área de gastos e informes de My Rents',
         },
         {
-          title: 'Documentos y fotos',
+          title: 'Registro de gastos',
           description:
-            'Mantén contratos, notas de inspección, evidencias de habitaciones y otros archivos unidos a la propiedad correcta cuando necesites revisar algo rápido.',
+            'Guarda reparaciones, suministros y gastos puntuales mientras están frescos para que las cifras sigan cuadrando y la prueba quede adjunta.',
           image: FEATURE_SPOTLIGHT_IMAGE,
           imageAlt: 'Captura en español del área de documentos y fotos de My Rents',
         },
         {
-          title: 'Impuestos, mapas y contactos',
+          title: 'Informes',
           description:
-            'Ajusta fiscalidad local, abre direcciones de propiedades y conserva cerca proveedores o contactos de servicio importantes.',
+            'Usa informes, control de deuda, vistas de rentabilidad y exportaciones sin rehacer el año a partir de extractos bancarios.',
           image: FEATURE_SPOTLIGHT_IMAGE,
           imageAlt:
             'Captura en español de las herramientas fiscales, mapas y contactos de My Rents',
@@ -1523,14 +1546,14 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
         {
           title: 'Eventos',
           description:
-            'Controla reparaciones, inspecciones, recordatorios y tareas para que nada se quede pendiente en tu operativa de alquiler.',
+            'Reparaciones, inspecciones, recordatorios y tareas recurrentes siguen visibles para que el seguimiento no viva solo en tu cabeza.',
           image: calendarImage,
           imageAlt: 'Captura en español del calendario y eventos',
         },
         {
-          title: 'Lista de contactos',
+          title: 'Contactos',
           description:
-            'Mantén ordenados los contactos clave, como inquilinos, proveedores y asesores, para encontrar rápido a la persona adecuada.',
+            'Mantén inquilinos, proveedores y asesores organizados por propiedad para no buscar entre chats cuando algo se rompe.',
           image: contactsListImage,
           imageAlt: 'Captura en español de la lista de contactos',
         },
@@ -1539,29 +1562,29 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
     team: {
       intro: {
         eyebrow: 'Para quién es',
-        title: 'Útil para distintos tipos de propietarios y gestores',
+        title: 'Para quién es',
         description:
-          'My Rents está pensada para propietarios, gestores y empresas que necesitan más claridad administrativa, tanto si gestionan una sola propiedad como si trabajan con un porfolio amplio.',
+          'My Rents es para quienes ya han superado las hojas de cálculo y carpetas improvisadas, pero no quieren software empresarial ni una empresa de gestión entre medias.',
       },
       members: [
         {
           name: 'Nuevo propietario',
-          role: 'Útil incluso si empiezas con una sola propiedad y quieres tener contratos, vencimientos, gastos, contactos y documentos bien organizados desde el principio.',
+          role: 'Útil cuando quieres crear buenos hábitos desde el primer contrato, en vez de montar un sistema improvisado que luego tendrás que sustituir.',
           image: user1,
         },
         {
           name: 'Propietario con pequeño porfolio',
-          role: 'Ayuda cuando ya gestionas varias unidades y necesitas control de cobros, generación de facturas, gastos, recordatorios y documentación sin saltar entre herramientas.',
+          role: 'Ideal cuando dos o tres propiedades ya implican perseguir cobros, guardar recibos de reparaciones, recordar vencimientos y ordenar papeles.',
           image: user2,
         },
         {
           name: 'Gestor inmobiliario',
-          role: 'Pensada para el seguimiento diario, con acceso rápido a contratos, comunicación, incidencias, proveedores y el historial operativo de cada inmueble.',
+          role: 'Muy útil para el seguimiento diario cuando necesitas ver rápido estados de pago, historial de mantenimiento, contactos y contexto del inmueble.',
           image: user3,
         },
         {
           name: 'Empresa o equipo de gestión',
-          role: 'Útil cuando el negocio necesita generación de facturas, control de gastos, informes, exportaciones CSV y registros consistentes entre varias propiedades o porfolios.',
+          role: 'Encaja cuando un negocio pequeño necesita registros consistentes, informes, facturación y una visión más clara entre varias propiedades o porfolios.',
           image: user4,
         },
       ],
@@ -1569,7 +1592,7 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
     appLanguages: {
       intro: {
         eyebrow: 'Idiomas',
-        title: 'Soporte para 6 idiomas',
+        title: 'Disponible en 6 idiomas',
         description:
           'Usa My Rents en el idioma que mejor encaje con tu forma de gestionar alquileres.',
       },
@@ -1581,14 +1604,14 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
     faq: {
       intro: {
         eyebrow: 'FAQ',
-        title: 'Respuestas a las preguntas que suelen aparecer antes de elegir PRO',
+        title: 'Preguntas frecuentes',
         description: 'Respuestas claras sobre precios, operativa diaria, informes y soporte.',
       },
       items: [
         {
-          question: '¿Cómo me ayuda My Rents a gestionar varias propiedades?',
+          question: '¿Puede My Rents sustituir las hojas de cálculo en un porfolio pequeño?',
           answer:
-            'Puedes añadir cada propiedad con sus propios datos y agruparlas en porfolios, lo que facilita revisar distintas partes de tu negocio sin perder estructura.',
+            'Ese es precisamente uno de los usos más habituales. My Rents te ayuda a dejar de repartir cobros, gastos, documentos, recordatorios y notas de cada propiedad entre hojas y carpetas separadas.',
         },
         {
           question: '¿Qué cambia entre los planes de 1 mes, 6 meses y 1 año?',
@@ -1621,10 +1644,10 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
       emailAddress: CONTACT_EMAIL,
       forumUrl: FORUM_URL,
       intro: {
-        eyebrow: '¿Dudas antes de suscribirte?',
-        title: 'Pregunta por PRO, el precio en tu país o el uso en empresa',
+        eyebrow: '¿Sigues gestionando alquileres desde demasiados sitios?',
+        title: 'Cuéntanos qué se complica',
         description:
-          'Cuéntanos qué gestionas y qué te gustaría mejorar para que podamos responderte con mejor contexto.',
+          'Si los cobros, documentos, gastos o vencimientos se están perdiendo entre varias herramientas, cuéntanos qué parte se te hace más pesada y te orientaremos sobre la mejor forma de usar My Rents.',
       },
       forumPrefix: 'Foro público',
       forumCtaLabel: 'Abrir foro público',
@@ -1643,7 +1666,7 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
     },
     footer: {
       summary:
-        'Gestión de alquileres para propietarios que quieren contratos, gastos, recordatorios, documentos e informes en un mismo sitio.',
+        'Gestión de alquileres para propietarios que quieren tener la historia completa de cada inmueble en un solo lugar.',
       menuHeading: 'Menú',
       legalHeading: 'Legal',
       contactHeading: 'Contacto',
