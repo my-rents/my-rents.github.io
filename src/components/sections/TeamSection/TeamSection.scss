@@ -43,6 +43,7 @@
   overflow: hidden;
   flex: 0 0
     calc((100% - (var(--carousel-gap) * (var(--cards-per-view) - 1))) / var(--cards-per-view));
+  box-shadow: none;
 }
 
 .team-section__media {

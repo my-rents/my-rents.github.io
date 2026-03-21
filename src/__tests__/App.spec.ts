@@ -19,11 +19,9 @@ describe('App', () => {
 
     await flushPromises()
 
-    expect(wrapper.text()).toContain(
-      'Manage properties, leases, expenses, reminders, and documents in one place',
-    )
-    expect(wrapper.text()).toContain('Choose how you want to unlock PRO')
-    expect(wrapper.text()).toContain('Multilingual support')
+    expect(wrapper.text()).toContain('Stop rental admin chaos')
+    expect(wrapper.text()).toContain('Choose your PRO plan')
+    expect(wrapper.text()).toContain('Available in 6 languages')
   })
 
   it('renders the legal page route', async () => {
@@ -54,9 +52,7 @@ describe('App', () => {
 
     await flushPromises()
 
-    expect(wrapper.text()).toContain(
-      'Gestiona propiedades, contratos, gastos, recordatorios y documentos en un solo lugar',
-    )
-    expect(wrapper.text()).toContain('Elige cómo quieres activar PRO')
+    expect(wrapper.text()).toContain('Pon fin al caos administrativo')
+    expect(wrapper.text()).toContain('Elige tu plan PRO')
   })
 })

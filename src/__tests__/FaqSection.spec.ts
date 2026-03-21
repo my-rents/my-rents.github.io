@@ -9,7 +9,7 @@ describe('FaqSection', () => {
 
     expect(wrapper.findAll('.accordion-item--open')).toHaveLength(1)
     expect(wrapper.find('.accordion-item--open').text()).toContain(
-      'How does My Rents help me manage multiple properties?',
+      'Can My Rents replace spreadsheets for a small portfolio?',
     )
 
     const triggers = wrapper.findAll('.accordion-item__trigger')
