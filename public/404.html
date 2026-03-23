@@ -4,67 +4,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex" />
-    <meta name="theme-color" content="#281b60" />
+    <meta name="theme-color" content="#ffffff" />
     <meta http-equiv="refresh" content="0; url=/" />
     <title>Redirecting | My Rents</title>
-    <style>
-      :root {
-        color-scheme: light;
-        --color-brand: #281b60;
-        --color-surface: #ffffff;
-        --color-surface-soft: #f8f6fc;
-        --color-ink: #141414;
-        --color-ink-muted: #5f675f;
-        --color-border: rgba(20, 20, 20, 0.08);
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      body {
-        margin: 0;
-        min-height: 100vh;
-        display: grid;
-        place-items: center;
-        padding: 1.5rem;
-        font-family: Inter, system-ui, sans-serif;
-        color: var(--color-ink);
-        background: var(--color-surface-soft);
-      }
-
-      .fallback-card {
-        width: min(100%, 32rem);
-        padding: 1.5rem;
-        border: 1px solid var(--color-border);
-        border-radius: 1.5rem;
-        background: var(--color-surface);
-        text-align: center;
-      }
-
-      h1 {
-        margin: 0;
-        font-size: 1.5rem;
-      }
-
-      p {
-        margin: 0.75rem 0 0;
-        color: var(--color-ink-muted);
-        line-height: 1.6;
-      }
-
-      a {
-        color: var(--color-brand);
-        font-weight: 700;
-        text-decoration: none;
-      }
-    </style>
   </head>
   <body>
-    <main class="fallback-card">
-      <h1>Redirecting to My Rents</h1>
-      <p>If the redirect does not happen automatically, <a href="/">go to the home page</a>.</p>
-    </main>
+    <noscript>
+      <meta http-equiv="refresh" content="0; url=/" />
+      <a href="/">Go to home</a>
+    </noscript>
 
     <script>
       window.location.replace('/')
