@@ -20,7 +20,7 @@ Then, execute the following workflow using github's MCP:
    - Reference file names and specific modifications
 4. Push the branch to the remote repository.
 5. Create a Pull Request (PR) with that branch.
-6. Merge the PR (if any conflict is found, the process will stop and you will be notified).
+6. Merge the PR (if any conflict is found, the process will stop and you will be notified). Don't ask for me to review the PR, just merge it if there are no conflicts.
 7. Delete the branch from both remote and local repositories.
 8. Check out the main branch again and pull the latest changes.
 9. Show closed PR link

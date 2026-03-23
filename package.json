@@ -21,6 +21,7 @@
     "format:check": "prettier . --check"
   },
   "dependencies": {
+    "firebase": "^12.11.0",
     "vue": "^3.5.29",
     "vue-router": "^5.0.3"
   },

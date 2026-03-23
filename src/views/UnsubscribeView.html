@@ -1,0 +1,61 @@
+<main class="unsubscribe-view">
+  <section class="unsubscribe-view__hero">
+    <div class="section-shell unsubscribe-view__hero-shell">
+      <div class="unsubscribe-view__copy">
+        <p class="unsubscribe-view__eyebrow">{{ content.unsubscribe.eyebrow }}</p>
+        <h1>{{ content.unsubscribe.title }}</h1>
+        <p>{{ content.unsubscribe.intro }}</p>
+      </div>
+
+      <AppButton :label="content.unsubscribe.homeLabel" variant="light" :to="{ name: 'home' }" />
+    </div>
+  </section>
+
+  <section class="unsubscribe-view__body">
+    <div class="section-shell section-shell--narrow">
+      <article class="unsubscribe-view__card surface-card">
+        <form class="unsubscribe-view__form" @submit.prevent="handleSubmit">
+          <label class="unsubscribe-view__field">
+            <span>{{ content.unsubscribe.form.emailLabel }}</span>
+            <input
+              v-model="form.email"
+              type="email"
+              name="email"
+              autocomplete="email"
+              :placeholder="content.unsubscribe.form.emailPlaceholder"
+              required
+            />
+          </label>
+
+          <p class="unsubscribe-view__helper">{{ content.unsubscribe.form.helper }}</p>
+
+          <AppButton
+            :label="status === 'submitting' ? content.unsubscribe.states.submitting.title : content.unsubscribe.form.submitLabel"
+            type="submit"
+            :showIcon="status !== 'submitting'"
+          />
+        </form>
+
+        <div v-if="stateContent" class="unsubscribe-view__feedback">
+          <div class="unsubscribe-view__status" :class="statusToneClass">
+            <span class="unsubscribe-view__status-dot" aria-hidden="true"></span>
+            <span>{{ stateContent.title }}</span>
+          </div>
+
+          <p class="unsubscribe-view__message">{{ stateContent.description }}</p>
+        </div>
+
+        <p class="unsubscribe-view__note">{{ content.unsubscribe.form.note }}</p>
+
+        <div class="unsubscribe-view__actions">
+          <AppButton :label="content.unsubscribe.homeLabel" :to="{ name: 'home' }" />
+          <AppButton
+            :label="content.unsubscribe.contactLabel"
+            :href="`mailto:${content.contact.emailAddress}`"
+            variant="light"
+          />
+        </div>
+      </article>
+    </div>
+  </section>
+</main>

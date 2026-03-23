@@ -13,6 +13,7 @@ const { content } = useSiteContent()
 const pricingNotes = computed(() => [
   content.value.pricing.singleUser,
   content.value.pricing.companies,
+  content.value.pricing.marketingEmails,
 ])
 </script>
 

@@ -11,7 +11,7 @@ export type SiteLocale = 'en' | 'es'
 
 export type LegalPageKey = 'terms' | 'privacy' | 'eula' | 'dataDeletion'
 
-export type AppRouteName = 'home' | LegalPageKey
+export type AppRouteName = 'home' | LegalPageKey | 'unsubscribe'
 
 export interface LanguageOption {
   code: SiteLocale
@@ -117,6 +117,33 @@ export interface FooterLink {
   routeKey: LegalPageKey
 }
 
+export interface UnsubscribeStateContent {
+  title: string
+  description: string
+}
+
+export interface UnsubscribePageContent {
+  eyebrow: string
+  title: string
+  intro: string
+  form: {
+    emailLabel: string
+    emailPlaceholder: string
+    helper: string
+    note: string
+    submitLabel: string
+  }
+  homeLabel: string
+  contactLabel: string
+  states: {
+    submitting: UnsubscribeStateContent
+    success: UnsubscribeStateContent
+    invalidEmail: UnsubscribeStateContent
+    unavailable: UnsubscribeStateContent
+    error: UnsubscribeStateContent
+  }
+}
+
 export interface SiteContent {
   playStoreUrl: string
   meta: {
@@ -187,6 +214,10 @@ export interface SiteContent {
       title: string
       description: string
     }
+    marketingEmails: {
+      title: string
+      description: string
+    }
     businessCtaLabel: string
   }
   process: {
@@ -239,6 +270,7 @@ export interface SiteContent {
     backHomeLabel: string
     lastUpdatedPrefix: string
   }
+  unsubscribe: UnsubscribePageContent
   legalPages: Record<LegalPageKey, LegalPage>
   controls: {
     previousLabel: string
@@ -293,6 +325,7 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
         privacy: 'Privacy Policy | My Rents',
         eula: 'EULA | My Rents',
         dataDeletion: 'Data Deletion | My Rents',
+        unsubscribe: 'Unsubscribe | My Rents',
       },
     },
     header: {
@@ -575,6 +608,11 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
         description:
           'If your business needs multiple users, separate accounts, or a different setup, contact us and we will help you choose the best option.',
       },
+      marketingEmails: {
+        title: 'Marketing emails',
+        description:
+          'When you create a My Rents account, you are opted in by default to receive product news, offers, and other marketing emails from My Rents. Every marketing email includes an unsubscribe link so you can opt out at any time.',
+      },
       businessCtaLabel: 'Contact us about business accounts',
     },
     process: {
@@ -803,6 +841,48 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
       backHomeLabel: 'Back to home',
       lastUpdatedPrefix: 'Last updated',
     },
+    unsubscribe: {
+      eyebrow: 'Email preferences',
+      title: 'Unsubscribe from My Rents marketing emails',
+      intro:
+        'Enter the email address where you receive My Rents marketing emails and we will add it to our suppression list for future marketing campaigns.',
+      form: {
+        emailLabel: 'Email address',
+        emailPlaceholder: 'you@example.com',
+        helper:
+          'This page is for marketing emails only. Use the same address where you receive messages from My Rents.',
+        note: 'Service, billing, or account-related emails may still be sent when they are necessary to operate My Rents or support your account.',
+        submitLabel: 'Unsubscribe this email',
+      },
+      homeLabel: 'Back to home',
+      contactLabel: 'Contact support',
+      states: {
+        submitting: {
+          title: 'Saving your request',
+          description: 'We are adding this address to our My Rents suppression list now.',
+        },
+        success: {
+          title: 'This email has been unsubscribed',
+          description:
+            'We saved this address to our My Rents suppression list for future marketing emails. Please allow a short delay if you recently received a campaign that was already prepared.',
+        },
+        invalidEmail: {
+          title: 'Enter a valid email address',
+          description:
+            'We could not use that email address. Please check the spelling and try again with the address that received your My Rents marketing emails.',
+        },
+        unavailable: {
+          title: 'Unsubscribe is not configured yet',
+          description:
+            'The website is missing the Firebase configuration needed to save suppression requests. Please contact support and we will unsubscribe you manually.',
+        },
+        error: {
+          title: 'We could not save your request',
+          description:
+            'Something went wrong while saving this unsubscribe request. Please try again or contact support so we can remove the address manually.',
+        },
+      },
+    },
     legalPages: {
       terms: {
         eyebrow: 'Terms and Conditions',
@@ -921,7 +1001,7 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
         title: 'Privacy Policy for My Rents',
         intro:
           'This Privacy Policy explains how Daniel Rodríguez collects, uses, stores, and shares personal information when you use My Rents, this website, and related support channels.',
-        updatedAt: 'March 11, 2026',
+        updatedAt: 'March 23, 2026',
         sections: [
           {
             title: 'Who Controls Your Data',
@@ -945,6 +1025,13 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
               'We use personal information to create and secure accounts, provide the features of My Rents, store and display your uploaded content, synchronize data where applicable, respond to support requests, manage subscriptions and purchases, and maintain the service.',
               'We also use information to monitor performance, understand how the app and website are used, diagnose problems, improve the product, prevent misuse, and comply with legal obligations.',
               'We do not show third-party ads in My Rents. We do not use remarketing services for marketing or advertising purposes, and we do not use your uploaded property information, images, or documents for anything other than operating and supporting the service for you.',
+            ],
+          },
+          {
+            title: 'Marketing Emails',
+            paragraphs: [
+              'When you create a My Rents account, you may be opted in by default to receive marketing emails from My Rents about product updates, offers, tips, and related news.',
+              'Each marketing email includes an unsubscribe link to a page where you can submit the email address you want removed from future marketing emails. If you opt out, we may keep your email address on a suppression list so we can honor your request and avoid sending further marketing emails to that address.',
             ],
           },
           {
@@ -1167,6 +1254,7 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
         privacy: 'Política de privacidad | My Rents',
         eula: 'EULA | My Rents',
         dataDeletion: 'Eliminación de datos | My Rents',
+        unsubscribe: 'Cancelar suscripción | My Rents',
       },
     },
     header: {
@@ -1450,6 +1538,11 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
         description:
           'Si tu negocio necesita varios usuarios, cuentas separadas o una configuración distinta, escríbenos y te ayudaremos a encontrar la mejor opción.',
       },
+      marketingEmails: {
+        title: 'Emails de marketing',
+        description:
+          'Cuando creas una cuenta en My Rents, quedas suscrito por defecto a noticias de producto, ofertas y otros emails de marketing de My Rents. Cada email de marketing incluye un enlace para cancelar la suscripción cuando quieras.',
+      },
       businessCtaLabel: 'Contactar con nosotros para cuentas deempresa',
     },
     process: {
@@ -1681,6 +1774,49 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
       backHomeLabel: 'Volver al inicio',
       lastUpdatedPrefix: 'Última actualización',
     },
+    unsubscribe: {
+      eyebrow: 'Preferencias de email',
+      title: 'Cancelar la suscripción a los emails de marketing de My Rents',
+      intro:
+        'Escribe la dirección de email donde recibes los mensajes de marketing de My Rents y la añadiremos a nuestra lista de exclusión para futuras campañas.',
+      form: {
+        emailLabel: 'Correo electrónico',
+        emailPlaceholder: 'tu@email.com',
+        helper:
+          'Esta página es solo para emails de marketing. Usa la misma dirección donde recibes mensajes de My Rents.',
+        note: 'Los emails de servicio, facturación o cuenta pueden seguir enviándose cuando sean necesarios para operar My Rents o dar soporte a tu cuenta.',
+        submitLabel: 'Dar de baja este email',
+      },
+      homeLabel: 'Volver al inicio',
+      contactLabel: 'Contactar con soporte',
+      states: {
+        submitting: {
+          title: 'Guardando tu solicitud',
+          description:
+            'Estamos añadiendo esta dirección a la lista de exclusión de My Rents ahora mismo.',
+        },
+        success: {
+          title: 'Este email ya está dado de baja',
+          description:
+            'Hemos guardado esta dirección en la lista de exclusión de My Rents para futuros emails de marketing. Ten en cuenta que puede haber un pequeño retraso si acababas de recibir una campaña ya preparada.',
+        },
+        invalidEmail: {
+          title: 'Introduce un email válido',
+          description:
+            'No hemos podido usar esa dirección de email. Revisa si está bien escrita e inténtalo de nuevo con la dirección que recibió los emails de marketing de My Rents.',
+        },
+        unavailable: {
+          title: 'La baja todavía no está configurada',
+          description:
+            'A la web le falta la configuración de Firebase necesaria para guardar solicitudes de baja. Contacta con soporte y te daremos de baja manualmente.',
+        },
+        error: {
+          title: 'No hemos podido guardar tu solicitud',
+          description:
+            'Ha ocurrido un problema al guardar esta solicitud de baja. Vuelve a intentarlo o contacta con soporte para que eliminemos la dirección manualmente.',
+        },
+      },
+    },
     legalPages: {
       terms: {
         eyebrow: 'Términos y condiciones',
@@ -1799,7 +1935,7 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
         title: 'Política de privacidad de My Rents',
         intro:
           'Esta Política de privacidad explica cómo Daniel Rodríguez recopila, utiliza, conserva y comparte información personal cuando usas My Rents, esta web y los canales de soporte relacionados.',
-        updatedAt: '11 de marzo de 2026',
+        updatedAt: '23 de marzo de 2026',
         sections: [
           {
             title: 'Quién controla tus datos',
@@ -1823,6 +1959,13 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
               'Usamos la información personal para crear y proteger cuentas, ofrecer las funciones de My Rents, almacenar y mostrar el contenido que subes, sincronizar datos cuando corresponda, responder a solicitudes de soporte, gestionar suscripciones y compras, y mantener el servicio.',
               'También utilizamos la información para controlar el rendimiento, comprender cómo se usa la app y la web, diagnosticar problemas, mejorar el producto, prevenir usos indebidos y cumplir obligaciones legales.',
               'No mostramos anuncios de terceros en My Rents. No usamos servicios de remarketing con fines de marketing o publicidad y no utilizamos la información de propiedades, imágenes o documentos que subes para nada distinto de operar y darte soporte en el servicio.',
+            ],
+          },
+          {
+            title: 'Emails de marketing',
+            paragraphs: [
+              'Cuando creas una cuenta en My Rents, puedes quedar suscrito por defecto a recibir emails de marketing de My Rents sobre novedades del producto, ofertas, consejos y noticias relacionadas.',
+              'Cada email de marketing incluye un enlace a una página donde puedes indicar la dirección de email que quieres excluir de futuros envíos de marketing. Si te das de baja, podemos conservar tu dirección en una lista de exclusión para respetar tu solicitud y evitar nuevos envíos de marketing a esa dirección.',
             ],
           },
           {
@@ -2038,7 +2181,14 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
   },
 }
 
-const routeNames: AppRouteName[] = ['home', 'terms', 'privacy', 'eula', 'dataDeletion']
+const routeNames: AppRouteName[] = [
+  'home',
+  'terms',
+  'privacy',
+  'eula',
+  'dataDeletion',
+  'unsubscribe',
+]
 
 export const isAppRouteName = (value: unknown): value is AppRouteName =>
   typeof value === 'string' && routeNames.includes(value as AppRouteName)
