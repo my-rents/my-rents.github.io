@@ -1,0 +1,148 @@
+@use '@/styles/breakpoints' as *;
+
+@use '@/styles/mixins' as *;
+
+.unsubscribe-view {
+  display: grid;
+}
+
+.unsubscribe-view__hero {
+  padding-block: var(--space-l) var(--section-space);
+  background: linear-gradient(135deg, var(--color-brand-deep), var(--color-brand));
+  color: var(--color-brand-contrast);
+}
+
+.unsubscribe-view__hero-shell {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: var(--space-l);
+}
+
+.unsubscribe-view__copy {
+  display: grid;
+  gap: var(--space-m);
+  max-inline-size: var(--measure-legal-copy);
+}
+
+.unsubscribe-view__eyebrow {
+  font-size: var(--text-label);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-contrast-subtle);
+}
+
+.unsubscribe-view__copy h1 {
+  font-family: var(--font-heading);
+  font-size: var(--text-display);
+  line-height: var(--line-tight);
+  letter-spacing: -0.04em;
+}
+
+.unsubscribe-view__copy p:last-child {
+  color: var(--color-contrast-muted);
+}
+
+.unsubscribe-view__body {
+  padding-block: var(--section-space);
+}
+
+.unsubscribe-view__card {
+  display: grid;
+  gap: var(--space-l);
+  padding: var(--space-xl);
+}
+
+.unsubscribe-view__form {
+  display: grid;
+  gap: var(--space-m);
+}
+
+.unsubscribe-view__field {
+  display: grid;
+  gap: var(--space-2xs);
+}
+
+.unsubscribe-view__field span {
+  font-size: var(--text-small);
+  color: var(--color-ink-muted);
+}
+
+.unsubscribe-view__field input {
+  inline-size: 100%;
+  border: var(--card-border);
+  border-radius: var(--radius-m);
+  background: var(--color-surface);
+  padding: var(--space-s) var(--space-m);
+  color: var(--color-ink);
+}
+
+.unsubscribe-view__field input::placeholder {
+  color: var(--color-ink-muted);
+}
+
+.unsubscribe-view__field input:focus-visible {
+  @include focus-ring;
+}
+
+.unsubscribe-view__helper,
+.unsubscribe-view__note {
+  color: var(--color-ink-muted);
+}
+
+.unsubscribe-view__feedback {
+  display: grid;
+  gap: var(--space-s);
+}
+
+.unsubscribe-view__status {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  justify-self: start;
+  padding: var(--space-xs) var(--space-s);
+  border-radius: var(--radius-pill);
+  font-size: var(--text-small);
+  font-weight: 700;
+}
+
+.unsubscribe-view__status--default {
+  background: var(--color-brand-tint-soft);
+  color: var(--color-brand);
+}
+
+.unsubscribe-view__status--success {
+  background: var(--color-success);
+  color: var(--color-success-ink);
+}
+
+.unsubscribe-view__status-dot {
+  inline-size: 0.625rem;
+  block-size: 0.625rem;
+  border-radius: var(--radius-circle);
+  background: currentColor;
+}
+
+.unsubscribe-view__message {
+  color: var(--color-ink-muted);
+  max-inline-size: 38rem;
+}
+
+.unsubscribe-view__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-s);
+}
+
+@include below(small) {
+  .unsubscribe-view__hero-shell {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .unsubscribe-view__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

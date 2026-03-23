@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /unsubscribe/
 
 Sitemap: https://myrents-app.com/sitemap.xml

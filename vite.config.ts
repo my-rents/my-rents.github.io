@@ -17,6 +17,7 @@ export default defineConfig({
         terms: resolve(__dirname, 'terms-of-service/index.html'),
         eula: resolve(__dirname, 'eula/index.html'),
         dataDeletion: resolve(__dirname, 'data-deletion/index.html'),
+        unsubscribe: resolve(__dirname, 'unsubscribe/index.html'),
       },
     },
   },

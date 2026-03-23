@@ -31,6 +31,11 @@ const routes = [
     props: { pageKey: 'dataDeletion' },
   },
   {
+    path: '/unsubscribe',
+    name: 'unsubscribe',
+    component: () => import('@/views/UnsubscribeView.vue'),
+  },
+  {
     path: '/:pathMatch(.*)*',
     redirect: '/',
   },
