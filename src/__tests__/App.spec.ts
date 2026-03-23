@@ -39,6 +39,21 @@ describe('App', () => {
     expect(wrapper.text()).toContain('Who Controls Your Data')
   })
 
+  it('redirects unknown routes to home', async () => {
+    await router.push('/missing-page')
+
+    const wrapper = mount(App, {
+      global: {
+        plugins: [router],
+      },
+    })
+
+    await flushPromises()
+
+    expect(router.currentRoute.value.name).toBe('home')
+    expect(wrapper.text()).toContain('Stop rental admin chaos')
+  })
+
   it('renders spanish copy when the locale is set to spanish', async () => {
     window.localStorage.setItem('my-rents-locale', 'es')
 
