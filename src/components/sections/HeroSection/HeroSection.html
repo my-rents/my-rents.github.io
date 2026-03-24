@@ -37,7 +37,14 @@
 
       <div class="hero-section__visual" v-reveal="140">
         <div class="hero-section__image-frame">
-          <img :src="content.hero.snapshot" :alt="content.hero.snapshotAlt" />
+          <img
+            :src="content.hero.snapshot"
+            :alt="content.hero.snapshotAlt"
+            :width="HERO_SNAPSHOT_WIDTH"
+            :height="HERO_SNAPSHOT_HEIGHT"
+            decoding="async"
+            fetchpriority="high"
+          />
         </div>
       </div>
     </div>
