@@ -51,7 +51,6 @@
 
 .testimonial-section__quote {
   font-family: var(--font-heading);
-  max-inline-size: 14ch;
   font-size: clamp(2rem, 3vw, 3.5rem);
   line-height: 1.05;
   letter-spacing: -0.04em;
@@ -90,6 +89,7 @@
 }
 
 @include below(small) {
+
   .testimonial-section__shell,
   .testimonial-section__meta {
     grid-template-columns: minmax(0, 1fr);
