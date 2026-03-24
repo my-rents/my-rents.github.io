@@ -15,7 +15,15 @@
             :key="activeFeature.title"
             class="impact-section__feature-frame"
           >
-            <img :src="activeFeature.image" :alt="activeFeature.imageAlt" />
+            <img
+              :src="activeFeature.image"
+              :alt="activeFeature.imageAlt"
+              :width="activeFeature.imageWidth"
+              :height="activeFeature.imageHeight"
+              decoding="async"
+              loading="lazy"
+              fetchpriority="low"
+            />
             <figcaption class="impact-section__visual-caption">
               {{ activeFeature.title }}
             </figcaption>

@@ -15,6 +15,9 @@ const featureImageMap = import.meta.glob('@/assets/features/*.jpg', {
   import: 'default',
 }) as Record<string, string>
 
+const FEATURE_IMAGE_WIDTH = 1080
+const FEATURE_IMAGE_HEIGHT = 2400
+
 const featureImageBaseNames = [
   { en: 'main', es: 'main' },
   { en: 'rent', es: 'rent' },
@@ -51,6 +54,8 @@ const featureItems = computed(() => {
     ...item,
     image: getFeatureImage(idx, locale.value),
     imageAlt: item.imageAlt || item.title,
+    imageWidth: FEATURE_IMAGE_WIDTH,
+    imageHeight: FEATURE_IMAGE_HEIGHT,
   }))
 })
 const activeFeatureIndex = ref(0)
