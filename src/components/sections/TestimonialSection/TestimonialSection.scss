@@ -89,7 +89,6 @@
 }
 
 @include below(small) {
-
   .testimonial-section__shell,
   .testimonial-section__meta {
     grid-template-columns: minmax(0, 1fr);
