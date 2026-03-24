@@ -1,4 +1,11 @@
 <RouterLink class="site-brand" :to="{ name: 'home' }">
-  <img class="site-brand__icon" :src="appIcon" alt="" />
+  <img
+    class="site-brand__icon"
+    :src="appIcon"
+    :width="APP_ICON_WIDTH"
+    :height="APP_ICON_HEIGHT"
+    alt=""
+    decoding="async"
+  />
   <span>{{ label }}</span>
 </RouterLink>

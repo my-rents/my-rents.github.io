@@ -23,7 +23,15 @@
           class="team-section__card surface-card"
         >
           <div class="team-section__media">
-            <img :src="member.image" :alt="member.name" />
+            <img
+              :src="member.image"
+              :alt="member.name"
+              :width="getTeamImageDimensions(member.image).width"
+              :height="getTeamImageDimensions(member.image).height"
+              decoding="async"
+              loading="lazy"
+              fetchpriority="low"
+            />
           </div>
 
           <div class="team-section__body">

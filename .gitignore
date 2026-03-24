@@ -41,3 +41,4 @@ __screenshots__/
 *.timestamp-*-*.mjs
 
 .tmp-reference-*
+plan-improvement.md
