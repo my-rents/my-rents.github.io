@@ -1,36 +1,24 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="robots" content="noindex" />
-    <meta name="theme-color" content="#ffffff" />
-    <title>Redirecting | My Rents</title>
-  </head>
-  <body>
-    <noscript>
-      <meta http-equiv="refresh" content="0; url=/" />
-      <a href="/">Go to home</a>
-    </noscript>
 
-    <script>
-      ;(() => {
-        const { hash, pathname, search } = window.location
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta http-equiv="refresh" content="0; url=/" />
+  <title>Redirecting | My Rents</title>
+</head>
 
-        if (pathname === '/portal') {
-          window.location.replace('/portal/')
-          return
-        }
+<body>
+  <noscript>
+    <meta http-equiv="refresh" content="0; url=/" />
+    <a href="/">Go to home</a>
+  </noscript>
 
-        if (pathname.startsWith('/portal/') && !pathname.slice('/portal/'.length).includes('.')) {
-          const portalSubpath = pathname.slice('/portal'.length)
-          const redirectTarget = `/portal/?p=${encodeURIComponent(`${portalSubpath}${search}${hash}`)}`
-          window.location.replace(redirectTarget)
-          return
-        }
+  <script>
+    window.location.replace('/')
+  </script>
+</body>
 
-        window.location.replace('/')
-      })()
-    </script>
-  </body>
 </html>

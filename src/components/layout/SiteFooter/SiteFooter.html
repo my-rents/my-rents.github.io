@@ -5,57 +5,38 @@
       <p class="site-footer__summary">{{ content.footer.summary }}</p>
       <div class="site-footer__locale">
         <span class="site-footer__locale-label">{{ content.header.languageLabel }}</span>
-        <div class="site-footer__language-select-shell">
-          <select
-            class="site-footer__language-select"
-            :value="locale"
-            :aria-label="content.header.languageLabel"
-            @change="handleLocaleChange"
-          >
-            <option
-              v-for="language in content.header.languages"
-              :key="language.code"
-              :value="language.code"
-            >
-              {{ language.label }}
-            </option>
-          </select>
+        <div class="site-footer__language-switcher" role="group" :aria-label="content.header.languageLabel">
+          <button v-for="language in content.header.languages" :key="language.code" class="site-footer__language-button"
+            :class="{ 'site-footer__language-button--active': locale === language.code }" type="button"
+            :aria-pressed="locale === language.code" @click="setLocale(language.code)">
+            {{ language.label }}
+          </button>
         </div>
       </div>
     </div>
 
     <div class="site-footer__column">
       <p class="site-footer__heading">{{ content.footer.menuHeading }}</p>
-      <RouterLink
-        v-for="item in content.primaryNav"
-        :key="item.hash"
-        class="site-footer__link"
-        :to="{ name: 'home', hash: item.hash }"
-      >
+      <RouterLink v-for="item in content.primaryNav" :key="item.hash" class="site-footer__link"
+        :to="{ name: 'home', hash: item.hash }">
         {{ item.label }}
       </RouterLink>
     </div>
 
     <div class="site-footer__column">
       <p class="site-footer__heading">{{ content.footer.legalHeading }}</p>
-      <RouterLink
-        v-for="link in content.footer.legalLinks"
-        :key="link.routeKey"
-        class="site-footer__link"
-        :to="{ name: link.routeKey }"
-      >
+      <RouterLink v-for="link in content.footer.legalLinks" :key="link.routeKey" class="site-footer__link"
+        :to="{ name: link.routeKey }">
         {{ link.label }}
       </RouterLink>
     </div>
 
     <div class="site-footer__column">
       <p class="site-footer__heading">{{ content.footer.contactHeading }}</p>
-      <a class="site-footer__link" :href="`mailto:${content.contact.emailAddress}`"
-        >{{ content.contact.emailAddress }}</a
-      >
-      <a class="site-footer__link" :href="content.contact.forumUrl" target="_blank" rel="noreferrer"
-        >{{ content.footer.forumLinkLabel }}</a
-      >
+      <a class="site-footer__link" :href="`mailto:${content.contact.emailAddress}`">{{ content.contact.emailAddress
+        }}</a>
+      <a class="site-footer__link" :href="content.contact.forumUrl" target="_blank" rel="noreferrer">{{
+        content.footer.forumLinkLabel }}</a>
       <span class="site-footer__link">{{ content.footer.upgradePrompt }}</span>
     </div>
   </div>
