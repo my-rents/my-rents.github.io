@@ -235,10 +235,6 @@ export interface SiteContent {
       title: string
       description: string
     }
-    marketingEmails: {
-      title: string
-      description: string
-    }
     businessCtaLabel: string
   }
   process: {
@@ -948,11 +944,6 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
         title: 'Need team accounts?',
         description:
           'If your business needs multiple users, separate accounts, or a different setup, contact us and we will help you choose the best option.',
-      },
-      marketingEmails: {
-        title: 'Marketing emails',
-        description:
-          'When you create a My Rents account, you are opted in by default to receive product news, offers, and other marketing emails from My Rents. Every marketing email includes an unsubscribe link so you can opt out at any time.',
       },
       businessCtaLabel: 'Contact us about business accounts',
     },
@@ -1880,12 +1871,7 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
         description:
           'Si tu negocio necesita varios usuarios, cuentas separadas o una configuración distinta, escríbenos y te ayudaremos a encontrar la mejor opción.',
       },
-      marketingEmails: {
-        title: 'Emails de marketing',
-        description:
-          'Cuando creas una cuenta en My Rents, quedas suscrito por defecto a noticias de producto, ofertas y otros emails de marketing de My Rents. Cada email de marketing incluye un enlace para cancelar la suscripción cuando quieras.',
-      },
-      businessCtaLabel: 'Contactar con nosotros para cuentas deempresa',
+      businessCtaLabel: 'Contactar con nosotros para cuentas de empresa',
     },
     process: {
       intro: {
@@ -2826,11 +2812,6 @@ const deOverride: SiteContentWithoutLegalPages = {
       description:
         'Wenn dein Unternehmen mehrere Nutzer, getrennte Konten oder ein anderes Setup braucht, kontaktiere uns und wir helfen dir bei der besten Option.',
     },
-    marketingEmails: {
-      title: 'Marketing-E-Mails',
-      description:
-        'Wenn du ein My Rents Konto erstellst, bist du standardmäßig für Produktnews, Angebote und andere Marketing-E-Mails von My Rents angemeldet. Jede Marketing-E-Mail enthält einen Abmeldelink, sodass du dich jederzeit abmelden kannst.',
-    },
     businessCtaLabel: 'Kontaktiere uns zu Business-Konten',
   },
   process: {
@@ -3379,11 +3360,6 @@ const frOverride: SiteContentWithoutLegalPages = {
       description:
         "Si votre entreprise a besoin de plusieurs utilisateurs, de comptes séparés ou d'une configuration différente, contactez-nous et nous vous aiderons à choisir la meilleure option.",
     },
-    marketingEmails: {
-      title: 'Emails marketing',
-      description:
-        'Quand vous créez un compte My Rents, vous êtes inscrit par défaut pour recevoir les nouveautés produit, offres et autres emails marketing de My Rents. Chaque email marketing inclut un lien de désabonnement afin que vous puissiez vous désinscrire à tout moment.',
-    },
     businessCtaLabel: 'Nous contacter pour des comptes entreprise',
   },
   process: {
@@ -3931,11 +3907,6 @@ const itOverride: SiteContentWithoutLegalPages = {
       description:
         "Se la tua attività ha bisogno di più utenti, account separati o una configurazione diversa, contattaci e ti aiuteremo a scegliere l'opzione migliore.",
     },
-    marketingEmails: {
-      title: 'Email di marketing',
-      description:
-        'Quando crei un account My Rents, sei iscritto per impostazione predefinita a novità di prodotto, offerte e altre email di marketing di My Rents. Ogni email di marketing include un link di disiscrizione così puoi annullarla in qualsiasi momento.',
-    },
     businessCtaLabel: 'Contattaci per account business',
   },
   process: {
@@ -4481,11 +4452,6 @@ const ptOverride: SiteContentWithoutLegalPages = {
       title: 'Precisa de contas de equipa?',
       description:
         'Se a sua empresa precisa de vários utilizadores, contas separadas ou outra configuração, contacte-nos e ajudaremos a escolher a melhor opção.',
-    },
-    marketingEmails: {
-      title: 'Emails de marketing',
-      description:
-        'Quando cria uma conta My Rents, fica subscrito por predefinição para receber novidades do produto, ofertas e outros emails de marketing do My Rents. Cada email de marketing inclui um link para cancelar a subscrição quando quiser.',
     },
     businessCtaLabel: 'Contacte-nos sobre contas empresariais',
   },
