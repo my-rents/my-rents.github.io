@@ -1,9 +1,5 @@
 import screenshotEn1 from '@/assets/features/main_EN.jpg'
 import screenshotEs1 from '@/assets/features/main_ES.jpg'
-import user1 from '@/assets/users/landlord.jpg'
-import user2 from '@/assets/users/portfolio_owner.jpg'
-import user3 from '@/assets/users/property_manager.jpg'
-import user4 from '@/assets/users/company.jpg'
 import calendarImage from '@/assets/features/calendar_EN.jpg'
 import contactsListImage from '@/assets/features/contacts_list_EN.jpg'
 
@@ -51,6 +47,30 @@ export interface ServiceItem {
 export interface BenefitItem {
   title: string
   description: string
+}
+
+export interface DocumentsCenterPreviewMetric {
+  label: string
+  value: string
+}
+
+export interface DocumentsCenterPreviewCollection {
+  label: string
+  items: string[]
+}
+
+export interface DocumentsCenterSection {
+  intro: SectionIntroContent
+  detail: string
+  benefits: BenefitItem[]
+  preview: {
+    eyebrow: string
+    title: string
+    metrics: DocumentsCenterPreviewMetric[]
+    collections: DocumentsCenterPreviewCollection[]
+  }
+  demoCtaLabel: string
+  note: string
 }
 
 export interface PricingPlan {
@@ -173,6 +193,7 @@ export interface SiteContent {
     intro: SectionIntroContent
     columns: ComparisonColumn[]
   }
+  documentsCenter: DocumentsCenterSection
   services: {
     intro: SectionIntroContent
     items: ServiceItem[]
@@ -227,10 +248,6 @@ export interface SiteContent {
   impact: {
     intro: SectionIntroContent
     items: FeatureSpotlightItem[]
-  }
-  team: {
-    intro: SectionIntroContent
-    members: TeamMember[]
   }
   appLanguages: AppLanguageSupport
   faq: {
@@ -319,6 +336,316 @@ const spanishLegalLinks: FooterLink[] = [
   { label: 'Eliminación de datos', routeKey: 'dataDeletion' },
 ]
 
+const documentsCenterContentByLocale: Record<SiteLocale, DocumentsCenterSection> = {
+  en: {
+    intro: {
+      eyebrow: 'Documents Center',
+      title: 'Give every lease a shared tenant portal instead of another email thread',
+      description:
+        'Documents Center publishes the lease documents, invoices, images, and expenses that belong to one lease in a secure route with role-specific passcodes.',
+    },
+    detail:
+      'Landlords stop resending the same files across WhatsApp and email, tenants get one clear place to check what matters, and the landlord can still see the next payday plus when the tenant last checked the portal.',
+    benefits: [
+      {
+        title: 'One link per lease',
+        description:
+          'Share one route instead of juggling PDFs, screenshots, and follow-up messages in different conversations.',
+      },
+      {
+        title: 'Documents, images, and expenses stay together',
+        description:
+          'Contracts, invoices, gallery items, and published expenses stay scoped to the exact lease they belong to.',
+      },
+      {
+        title: 'Landlord visibility without constant chasing',
+        description:
+          'See the next payday, payment status, and tenant last check-in without asking whether the files were opened.',
+      },
+    ],
+    preview: {
+      eyebrow: 'Tenant portal demo',
+      title: 'What the Documents Center shows at a glance',
+      metrics: [
+        { label: 'Next payday', value: '5 Apr 2026' },
+        { label: 'Tenant last check-in', value: '28 Mar 2026 · 18:20' },
+        { label: 'Access', value: 'Link + role passcodes' },
+      ],
+      collections: [
+        {
+          label: 'Documents and billing',
+          items: ['Signed lease summary', 'Move-in checklist', 'Water bill Apr 2026'],
+        },
+        {
+          label: 'Shared lease context',
+          items: ['3 gallery images', '2 published expenses', 'Payment status for this lease'],
+        },
+      ],
+    },
+    demoCtaLabel: 'Open live demo',
+    note: 'The demo opens a sample tenant view so you can see the shared experience before sending a real lease.',
+  },
+  es: {
+    intro: {
+      eyebrow: 'Nuevo: Centro de documentos',
+      title: 'Da a cada contrato un portal del inquilino compartido en vez de otro hilo de correos',
+      description:
+        'El Centro de documentos publica en una ruta segura los documentos, facturas, imágenes y gastos que pertenecen a un contrato, con claves separadas por rol.',
+    },
+    detail:
+      'El propietario deja de reenviar los mismos archivos por WhatsApp y correo, el inquilino tiene un único sitio claro para revisar lo importante y, además, el propietario puede ver el próximo cobro y cuándo entró el inquilino por última vez.',
+    benefits: [
+      {
+        title: 'Un enlace por contrato',
+        description:
+          'Comparte una sola ruta en vez de mover PDFs, capturas y recordatorios entre conversaciones distintas.',
+      },
+      {
+        title: 'Documentos, imágenes y gastos unidos',
+        description:
+          'Contratos, facturas, elementos de galería y gastos publicados quedan ligados al contrato correcto.',
+      },
+      {
+        title: 'Visibilidad para el propietario sin ir detrás',
+        description:
+          'Consulta el próximo cobro, el estado del pago y el último acceso del inquilino sin perseguir si abrió los archivos.',
+      },
+    ],
+    preview: {
+      eyebrow: 'Demo del portal del inquilino',
+      title: 'Lo que muestra el Centro de documentos de un vistazo',
+      metrics: [
+        { label: 'Próximo cobro', value: '5 abr 2026' },
+        { label: 'Último acceso del inquilino', value: '28 mar 2026 · 18:20' },
+        { label: 'Acceso', value: 'Enlace + claves por rol' },
+      ],
+      collections: [
+        {
+          label: 'Documentos y cobros',
+          items: [
+            'Resumen del contrato firmado',
+            'Checklist de entrada',
+            'Factura de agua abr 2026',
+          ],
+        },
+        {
+          label: 'Contexto del contrato compartido',
+          items: ['3 imágenes publicadas', '2 gastos visibles', 'Estado del pago del contrato'],
+        },
+      ],
+    },
+    demoCtaLabel: 'Abrir demo en vivo',
+    note: 'La demo abre una vista de ejemplo del inquilino para entender la experiencia compartida antes de enviar un contrato real.',
+  },
+  de: {
+    intro: {
+      eyebrow: 'Neu: Dokumentenzentrum',
+      title: 'Gib jedem Mietvertrag ein gemeinsames Mieterportal statt noch einer E-Mail-Kette',
+      description:
+        'Das Dokumentenzentrum veröffentlicht die Dokumente, Rechnungen, Bilder und Ausgaben eines Mietvertrags in einer sicheren Route mit rollenbasierten Passcodes.',
+    },
+    detail:
+      'Vermieter müssen dieselben Dateien nicht mehr über WhatsApp und E-Mail nachschicken, Mieter bekommen einen klaren Ort für das Wesentliche, und der Vermieter sieht trotzdem den nächsten Fälligkeitstermin und wann der Mieter das Portal zuletzt geöffnet hat.',
+    benefits: [
+      {
+        title: 'Ein Link pro Mietvertrag',
+        description:
+          'Teile eine einzige Route statt PDFs, Screenshots und Nachfass-Nachrichten über verschiedene Gespräche zu verteilen.',
+      },
+      {
+        title: 'Dokumente, Bilder und Ausgaben bleiben zusammen',
+        description:
+          'Verträge, Rechnungen, Galerieelemente und veröffentlichte Ausgaben bleiben genau dem richtigen Mietvertrag zugeordnet.',
+      },
+      {
+        title: 'Sichtbarkeit für Vermieter ohne ständiges Nachfassen',
+        description:
+          'Sieh den nächsten Fälligkeitstag, den Zahlungsstatus und den letzten Mieter-Login, ohne immer wieder nachfragen zu müssen.',
+      },
+    ],
+    preview: {
+      eyebrow: 'Mieterportal-Demo',
+      title: 'Was das Dokumentenzentrum auf einen Blick zeigt',
+      metrics: [
+        { label: 'Nächster Fälligkeitstag', value: '5 Apr 2026' },
+        { label: 'Letzter Mieter-Login', value: '28 Mar 2026 · 18:20' },
+        { label: 'Zugriff', value: 'Link + Rollen-Passcodes' },
+      ],
+      collections: [
+        {
+          label: 'Dokumente und Abrechnung',
+          items: ['Unterzeichneter Mietüberblick', 'Einzugs-Checkliste', 'Wasserrechnung Apr 2026'],
+        },
+        {
+          label: 'Geteilter Vertragskontext',
+          items: [
+            '3 veröffentlichte Bilder',
+            '2 freigegebene Ausgaben',
+            'Zahlungsstatus dieses Vertrags',
+          ],
+        },
+      ],
+    },
+    demoCtaLabel: 'Live-Demo öffnen',
+    note: 'Die Demo öffnet eine Beispielansicht für Mieter, damit du das gemeinsame Erlebnis sehen kannst, bevor du einen echten Mietvertrag teilst.',
+  },
+  fr: {
+    intro: {
+      eyebrow: 'Nouveau : Centre de documents',
+      title:
+        'Offrez à chaque bail un portail locataire partagé au lieu d’un nouvel échange d’e-mails',
+      description:
+        'Le Centre de documents publie les documents, factures, images et dépenses liés à un bail dans une route sécurisée avec des codes d’accès par rôle.',
+    },
+    detail:
+      'Le propriétaire n’a plus à renvoyer les mêmes fichiers sur WhatsApp et par e-mail, le locataire dispose d’un seul endroit clair pour consulter l’essentiel, et le propriétaire peut toujours voir le prochain paiement dû ainsi que la dernière visite du locataire.',
+    benefits: [
+      {
+        title: 'Un lien par bail',
+        description:
+          'Partagez une seule route au lieu de disperser PDF, captures et relances dans plusieurs conversations.',
+      },
+      {
+        title: 'Documents, images et dépenses restent groupés',
+        description:
+          'Contrats, factures, éléments de galerie et dépenses publiées restent attachés exactement au bon bail.',
+      },
+      {
+        title: 'Visibilité pour le propriétaire sans relances permanentes',
+        description:
+          'Voyez la prochaine échéance, le statut du paiement et la dernière visite du locataire sans devoir le relancer sans cesse.',
+      },
+    ],
+    preview: {
+      eyebrow: 'Démo du portail locataire',
+      title: 'Ce que le Centre de documents montre en un coup d’œil',
+      metrics: [
+        { label: 'Prochain paiement', value: '5 avr. 2026' },
+        { label: 'Dernière visite du locataire', value: '28 mars 2026 · 18:20' },
+        { label: 'Accès', value: 'Lien + codes par rôle' },
+      ],
+      collections: [
+        {
+          label: 'Documents et facturation',
+          items: ['Résumé du bail signé', 'Checklist d’entrée', 'Facture d’eau avr. 2026'],
+        },
+        {
+          label: 'Contexte partagé du bail',
+          items: ['3 images publiées', '2 dépenses visibles', 'Statut du paiement pour ce bail'],
+        },
+      ],
+    },
+    demoCtaLabel: 'Ouvrir la démo en direct',
+    note: 'La démo ouvre une vue locataire d’exemple afin de voir l’expérience partagée avant d’envoyer un vrai bail.',
+  },
+  it: {
+    intro: {
+      eyebrow: 'Novità: Centro documenti',
+      title:
+        'Dai a ogni contratto un portale condiviso per l’inquilino invece di un’altra catena di email',
+      description:
+        'Il Centro documenti pubblica documenti, fatture, immagini e spese di uno specifico contratto in un percorso sicuro con passcode separati per ruolo.',
+    },
+    detail:
+      'Il proprietario smette di reinviare gli stessi file tra WhatsApp ed email, l’inquilino ha un unico posto chiaro dove vedere ciò che conta e il proprietario può comunque controllare la prossima scadenza e l’ultimo accesso dell’inquilino.',
+    benefits: [
+      {
+        title: 'Un link per contratto',
+        description:
+          'Condividi un solo percorso invece di spargere PDF, screenshot e messaggi di follow-up in conversazioni diverse.',
+      },
+      {
+        title: 'Documenti, immagini e spese restano insieme',
+        description:
+          'Contratti, fatture, elementi della galleria e spese pubblicate restano collegati esattamente al contratto giusto.',
+      },
+      {
+        title: 'Visibilità per il proprietario senza inseguire nessuno',
+        description:
+          'Controlla la prossima scadenza, lo stato del pagamento e l’ultimo accesso dell’inquilino senza dover chiedere continuamente.',
+      },
+    ],
+    preview: {
+      eyebrow: 'Demo del portale inquilino',
+      title: 'Cosa mostra il Centro documenti a colpo d’occhio',
+      metrics: [
+        { label: 'Prossima scadenza', value: '5 apr 2026' },
+        { label: 'Ultimo accesso dell’inquilino', value: '28 mar 2026 · 18:20' },
+        { label: 'Accesso', value: 'Link + passcode per ruolo' },
+      ],
+      collections: [
+        {
+          label: 'Documenti e pagamenti',
+          items: [
+            'Riepilogo del contratto firmato',
+            'Checklist di ingresso',
+            'Fattura acqua apr 2026',
+          ],
+        },
+        {
+          label: 'Contesto condiviso del contratto',
+          items: ['3 immagini pubblicate', '2 spese visibili', 'Stato del pagamento del contratto'],
+        },
+      ],
+    },
+    demoCtaLabel: 'Apri demo live',
+    note: 'La demo apre una vista di esempio per l’inquilino così puoi vedere l’esperienza condivisa prima di inviare un contratto reale.',
+  },
+  pt: {
+    intro: {
+      eyebrow: 'Novo: Centro de documentos',
+      title:
+        'Dê a cada contrato um portal partilhado para o inquilino em vez de mais uma cadeia de emails',
+      description:
+        'O Centro de documentos publica os documentos, faturas, imagens e despesas de um contrato numa rota segura com códigos de acesso por perfil.',
+    },
+    detail:
+      'O senhorio deixa de reenviar os mesmos ficheiros por WhatsApp e email, o inquilino passa a ter um único local claro para ver o que importa e o senhorio continua a ver o próximo vencimento e a última entrada do inquilino.',
+    benefits: [
+      {
+        title: 'Um link por contrato',
+        description:
+          'Partilhe uma única rota em vez de espalhar PDFs, capturas e mensagens de seguimento por conversas diferentes.',
+      },
+      {
+        title: 'Documentos, imagens e despesas ficam juntos',
+        description:
+          'Contratos, faturas, itens da galeria e despesas publicadas ficam ligados exatamente ao contrato certo.',
+      },
+      {
+        title: 'Visibilidade para o senhorio sem andar sempre atrás',
+        description:
+          'Veja o próximo vencimento, o estado do pagamento e o último acesso do inquilino sem perguntar constantemente se abriu os ficheiros.',
+      },
+    ],
+    preview: {
+      eyebrow: 'Demo do portal do inquilino',
+      title: 'O que o Centro de documentos mostra num relance',
+      metrics: [
+        { label: 'Próximo vencimento', value: '5 abr 2026' },
+        { label: 'Último acesso do inquilino', value: '28 mar 2026 · 18:20' },
+        { label: 'Acesso', value: 'Link + códigos por perfil' },
+      ],
+      collections: [
+        {
+          label: 'Documentos e cobrança',
+          items: ['Resumo do contrato assinado', 'Checklist de entrada', 'Fatura de água abr 2026'],
+        },
+        {
+          label: 'Contexto partilhado do contrato',
+          items: [
+            '3 imagens publicadas',
+            '2 despesas visíveis',
+            'Estado do pagamento deste contrato',
+          ],
+        },
+      ],
+    },
+    demoCtaLabel: 'Abrir demo ao vivo',
+    note: 'A demo abre uma vista de exemplo para o inquilino para que possa ver a experiência partilhada antes de enviar um contrato real.',
+  },
+}
+
 const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
   en: {
     playStoreUrl: PLAY_STORE_URL,
@@ -341,10 +668,10 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
     },
     primaryNav: [
       { label: 'How it helps', hash: '#features' },
+      { label: 'Documents Center', hash: '#documents-center' },
       { label: 'How to start', hash: '#how-to-start' },
-      { label: 'PRO', hash: '#pricing' },
-      { label: "Who it's for", hash: '#who-its-for' },
       { label: 'Forum', hash: '#forum' },
+      { label: 'PRO', hash: '#pricing' },
       { label: 'FAQ', hash: '#faq' },
     ],
     hero: {
@@ -435,6 +762,7 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
         },
       ],
     },
+    documentsCenter: documentsCenterContentByLocale.en,
     services: {
       intro: {
         eyebrow: 'App tour',
@@ -722,36 +1050,6 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
             'Keep tenants, suppliers, and advisors organised by property so you are not digging through chats when something breaks.',
           image: contactsListImage,
           imageAlt: 'Contact list screenshot',
-        },
-      ],
-    },
-    team: {
-      intro: {
-        eyebrow: "Who it's for",
-        title: "Who it's for",
-        description:
-          'My Rents is for owners who have outgrown ad hoc spreadsheets and folders but are not looking for enterprise software or a management company to sit in the middle.',
-      },
-      members: [
-        {
-          name: 'New landlord',
-          role: 'Useful when you want good habits from the first lease instead of creating a messy system you have to replace later.',
-          image: user1,
-        },
-        {
-          name: 'Small portfolio owner',
-          role: 'Ideal when two or three properties already mean late-rent follow-up, repair receipts, lease dates, and paperwork are getting hard to keep straight.',
-          image: user2,
-        },
-        {
-          name: 'Property manager',
-          role: 'Helpful for day-to-day follow-up when you need fast access to payment status, maintenance history, contacts, and property context.',
-          image: user3,
-        },
-        {
-          name: 'Company or management team',
-          role: 'Useful when a small business needs consistent records, reporting, invoices, and clearer oversight across several properties or portfolios.',
-          image: user4,
         },
       ],
     },
@@ -1270,10 +1568,10 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
     },
     primaryNav: [
       { label: 'Cómo ayuda', hash: '#features' },
+      { label: 'Centro de documentos', hash: '#documents-center' },
       { label: 'Cómo empezar', hash: '#how-to-start' },
-      { label: 'PRO', hash: '#pricing' },
-      { label: 'Para quién es', hash: '#who-its-for' },
       { label: 'Foro', hash: '#forum' },
+      { label: 'PRO', hash: '#pricing' },
       { label: 'FAQ', hash: '#faq' },
     ],
     hero: {
@@ -1364,6 +1662,7 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
         },
       ],
     },
+    documentsCenter: documentsCenterContentByLocale.es,
     services: {
       intro: {
         eyebrow: 'Recorrido',
@@ -1653,36 +1952,6 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
             'Mantén inquilinos, proveedores y asesores organizados por propiedad para no buscar entre chats cuando algo se rompe.',
           image: contactsListImage,
           imageAlt: 'Captura en español de la lista de contactos',
-        },
-      ],
-    },
-    team: {
-      intro: {
-        eyebrow: 'Para quién es',
-        title: 'Para quién es',
-        description:
-          'My Rents es para quienes ya han superado las hojas de cálculo y carpetas improvisadas, pero no quieren software empresarial ni una empresa de gestión entre medias.',
-      },
-      members: [
-        {
-          name: 'Nuevo propietario',
-          role: 'Útil cuando quieres crear buenos hábitos desde el primer contrato, en vez de montar un sistema improvisado que luego tendrás que sustituir.',
-          image: user1,
-        },
-        {
-          name: 'Propietario con pequeño porfolio',
-          role: 'Ideal cuando dos o tres propiedades ya implican perseguir cobros, guardar recibos de reparaciones, recordar vencimientos y ordenar papeles.',
-          image: user2,
-        },
-        {
-          name: 'Gestor inmobiliario',
-          role: 'Muy útil para el seguimiento diario cuando necesitas ver rápido estados de pago, historial de mantenimiento, contactos y contexto del inmueble.',
-          image: user3,
-        },
-        {
-          name: 'Empresa o equipo de gestión',
-          role: 'Encaja cuando un negocio pequeño necesita registros consistentes, informes, facturación y una visión más clara entre varias propiedades o porfolios.',
-          image: user4,
         },
       ],
     },
@@ -2215,10 +2484,10 @@ const deOverride: SiteContentWithoutLegalPages = {
   },
   primaryNav: [
     { label: "So hilft's", hash: '#features' },
+    { label: 'Dokumentenzentrum', hash: '#documents-center' },
     { label: 'So startest du', hash: '#how-to-start' },
-    { label: 'PRO', hash: '#pricing' },
-    { label: 'Für wen', hash: '#who-its-for' },
     { label: 'Forum', hash: '#forum' },
+    { label: 'PRO', hash: '#pricing' },
     { label: 'FAQ', hash: '#faq' },
   ],
   hero: {
@@ -2309,6 +2578,7 @@ const deOverride: SiteContentWithoutLegalPages = {
       },
     ],
   },
+  documentsCenter: documentsCenterContentByLocale.de,
   services: {
     intro: {
       eyebrow: 'App-Tour',
@@ -2600,36 +2870,6 @@ const deOverride: SiteContentWithoutLegalPages = {
       },
     ],
   },
-  team: {
-    intro: {
-      eyebrow: 'Für wen es ist',
-      title: 'Für wen es ist',
-      description:
-        'My Rents ist für Eigentümer, die aus improvisierten Tabellen und Ordnern herausgewachsen sind, aber weder Enterprise-Software noch eine Verwaltungsgesellschaft dazwischen wollen.',
-    },
-    members: [
-      {
-        name: 'Neuer Vermieter',
-        role: 'Hilfreich, wenn du vom ersten Mietvertrag an gute Gewohnheiten aufbauen willst, statt später ein chaotisches System ersetzen zu müssen.',
-        image: user1,
-      },
-      {
-        name: 'Eigentümer mit kleinem Portfolio',
-        role: 'Ideal, wenn schon zwei oder drei Immobilien bedeuten, dass Mahnungen, Reparaturbelege, Vertragsdaten und Papierkram schwer überschaubar werden.',
-        image: user2,
-      },
-      {
-        name: 'Hausverwalter',
-        role: 'Hilfreich für den täglichen Überblick, wenn du schnell Zahlungsstatus, Instandhaltungshistorie, Kontakte und Objektkontext sehen musst.',
-        image: user3,
-      },
-      {
-        name: 'Unternehmen oder Verwaltungsteam',
-        role: 'Sinnvoll, wenn ein kleines Unternehmen konsistente Unterlagen, Berichte, Rechnungen und klarere Übersicht über mehrere Immobilien oder Portfolios braucht.',
-        image: user4,
-      },
-    ],
-  },
   appLanguages: {
     intro: {
       eyebrow: 'Sprachsupport',
@@ -2797,10 +3037,10 @@ const frOverride: SiteContentWithoutLegalPages = {
   },
   primaryNav: [
     { label: 'Comment ça aide', hash: '#features' },
+    { label: 'Centre de documents', hash: '#documents-center' },
     { label: 'Comment commencer', hash: '#how-to-start' },
-    { label: 'PRO', hash: '#pricing' },
-    { label: 'Pour qui', hash: '#who-its-for' },
     { label: 'Forum', hash: '#forum' },
+    { label: 'PRO', hash: '#pricing' },
     { label: 'FAQ', hash: '#faq' },
   ],
   hero: {
@@ -2891,6 +3131,7 @@ const frOverride: SiteContentWithoutLegalPages = {
       },
     ],
   },
+  documentsCenter: documentsCenterContentByLocale.fr,
   services: {
     intro: {
       eyebrow: "Tour de l'app",
@@ -3182,36 +3423,6 @@ const frOverride: SiteContentWithoutLegalPages = {
       },
     ],
   },
-  team: {
-    intro: {
-      eyebrow: 'Pour qui',
-      title: 'Pour qui',
-      description:
-        "My Rents est conçu pour les propriétaires qui ont dépassé les tableurs improvisés et les dossiers dispersés, sans vouloir d'un logiciel d'entreprise ni d'une société de gestion entre les deux.",
-    },
-    members: [
-      {
-        name: 'Nouveau propriétaire',
-        role: 'Utile si vous voulez prendre de bonnes habitudes dès le premier bail au lieu de créer un système brouillon à remplacer plus tard.',
-        image: user1,
-      },
-      {
-        name: 'Propriétaire avec petit portefeuille',
-        role: 'Idéal lorsque deux ou trois biens suffisent déjà à compliquer relances de loyers, reçus de réparations, dates de bail et paperasse.',
-        image: user2,
-      },
-      {
-        name: 'Gestionnaire immobilier',
-        role: "Très utile au quotidien si vous devez voir vite l'état des paiements, l'historique de maintenance, les contacts et le contexte du bien.",
-        image: user3,
-      },
-      {
-        name: 'Entreprise ou équipe de gestion',
-        role: "Adapté lorsqu'une petite structure a besoin de dossiers cohérents, de rapports, de factures et d'une vue plus claire sur plusieurs biens ou portefeuilles.",
-        image: user4,
-      },
-    ],
-  },
   appLanguages: {
     intro: {
       eyebrow: 'Langues',
@@ -3379,10 +3590,10 @@ const itOverride: SiteContentWithoutLegalPages = {
   },
   primaryNav: [
     { label: 'Come aiuta', hash: '#features' },
+    { label: 'Centro documenti', hash: '#documents-center' },
     { label: 'Come iniziare', hash: '#how-to-start' },
-    { label: 'PRO', hash: '#pricing' },
-    { label: 'Per chi è', hash: '#who-its-for' },
     { label: 'Forum', hash: '#forum' },
+    { label: 'PRO', hash: '#pricing' },
     { label: 'FAQ', hash: '#faq' },
   ],
   hero: {
@@ -3473,6 +3684,7 @@ const itOverride: SiteContentWithoutLegalPages = {
       },
     ],
   },
+  documentsCenter: documentsCenterContentByLocale.it,
   services: {
     intro: {
       eyebrow: "Tour dell'app",
@@ -3763,36 +3975,6 @@ const itOverride: SiteContentWithoutLegalPages = {
       },
     ],
   },
-  team: {
-    intro: {
-      eyebrow: 'Per chi è',
-      title: 'Per chi è',
-      description:
-        'My Rents è per chi ha superato fogli di calcolo improvvisati e cartelle sparse, ma non vuole software enterprise né una società di gestione in mezzo.',
-    },
-    members: [
-      {
-        name: 'Nuovo proprietario',
-        role: 'Utile se vuoi costruire buone abitudini fin dal primo contratto invece di creare un sistema confuso da sostituire in seguito.',
-        image: user1,
-      },
-      {
-        name: 'Proprietario con piccolo portafoglio',
-        role: 'Ideale quando già due o tre immobili significano inseguire pagamenti, conservare ricevute di riparazione, ricordare scadenze e ordinare documenti.',
-        image: user2,
-      },
-      {
-        name: 'Gestore immobiliare',
-        role: "Molto utile per il follow-up quotidiano quando ti serve vedere rapidamente stato dei pagamenti, storico manutenzioni, contatti e contesto dell'immobile.",
-        image: user3,
-      },
-      {
-        name: 'Azienda o team di gestione',
-        role: 'Adatto quando una piccola attività ha bisogno di registri coerenti, report, fatture e maggiore visibilità su più immobili o portafogli.',
-        image: user4,
-      },
-    ],
-  },
   appLanguages: {
     intro: {
       eyebrow: 'Lingue',
@@ -3959,10 +4141,10 @@ const ptOverride: SiteContentWithoutLegalPages = {
   },
   primaryNav: [
     { label: 'Como ajuda', hash: '#features' },
+    { label: 'Centro de documentos', hash: '#documents-center' },
     { label: 'Como começar', hash: '#how-to-start' },
-    { label: 'PRO', hash: '#pricing' },
-    { label: 'Para quem é', hash: '#who-its-for' },
     { label: 'Forum', hash: '#forum' },
+    { label: 'PRO', hash: '#pricing' },
     { label: 'FAQ', hash: '#faq' },
   ],
   hero: {
@@ -4053,6 +4235,7 @@ const ptOverride: SiteContentWithoutLegalPages = {
       },
     ],
   },
+  documentsCenter: documentsCenterContentByLocale.pt,
   services: {
     intro: {
       eyebrow: 'Tour da app',
@@ -4340,36 +4523,6 @@ const ptOverride: SiteContentWithoutLegalPages = {
           'Mantenha inquilinos, fornecedores e consultores organizados por imóvel para não ter de procurar em conversas quando algo se estraga.',
         image: contactsListImage,
         imageAlt: 'Screenshot da lista de contactos',
-      },
-    ],
-  },
-  team: {
-    intro: {
-      eyebrow: 'Para quem é',
-      title: 'Para quem é',
-      description:
-        'O My Rents é para quem já ultrapassou folhas de cálculo improvisadas e pastas soltas, mas não procura software empresarial nem uma empresa de gestão no meio.',
-    },
-    members: [
-      {
-        name: 'Novo proprietário',
-        role: 'Útil quando quer criar bons hábitos desde o primeiro contrato, em vez de montar um sistema confuso que terá de substituir mais tarde.',
-        image: user1,
-      },
-      {
-        name: 'Proprietário com pequeno portfólio',
-        role: 'Ideal quando duas ou três propriedades já significam perseguir pagamentos, guardar recibos de reparação, lembrar prazos e organizar papéis.',
-        image: user2,
-      },
-      {
-        name: 'Gestor imobiliário',
-        role: 'Muito útil para o acompanhamento diário quando precisa de ver rapidamente estado de pagamentos, histórico de manutenção, contactos e contexto do imóvel.',
-        image: user3,
-      },
-      {
-        name: 'Empresa ou equipa de gestão',
-        role: 'Faz sentido quando uma pequena empresa precisa de registos consistentes, relatórios, faturação e uma visão mais clara sobre vários imóveis ou portfólios.',
-        image: user4,
       },
     ],
   },

@@ -1,0 +1,43 @@
+<section id="documents-center" class="documents-center-section">
+  <div class="section-shell documents-center-section__shell">
+    <div class="documents-center-section__copy" v-reveal>
+      <h2 class="documents-center-section__title">{{ content.documentsCenter.intro.title }}</h2>
+      <p v-if="content.documentsCenter.intro.description" class="documents-center-section__summary">
+        {{ content.documentsCenter.intro.description }}
+      </p>
+      <p class="documents-center-section__detail">{{ content.documentsCenter.detail }}</p>
+
+      <div class="documents-center-section__benefits">
+        <article
+          v-for="(benefit, index) in content.documentsCenter.benefits"
+          :key="benefit.title"
+          class="documents-center-section__benefit surface-card"
+          v-reveal="80 + index * 80"
+        >
+          <h3>{{ benefit.title }}</h3>
+          <p>{{ benefit.description }}</p>
+        </article>
+      </div>
+
+      <div class="documents-center-section__actions">
+        <AppButton
+          :label="content.documentsCenter.demoCtaLabel"
+          :href="portalDemoUrl"
+          size="large"
+          target="_blank"
+          rel="noopener noreferrer"
+        />
+        <AppButton
+          :label="content.hero.playStoreCtaLabel"
+          :href="content.playStoreUrl"
+          variant="light"
+          size="large"
+          target="_blank"
+          rel="noopener noreferrer"
+        />
+      </div>
+
+      <p class="documents-center-section__note">{{ content.documentsCenter.note }}</p>
+    </div>
+  </div>
+</section>
