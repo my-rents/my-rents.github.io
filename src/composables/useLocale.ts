@@ -1,6 +1,6 @@
 import { readonly, ref } from 'vue'
 
-import { defaultLocale, type SiteLocale } from '@/content/siteContent'
+import { defaultLocale, supportedLocales, type SiteLocale } from '@/content/siteContent'
 
 const STORAGE_KEY = 'my-rents-locale'
 let hasHydratedLocale = false
@@ -10,14 +10,12 @@ const normalizeLocale = (value: string | null | undefined): SiteLocale | null =>
     return null
   }
 
-  const normalizedValue = value.toLowerCase()
+  const normalizedValue = value.toLowerCase().replace(/_/g, '-')
 
-  if (normalizedValue.startsWith('es')) {
-    return 'es'
-  }
-
-  if (normalizedValue.startsWith('en')) {
-    return 'en'
+  for (const locale of supportedLocales) {
+    if (normalizedValue === locale || normalizedValue.startsWith(`${locale}-`)) {
+      return locale
+    }
   }
 
   return null

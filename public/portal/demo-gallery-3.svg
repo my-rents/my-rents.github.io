@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" fill="none">
+  <rect width="1600" height="900" fill="#F7F1E6"/>
+  <rect x="120" y="100" width="1360" height="700" rx="42" fill="#FFF9EF"/>
+  <rect x="250" y="220" width="300" height="430" rx="28" fill="#D7E4DC"/>
+  <rect x="620" y="180" width="640" height="500" rx="30" fill="#2D6758" opacity="0.9"/>
+  <path d="M680 620H1200L980 360L680 620Z" fill="#E4C6AF"/>
+  <circle cx="820" cy="290" r="46" fill="#F6E9D4"/>
+  <text x="250" y="730" fill="#14332C" font-family="Sora, Arial, sans-serif" font-size="54" font-weight="700">Terrace access</text>
+</svg>

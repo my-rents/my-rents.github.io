@@ -5,22 +5,21 @@
       <p class="site-footer__summary">{{ content.footer.summary }}</p>
       <div class="site-footer__locale">
         <span class="site-footer__locale-label">{{ content.header.languageLabel }}</span>
-        <div
-          class="site-footer__language-switcher"
-          role="group"
-          :aria-label="content.header.languageLabel"
-        >
-          <button
-            v-for="language in content.header.languages"
-            :key="language.code"
-            class="site-footer__language-button"
-            :class="{ 'site-footer__language-button--active': locale === language.code }"
-            type="button"
-            :aria-pressed="locale === language.code"
-            @click="setLocale(language.code)"
+        <div class="site-footer__language-select-shell">
+          <select
+            class="site-footer__language-select"
+            :value="locale"
+            :aria-label="content.header.languageLabel"
+            @change="handleLocaleChange"
           >
-            {{ language.label }}
-          </button>
+            <option
+              v-for="language in content.header.languages"
+              :key="language.code"
+              :value="language.code"
+            >
+              {{ language.label }}
+            </option>
+          </select>
         </div>
       </div>
     </div>

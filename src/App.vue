@@ -6,14 +6,23 @@ import { useRoute } from 'vue-router'
 
 import SiteFooter from '@/components/layout/SiteFooter/SiteFooter.vue'
 import SiteHeader from '@/components/layout/SiteHeader/SiteHeader.vue'
-import { getRouteTitle } from '@/content/siteContent'
+import { getRouteTitle, type SiteLocale } from '@/content/siteContent'
 import { useSiteContent } from '@/composables/useSiteContent'
 
 const route = useRoute()
 const { locale } = useSiteContent()
 
+const documentLanguageByLocale: Record<SiteLocale, string> = {
+  en: 'en',
+  es: 'es-ES',
+  de: 'de',
+  fr: 'fr',
+  it: 'it',
+  pt: 'pt-PT',
+}
+
 watchEffect(() => {
-  document.documentElement.lang = locale.value === 'es' ? 'es-ES' : 'en'
+  document.documentElement.lang = documentLanguageByLocale[locale.value]
   document.title = getRouteTitle(locale.value, route.name)
 })
 </script>

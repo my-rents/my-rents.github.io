@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex" />
     <meta name="theme-color" content="#ffffff" />
-    <meta http-equiv="refresh" content="0; url=/" />
     <title>Redirecting | My Rents</title>
   </head>
   <body>
@@ -15,7 +14,23 @@
     </noscript>
 
     <script>
-      window.location.replace('/')
+      ;(() => {
+        const { hash, pathname, search } = window.location
+
+        if (pathname === '/portal') {
+          window.location.replace('/portal/')
+          return
+        }
+
+        if (pathname.startsWith('/portal/') && !pathname.slice('/portal/'.length).includes('.')) {
+          const portalSubpath = pathname.slice('/portal'.length)
+          const redirectTarget = `/portal/?p=${encodeURIComponent(`${portalSubpath}${search}${hash}`)}`
+          window.location.replace(redirectTarget)
+          return
+        }
+
+        window.location.replace('/')
+      })()
     </script>
   </body>
 </html>

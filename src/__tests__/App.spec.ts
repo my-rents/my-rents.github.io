@@ -70,4 +70,45 @@ describe('App', () => {
     expect(wrapper.text()).toContain('Pon fin al caos administrativo')
     expect(wrapper.text()).toContain('Elige tu plan PRO')
   })
+
+  it('renders german copy when the locale is set to german', async () => {
+    window.localStorage.setItem('my-rents-locale', 'de')
+
+    await router.push('/')
+
+    const wrapper = mount(App, {
+      global: {
+        plugins: [router],
+      },
+    })
+
+    await flushPromises()
+
+    expect(wrapper.text()).toContain('Schluss mit dem Verwaltungschaos bei Vermietungen')
+    expect(wrapper.text()).toContain('Wähle deinen PRO-Plan')
+    expect(document.documentElement.lang).toBe('de')
+  })
+
+  it('switches locale from the footer dropdown and persists it', async () => {
+    await router.push('/')
+
+    const wrapper = mount(App, {
+      global: {
+        plugins: [router],
+      },
+    })
+
+    await flushPromises()
+
+    const languageSelect = wrapper.get('.site-footer__language-select')
+
+    expect(languageSelect.findAll('option')).toHaveLength(6)
+
+    await languageSelect.setValue('pt')
+    await flushPromises()
+
+    expect(wrapper.text()).toContain('Acabe com o caos administrativo dos alugueres')
+    expect(window.localStorage.getItem('my-rents-locale')).toBe('pt')
+    expect(document.documentElement.lang).toBe('pt-PT')
+  })
 })

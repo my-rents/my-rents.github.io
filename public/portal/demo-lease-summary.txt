@@ -1,0 +1,6 @@
+Lease summary
+
+Property: Maple Court Apartment 4B
+Tenant: Ariana Vega
+Frequency: Monthly
+Published through the local portal demo for UI verification.
