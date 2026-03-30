@@ -425,50 +425,52 @@ function PortalPage({ copy, language, onLanguageChange }: SharedAppProps) {
 
         {activeRole && portalView ? (
           <div className="hero-grid hero-grid--metrics">
-          <MetricCard
-            icon={paymentStatus?.icon ?? 'calendar'}
-            label={copy.paymentStatus}
-            value={paymentStatus?.label ?? copy.waitingForSignIn}
-            tone={paymentStatus?.tone ?? 'neutral'}
-            detail={paymentStatus?.detail ?? copy.paymentStatusLoadingDetail}
-          />
-          <MetricCard
-            icon="money"
-            label={copy.rentAmount}
-            value={portalView ? formatAmount(portalView.rentAmount, language) : copy.notLoaded}
-            tone="neutral"
-            detail={
-              portalView
-                ? friendlyFrequency(portalView.frequency, copy)
-                : copy.rentAmountLoadingDetail
-            }
-          />
-          <MetricCard
-            icon="calendar"
-            label={copy.leaseWindow}
-            value={
-              portalView
-                ? `${formatDate(portalView.from, language, copy)} ${copy.dateRangeSeparator} ${formatDate(portalView.to, language, copy)}`
-                : copy.notLoaded
-            }
-            tone="neutral"
-            detail={copy.leaseWorkspace}
-          />
-          <MetricCard
-            icon="shield"
-            label={activeRole === 'landlord' ? copy.tenantLastCheckIn : copy.portalUpdated}
-            value={
-              portalView
-                ? activeRole === 'landlord'
-                  ? formatDateTime(portalView.lastTenantLoginAt, language, copy)
-                  : formatDateTime(portalView.updatedAt, language, copy)
-                : copy.notLoaded
-            }
-            tone={activeRole === 'landlord' ? 'accent' : 'neutral'}
-            detail={activeRole === 'landlord' ? copy.tenantCheckInDetail : copy.portalUpdatedDetail}
-          />
-        </div>
-      ) : null}
+            <MetricCard
+              icon={paymentStatus?.icon ?? 'calendar'}
+              label={copy.paymentStatus}
+              value={paymentStatus?.label ?? copy.waitingForSignIn}
+              tone={paymentStatus?.tone ?? 'neutral'}
+              detail={paymentStatus?.detail ?? copy.paymentStatusLoadingDetail}
+            />
+            <MetricCard
+              icon="money"
+              label={copy.rentAmount}
+              value={portalView ? formatAmount(portalView.rentAmount, language) : copy.notLoaded}
+              tone="neutral"
+              detail={
+                portalView
+                  ? friendlyFrequency(portalView.frequency, copy)
+                  : copy.rentAmountLoadingDetail
+              }
+            />
+            <MetricCard
+              icon="calendar"
+              label={copy.leaseWindow}
+              value={
+                portalView
+                  ? `${formatDate(portalView.from, language, copy)} ${copy.dateRangeSeparator} ${formatDate(portalView.to, language, copy)}`
+                  : copy.notLoaded
+              }
+              tone="neutral"
+              detail={copy.leaseWorkspace}
+            />
+            <MetricCard
+              icon="shield"
+              label={activeRole === 'landlord' ? copy.tenantLastCheckIn : copy.portalUpdated}
+              value={
+                portalView
+                  ? activeRole === 'landlord'
+                    ? formatDateTime(portalView.lastTenantLoginAt, language, copy)
+                    : formatDateTime(portalView.updatedAt, language, copy)
+                  : copy.notLoaded
+              }
+              tone={activeRole === 'landlord' ? 'accent' : 'neutral'}
+              detail={
+                activeRole === 'landlord' ? copy.tenantCheckInDetail : copy.portalUpdatedDetail
+              }
+            />
+          </div>
+        ) : null}
       </section>
 
       {errorMessage && activeRole && portalView ? (
