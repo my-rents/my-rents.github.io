@@ -1,20 +1,22 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="robots" content="noindex" />
-    <meta name="theme-color" content="#ffffff" />
-    <title>Redirecting | My Rents</title>
-  </head>
 
-  <body>
-    <noscript>
-      <meta http-equiv="refresh" content="0; url=/" />
-      <a href="/">Go to home</a>
-    </noscript>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#ffffff" />
+  <title>Redirecting | My Rents</title>
+</head>
 
-    <script>
+<body>
+  <noscript>
+    <meta http-equiv="refresh" content="0; url=/" />
+    <a href="/">Go to home</a>
+  </noscript>
+
+  <script>
+    ;(() => {
       const pathname = window.location.pathname
       const isPortalPath = pathname.startsWith('/portal')
 
@@ -26,6 +28,8 @@
       }
 
       window.location.replace('/')
-    </script>
-  </body>
+    })()
+  </script>
+</body>
+
 </html>
