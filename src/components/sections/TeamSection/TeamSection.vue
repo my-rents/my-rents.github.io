@@ -3,10 +3,6 @@
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue'
 
-import companyImage from '@/assets/users/company.jpg'
-import landlordImage from '@/assets/users/landlord.jpg'
-import portfolioOwnerImage from '@/assets/users/portfolio_owner.jpg'
-import propertyManagerImage from '@/assets/users/property_manager.jpg'
 import { useViewport } from '@/composables/useViewport'
 import CarouselControls from '@/components/shared/CarouselControls/CarouselControls.vue'
 import SectionIntro from '@/components/shared/SectionIntro/SectionIntro.vue'
@@ -18,16 +14,17 @@ const DEFAULT_TEAM_IMAGE_DIMENSIONS = {
   height: 832,
 }
 
-const teamImageDimensionsBySource: Record<string, { width: number; height: number }> = {
-  [landlordImage]: { width: 1248, height: 832 },
-  [portfolioOwnerImage]: { width: 1248, height: 832 },
-  [propertyManagerImage]: { width: 1248, height: 832 },
-  [companyImage]: { width: 1360, height: 768 },
-}
-
 const { isMobile } = useViewport()
 const { content } = useSiteContent()
-const teamMembers = computed(() => content.value.team.members)
+const teamMembers = computed(() => content.value.team?.members ?? [])
+const teamIntro = computed(() => {
+  const intro = content.value.team?.intro
+  return {
+    eyebrow: intro?.eyebrow ?? '',
+    title: intro?.title ?? '',
+    description: intro?.description ?? '',
+  }
+})
 const cardsPerView = computed(() => (isMobile.value ? 1 : 2))
 const currentIndex = ref(0)
 const maxIndex = computed(() => Math.max(teamMembers.value.length - cardsPerView.value, 0))
@@ -49,9 +46,7 @@ const carouselStyle = computed(() => ({
   '--current-index': String(currentIndex.value),
 }))
 
-const getTeamImageDimensions = (imageSource: string) => {
-  return teamImageDimensionsBySource[imageSource] ?? DEFAULT_TEAM_IMAGE_DIMENSIONS
-}
+const getTeamImageDimensions = () => DEFAULT_TEAM_IMAGE_DIMENSIONS
 </script>
 
 <style scoped src="./TeamSection.scss" lang="scss"></style>

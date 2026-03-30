@@ -1,10 +1,10 @@
-<section id="who-its-for" class="team-section" :style="carouselStyle">
+<section v-if="teamMembers.length" id="who-its-for" class="team-section" :style="carouselStyle">
   <div class="section-shell team-section__shell">
     <div class="team-section__header" v-reveal>
       <SectionIntro
-        :eyebrow="content.team.intro.eyebrow"
-        :title="content.team.intro.title"
-        :description="content.team.intro.description"
+        :eyebrow="teamIntro.eyebrow"
+        :title="teamIntro.title"
+        :description="teamIntro.description"
       />
 
       <CarouselControls

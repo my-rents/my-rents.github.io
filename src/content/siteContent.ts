@@ -250,6 +250,10 @@ export interface SiteContent {
     items: FeatureSpotlightItem[]
   }
   appLanguages: AppLanguageSupport
+  team?: {
+    intro: SectionIntroContent
+    members: TeamMember[]
+  }
   faq: {
     intro: SectionIntroContent
     items: FaqItem[]
@@ -1050,6 +1054,36 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
             'Keep tenants, suppliers, and advisors organised by property so you are not digging through chats when something breaks.',
           image: contactsListImage,
           imageAlt: 'Contact list screenshot',
+        },
+      ],
+    },
+    team: {
+      intro: {
+        eyebrow: 'Who we help',
+        title: 'Landlords, managers, and portfolios',
+        description:
+          'From single-unit owners to property management teams, My Rents centralizes leases, invoices, documents, and tenant communication in one place.',
+      },
+      members: [
+        {
+          name: 'Independent Landlord',
+          role: 'Solo owner',
+          image: screenshotEn1,
+        },
+        {
+          name: 'Portfolio Owner',
+          role: 'Growing rental portfolio',
+          image: screenshotEn1,
+        },
+        {
+          name: 'Property Manager',
+          role: 'Operational team lead',
+          image: screenshotEn1,
+        },
+        {
+          name: 'Property Company',
+          role: 'Professional management firm',
+          image: screenshotEn1,
         },
       ],
     },
@@ -1952,6 +1986,36 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
             'Mantén inquilinos, proveedores y asesores organizados por propiedad para no buscar entre chats cuando algo se rompe.',
           image: contactsListImage,
           imageAlt: 'Captura en español de la lista de contactos',
+        },
+      ],
+    },
+    team: {
+      intro: {
+        eyebrow: 'A quién ayudamos',
+        title: 'Propietarios, gestores y equipos de alquiler',
+        description:
+          'Desde quien gestiona una sola vivienda hasta equipos que coordinan contratos y pagos en varios inmuebles, My Rents concentra todo en un único sitio.',
+      },
+      members: [
+        {
+          name: 'Propietario independiente',
+          role: 'Gestor individual',
+          image: screenshotEs1,
+        },
+        {
+          name: 'Propietario de porfolio',
+          role: 'Operador multivivienda',
+          image: screenshotEs1,
+        },
+        {
+          name: 'Gestor de propiedad',
+          role: 'Responsable operativo',
+          image: screenshotEs1,
+        },
+        {
+          name: 'Empresa de gestión',
+          role: 'Equipo profesional',
+          image: screenshotEs1,
         },
       ],
     },
