@@ -926,6 +926,11 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
             'No bots. No outsourced queue. You speak directly with the person building My Rents.',
         },
         {
+          title: 'Documents Center',
+          description:
+            'Keep lease documents, invoices, photos, and expense records grouped by lease in a secure shared portal, so landlords and tenants can access the right files without email threads.',
+        },
+        {
           title: 'No ads',
           description: 'Work without interruptions or promotional clutter.',
         },
