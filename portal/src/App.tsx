@@ -217,15 +217,13 @@ function LandingPage({ copy, language, onLanguageChange }: SharedAppProps) {
             text={copy.featureRentVisibilityText}
           />
         </div>
-        {import.meta.env.DEV ? (
-          <div className="demo-banner">
-            <span>{copy.localQaShortcut}</span>
-            <Link className="button button--ghost" to={`/${demoLeaseId}?demo=1&role=tenant`}>
-              <PortalIcon name="eye" />
-              {copy.openDemoPortal}
-            </Link>
-          </div>
-        ) : null}
+        <div className="demo-banner">
+          <span>{copy.localQaShortcut}</span>
+          <Link className="button button--ghost" to={`/${demoLeaseId}?demo=1&role=tenant`}>
+            <PortalIcon name="eye" />
+            {copy.openDemoPortal}
+          </Link>
+        </div>
       </section>
     </PortalShell>
   )
@@ -236,7 +234,7 @@ function PortalPage({ copy, language, onLanguageChange }: SharedAppProps) {
   const params = useParams()
   const [searchParams] = useSearchParams()
   const leaseId = params.leaseId?.trim() ?? ''
-  const isDemoMode = import.meta.env.DEV && searchParams.get('demo') === '1'
+  const isDemoMode = searchParams.get('demo') === '1'
   const demoRole = searchParams.get('role') === 'landlord' ? 'landlord' : 'tenant'
 
   const [selectedRole, setSelectedRole] = useState<PortalRole>('tenant')
