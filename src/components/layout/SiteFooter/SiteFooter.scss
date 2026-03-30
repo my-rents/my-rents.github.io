@@ -49,29 +49,21 @@
   background: var(--color-surface-soft);
 }
 
-.site-footer__language-button {
+.site-footer__language-select {
+  appearance: none;
   border: 0;
-  border-radius: var(--radius-pill);
   background: transparent;
-  padding: var(--space-2xs) var(--space-s);
-  color: var(--color-ink-muted);
+  color: var(--color-ink);
   font-size: var(--text-small);
   font-weight: 600;
-  line-height: 1;
-  transition:
-    background-color var(--duration-fast) var(--ease-standard),
-    color var(--duration-fast) var(--ease-standard),
-    box-shadow var(--duration-normal) var(--ease-standard);
-
-  &:focus-visible {
-    @include focus-ring;
-  }
+  line-height: 1.2;
+  padding: var(--space-xs) var(--space-s);
+  min-inline-size: 12ch;
+  outline: 0;
 }
 
-.site-footer__language-button--active {
-  background: var(--color-brand);
-  color: var(--color-brand-contrast);
-  box-shadow: var(--shadow-card);
+.site-footer__language-select:focus-visible {
+  @include focus-ring;
 }
 
 .site-footer__column {

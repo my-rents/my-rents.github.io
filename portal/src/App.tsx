@@ -39,7 +39,7 @@ function resolvePortalPublicAsset(fileName: string) {
   return `${portalBasePath}/${fileName.replace(/^\//, '')}`
 }
 
-const demoLeaseId = 'demo-lease-1001'
+const demoLeaseId = 'demo'
 
 const demoPortalView: PortalLeaseView = {
   enabled: true,
