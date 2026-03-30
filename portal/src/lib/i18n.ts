@@ -172,7 +172,7 @@ export const portalTranslations: Record<PortalLanguage, PortalCopy> = {
     galleryZipFailed:
       'The ZIP could not be prepared. Some remote images may block browser downloads.',
     heroSubtitleFallback:
-      'Use the role-specific passcode from the acknowledgement center to load this lease.',
+      'Use the role-specific passcode from the Documents Center to load this lease.',
     incompleteLeaseLink: 'The lease link or passcode was incomplete.',
     invalidPasscode: 'The passcode does not match this lease or role.',
     invoice: 'Invoice',
@@ -210,7 +210,7 @@ export const portalTranslations: Record<PortalLanguage, PortalCopy> = {
     paidDetail: 'The lease is marked as fully paid right now.',
     paidUp: 'Paid up',
     passcode: 'Passcode',
-    passcodePlaceholder: 'Enter the passcode from the acknowledgement center',
+    passcodePlaceholder: 'Enter the passcode from the Documents Center',
     paymentOverdue: 'Payment overdue',
     paymentOverdueDetail: (date) => `The next rent was due on ${date}.`,
     paymentStatus: 'Payment status',
@@ -296,7 +296,7 @@ export const portalTranslations: Record<PortalLanguage, PortalCopy> = {
     galleryZipFailed:
       'No se pudo preparar el ZIP. Algunas imágenes remotas pueden bloquear la descarga en el navegador.',
     heroSubtitleFallback:
-      'Usa el código del centro de avisos correspondiente al rol para cargar este contrato.',
+      'Usa el código del Centro de Documentos correspondiente al rol para cargar este contrato.',
     incompleteLeaseLink: 'Falta información en el enlace del contrato o en el código.',
     invalidPasscode: 'El código no coincide con este contrato o rol.',
     invoice: 'Factura',
@@ -336,7 +336,7 @@ export const portalTranslations: Record<PortalLanguage, PortalCopy> = {
     paidDetail: 'Este contrato está marcado como completamente pagado ahora mismo.',
     paidUp: 'Pagado',
     passcode: 'Código',
-    passcodePlaceholder: 'Introduce el código del centro de avisos',
+    passcodePlaceholder: 'Introduce el código del Centro de Documentos',
     paymentOverdue: 'Pago vencido',
     paymentOverdueDetail: (date) => `El siguiente cobro venció el ${date}.`,
     paymentStatus: 'Estado del pago',
@@ -423,7 +423,7 @@ export const portalTranslations: Record<PortalLanguage, PortalCopy> = {
     galleryZipFailed:
       'Die ZIP-Datei konnte nicht vorbereitet werden. Manche externen Bilder blockieren Browser-Downloads.',
     heroSubtitleFallback:
-      'Verwende den rollenbezogenen Code aus dem Benachrichtigungscenter, um diesen Vertrag zu laden.',
+      'Verwende den rollenbezogenen Code aus dem Dokumentenzentrum, um diesen Vertrag zu laden.',
     incompleteLeaseLink: 'Der Mietlink oder der Code war unvollstandig.',
     invalidPasscode: 'Der Code passt nicht zu diesem Vertrag oder dieser Rolle.',
     invoice: 'Rechnung',
@@ -463,9 +463,10 @@ export const portalTranslations: Record<PortalLanguage, PortalCopy> = {
     paidDetail: 'Dieser Vertrag ist derzeit als vollstandig bezahlt markiert.',
     paidUp: 'Bezahlt',
     passcode: 'Code',
-    passcodePlaceholder: 'Code aus dem Benachrichtigungscenter eingeben',
+    passcodePlaceholder: 'Code aus dem Dokumentenzentrum eingeben',
     paymentOverdue: 'Zahlung uberfallig',
     paymentOverdueDetail: (date) => `Die nachste Miete war am ${date} fallig.`,
+
     paymentStatus: 'Zahlungsstatus',
     paymentStatusLoadingDetail: 'Der Mietstatus erscheint, sobald das Portal geladen ist.',
     portalLinkCopyFailed: 'Der Portal-Link konnte nicht kopiert werden.',
@@ -551,7 +552,7 @@ export const portalTranslations: Record<PortalLanguage, PortalCopy> = {
     galleryZipFailed:
       "Le ZIP n'a pas pu etre prepare. Certaines images distantes peuvent bloquer le telechargement dans le navigateur.",
     heroSubtitleFallback:
-      'Utilisez le code correspondant au role depuis le centre de notifications pour charger ce bail.',
+      'Utilisez le code correspondant au role depuis le centre de documents pour charger ce bail.',
     incompleteLeaseLink: 'Le lien du bail ou le code etait incomplet.',
     invalidPasscode: 'Le code ne correspond pas a ce bail ou a ce role.',
     invoice: 'Facture',
@@ -590,7 +591,7 @@ export const portalTranslations: Record<PortalLanguage, PortalCopy> = {
     paidDetail: 'Ce bail est actuellement marque comme entierement paye.',
     paidUp: 'A jour',
     passcode: 'Code',
-    passcodePlaceholder: 'Saisissez le code du centre de notifications',
+    passcodePlaceholder: 'Saisissez le code du centre de documents',
     paymentOverdue: 'Paiement en retard',
     paymentOverdueDetail: (date) => `Le prochain loyer etait prevu le ${date}.`,
     paymentStatus: 'Etat du paiement',
@@ -678,7 +679,7 @@ export const portalTranslations: Record<PortalLanguage, PortalCopy> = {
     galleryZipFailed:
       'Impossibile preparare il file ZIP. Alcune immagini remote potrebbero bloccare il download nel browser.',
     heroSubtitleFallback:
-      'Usa il codice relativo al ruolo dal centro notifiche per caricare questo contratto.',
+      'Usa il codice relativo al ruolo dal centro documenti per caricare questo contratto.',
     incompleteLeaseLink: 'Il link del contratto o il codice erano incompleti.',
     invalidPasscode: 'Il codice non corrisponde a questo contratto o ruolo.',
     invoice: 'Fattura',
@@ -717,7 +718,7 @@ export const portalTranslations: Record<PortalLanguage, PortalCopy> = {
     paidDetail: 'Questo contratto risulta completamente pagato in questo momento.',
     paidUp: 'Pagato',
     passcode: 'Codice',
-    passcodePlaceholder: 'Inserisci il codice dal centro notifiche',
+    passcodePlaceholder: 'Inserisci il codice dal centro documenti',
     paymentOverdue: 'Pagamento in ritardo',
     paymentOverdueDetail: (date) => `Il prossimo affitto era previsto per il ${date}.`,
     paymentStatus: 'Stato del pagamento',
@@ -804,7 +805,7 @@ export const portalTranslations: Record<PortalLanguage, PortalCopy> = {
     galleryZipFailed:
       'Nao foi possivel preparar o ficheiro ZIP. Algumas imagens remotas podem bloquear a transferencia no navegador.',
     heroSubtitleFallback:
-      'Use o codigo do centro de notificacoes correspondente ao papel para carregar este contrato.',
+      'Use o codigo do Centro de Documentos correspondente ao papel para carregar este contrato.',
     incompleteLeaseLink: 'O link do contrato ou o codigo estavam incompletos.',
     invalidPasscode: 'O codigo nao corresponde a este contrato ou papel.',
     invoice: 'Fatura',
@@ -844,7 +845,7 @@ export const portalTranslations: Record<PortalLanguage, PortalCopy> = {
     paidDetail: 'Este contrato esta marcado como totalmente pago neste momento.',
     paidUp: 'Pago',
     passcode: 'Codigo',
-    passcodePlaceholder: 'Introduza o codigo do centro de notificacoes',
+    passcodePlaceholder: 'Introduza o codigo do Centro de Documentos',
     paymentOverdue: 'Pagamento em atraso',
     paymentOverdueDetail: (date) => `A proxima renda vencia em ${date}.`,
     paymentStatus: 'Estado do pagamento',

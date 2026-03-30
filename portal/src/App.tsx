@@ -249,7 +249,6 @@ function PortalPage({ copy, language, onLanguageChange }: SharedAppProps) {
   const [isCheckingSession, setIsCheckingSession] = useState(!isDemoMode)
   const [isSigningIn, setIsSigningIn] = useState(false)
   const [isLoadingPortal, setIsLoadingPortal] = useState(false)
-  const [isCopyingLink, setIsCopyingLink] = useState(false)
   const [isGalleryModalOpen, setIsGalleryModalOpen] = useState(false)
   const [galleryModalIndex, setGalleryModalIndex] = useState(0)
   const [isPreparingGalleryZip, setIsPreparingGalleryZip] = useState(false)
@@ -341,23 +340,6 @@ function PortalPage({ copy, language, onLanguageChange }: SharedAppProps) {
     }
   }
 
-  async function handleCopyLink() {
-    if (!navigator.clipboard) {
-      setErrorMessage(copy.clipboardUnavailable)
-      return
-    }
-
-    try {
-      setIsCopyingLink(true)
-      setErrorMessage(null)
-      await navigator.clipboard.writeText(window.location.href)
-    } catch (error) {
-      setErrorMessage(humanizeError(error, copy.portalLinkCopyFailed, copy))
-    } finally {
-      window.setTimeout(() => setIsCopyingLink(false), 1400)
-    }
-  }
-
   async function handleLogout() {
     if (isDemoMode) {
       navigate('/')
@@ -432,10 +414,6 @@ function PortalPage({ copy, language, onLanguageChange }: SharedAppProps) {
             </p>
           </div>
           <div className="hero-card__actions">
-            <button className="button button--ghost" onClick={handleCopyLink}>
-              <PortalIcon name="globe" />
-              {isCopyingLink ? copy.linkCopied : copy.copyLeaseLink}
-            </button>
             {activeRole ? (
               <button className="button button--ghost" onClick={handleLogout}>
                 <PortalIcon name="refresh" />
@@ -445,7 +423,8 @@ function PortalPage({ copy, language, onLanguageChange }: SharedAppProps) {
           </div>
         </div>
 
-        <div className="hero-grid hero-grid--metrics">
+        {activeRole && portalView ? (
+          <div className="hero-grid hero-grid--metrics">
           <MetricCard
             icon={paymentStatus?.icon ?? 'calendar'}
             label={copy.paymentStatus}
@@ -489,6 +468,7 @@ function PortalPage({ copy, language, onLanguageChange }: SharedAppProps) {
             detail={activeRole === 'landlord' ? copy.tenantCheckInDetail : copy.portalUpdatedDetail}
           />
         </div>
+      ) : null}
       </section>
 
       {errorMessage && activeRole && portalView ? (
