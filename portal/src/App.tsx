@@ -463,7 +463,7 @@ function PortalPage({ copy, language, onLanguageChange }: SharedAppProps) {
                     : formatDateTime(portalView.updatedAt, language, copy)
                   : copy.notLoaded
               }
-              tone={activeRole === 'landlord' ? 'accent' : 'neutral'}
+              tone="neutral"
               detail={
                 activeRole === 'landlord' ? copy.tenantCheckInDetail : copy.portalUpdatedDetail
               }
