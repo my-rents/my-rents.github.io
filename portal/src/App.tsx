@@ -11,6 +11,7 @@ import {
   useParams,
   useSearchParams,
 } from 'react-router-dom'
+import appIcon from '@/assets/icon.png'
 import { PortalIcon } from './lib/icons'
 import {
   PORTAL_LANGUAGE_STORAGE_KEY,
@@ -712,7 +713,9 @@ function PortalShell({
       <main className="portal-frame">
         <header className="masthead">
           <Link className="brand" to="/">
-            <span className="brand__mark">MR</span>
+            <span className="brand__mark">
+              <img src={appIcon} alt="My Rents" width={52} height={52} />
+            </span>
             <span className="brand__copy">
               <strong>My Rents</strong>
               <span>{copy.brandSubtitle}</span>
