@@ -73,7 +73,21 @@ export interface DocumentsCenterSection {
   note: string
 }
 
+export type PricingPlanKey = 'monthly' | 'sixMonth' | 'yearly'
+
+export interface LivePricingContent {
+  introDescription: string
+  messageDescription: string
+  storeTitle: string
+  storeDescription: string
+  selectorLabel: string
+  selectedCountryLabel: string
+  loadingLabel: string
+  unavailableLabel: string
+}
+
 export interface PricingPlan {
+  key: PricingPlanKey
   name: string
   badge?: string
   summary: string
@@ -227,6 +241,7 @@ export interface SiteContent {
       title: string
       description: string
     }
+    livePricing: LivePricingContent
     singleUser: {
       title: string
       description: string
@@ -867,6 +882,7 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
       },
       plans: [
         {
+          key: 'monthly',
           name: '1 month',
           badge: 'Flexible',
           summary:
@@ -876,6 +892,7 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
           ctaLabel: 'Download and check price',
         },
         {
+          key: 'sixMonth',
           name: '6 months',
           badge: 'New',
           summary:
@@ -885,6 +902,7 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
           ctaLabel: 'Download and check price',
         },
         {
+          key: 'yearly',
           name: '1 year',
           badge: 'Best continuity',
           summary:
@@ -935,6 +953,19 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
         title: 'See your PRO price in the app',
         description:
           'PRO pricing depends on country and appears inside My Rents. Download the app, open the PRO screen, and you will see the exact 1-month, 6-month, and 1-year amount for your region before you pay.',
+      },
+      livePricing: {
+        introDescription:
+          'PRO is for landlords who want cleaner records, faster answers, and less monthly reconstruction. The prices below come directly from Google Play for the country selected on this page.',
+        messageDescription:
+          'Choose the duration that matches how you want to adopt My Rents. Switch country below to preview the current 1-month, 6-month, and 1-year Google Play prices before users download the app.',
+        storeTitle: 'See your PRO price by country',
+        storeDescription:
+          "These prices reflect the selected country's Google Play amount. Purchase and billing still happen inside My Rents.",
+        selectorLabel: 'Country',
+        selectedCountryLabel: 'Google Play price for {country}',
+        loadingLabel: 'Loading price...',
+        unavailableLabel: 'Price unavailable for this country',
       },
       singleUser: {
         title: 'One user per PRO plan',
@@ -1114,7 +1145,7 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
         {
           question: 'How do I see the price for my country?',
           answer:
-            'Download My Rents and open the PRO upgrade area. The app shows the exact local price for your account before you confirm any purchase.',
+            'Choose your country in the PRO section on this website to preview the current Google Play price. You can confirm the same local amount inside My Rents before completing the purchase.',
         },
         {
           question: 'Is the PRO price for one user or for a company?',
@@ -1797,6 +1828,7 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
       },
       plans: [
         {
+          key: 'monthly',
           name: '1 mes',
           badge: 'Flexible',
           summary:
@@ -1806,6 +1838,7 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
           ctaLabel: 'Descargar y ver precio',
         },
         {
+          key: 'sixMonth',
           name: '6 meses',
           badge: 'Nuevo',
           summary:
@@ -1815,6 +1848,7 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
           ctaLabel: 'Descargar y ver precio',
         },
         {
+          key: 'yearly',
           name: '1 año',
           badge: 'Más continuidad',
           summary:
@@ -1860,6 +1894,19 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
         title: 'Mira tu precio en la app',
         description:
           'El precio de PRO depende del país y aparece dentro de My Rents. Descarga la app, abre la pantalla de PRO y verás el importe exacto de 1 mes, 6 meses y 1 año para tu región antes de pagar.',
+      },
+      livePricing: {
+        introDescription:
+          'PRO está pensado para propietarios que quieren registros más limpios, respuestas más rápidas y menos reconstrucción mensual. Los precios de abajo llegan directamente desde Google Play para el país seleccionado en esta página.',
+        messageDescription:
+          'Elige la duración que mejor encaje con tu ritmo. Cambia el país para ver el precio actual de Google Play para 1 mes, 6 meses y 1 año antes de descargar la app.',
+        storeTitle: 'Consulta tu precio PRO por país',
+        storeDescription:
+          'Estos precios reflejan el importe de Google Play para el país seleccionado. La compra y la facturación siguen ocurriendo dentro de My Rents.',
+        selectorLabel: 'País',
+        selectedCountryLabel: 'Precio de Google Play para {country}',
+        loadingLabel: 'Cargando precio...',
+        unavailableLabel: 'Precio no disponible para este país',
       },
       singleUser: {
         title: 'Un usuario por plan',
@@ -2042,7 +2089,7 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
         {
           question: '¿Cómo veo el precio para mi país?',
           answer:
-            'Descarga My Rents y abre la zona de mejora a PRO. La app te muestra el precio local exacto antes de confirmar cualquier compra.',
+            'Elige tu país en la sección PRO de esta web para ver el precio actual de Google Play. Puedes confirmar el mismo importe local dentro de My Rents antes de completar la compra.',
         },
         {
           question: '¿El precio de PRO es para un usuario o para una empresa?',
@@ -2510,7 +2557,6 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
 }
 
 type SiteContentWithoutLegalPages = Omit<SiteContent, 'legalPages'>
-
 const localizedLegalPages = baseSiteContentByLocale.en.legalPages
 
 const createLocalizedSiteContent = (content: SiteContentWithoutLegalPages): SiteContent => ({
@@ -2738,6 +2784,7 @@ const deOverride: SiteContentWithoutLegalPages = {
     },
     plans: [
       {
+        key: 'monthly',
         name: '1 Monat',
         badge: 'Flexibel',
         summary:
@@ -2747,6 +2794,7 @@ const deOverride: SiteContentWithoutLegalPages = {
         ctaLabel: 'Herunterladen und Preis prüfen',
       },
       {
+        key: 'sixMonth',
         name: '6 Monate',
         badge: 'Neu',
         summary:
@@ -2756,6 +2804,7 @@ const deOverride: SiteContentWithoutLegalPages = {
         ctaLabel: 'Herunterladen und Preis prüfen',
       },
       {
+        key: 'yearly',
         name: '1 Jahr',
         badge: 'Längste Laufzeit',
         summary:
@@ -2802,6 +2851,19 @@ const deOverride: SiteContentWithoutLegalPages = {
       title: 'Sieh deinen PRO-Preis in der App',
       description:
         'Der PRO-Preis hängt vom Land ab und erscheint in My Rents. Lade die App herunter, öffne den PRO-Bereich und sieh den exakten Betrag für 1 Monat, 6 Monate und 1 Jahr in deiner Region, bevor du bezahlst.',
+    },
+    livePricing: {
+      introDescription:
+        'PRO ist für Vermieter gedacht, die sauberere Unterlagen, schnellere Antworten und weniger monatliches Rekonstruieren wollen. Die Preise unten kommen direkt von Google Play für das Land, das du auf dieser Seite auswählst.',
+      messageDescription:
+        'Wähle die Laufzeit, die zu deinem Ablauf passt. Wechsle das Land, um den aktuellen Google-Play-Preis für 1 Monat, 6 Monate und 1 Jahr zu sehen, bevor die App heruntergeladen wird.',
+      storeTitle: 'Sieh deinen PRO-Preis nach Land',
+      storeDescription:
+        'Diese Preise entsprechen dem Google-Play-Betrag für das ausgewählte Land. Kauf und Abrechnung laufen weiterhin in My Rents.',
+      selectorLabel: 'Land',
+      selectedCountryLabel: 'Google-Play-Preis für {country}',
+      loadingLabel: 'Preis wird geladen...',
+      unavailableLabel: 'Preis für dieses Land nicht verfügbar',
     },
     singleUser: {
       title: 'Ein Benutzer pro Plan',
@@ -2953,7 +3015,7 @@ const deOverride: SiteContentWithoutLegalPages = {
       {
         question: 'Wie sehe ich den Preis für mein Land?',
         answer:
-          'Lade My Rents herunter und öffne den PRO-Bereich. Die App zeigt dir den exakten lokalen Preis für dein Konto, bevor du einen Kauf bestätigst.',
+          'Wähle dein Land im PRO-Bereich dieser Website, um den aktuellen Google-Play-Preis zu sehen. Den gleichen lokalen Betrag kannst du vor dem Kauf noch einmal in My Rents bestätigen.',
       },
       {
         question: 'Ist der PRO-Preis für eine Person oder für ein Unternehmen?',
@@ -3286,6 +3348,7 @@ const frOverride: SiteContentWithoutLegalPages = {
     },
     plans: [
       {
+        key: 'monthly',
         name: '1 mois',
         badge: 'Flexible',
         summary:
@@ -3295,6 +3358,7 @@ const frOverride: SiteContentWithoutLegalPages = {
         ctaLabel: 'Télécharger et voir le prix',
       },
       {
+        key: 'sixMonth',
         name: '6 mois',
         badge: 'Nouveau',
         summary:
@@ -3304,6 +3368,7 @@ const frOverride: SiteContentWithoutLegalPages = {
         ctaLabel: 'Télécharger et voir le prix',
       },
       {
+        key: 'yearly',
         name: '1 an',
         badge: 'Plus de continuité',
         summary:
@@ -3349,6 +3414,19 @@ const frOverride: SiteContentWithoutLegalPages = {
       title: "Voyez votre prix PRO dans l'app",
       description:
         "Le prix de PRO dépend du pays et apparaît dans My Rents. Téléchargez l'app, ouvrez l'écran PRO et vous verrez le montant exact pour 1 mois, 6 mois et 1 an dans votre région avant de payer.",
+    },
+    livePricing: {
+      introDescription:
+        "PRO s'adresse aux propriétaires qui veulent des dossiers plus propres, des réponses plus rapides et moins de reconstruction chaque mois. Les prix ci-dessous viennent directement de Google Play pour le pays sélectionné sur cette page.",
+      messageDescription:
+        "Choisissez la durée qui correspond à votre rythme. Changez de pays pour voir le prix Google Play actuel pour 1 mois, 6 mois et 1 an avant de télécharger l'app.",
+      storeTitle: 'Consultez votre prix PRO par pays',
+      storeDescription:
+        "Ces prix reflètent le montant Google Play du pays sélectionné. L'achat et la facturation se font toujours dans My Rents.",
+      selectorLabel: 'Pays',
+      selectedCountryLabel: 'Prix Google Play pour {country}',
+      loadingLabel: 'Chargement du prix...',
+      unavailableLabel: 'Prix indisponible pour ce pays',
     },
     singleUser: {
       title: 'Un utilisateur par formule',
@@ -3501,7 +3579,7 @@ const frOverride: SiteContentWithoutLegalPages = {
       {
         question: 'Comment voir le prix pour mon pays ?',
         answer:
-          "Téléchargez My Rents et ouvrez la zone de passage à PRO. L'app affiche le prix local exact pour votre compte avant toute confirmation d'achat.",
+          "Choisissez votre pays dans la section PRO de ce site pour voir le prix Google Play actuel. Vous pourrez confirmer le même montant local dans My Rents avant de finaliser l'achat.",
       },
       {
         question: 'Le prix PRO est-il pour un utilisateur ou pour une entreprise ?',
@@ -3834,6 +3912,7 @@ const itOverride: SiteContentWithoutLegalPages = {
     },
     plans: [
       {
+        key: 'monthly',
         name: '1 mese',
         badge: 'Flessibile',
         summary:
@@ -3843,6 +3922,7 @@ const itOverride: SiteContentWithoutLegalPages = {
         ctaLabel: 'Scarica e controlla il prezzo',
       },
       {
+        key: 'sixMonth',
         name: '6 mesi',
         badge: 'Nuovo',
         summary:
@@ -3852,6 +3932,7 @@ const itOverride: SiteContentWithoutLegalPages = {
         ctaLabel: 'Scarica e controlla il prezzo',
       },
       {
+        key: 'yearly',
         name: '1 anno',
         badge: 'Più continuità',
         summary:
@@ -3897,6 +3978,19 @@ const itOverride: SiteContentWithoutLegalPages = {
       title: "Guarda il tuo prezzo PRO nell'app",
       description:
         "Il prezzo di PRO dipende dal paese e appare dentro My Rents. Scarica l'app, apri la schermata PRO e vedrai l'importo esatto per 1 mese, 6 mesi e 1 anno nella tua regione prima di pagare.",
+    },
+    livePricing: {
+      introDescription:
+        'PRO è pensato per i proprietari che vogliono registri più puliti, risposte più rapide e meno ricostruzione mensile. I prezzi qui sotto arrivano direttamente da Google Play per il paese selezionato in questa pagina.',
+      messageDescription:
+        "Scegli la durata che meglio si adatta al tuo flusso. Cambia paese per vedere il prezzo Google Play attuale per 1 mese, 6 mesi e 1 anno prima di scaricare l'app.",
+      storeTitle: 'Guarda il prezzo PRO per paese',
+      storeDescription:
+        "Questi prezzi riflettono l'importo Google Play del paese selezionato. Acquisto e fatturazione avvengono comunque dentro My Rents.",
+      selectorLabel: 'Paese',
+      selectedCountryLabel: 'Prezzo Google Play per {country}',
+      loadingLabel: 'Caricamento del prezzo...',
+      unavailableLabel: 'Prezzo non disponibile per questo paese',
     },
     singleUser: {
       title: 'Un utente per piano',
@@ -4047,7 +4141,7 @@ const itOverride: SiteContentWithoutLegalPages = {
       {
         question: 'Come vedo il prezzo per il mio paese?',
         answer:
-          "Scarica My Rents e apri l'area di upgrade a PRO. L'app ti mostra il prezzo locale esatto per il tuo account prima che tu confermi l'acquisto.",
+          "Scegli il tuo paese nella sezione PRO di questo sito per vedere il prezzo Google Play attuale. Puoi confermare lo stesso importo locale dentro My Rents prima di completare l'acquisto.",
       },
       {
         question: "Il prezzo PRO è per un utente o per un'azienda?",
@@ -4380,6 +4474,7 @@ const ptOverride: SiteContentWithoutLegalPages = {
     },
     plans: [
       {
+        key: 'monthly',
         name: '1 mês',
         badge: 'Flexível',
         summary:
@@ -4389,6 +4484,7 @@ const ptOverride: SiteContentWithoutLegalPages = {
         ctaLabel: 'Transferir e ver preço',
       },
       {
+        key: 'sixMonth',
         name: '6 meses',
         badge: 'Novo',
         summary:
@@ -4398,6 +4494,7 @@ const ptOverride: SiteContentWithoutLegalPages = {
         ctaLabel: 'Transferir e ver preço',
       },
       {
+        key: 'yearly',
         name: '1 ano',
         badge: 'Maior continuidade',
         summary:
@@ -4443,6 +4540,19 @@ const ptOverride: SiteContentWithoutLegalPages = {
       title: 'Veja o seu preço PRO na app',
       description:
         'O preço PRO depende do país e aparece dentro do My Rents. Transfira a app, abra o ecrã PRO e verá o valor exato para 1 mês, 6 meses e 1 ano na sua região antes de pagar.',
+    },
+    livePricing: {
+      introDescription:
+        'O PRO foi pensado para proprietários que querem registos mais limpos, respostas mais rápidas e menos reconstrução mensal. Os preços abaixo vêm diretamente do Google Play para o país selecionado nesta página.',
+      messageDescription:
+        'Escolha a duração que melhor se adapta ao seu fluxo. Mude de país para ver o preço atual do Google Play para 1 mês, 6 meses e 1 ano antes de transferir a app.',
+      storeTitle: 'Veja o seu preço PRO por país',
+      storeDescription:
+        'Estes preços refletem o valor do Google Play para o país selecionado. A compra e a faturação continuam a acontecer dentro do My Rents.',
+      selectorLabel: 'País',
+      selectedCountryLabel: 'Preço do Google Play para {country}',
+      loadingLabel: 'A carregar preço...',
+      unavailableLabel: 'Preço indisponível para este país',
     },
     singleUser: {
       title: 'Um utilizador por plano',
@@ -4593,7 +4703,7 @@ const ptOverride: SiteContentWithoutLegalPages = {
       {
         question: 'Como vejo o preço para o meu país?',
         answer:
-          'Transfira o My Rents e abra a área de upgrade para PRO. A app mostra o preço local exato para a sua conta antes de confirmar qualquer compra.',
+          'Escolha o seu país na secção PRO deste site para ver o preço atual do Google Play. Pode confirmar o mesmo valor local dentro do My Rents antes de concluir a compra.',
       },
       {
         question: 'O preço PRO é para um utilizador ou para uma empresa?',

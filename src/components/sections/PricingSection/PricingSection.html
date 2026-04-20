@@ -3,19 +3,45 @@
     <SectionIntro
       :eyebrow="content.pricing.intro.eyebrow"
       :title="content.pricing.intro.title"
-      :description="content.pricing.intro.description"
+      :description="pricingIntroDescription"
       v-reveal
     />
 
     <article class="pricing-section__message surface-card" v-reveal="60">
-      <h3>{{ content.pricing.message.title }}</h3>
-      <p>{{ content.pricing.message.description }}</p>
+      <div class="pricing-section__message-copy">
+        <h3>{{ content.pricing.message.title }}</h3>
+        <p>{{ pricingMessageDescription }}</p>
+      </div>
+
+      <div
+        v-if="hasLivePricing && countryOptions.length > 0"
+        class="pricing-section__country-picker"
+      >
+        <label class="pricing-section__country-label" for="pricing-country-select">
+          {{ content.pricing.livePricing.selectorLabel }}
+        </label>
+        <div class="pricing-section__country-switcher">
+          <select
+            id="pricing-country-select"
+            class="pricing-section__country-select"
+            :value="selectedCountryCode ?? ''"
+            @change="handleCountryChange"
+          >
+            <option v-for="option in countryOptions" :key="option.code" :value="option.code">
+              {{ option.name }}
+            </option>
+          </select>
+        </div>
+        <p v-if="selectedCountryName" class="pricing-section__country-note">
+          {{ selectedCountryLabel }}
+        </p>
+      </div>
     </article>
 
     <div class="pricing-section__grid">
       <article
-        v-for="(plan, index) in content.pricing.plans"
-        :key="plan.name"
+        v-for="(plan, index) in displayPlans"
+        :key="plan.key"
         class="pricing-section__card surface-card"
         v-reveal="index * 100"
       >
@@ -28,14 +54,17 @@
             <p>{{ plan.summary }}</p>
           </div>
 
-          <div class="pricing-section__price-block">
-            <strong>{{ plan.detail }}</strong>
-            <span>{{ plan.subdetail }}</span>
+          <div
+            class="pricing-section__price-block"
+            :class="{ 'pricing-section__price-block--unavailable': plan.isUnavailable }"
+          >
+            <strong>{{ plan.priceHeading }}</strong>
+            <span>{{ plan.priceCaption }}</span>
           </div>
         </div>
 
         <AppButton
-          :label="plan.ctaLabel"
+          :label="plan.primaryCtaLabel"
           :href="content.playStoreUrl"
           target="_blank"
           rel="noopener noreferrer"
@@ -62,8 +91,8 @@
 
       <article class="pricing-section__policy-card surface-card" v-reveal="220">
         <div class="pricing-section__detail-head">
-          <h3>{{ content.pricing.storePricing.title }}</h3>
-          <p>{{ content.pricing.storePricing.description }}</p>
+          <h3>{{ storePricingTitle }}</h3>
+          <p>{{ storePricingDescription }}</p>
         </div>
 
         <div class="pricing-section__policy-list">

@@ -64,6 +64,27 @@ src/
    npm run preview
    ```
 
+## Google Play Pricing Sync
+
+- The pricing section can optionally read a generated catalog from `public/pricing/play-subscriptions.json` and show country-specific Google Play subscription prices on the marketing site.
+- The committed JSON file is only a placeholder. Real prices are generated at build time with the Android Publisher API.
+- Configure these environment variables in `.env` for local syncs or in GitHub Actions secrets/variables for deployment:
+
+  ```bash
+  GOOGLE_PLAY_PACKAGE_NAME=com.drodriguez.my_rents
+  GOOGLE_PLAY_SUBSCRIPTION_PRODUCT_IDS=your_product_id
+  GOOGLE_PLAY_DEFAULT_COUNTRY_CODE=US
+  GOOGLE_PLAY_SERVICE_ACCOUNT_JSON={...service account json...}
+  ```
+
+- Run the sync manually when you need a fresh catalog:
+
+  ```bash
+  npm run sync:play-pricing
+  ```
+
+- The GitHub Pages workflow will automatically refresh the catalog before build whenever `GOOGLE_PLAY_SERVICE_ACCOUNT_JSON` is configured.
+
 ## Quality Commands
 
 - Format all supported files:

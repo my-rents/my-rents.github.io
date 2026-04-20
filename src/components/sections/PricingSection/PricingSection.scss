@@ -1,4 +1,5 @@
 @use '@/styles/breakpoints' as *;
+@use '@/styles/mixins' as *;
 
 .pricing-section {
   padding-block: var(--section-space);
@@ -20,8 +21,61 @@
 }
 
 .pricing-section__message {
-  gap: var(--space-s);
+  gap: var(--space-m);
   background: linear-gradient(135deg, rgb(40 27 96 / 4%), rgb(91 70 173 / 8%));
+}
+
+.pricing-section__message-copy {
+  display: grid;
+  gap: var(--space-xs);
+}
+
+.pricing-section__country-picker {
+  display: grid;
+  gap: var(--space-2xs);
+  padding-top: var(--space-m);
+  border-top: var(--card-border);
+}
+
+.pricing-section__country-label {
+  font-size: var(--text-label);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+.pricing-section__country-switcher {
+  display: inline-flex;
+  justify-self: start;
+  inline-size: fit-content;
+  max-inline-size: 100%;
+  padding: var(--space-4xs);
+  border: var(--card-border);
+  border-radius: var(--radius-pill);
+  background: var(--color-surface-soft);
+}
+
+.pricing-section__country-select {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--color-ink);
+  font-size: var(--text-small);
+  font-weight: 600;
+  line-height: 1.2;
+  padding: var(--space-xs) var(--space-s);
+  min-inline-size: 14ch;
+  outline: 0;
+}
+
+.pricing-section__country-select:focus-visible {
+  @include focus-ring;
+}
+
+.pricing-section__country-note {
+  font-size: var(--text-small);
+  color: var(--color-ink-muted);
 }
 
 .pricing-section__message h3,
@@ -103,6 +157,11 @@
   font-size: clamp(2rem, 4vw, 2.75rem);
   line-height: 1.05;
   letter-spacing: -0.04em;
+}
+
+.pricing-section__price-block--unavailable strong {
+  font-size: clamp(1.2rem, 3vw, 1.55rem);
+  letter-spacing: -0.02em;
 }
 
 .pricing-section__price-block span {
