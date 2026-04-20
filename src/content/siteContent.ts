@@ -666,7 +666,7 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
     playStoreUrl: PLAY_STORE_URL,
     meta: {
       routeTitles: {
-        home: 'My Rents | Rental App for Landlords',
+        home: 'My Rents | Rental App',
         terms: 'Terms of Service | My Rents',
         privacy: 'Privacy Policy | My Rents',
         eula: 'EULA | My Rents',
