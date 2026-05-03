@@ -6,17 +6,11 @@
     },
     "chrome-devtools": {
       "command": "npx",
-      "args": [
-        "-y",
-        "chrome-devtools-mcp@latest"
-      ]
+      "args": ["-y", "chrome-devtools-mcp@latest"]
     },
     "gsc": {
       "command": "npx",
-      "args": [
-        "-y",
-        "@mikusnuz/gsc-mcp"
-      ],
+      "args": ["-y", "@mikusnuz/gsc-mcp"],
       "env": {
         "GSC_SERVICE_ACCOUNT_KEY_PATH": "E:/repos/mcp/my-rents-seo.json",
         "GSC_SITE_URL": "sc-domain:myrents-app.com"
