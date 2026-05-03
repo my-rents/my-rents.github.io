@@ -1478,86 +1478,48 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
         eyebrow: 'End-User License Agreement',
         title: 'EULA for My Rents',
         intro:
-          'This End-User License Agreement governs your download, installation, access to, and use of the My Rents software provided by Daniel Rodríguez.',
+          'This End-User License Agreement explains what rights and responsibilities apply when you use My Rents software.',
         updatedAt: 'March 11, 2026',
         sections: [
           {
+            title: 'What this EULA covers',
+            paragraphs: [
+              'This EULA governs your acquisition and use of My Rents software ("Software") directly from Daniel Rodriguez or through an authorized reseller or distributor. It applies to free versions and any other versions provided within the app.',
+              'By installing, accepting, or using My Rents software, you accept this agreement and agree to be bound by its terms. If you are agreeing on behalf of a company or other legal entity, you represent that you have authority to bind that entity and its affiliates. If you do not agree, do not install or use the Software.',
+              'This EULA applies only to the Software supplied by Daniel Rodriguez and to updates, supplements, Internet-based services, and support services for the Software unless those items include their own terms.',
+            ],
+          },
+          {
             title: 'License Grant',
             paragraphs: [
-              'Subject to this EULA, Daniel Rodríguez grants you a limited, personal, revocable, non-exclusive, non-transferable, and non-sublicensable license to install and use My Rents on devices you control for its intended purpose.',
-              'The software is licensed to you, not sold. Your right to use My Rents depends on your compliance with this EULA and any applicable app-store terms.',
+              'Daniel Rodriguez hereby grants you a personal, non-transferable, non-exclusive licence to use My Rents software on your devices in accordance with the terms of this EULA agreement. You are permitted to load My Rents software (pc, mobile or tablet) under your control. You are responsible for ensuring your device meets the minimum requirements of My Rents software.',
+              'You are not permitted to:',
+              '• Edit, alter, modify, adapt, translate or otherwise change the whole or any part of the Software nor permit the whole or any part of the Software to be combined with or become incorporated in any other software, nor decompile, disassemble or reverse engineer the Software or attempt to do any such things.',
+              '• Reproduce, copy, distribute, resell or otherwise use the Software for any commercial purpose.',
+              '• Allow any third party to use the Software on behalf of or for the benefit of any third party.',
+              '• Use the Software in any way which breaches any applicable local, national or international law.',
+              '• Use the Software for any purpose that Daniel Rodriguez considers is a breach of this EULA agreement.',
             ],
           },
           {
-            title: 'Accounts, Connectivity, and Purchases',
+            title: 'Intellectual Property and Ownership',
             paragraphs: [
-              'Some features of My Rents require an account, internet access, or an active PRO subscription. Subscriptions and in-app purchases may be billed and managed by the app store from which you downloaded the app.',
-              'Store terms, billing rules, renewal practices, and refund processes may apply in addition to this EULA and will control where mandatory store rules conflict with this EULA.',
+              'Daniel Rodriguez shall at all times retain ownership of the Software as originally downloaded by you and all subsequent downloads of the Software by you. The Software (and the copyright, and other intellectual property rights of whatever nature in the Software, including any modifications made thereto) are and shall remain the property of Daniel Rodriguez.',
+              'Daniel Rodriguez reserves the right to grant licences to use the Software to third parties.',
             ],
           },
           {
-            title: 'Restrictions',
+            title: 'Termination',
             paragraphs: [
-              'Except to the extent non-waivable law allows otherwise, you may not copy, modify, distribute, sell, lease, sublicense, decompile, reverse engineer, scrape, or create derivative works from My Rents or any part of it.',
-              'You may not bypass security or technical restrictions, use the software for unlawful purposes, or permit unauthorized third parties to access the software through your account.',
+              'This EULA agreement is effective from the date you first use the Software and shall continue until terminated. You may terminate it at any time upon written notice to Daniel Rodriguez.',
+              'It will also terminate immediately if you fail to comply with any term of this EULA agreement. Upon such termination, the licenses granted by this EULA agreement will immediately terminate and you agree to stop all access and use of the Software.',
+              'The provisions that by their nature continue and survive will survive any termination of this EULA agreement.',
             ],
           },
           {
-            title: 'Your Data and Content',
+            title: 'Governing Law',
             paragraphs: [
-              'You retain ownership of the content you upload to My Rents, including images, documents, notes, property records, invoices, and related information.',
-              'You grant us the limited rights needed to host, process, back up, transmit, and display that content in order to operate, support, secure, and improve My Rents for you.',
-              'You are responsible for the legality, accuracy, and permissions associated with the content you upload or store through the software.',
-            ],
-          },
-          {
-            title: 'Ownership of My Rents',
-            paragraphs: [
-              'My Rents, including the software, source code, text, layout, visual design, logos, trademarks, and other original content, remains the exclusive property of Daniel Rodríguez or the relevant licensors.',
-              'This EULA gives you only the limited use rights expressly stated here. All other rights are reserved.',
-            ],
-          },
-          {
-            title: 'Updates and Third-Party Components',
-            paragraphs: [
-              'We may release updates, fixes, patches, or new versions of My Rents. Some updates may be required for security, compatibility, or continued use of certain features.',
-              'My Rents may include or rely on third-party services or components, including app-store services, Google services, Firebase services, or mapping tools. Those third parties may be governed by their own legal terms and privacy notices.',
-            ],
-          },
-          {
-            title: 'Disclaimer of Warranties',
-            paragraphs: [
-              'To the maximum extent permitted by law, My Rents is provided on an as is and as available basis without warranties of any kind, whether express, implied, or statutory.',
-              'We do not guarantee that the software will be uninterrupted, error-free, fully secure, or suitable for every workflow, legal requirement, or business need.',
-            ],
-          },
-          {
-            title: 'Limitation of Liability',
-            paragraphs: [
-              'To the fullest extent permitted by law, Daniel Rodríguez will not be liable for indirect, incidental, consequential, special, exemplary, or punitive damages, or for loss of profits, revenue, goodwill, data, or business interruption arising out of or related to My Rents.',
-              'If liability cannot be excluded, the total liability arising from or related to My Rents will be limited to the amount you paid for PRO in the 12 months before the event giving rise to the claim.',
-              'Nothing in this EULA excludes liability that cannot lawfully be excluded or limited under applicable law.',
-            ],
-          },
-          {
-            title: 'Term and Termination',
-            paragraphs: [
-              'This EULA starts when you first install, access, or use My Rents and continues until terminated.',
-              'You may terminate it at any time by stopping use of the software and deleting your account where applicable. We may suspend or terminate your license immediately if you materially breach this EULA, misuse the software, or create legal or security risk.',
-              'On termination, your right to use the software ends immediately and you must stop using My Rents. If you subscribed through an app store, you must also manage cancellation through the relevant store where required.',
-            ],
-          },
-          {
-            title: 'Governing Law and Consumer Rights',
-            paragraphs: [
-              'This EULA is governed by the laws of Spain, without regard to conflict-of-law rules.',
-              'If you live in a jurisdiction that gives you mandatory consumer protections, those protections remain available to you to the extent required by law.',
-            ],
-          },
-          {
-            title: 'Contact',
-            paragraphs: [
-              'If you have questions about this EULA, contact us at info@myrents-app.com, through this website, or through the public support forum.',
+              'This EULA agreement, and any dispute arising out of or in connection with this EULA agreement, shall be governed by and construed in accordance with the laws of es.',
             ],
           },
         ],
