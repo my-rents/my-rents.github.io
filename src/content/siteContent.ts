@@ -180,6 +180,7 @@ export interface UnsubscribePageContent {
 
 export interface SiteContent {
   playStoreUrl: string
+  appStoreUrl: string
   meta: {
     routeTitles: Record<AppRouteName, string>
   }
@@ -196,7 +197,7 @@ export interface SiteContent {
     title: string
     copy: string
     playStoreCtaLabel: string
-    iosDevelopmentLabel: string
+    appStoreCtaLabel: string
     contactCtaLabel: string
     snapshot: string
     snapshotAlt: string
@@ -250,6 +251,8 @@ export interface SiteContent {
       title: string
       description: string
     }
+    androidCtaLabel: string
+    iOSCtaLabel: string
     businessCtaLabel: string
   }
   process: {
@@ -315,6 +318,7 @@ export const supportedLocales = ['en', 'es', 'de', 'fr', 'it', 'pt'] as const
 export const defaultLocale: SiteLocale = 'en'
 
 const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=com.drodriguez.my_rents'
+const APP_STORE_URL = 'https://apps.apple.com/es/app/my-rents-property-manager-pro/id1537064606'
 const CONTACT_EMAIL = 'info@myrents-app.com'
 const FORUM_URL = 'https://drodriguez-support.com'
 const FEATURE_SPOTLIGHT_IMAGE = screenshotEs1
@@ -664,6 +668,7 @@ const documentsCenterContentByLocale: Record<SiteLocale, DocumentsCenterSection>
 const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
   en: {
     playStoreUrl: PLAY_STORE_URL,
+    appStoreUrl: APP_STORE_URL,
     meta: {
       routeTitles: {
         home: 'My Rents | Rental App',
@@ -694,7 +699,7 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
       title: 'Stop rental admin chaos',
       copy: 'A few properties are enough to create real admin chaos: rent arrives late or in parts, repair invoices end up in your car or WhatsApp, lease dates live in PDFs, and tax season becomes a rebuild project. My Rents gives small landlords one place for properties, leases, payments, expenses, documents, and contacts.',
       playStoreCtaLabel: 'Download on Google Play',
-      iosDevelopmentLabel: '* iOS version currently under development',
+      appStoreCtaLabel: 'Download on the App Store',
       contactCtaLabel: 'Contact us',
       snapshot: screenshotEn1,
       snapshotAlt: 'English screenshot of the My Rents dashboard',
@@ -976,6 +981,8 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
         description:
           'If your business needs multiple users, separate accounts, or a different setup, contact us and we will help you choose the best option.',
       },
+      androidCtaLabel: 'Check price on Android',
+      iOSCtaLabel: 'Check price on iOS',
       businessCtaLabel: 'Contact us about business accounts',
     },
     process: {
@@ -1572,6 +1579,7 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
   },
   es: {
     playStoreUrl: PLAY_STORE_URL,
+    appStoreUrl: APP_STORE_URL,
     meta: {
       routeTitles: {
         home: 'My Rents | App para gestionar alquileres',
@@ -1602,7 +1610,7 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
       title: 'Pon fin al caos administrativo',
       copy: 'Unas pocas propiedades bastan para crear un caos administrativo real: cobros que llegan tarde o por partes, facturas de reparaciones que acaban en el coche o en WhatsApp, vencimientos escondidos en PDFs y una campaña de impuestos que obliga a reconstruir el año. My Rents reúne propiedades, contratos, pagos, gastos, documentos y contactos en un solo lugar.',
       playStoreCtaLabel: 'Descargar en Google Play',
-      iosDevelopmentLabel: '* versión para iOS actualmente en desarrollo',
+      appStoreCtaLabel: 'Descargar en la App Store',
       contactCtaLabel: 'Contactar con nosotros',
       snapshot: screenshotEs1,
       snapshotAlt: 'Captura en español del panel de My Rents',
@@ -1880,6 +1888,8 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
         description:
           'Si tu negocio necesita varios usuarios, cuentas separadas o una configuración distinta, escríbenos y te ayudaremos a encontrar la mejor opción.',
       },
+      androidCtaLabel: 'Consultar precio en Android',
+      iOSCtaLabel: 'Consultar precio en iOS',
       businessCtaLabel: 'Contactar con nosotros para cuentas de empresa',
     },
     process: {
@@ -2528,6 +2538,7 @@ const createLocalizedSiteContent = (content: SiteContentWithoutLegalPages): Site
 
 const deOverride: SiteContentWithoutLegalPages = {
   playStoreUrl: PLAY_STORE_URL,
+  appStoreUrl: APP_STORE_URL,
   meta: {
     routeTitles: {
       home: 'My Rents | Mietverwaltungs-App',
@@ -2558,7 +2569,7 @@ const deOverride: SiteContentWithoutLegalPages = {
     title: 'Schluss mit dem Verwaltungschaos bei Vermietungen',
     copy: 'Schon wenige Immobilien reichen für echtes Verwaltungschaos: Mieten kommen verspätet oder in Teilbeträgen, Reparaturrechnungen landen im Auto oder in WhatsApp, Vertragsdaten stecken in PDFs und zur Steuerzeit beginnt das Rekonstruieren. My Rents bringt Immobilien, Mietverträge, Zahlungen, Ausgaben, Dokumente und Kontakte an einen Ort.',
     playStoreCtaLabel: 'Bei Google Play herunterladen',
-    iosDevelopmentLabel: '* iOS-Version derzeit in Entwicklung',
+    appStoreCtaLabel: 'Im App Store laden',
     contactCtaLabel: 'Kontaktiere uns',
     snapshot: screenshotEn1,
     snapshotAlt: 'Screenshot des My Rents Dashboards',
@@ -2836,6 +2847,8 @@ const deOverride: SiteContentWithoutLegalPages = {
       description:
         'Wenn dein Unternehmen mehrere Nutzer, getrennte Konten oder ein anderes Setup braucht, kontaktiere uns und wir helfen dir bei der besten Option.',
     },
+    androidCtaLabel: 'Preis auf Android ansehen',
+    iOSCtaLabel: 'Preis auf iOS ansehen',
     businessCtaLabel: 'Kontaktiere uns zu Business-Konten',
   },
   process: {
@@ -3092,6 +3105,7 @@ const deOverride: SiteContentWithoutLegalPages = {
 
 const frOverride: SiteContentWithoutLegalPages = {
   playStoreUrl: PLAY_STORE_URL,
+  appStoreUrl: APP_STORE_URL,
   meta: {
     routeTitles: {
       home: 'My Rents | App de gestion locative',
@@ -3122,7 +3136,7 @@ const frOverride: SiteContentWithoutLegalPages = {
     title: 'Stoppez le chaos administratif de la location',
     copy: 'Quelques biens suffisent pour créer un vrai chaos administratif : loyers en retard ou payés en plusieurs fois, factures de réparation qui finissent dans la voiture ou sur WhatsApp, dates de bail cachées dans des PDF, et saison fiscale qui oblige à tout reconstruire. My Rents réunit biens, baux, paiements, dépenses, documents et contacts au même endroit.',
     playStoreCtaLabel: 'Télécharger sur Google Play',
-    iosDevelopmentLabel: '* version iOS actuellement en développement',
+    appStoreCtaLabel: "Télécharger sur l'App Store",
     contactCtaLabel: 'Nous contacter',
     snapshot: screenshotEn1,
     snapshotAlt: 'Capture du tableau de bord My Rents',
@@ -3400,6 +3414,8 @@ const frOverride: SiteContentWithoutLegalPages = {
       description:
         "Si votre entreprise a besoin de plusieurs utilisateurs, de comptes séparés ou d'une configuration différente, contactez-nous et nous vous aiderons à choisir la meilleure option.",
     },
+    androidCtaLabel: 'Consulter le prix sur Android',
+    iOSCtaLabel: 'Consulter le prix sur iOS',
     businessCtaLabel: 'Nous contacter pour des comptes entreprise',
   },
   process: {
@@ -3656,6 +3672,7 @@ const frOverride: SiteContentWithoutLegalPages = {
 
 const itOverride: SiteContentWithoutLegalPages = {
   playStoreUrl: PLAY_STORE_URL,
+  appStoreUrl: APP_STORE_URL,
   meta: {
     routeTitles: {
       home: 'My Rents | App per la gestione degli affitti',
@@ -3686,7 +3703,7 @@ const itOverride: SiteContentWithoutLegalPages = {
     title: 'Ferma il caos amministrativo degli affitti',
     copy: 'Bastano poche proprietà per creare vero caos amministrativo: pagamenti che arrivano in ritardo o a rate, fatture di riparazione che finiscono in auto o su WhatsApp, date dei contratti nascoste nei PDF e periodo fiscale che costringe a ricostruire tutto. My Rents riunisce immobili, contratti, pagamenti, spese, documenti e contatti in un solo posto.',
     playStoreCtaLabel: 'Scarica da Google Play',
-    iosDevelopmentLabel: '* versione iOS attualmente in sviluppo',
+    appStoreCtaLabel: "Scarica dall'App Store",
     contactCtaLabel: 'Contattaci',
     snapshot: screenshotEn1,
     snapshotAlt: 'Screenshot della dashboard di My Rents',
@@ -3963,6 +3980,8 @@ const itOverride: SiteContentWithoutLegalPages = {
       description:
         "Se la tua attività ha bisogno di più utenti, account separati o una configurazione diversa, contattaci e ti aiuteremo a scegliere l'opzione migliore.",
     },
+    androidCtaLabel: 'Vedi prezzo su Android',
+    iOSCtaLabel: 'Vedi prezzo su iOS',
     businessCtaLabel: 'Contattaci per account business',
   },
   process: {
@@ -4218,6 +4237,7 @@ const itOverride: SiteContentWithoutLegalPages = {
 
 const ptOverride: SiteContentWithoutLegalPages = {
   playStoreUrl: PLAY_STORE_URL,
+  appStoreUrl: APP_STORE_URL,
   meta: {
     routeTitles: {
       home: 'My Rents | App de gestão de alugueres',
@@ -4248,7 +4268,7 @@ const ptOverride: SiteContentWithoutLegalPages = {
     title: 'Acabe com o caos administrativo dos alugueres',
     copy: 'Bastam poucos imóveis para criar verdadeiro caos administrativo: rendas que chegam tarde ou por partes, faturas de reparação que acabam no carro ou no WhatsApp, datas de contrato escondidas em PDFs e época fiscal que obriga a reconstruir tudo. O My Rents junta imóveis, contratos, pagamentos, despesas, documentos e contactos num só lugar.',
     playStoreCtaLabel: 'Transferir no Google Play',
-    iosDevelopmentLabel: '* versão iOS atualmente em desenvolvimento',
+    appStoreCtaLabel: 'Transferir na App Store',
     contactCtaLabel: 'Contacte-nos',
     snapshot: screenshotEn1,
     snapshotAlt: 'Screenshot do painel My Rents',
@@ -4525,6 +4545,8 @@ const ptOverride: SiteContentWithoutLegalPages = {
       description:
         'Se a sua empresa precisa de vários utilizadores, contas separadas ou outra configuração, contacte-nos e ajudaremos a escolher a melhor opção.',
     },
+    androidCtaLabel: 'Ver preço no Android',
+    iOSCtaLabel: 'Ver preço no iOS',
     businessCtaLabel: 'Contacte-nos sobre contas empresariais',
   },
   process: {

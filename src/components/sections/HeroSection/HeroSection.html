@@ -23,15 +23,21 @@
               target="_blank"
               rel="noopener noreferrer"
             />
-            <span class="hero-section__ios-note">{{ content.hero.iosDevelopmentLabel }}</span>
+            <AppButton
+              :label="content.hero.appStoreCtaLabel"
+              :href="content.appStoreUrl"
+              variant="light"
+              size="large"
+              target="_blank"
+              rel="noopener noreferrer"
+            />
+            <AppButton
+              :label="content.hero.contactCtaLabel"
+              size="large"
+              variant="ghost"
+              :to="{ name: 'home', hash: '#contact' }"
+            />
           </div>
-
-          <AppButton
-            :label="content.hero.contactCtaLabel"
-            size="large"
-            variant="ghost"
-            :to="{ name: 'home', hash: '#contact' }"
-          />
         </div>
       </div>
 

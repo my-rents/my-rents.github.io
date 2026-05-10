@@ -64,8 +64,14 @@
         </div>
 
         <AppButton
-          :label="plan.primaryCtaLabel"
+          :label="content.pricing.androidCtaLabel"
           :href="content.playStoreUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+        />
+        <AppButton
+          :label="content.pricing.iOSCtaLabel"
+          :href="content.appStoreUrl"
           target="_blank"
           rel="noopener noreferrer"
         />

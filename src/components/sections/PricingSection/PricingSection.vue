@@ -63,7 +63,6 @@ const pricingNotes = computed(() => [
 interface DisplayPricingPlan extends PricingPlan {
   priceHeading: string
   priceCaption: string
-  primaryCtaLabel: string
   isUnavailable: boolean
 }
 
@@ -74,7 +73,6 @@ const displayPlans = computed<DisplayPricingPlan[]>(() => {
         ...plan,
         priceHeading: plan.detail,
         priceCaption: plan.subdetail,
-        primaryCtaLabel: plan.ctaLabel,
         isUnavailable: false,
       }
     }
@@ -86,7 +84,6 @@ const displayPlans = computed<DisplayPricingPlan[]>(() => {
         ...plan,
         priceHeading: formattedPrice,
         priceCaption: selectedCountryLabel.value || plan.detail,
-        primaryCtaLabel: content.value.hero.playStoreCtaLabel,
         isUnavailable: false,
       }
     }
@@ -95,7 +92,6 @@ const displayPlans = computed<DisplayPricingPlan[]>(() => {
       ...plan,
       priceHeading: content.value.pricing.livePricing.unavailableLabel,
       priceCaption: plan.detail,
-      primaryCtaLabel: content.value.hero.playStoreCtaLabel,
       isUnavailable: true,
     }
   })
