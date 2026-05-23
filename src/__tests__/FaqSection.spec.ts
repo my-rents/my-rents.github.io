@@ -13,7 +13,7 @@ describe('FaqSection', () => {
     )
 
     const triggers = wrapper.findAll('.accordion-item__trigger')
-    await triggers[4]?.trigger('click')
+    await triggers[5]?.trigger('click')
 
     expect(wrapper.findAll('.accordion-item--open')).toHaveLength(1)
     expect(wrapper.find('.accordion-item--open').text()).toContain(

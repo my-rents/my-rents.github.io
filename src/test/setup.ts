@@ -1,5 +1,34 @@
 import { beforeEach, vi } from 'vitest'
 
+const store = new Map<string, string>()
+
+const localStorageMock: Storage = {
+  get length(): number {
+    return store.size
+  },
+  key(index: number): string | null {
+    return [...store.keys()][index] ?? null
+  },
+  getItem(key: string): string | null {
+    return store.get(key) ?? null
+  },
+  setItem(key: string, value: string): void {
+    store.set(key, value)
+  },
+  removeItem(key: string): void {
+    store.delete(key)
+  },
+  clear(): void {
+    store.clear()
+  },
+}
+
+Object.defineProperty(window, 'localStorage', {
+  value: localStorageMock,
+  writable: true,
+  configurable: true,
+})
+
 const matchMediaMock = (query: string) => ({
   matches: false,
   media: query,
@@ -62,6 +91,6 @@ if (typeof globalThis.IntersectionObserver === 'undefined') {
 }
 
 beforeEach(() => {
-  window.localStorage.clear()
-  window.localStorage.setItem('my-rents-locale', 'en')
+  store.clear()
+  store.set('my-rents-locale', 'en')
 })

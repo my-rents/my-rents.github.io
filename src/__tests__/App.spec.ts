@@ -19,9 +19,9 @@ describe('App', () => {
 
     await flushPromises()
 
-    expect(wrapper.text()).toContain('Stop rental admin chaos')
-    expect(wrapper.text()).toContain('Choose your PRO plan')
-    expect(wrapper.text()).toContain('Available in 6 languages')
+    expect(wrapper.text()).toContain('One app. All your rentals. No chaos.')
+    expect(wrapper.text()).toContain('Why landlords switch to My Rents')
+    expect(wrapper.text()).toContain('Trusted by 5,000+ landlords')
   })
 
   it('renders the legal page route', async () => {
@@ -51,7 +51,7 @@ describe('App', () => {
     await flushPromises()
 
     expect(router.currentRoute.value.name).toBe('home')
-    expect(wrapper.text()).toContain('Stop rental admin chaos')
+    expect(wrapper.text()).toContain('One app. All your rentals. No chaos.')
   })
 
   it('renders spanish copy when the locale is set to spanish', async () => {
@@ -67,8 +67,8 @@ describe('App', () => {
 
     await flushPromises()
 
-    expect(wrapper.text()).toContain('Pon fin al caos administrativo')
-    expect(wrapper.text()).toContain('Elige tu plan PRO')
+    expect(wrapper.text()).toContain('Una sola app. Todos tus alquileres. Sin caos.')
+    expect(wrapper.text()).toContain('Por qué se complica')
   })
 
   it('renders german copy when the locale is set to german', async () => {
@@ -85,7 +85,7 @@ describe('App', () => {
     await flushPromises()
 
     expect(wrapper.text()).toContain('Schluss mit dem Verwaltungschaos bei Vermietungen')
-    expect(wrapper.text()).toContain('Wähle deinen PRO-Plan')
+    expect(wrapper.text()).toContain('Warum es unübersichtlich wird')
     expect(document.documentElement.lang).toBe('de')
   })
 
