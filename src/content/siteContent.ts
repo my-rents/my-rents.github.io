@@ -7,7 +7,7 @@ export type SiteLocale = 'en' | 'es' | 'de' | 'fr' | 'it' | 'pt'
 
 export type LegalPageKey = 'terms' | 'privacy' | 'eula' | 'dataDeletion'
 
-export type AppRouteName = 'home' | LegalPageKey | 'unsubscribe'
+export type AppRouteName = 'home' | 'pricing' | LegalPageKey | 'unsubscribe'
 
 export interface LanguageOption {
   code: SiteLocale
@@ -73,7 +73,7 @@ export interface DocumentsCenterSection {
   note: string
 }
 
-export type PricingPlanKey = 'monthly' | 'sixMonth' | 'yearly'
+export type PricingPlanKey = 'weekly' | 'monthly' | 'annual' | 'lifetime'
 
 export interface LivePricingContent {
   introDescription: string
@@ -199,6 +199,7 @@ export interface SiteContent {
     playStoreCtaLabel: string
     appStoreCtaLabel: string
     contactCtaLabel: string
+    trustLabel: string
     snapshot: string
     snapshotAlt: string
     partnersLabel: string
@@ -254,6 +255,13 @@ export interface SiteContent {
     androidCtaLabel: string
     iOSCtaLabel: string
     businessCtaLabel: string
+    popularLabel: string
+    trialLabel: string
+    trialCancelLabel: string
+    freeModeTitle: string
+    freeModeEyebrow: string
+    freeModeCopy: string
+    countryNoteLabel: string
   }
   process: {
     intro: SectionIntroContent
@@ -671,7 +679,8 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
     appStoreUrl: APP_STORE_URL,
     meta: {
       routeTitles: {
-        home: 'My Rents | Rental App',
+        home: 'My Rents | Property Manager App for Landlords',
+        pricing: 'Pricing | My Rents',
         terms: 'Terms of Service | My Rents',
         privacy: 'Privacy Policy | My Rents',
         eula: 'EULA | My Rents',
@@ -682,27 +691,27 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
     header: {
       brandLabel: 'My Rents',
       navAriaLabel: 'Primary',
-      ctaLabel: 'See PRO options',
+      ctaLabel: 'See plans',
       languageLabel: 'Language',
       languages: sharedLanguages,
     },
     primaryNav: [
       { label: 'How it helps', hash: '#features' },
+      { label: 'Pricing', hash: '/pricing' },
       { label: 'Documents Center', hash: '#documents-center' },
       { label: 'How to start', hash: '#how-to-start' },
       { label: 'Forum', hash: '#forum' },
-      { label: 'PRO', hash: '#pricing' },
-      { label: 'FAQ', hash: '#faq' },
     ],
     hero: {
-      rating: 'Rated 4.8/5 on Google Play',
-      title: 'Stop rental admin chaos',
-      copy: 'A few properties are enough to create real admin chaos: rent arrives late or in parts, repair invoices end up in your car or WhatsApp, lease dates live in PDFs, and tax season becomes a rebuild project. My Rents gives small landlords one place for properties, leases, payments, expenses, documents, and contacts.',
+      rating: '4.8/5 on Google Play',
+      title: 'One app. All your rentals. No chaos.',
+      copy: 'Stop jumping between spreadsheets, WhatsApp, bank statements, and calendars. Track rent, expenses, leases, and documents from your phone — so tax season is a review, not a rebuild.',
       playStoreCtaLabel: 'Download for Android',
       appStoreCtaLabel: 'Download for iOS',
       contactCtaLabel: 'Contact us',
       snapshot: screenshotEn1,
-      snapshotAlt: 'English screenshot of the My Rents dashboard',
+      snapshotAlt: 'My Rents dashboard showing portfolio, payments, and lease management',
+      trustLabel: 'Trusted by 5,000+ landlords and companies worldwide',
       partnersLabel: 'Built for landlords who have outgrown DIY admin',
       partners: [
         'Side-income landlords',
@@ -714,69 +723,69 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
     },
     comparison: {
       intro: {
-        eyebrow: 'The real problem',
-        title: 'Why it gets messy',
+        eyebrow: 'Before vs after',
+        title: 'Why landlords switch to My Rents',
         description:
-          'The friction is not usually one dramatic event. It is the constant effort of reconstructing what happened, what is due, and what belongs to which property.',
+          'The friction is not one dramatic event. It is the daily cost of finding what belongs to which property, remembering who paid, and rebuilding records for tax season.',
       },
       columns: [
         {
-          label: 'When everything is scattered',
+          label: 'Without My Rents',
           tone: 'muted',
           items: [
             {
               badge: 'RG',
-              title: 'Rent becomes guesswork',
+              title: 'Rent tracking becomes guesswork',
               description:
-                'Late, partial, or manual payments force you to remember who paid, who still owes, and how far behind they are.',
+                'Late or partial payments across different accounts force you to manually piece together who owes what.',
             },
             {
               badge: 'RC',
-              title: 'Receipts lose context',
+              title: 'Receipts and invoices get lost',
               description:
-                'Cash repairs, supplier invoices, screenshots, and emailed bills stop being useful when they are no longer tied to the right property.',
+                'Repair bills, supplier invoices, and screenshots float between your car, WhatsApp, and email — untraceable months later.',
             },
             {
               badge: 'LD',
-              title: 'Lease dates hide in documents',
+              title: 'Lease dates cause last-minute panic',
               description:
-                'Renewals, end dates, inspections, and reminders live across PDFs, chats, and calendars instead of inside one workflow.',
+                'Renewals, inspections, and deadlines live in PDFs, chats, and memory instead of a single timeline.',
             },
             {
               badge: 'TX',
-              title: 'Tax season turns into recovery work',
+              title: 'Tax season is a rebuild project',
               description:
-                'You spend days rebuilding the year from folders, notifications, and bank statements because the records were never truly connected.',
+                'You waste days reconstructing the year from bank statements and scattered folders because nothing was connected.',
             },
           ],
         },
         {
-          label: 'When the story lives in one app',
+          label: 'With My Rents',
           tone: 'brand',
           items: [
             {
               badge: 'PH',
-              title: 'Property history stays attached',
+              title: 'Every property tells its own story',
               description:
-                'Each property keeps its leases, payments, expenses, files, photos, and contacts together so the context is always there.',
+                'Leases, payments, expenses, files, and contacts stay attached to each property — context is always one tap away.',
             },
             {
               badge: 'PS',
-              title: 'Payment status is visible fast',
+              title: 'Know who paid in seconds',
               description:
-                'See what was paid, what is overdue, and what needs follow-up without stitching together notes from different tools.',
+                'See paid, overdue, and pending rent at a glance. No spreadsheets, no memory games.',
             },
             {
               badge: 'EV',
-              title: 'Events and deadlines stay findable',
+              title: 'No more missed deadlines',
               description:
-                'Important dates, reminders, inspections, and renewals stay connected to the property instead of depending on memory.',
+                'Inspections, renewals, and reminders stay connected to each property instead of living in your head.',
             },
             {
               badge: 'RP',
-              title: 'Reports stop being a scramble',
+              title: 'Tax-ready year-round',
               description:
-                'Your numbers, exports, and supporting documents are already organized when you need to review performance or prepare for taxes.',
+                'Numbers, exports, and supporting documents are already organized when you need them — whether for tax season or a quick profit check.',
             },
           ],
         },
@@ -835,8 +844,8 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
     },
     benefits: {
       intro: {
-        eyebrow: 'Features',
-        title: 'Everything landlords need to stay organised and in control',
+        eyebrow: 'Everything in one app',
+        title: 'Save hours. Stop the chaos. Keep every property under control.',
         description:
           'Designed for the operational details that usually get lost between leases, expenses, maintenance, and paperwork.',
       },
@@ -852,7 +861,7 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
             'Keep rent amounts, due dates, status, and multiple leases per property easy to review.',
         },
         {
-          title: 'Expense tracking',
+          title: 'Log expenses before you forget them',
           description:
             'Capture maintenance costs, utility bills, and one-off purchases without losing the financial context.',
         },
@@ -875,44 +884,51 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
     },
     pricing: {
       intro: {
-        eyebrow: 'My Rents PRO',
-        title: 'Choose your PRO plan',
+        eyebrow: 'My Rents',
+        title: 'Choose your plan',
         description:
-          'PRO is for landlords who want cleaner records, faster answers, and less monthly reconstruction. The 1-month, 6-month, and 1-year plans unlock the same tools, and the exact amount is shown inside the app based on your country.',
+          'Every plan unlocks the same tools — pick the duration that fits your workflow.',
       },
       message: {
-        title: 'One PRO, three options',
+        title: 'One plan, four options',
         description:
-          'Choose the duration that matches how you want to adopt My Rents. After downloading the app, you will see your exact local price for 1 month, 6 months, and 1 year before you confirm anything.',
+          'Choose the duration that matches your workflow. After downloading the app, you will see your exact local price for each option before you confirm anything.',
       },
       plans: [
         {
+          key: 'weekly',
+          name: 'Weekly',
+          summary:
+            'Best if you want to try My Rents for a short period and see how it fits your workflow.',
+          detail: 'Weekly subscription',
+          subdetail: 'Price shown inside the app after download',
+          ctaLabel: 'Download and check price',
+        },
+        {
           key: 'monthly',
-          name: '1 month',
-          badge: 'Flexible',
+          name: 'Monthly',
           summary:
-            'Ideal if you want to start using PRO now and keep the commitment light while you test how it fits your workflow.',
-          detail: '1-month subscription',
+            'Ideal if you want to start using My Rents now and keep the commitment light while you test how it fits your workflow.',
+          detail: 'Monthly subscription',
           subdetail: 'Price shown inside the app after download',
           ctaLabel: 'Download and check price',
         },
         {
-          key: 'sixMonth',
-          name: '6 months',
-          badge: 'New',
+          key: 'annual',
+          name: 'Annual',
+          badge: '7-day trial',
           summary:
-            'A strong fit if you want more time with fewer renewals while still keeping the subscription shorter than a full year.',
-          detail: '6-month subscription',
+            'Best if you already know My Rents is part of your workflow and you want the lowest price per month.',
+          detail: 'Annual subscription',
           subdetail: 'Price shown inside the app after download',
           ctaLabel: 'Download and check price',
         },
         {
-          key: 'yearly',
-          name: '1 year',
-          badge: 'Best continuity',
+          key: 'lifetime',
+          name: 'Lifetime',
           summary:
-            'Best if you already know My Rents is part of your day-to-day workflow and you want the longest subscription available today.',
-          detail: '1-year subscription',
+            'One payment, no renewal. Best if you want to secure permanent access to My Rents.',
+          detail: 'Lifetime payment',
           subdetail: 'Price shown inside the app after download',
           ctaLabel: 'Download and check price',
         },
@@ -961,10 +977,10 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
       },
       livePricing: {
         introDescription:
-          'PRO is for landlords who want cleaner records, faster answers, and less monthly reconstruction. The prices below come directly from Google Play for the country selected on this page.',
+          'Every plan unlocks the same tools — pick the duration that fits your workflow. All prices come directly from Google Play based on your country.',
         messageDescription:
-          'Choose the duration that matches how you want to adopt My Rents. Switch country below to preview the current 1-month, 6-month, and 1-year Google Play prices before users download the app.',
-        storeTitle: 'See your PRO price by country',
+          'Choose the duration that matches your workflow. Switch country below to preview the current Google Play prices for weekly, monthly, annual, and lifetime plans.',
+        storeTitle: 'Prices by country',
         storeDescription:
           "These prices reflect the selected country's Google Play amount. Purchase and billing still happen inside My Rents.",
         selectorLabel: 'Country',
@@ -973,8 +989,8 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
         unavailableLabel: 'Price unavailable for this country',
       },
       singleUser: {
-        title: 'One user per PRO plan',
-        description: 'The PRO options on this page are single-user purchases for one account.',
+        title: 'One user per plan',
+        description: 'The options on this page are single-user purchases for one account.',
       },
       companies: {
         title: 'Need team accounts?',
@@ -984,78 +1000,86 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
       androidCtaLabel: 'Check price on Android',
       iOSCtaLabel: 'Check price on iOS',
       businessCtaLabel: 'Contact us about business accounts',
+      popularLabel: 'Best option',
+      trialLabel: '7-day free trial',
+      trialCancelLabel: 'Cancel at any time',
+      freeModeTitle: 'Try My Rents for free',
+      freeModeEyebrow: 'No plans needed',
+      freeModeCopy:
+        "Start with our limited free mode to test the app with your properties. Upgrade to a paid plan when you're ready for unlimited portfolios, invoice generation, and more.",
+      countryNoteLabel: '*Showing prices for {country}',
     },
     process: {
       intro: {
         eyebrow: 'How landlords regain control',
         title: 'How to start',
         description:
-          'You do not need a perfect migration project. Start with the properties, leases, and documents you need today, then keep every new payment, expense, and reminder organized from there.',
+          'No complex migration needed. Start with the properties, leases, and documents you need today, then keep every new payment, expense, and reminder organized going forward.',
       },
       steps: [
         {
           index: '01',
-          title: 'Download the app and test it with your real workflow',
+          title: 'Download and test with your real properties',
           description:
-            'Use the 7-day trial with live properties, not dummy data, so you can quickly see whether the structure fits how you already work.',
+            'Use the 7-day free trial with live data — not dummy data — to see if the structure fits how you already work.',
         },
         {
           index: '02',
-          title: 'Add your properties and units first',
+          title: 'Add your properties and units',
           description:
-            'Build the backbone of your portfolio so every payment, document, and reminder has a clear place to live.',
+            'Build the backbone of your portfolio so every payment, document, and reminder has a clear home.',
         },
         {
           index: '03',
-          title: 'Attach active leases and the documents you always hunt for',
+          title: 'Attach leases and the documents you always hunt for',
           description:
-            'Store the contracts, insurance files, invoices, and key records that usually disappear into folders, email chains, or screenshots.',
+            'Store contracts, insurance files, invoices, and key records that usually end up scattered across folders and chats.',
         },
         {
           index: '04',
-          title: 'Start logging payments, expenses, and events in one place',
+          title: 'Log payments, expenses, and events in one place',
           description:
-            'Track overdue rent, repairs, recurring bills, and supplier activity without rebuilding the same story every month.',
+            'Track overdue rent, repairs, recurring bills, and contractor activity without re-telling the same story every month.',
         },
         {
           index: '05',
-          title: 'Review reports and exports when you need answers',
+          title: 'Get answers when you need them',
           description:
-            'When you want to check profitability, debts, taxes, or supporting records, the information is already tied to the right property.',
+            'Check profitability, debts, taxes, and supporting records — the information is already tied to the right property.',
         },
       ],
     },
     impact: {
       intro: {
         eyebrow: 'What changes',
-        title: 'How My Rents helps',
+        title: 'How My Rents helps you run rentals with less friction',
         description:
-          'My Rents is still feature-rich, but the value is that each feature helps answer a landlord question faster instead of creating another place to look.',
+          'Each feature is built to answer a landlord question faster instead of creating another place to check.',
       },
       items: [
         {
-          title: 'Portfolio view',
+          title: 'See your whole portfolio in one glance',
           description:
-            'Move from portfolio view to property details with the leases, contacts, files, and notes already connected.',
+            'Move from portfolio overview to property details with leases, contacts, files, and notes already connected — no hunting.',
           image: FEATURE_SPOTLIGHT_IMAGE,
           imageAlt: 'English screenshot of the My Rents portfolio area',
         },
         {
-          title: 'Payment status',
+          title: 'Track who paid and who still owes',
           description:
-            'Track rent status, invoices, and follow-up actions without wondering which tenant is two weeks late and which one only made a partial payment.',
+            'Know the exact rent status for every tenant without opening spreadsheets, checking bank apps, or counting on memory.',
           image: FEATURE_SPOTLIGHT_IMAGE,
           imageAlt: 'English screenshot of the My Rents properties area',
         },
         {
-          title: 'Lease details',
+          title: 'Keep lease details where you can act on them',
           description:
-            'Review the active agreement, due dates, and billing workflow from the same record instead of jumping between contracts and spreadsheets.',
+            'Review active agreements, due dates, and billing in one record — no more jumping between PDFs and paper contracts.',
           image: FEATURE_SPOTLIGHT_IMAGE,
           imageAlt: 'English screenshot of the My Rents lease and rent due workflow',
         },
         {
-          title: 'Property details',
+          title: 'Know everything about a property, fast',
           description:
             'Property details, units, notes, and linked records stay together so you can understand an asset quickly after days or weeks away from it.',
           image: FEATURE_SPOTLIGHT_IMAGE,
@@ -1069,21 +1093,21 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
           imageAlt: 'English screenshot of the My Rents documents and photos area',
         },
         {
-          title: 'Reports',
+          title: 'Get tax-ready without the last-minute scramble',
           description:
-            'Use reports, debt tracking, profitability views, and exports without rebuilding the year from bank statements.',
+            'Reports, debt tracking, profitability views, and exports give you answers without rebuilding the year from bank statements.',
           image: FEATURE_SPOTLIGHT_IMAGE,
           imageAlt: 'English screenshot of the My Rents tax, map, and contact tools',
         },
         {
-          title: 'Events',
+          title: 'Never miss an inspection or deadline again',
           description:
-            'Repairs, inspections, reminders, and recurring tasks stay visible so important follow-ups do not live only in your head.',
+            'Repairs, inspections, reminders, and recurring tasks stay visible so critical follow-ups do not live only in your head.',
           image: calendarImage,
           imageAlt: 'Calendar and events screenshot',
         },
         {
-          title: 'Contacts',
+          title: 'Find any contact when something breaks',
           description:
             'Keep tenants, suppliers, and advisors organised by property so you are not digging through chats when something breaks.',
           image: contactsListImage,
@@ -1145,19 +1169,23 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
             'That is exactly the use case for many owners. My Rents helps you stop splitting rent tracking, expenses, documents, reminders, and property notes across separate sheets and folders.',
         },
         {
-          question: 'What changes between the 1 month, 6 months, and 1 year plans?',
+          question: 'Is there a free trial?',
           answer:
-            'Only the subscription length changes. The PRO tools are the same in every option.',
+            'Yes. Annual subscriptions include a 7-day free trial. You can test with your real properties and see if the workflow fits before being charged.',
+        },
+        {
+          question: 'What changes between the weekly, monthly, annual, and lifetime plans?',
+          answer: 'Only the subscription length changes. The tools are the same in every option.',
         },
         {
           question: 'How do I see the price for my country?',
           answer:
-            'Choose your country in the PRO section on this website to preview the current Google Play price. You can confirm the same local amount inside My Rents before completing the purchase.',
+            'Choose your country on this page to preview the current Google Play price. You can confirm the same local amount inside My Rents before completing the purchase.',
         },
         {
-          question: 'Is the PRO price for one user or for a company?',
+          question: 'Is the price for one user or for a company?',
           answer:
-            'The PRO pricing on this page is for one user account. If your company needs several accounts or a different setup, contact us directly.',
+            'The pricing on this page is for one user account. If your company needs several accounts or a different setup, contact us directly.',
         },
         {
           question: 'Can I track expenses and one-off bills?',
@@ -1582,7 +1610,8 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
     appStoreUrl: APP_STORE_URL,
     meta: {
       routeTitles: {
-        home: 'My Rents | App para gestionar alquileres',
+        home: 'My Rents | App para gestionar alquileres y propiedades',
+        pricing: 'Planes y precios | My Rents',
         terms: 'Términos del servicio | My Rents',
         privacy: 'Política de privacidad | My Rents',
         eula: 'EULA | My Rents',
@@ -1593,27 +1622,27 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
     header: {
       brandLabel: 'My Rents',
       navAriaLabel: 'Principal',
-      ctaLabel: 'Ver opciones PRO',
+      ctaLabel: 'Ver planes',
       languageLabel: 'Idioma',
       languages: sharedLanguages,
     },
     primaryNav: [
       { label: 'Cómo ayuda', hash: '#features' },
+      { label: 'Precios', hash: '/pricing' },
       { label: 'Centro de documentos', hash: '#documents-center' },
       { label: 'Cómo empezar', hash: '#how-to-start' },
       { label: 'Foro', hash: '#forum' },
-      { label: 'PRO', hash: '#pricing' },
-      { label: 'FAQ', hash: '#faq' },
     ],
     hero: {
-      rating: 'Valorada con 4,8/5 en Google Play',
-      title: 'Pon fin al caos administrativo',
-      copy: 'Unas pocas propiedades bastan para crear un caos administrativo real: cobros que llegan tarde o por partes, facturas de reparaciones que acaban en el coche o en WhatsApp, vencimientos escondidos en PDFs y una campaña de impuestos que obliga a reconstruir el año. My Rents reúne propiedades, contratos, pagos, gastos, documentos y contactos en un solo lugar.',
+      rating: '4,8/5 en Google Play · Más de 5.000 descargas',
+      title: 'Una sola app. Todos tus alquileres. Sin caos.',
+      copy: 'Deja de saltar entre hojas de cálculo, WhatsApp, extractos bancarios y calendarios. Controla cobros, gastos, contratos y documentos desde el móvil — para que los impuestos sean un repaso, no un trabajo de reconstrucción.',
       playStoreCtaLabel: 'Descargar para Android',
       appStoreCtaLabel: 'Descargar para iOS',
       contactCtaLabel: 'Contactar con nosotros',
       snapshot: screenshotEs1,
-      snapshotAlt: 'Captura en español del panel de My Rents',
+      snapshotAlt: 'Panel de My Rents mostrando portfolio, pagos y gestión de contratos',
+      trustLabel: 'Más de 5.000 propietarios y empresas confían en nosotros',
       partnersLabel: 'Pensada para propietarios que ya han superado el sistema DIY',
       partners: [
         'Propietarios con ingresos extra',
@@ -1786,51 +1815,58 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
     },
     pricing: {
       intro: {
-        eyebrow: 'My Rents PRO',
-        title: 'Elige tu plan PRO',
+        eyebrow: 'My Rents',
+        title: 'Elige tu plan',
         description:
-          'PRO está pensado para propietarios que quieren registros más limpios, respuestas más rápidas y menos reconstrucción mensual. Los planes de 1 mes, 6 meses y 1 año desbloquean las mismas funciones, y el importe exacto se muestra dentro de la app según tu país.',
+          'Cada plan desbloquea las mismas funciones — elige la duración que mejor encaje con tu forma de trabajar.',
       },
       message: {
-        title: 'Un PRO, tres opciones',
+        title: 'Un plan, cuatro opciones',
         description:
-          'Elige la duración que mejor encaje con tu ritmo de adopción. Después de descargar la app verás el precio local exacto para 1 mes, 6 meses y 1 año antes de confirmar nada.',
+          'Elige la duración que mejor encaje con tu ritmo de adopción. Después de descargar la app verás el precio local exacto para cada opción antes de confirmar nada.',
       },
       plans: [
         {
+          key: 'weekly',
+          name: 'Semanal',
+          summary:
+            'Ideal si quieres probar My Rents por un periodo corto y ver cómo encaja en tu forma de trabajar.',
+          detail: 'Suscripción semanal',
+          subdetail: 'El precio aparece dentro de la app tras descargarla',
+          ctaLabel: 'Descargar y ver precio',
+        },
+        {
           key: 'monthly',
-          name: '1 mes',
-          badge: 'Flexible',
+          name: 'Mensual',
           summary:
-            'Ideal si quieres empezar a usar PRO ahora y mantener el compromiso corto mientras compruebas cómo encaja en tu forma de trabajar.',
-          detail: 'Suscripción de 1 mes',
+            'Ideal si quieres empezar a usar My Rents ahora y mantener el compromiso corto mientras compruebas cómo encaja en tu forma de trabajar.',
+          detail: 'Suscripción mensual',
           subdetail: 'El precio aparece dentro de la app tras descargarla',
           ctaLabel: 'Descargar y ver precio',
         },
         {
-          key: 'sixMonth',
-          name: '6 meses',
-          badge: 'Nuevo',
+          key: 'annual',
+          name: 'Anual',
+          badge: 'Prueba de 7 días',
           summary:
-            'Muy buena opción si quieres más continuidad con menos renovaciones, pero sin llegar todavía a una suscripción anual.',
-          detail: 'Suscripción de 6 meses',
+            'La mejor opción si ya sabes que My Rents forma parte de tu operativa diaria y quieres el precio más bajo por mes.',
+          detail: 'Suscripción anual',
           subdetail: 'El precio aparece dentro de la app tras descargarla',
           ctaLabel: 'Descargar y ver precio',
         },
         {
-          key: 'yearly',
-          name: '1 año',
-          badge: 'Más continuidad',
+          key: 'lifetime',
+          name: 'Pago único',
           summary:
-            'La mejor opción si ya sabes que My Rents forma parte de tu operativa diaria y quieres la suscripción más larga disponible hoy.',
-          detail: 'Suscripción de 1 año',
+            'Un solo pago, sin renovaciones. La mejor opción si quieres acceso permanente a My Rents.',
+          detail: 'Pago único',
           subdetail: 'El precio aparece dentro de la app tras descargarla',
           ctaLabel: 'Descargar y ver precio',
         },
       ],
-      featuresTitle: 'Qué incluye PRO',
+      featuresTitle: 'Qué incluye',
       featuresDescription:
-        'Cualquiera de las opciones de abajo activa el mismo conjunto de funciones PRO. Solo cambia la duración.',
+        'Cualquiera de las opciones de abajo activa el mismo conjunto de funciones. Solo cambia la duración.',
       features: [
         {
           title: 'Porfolios ilimitados',
@@ -1863,14 +1899,14 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
       storePricing: {
         title: 'Mira tu precio en la app',
         description:
-          'El precio de PRO depende del país y aparece dentro de My Rents. Descarga la app, abre la pantalla de PRO y verás el importe exacto de 1 mes, 6 meses y 1 año para tu región antes de pagar.',
+          'El precio depende del país y aparece dentro de My Rents. Descarga la app, abre la pantalla correspondiente y verás el importe exacto para tu región antes de pagar.',
       },
       livePricing: {
         introDescription:
-          'PRO está pensado para propietarios que quieren registros más limpios, respuestas más rápidas y menos reconstrucción mensual. Los precios de abajo llegan directamente desde Google Play para el país seleccionado en esta página.',
+          'Cada plan desbloquea las mismas funciones — elige la duración que mejor encaje con tu forma de trabajar. Los precios de abajo llegan directamente desde Google Play para el país seleccionado en esta página.',
         messageDescription:
-          'Elige la duración que mejor encaje con tu ritmo. Cambia el país para ver el precio actual de Google Play para 1 mes, 6 meses y 1 año antes de descargar la app.',
-        storeTitle: 'Consulta tu precio PRO por país',
+          'Elige la duración que mejor encaje con tu ritmo. Cambia el país para ver el precio actual de Google Play para los planes semanal, mensual, anual y de pago único antes de descargar la app.',
+        storeTitle: 'Consulta tu precio por país',
         storeDescription:
           'Estos precios reflejan el importe de Google Play para el país seleccionado. La compra y la facturación siguen ocurriendo dentro de My Rents.',
         selectorLabel: 'País',
@@ -1881,7 +1917,7 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
       singleUser: {
         title: 'Un usuario por plan',
         description:
-          'Las opciones PRO de esta página están pensadas para una sola cuenta y una sola persona.',
+          'Las opciones de esta página están pensadas para una sola cuenta y una sola persona.',
       },
       companies: {
         title: '¿Necesitas cuentas de equipo?',
@@ -1891,6 +1927,14 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
       androidCtaLabel: 'Consultar precio en Android',
       iOSCtaLabel: 'Consultar precio en iOS',
       businessCtaLabel: 'Contactar con nosotros para cuentas de empresa',
+      popularLabel: 'Mejor opción',
+      trialLabel: 'Prueba gratuita de 7 días',
+      trialCancelLabel: 'Cancelar en cualquier momento',
+      freeModeTitle: 'Prueba My Rents gratis',
+      freeModeEyebrow: 'Sin necesidad de planes',
+      freeModeCopy:
+        'Comienza con nuestro modo gratuito limitado para probar la aplicación con tus propiedades. Actualiza a un plan de pago cuando estés listo para portfolios ilimitados, generación de facturas y más.',
+      countryNoteLabel: '*Precios mostrados para {country}',
     },
     process: {
       intro: {
@@ -2542,6 +2586,7 @@ const deOverride: SiteContentWithoutLegalPages = {
   meta: {
     routeTitles: {
       home: 'My Rents | Mietverwaltungs-App',
+      pricing: 'Preise | My Rents',
       terms: 'Nutzungsbedingungen | My Rents',
       privacy: 'Datenschutzerklärung | My Rents',
       eula: 'EULA | My Rents',
@@ -2552,17 +2597,16 @@ const deOverride: SiteContentWithoutLegalPages = {
   header: {
     brandLabel: 'My Rents',
     navAriaLabel: 'Hauptnavigation',
-    ctaLabel: 'PRO-Optionen ansehen',
+    ctaLabel: 'Preise ansehen',
     languageLabel: 'Sprache',
     languages: sharedLanguages,
   },
   primaryNav: [
     { label: "So hilft's", hash: '#features' },
+    { label: 'Preise', hash: '/pricing' },
     { label: 'Dokumentenzentrum', hash: '#documents-center' },
     { label: 'So startest du', hash: '#how-to-start' },
     { label: 'Forum', hash: '#forum' },
-    { label: 'PRO', hash: '#pricing' },
-    { label: 'FAQ', hash: '#faq' },
   ],
   hero: {
     rating: 'Mit 4,8/5 auf Google Play bewertet',
@@ -2573,6 +2617,7 @@ const deOverride: SiteContentWithoutLegalPages = {
     contactCtaLabel: 'Kontaktiere uns',
     snapshot: screenshotEn1,
     snapshotAlt: 'Screenshot des My Rents Dashboards',
+    trustLabel: 'Über 5.000 Vermieter und Unternehmen vertrauen uns',
     partnersLabel: 'Gemacht für Vermieter, die aus der DIY-Verwaltung herausgewachsen sind',
     partners: [
       'Vermieter mit Zusatzeinkommen',
@@ -2745,51 +2790,58 @@ const deOverride: SiteContentWithoutLegalPages = {
   },
   pricing: {
     intro: {
-      eyebrow: 'My Rents PRO',
-      title: 'Wähle deinen PRO-Plan',
+      eyebrow: 'My Rents',
+      title: 'Wähle deinen Plan',
       description:
-        'PRO ist für Vermieter gedacht, die sauberere Unterlagen, schnellere Antworten und weniger monatliches Rekonstruieren wollen. Die Pläne für 1 Monat, 6 Monate und 1 Jahr schalten dieselben Werkzeuge frei, und der genaue Betrag wird in der App je nach Land angezeigt.',
+        'Jeder Plan schaltet dieselben Werkzeuge frei — wähle die Laufzeit, die zu deinem Ablauf passt.',
     },
     message: {
-      title: 'Ein PRO, drei Optionen',
+      title: 'Ein Plan, vier Optionen',
       description:
-        'Wähle die Laufzeit, die zu deiner Einführung von My Rents passt. Nach dem Download siehst du den exakten lokalen Preis für 1 Monat, 6 Monate und 1 Jahr, bevor du irgendetwas bestätigst.',
+        'Wähle die Laufzeit, die zu deiner Einführung von My Rents passt. Nach dem Download siehst du den exakten lokalen Preis für jede Option, bevor du irgendetwas bestätigst.',
     },
     plans: [
       {
+        key: 'weekly',
+        name: 'Wöchentlich',
+        summary:
+          'Ideal, wenn du My Rents für einen kurzen Zeitraum ausprobieren und sehen willst, wie es in deinen Ablauf passt.',
+        detail: 'Wöchentliches Abonnement',
+        subdetail: 'Preis wird nach dem Download in der App angezeigt',
+        ctaLabel: 'Herunterladen und Preis prüfen',
+      },
+      {
         key: 'monthly',
-        name: '1 Monat',
-        badge: 'Flexibel',
+        name: 'Monatlich',
         summary:
-          'Ideal, wenn du PRO sofort nutzen und die Bindung kurz halten willst, während du prüfst, wie gut es in deinen Ablauf passt.',
-        detail: '1-Monats-Abonnement',
+          'Ideal, wenn du My Rents sofort nutzen und die Bindung kurz halten willst, während du prüfst, wie gut es in deinen Ablauf passt.',
+        detail: 'Monatliches Abonnement',
         subdetail: 'Preis wird nach dem Download in der App angezeigt',
         ctaLabel: 'Herunterladen und Preis prüfen',
       },
       {
-        key: 'sixMonth',
-        name: '6 Monate',
-        badge: 'Neu',
+        key: 'annual',
+        name: 'Jährlich',
+        badge: '7-Tage-Testversion',
         summary:
-          'Eine starke Wahl, wenn du mehr Zeit mit weniger Verlängerungen möchtest, aber noch nicht direkt ein volles Jahr buchen willst.',
-        detail: '6-Monats-Abonnement',
+          'Am besten, wenn du schon weißt, dass My Rents zu deinem täglichen Ablauf gehört, und du den niedrigsten Preis pro Monat willst.',
+        detail: 'Jährliches Abonnement',
         subdetail: 'Preis wird nach dem Download in der App angezeigt',
         ctaLabel: 'Herunterladen und Preis prüfen',
       },
       {
-        key: 'yearly',
-        name: '1 Jahr',
-        badge: 'Längste Laufzeit',
+        key: 'lifetime',
+        name: 'Einmalzahlung',
         summary:
-          'Am besten, wenn du schon weißt, dass My Rents zu deinem täglichen Ablauf gehört, und du die heute längste verfügbare Laufzeit willst.',
-        detail: '1-Jahres-Abonnement',
+          'Eine Zahlung, keine Verlängerung. Am besten, wenn du dauerhaften Zugang zu My Rents sichern willst.',
+        detail: 'Einmalzahlung',
         subdetail: 'Preis wird nach dem Download in der App angezeigt',
         ctaLabel: 'Herunterladen und Preis prüfen',
       },
     ],
-    featuresTitle: 'Was PRO enthält',
+    featuresTitle: 'Was enthalten ist',
     featuresDescription:
-      'Alle Abrechnungsoptionen unten schalten dasselbe PRO-Funktionspaket frei. Nur die Laufzeit ändert sich.',
+      'Alle Abrechnungsoptionen unten schalten dasselbe Funktionspaket frei. Nur die Laufzeit ändert sich.',
     features: [
       {
         title: 'Unbegrenzte Portfolios',
@@ -2821,18 +2873,18 @@ const deOverride: SiteContentWithoutLegalPages = {
       },
     ],
     storePricing: {
-      title: 'Sieh deinen PRO-Preis in der App',
+      title: 'Sieh deinen Preis in der App',
       description:
-        'Der PRO-Preis hängt vom Land ab und erscheint in My Rents. Lade die App herunter, öffne den PRO-Bereich und sieh den exakten Betrag für 1 Monat, 6 Monate und 1 Jahr in deiner Region, bevor du bezahlst.',
+        'Der Preis hängt vom Land ab und erscheint in My Rents. Lade die App herunter und sieh den exakten Betrag für deine Region, bevor du bezahlst.',
     },
     livePricing: {
       introDescription:
-        'PRO ist für Vermieter gedacht, die sauberere Unterlagen, schnellere Antworten und weniger monatliches Rekonstruieren wollen. Die Preise unten kommen direkt von Google Play für das Land, das du auf dieser Seite auswählst.',
+        'Jeder Plan schaltet dieselben Werkzeuge frei — wähle die Laufzeit, die zu deinem Ablauf passt. Die Preise unten kommen direkt von Google Play für das Land, das du auf dieser Seite auswählst.',
       messageDescription:
-        'Wähle die Laufzeit, die zu deinem Ablauf passt. Wechsle das Land, um den aktuellen Google-Play-Preis für 1 Monat, 6 Monate und 1 Jahr zu sehen, bevor die App heruntergeladen wird.',
-      storeTitle: 'Sieh deinen PRO-Preis nach Land',
+        'Wähle die Laufzeit, die zu deinem Ablauf passt. Wechsle das Land, um den aktuellen Google-Play-Preis für wöchentliche, monatliche, jährliche und einmalige Pläne zu sehen, bevor die App heruntergeladen wird.',
+      storeTitle: 'Sieh deinen Preis nach Land',
       storeDescription:
-        'Diese Preise entsprechen dem Google-Play-Betrag für das ausgewählte Land. Kauf und Abrechnung laufen weiterhin in My Rents.',
+        'Diese Preise entsprechen dem Google-Play-Betrag für das ausgewählte Land. Kauf und Abrechnung erfolgen weiterhin in My Rents.',
       selectorLabel: 'Land',
       selectedCountryLabel: 'Google-Play-Preis für {country}',
       loadingLabel: 'Preis wird geladen...',
@@ -2840,7 +2892,7 @@ const deOverride: SiteContentWithoutLegalPages = {
     },
     singleUser: {
       title: 'Ein Benutzer pro Plan',
-      description: 'Die PRO-Optionen auf dieser Seite sind Einzelkäufe für ein Benutzerkonto.',
+      description: 'Die Optionen auf dieser Seite sind Einzelkäufe für ein Benutzerkonto.',
     },
     companies: {
       title: 'Brauchst du Team-Konten?',
@@ -2850,6 +2902,14 @@ const deOverride: SiteContentWithoutLegalPages = {
     androidCtaLabel: 'Preis auf Android ansehen',
     iOSCtaLabel: 'Preis auf iOS ansehen',
     businessCtaLabel: 'Kontaktiere uns zu Business-Konten',
+    popularLabel: 'Beste Wahl',
+    trialLabel: '7-tägige kostenlose Testversion',
+    trialCancelLabel: 'Jederzeit kündbar',
+    freeModeTitle: 'My Rents kostenlos testen',
+    freeModeEyebrow: 'Keine Pläne nötig',
+    freeModeCopy:
+      'Starte mit unserem eingeschränkten kostenlosen Modus und teste die App mit deinen Immobilien. Wechsle zu einem kostenpflichtigen Plan, wenn du bereit bist für unbegrenzte Portfolios, Rechnungserstellung und mehr.',
+    countryNoteLabel: '*Preise angezeigt für {country}',
   },
   process: {
     intro: {
@@ -3109,6 +3169,7 @@ const frOverride: SiteContentWithoutLegalPages = {
   meta: {
     routeTitles: {
       home: 'My Rents | App de gestion locative',
+      pricing: 'Tarifs | My Rents',
       terms: "Conditions d'utilisation | My Rents",
       privacy: 'Politique de confidentialité | My Rents',
       eula: 'EULA | My Rents',
@@ -3119,17 +3180,16 @@ const frOverride: SiteContentWithoutLegalPages = {
   header: {
     brandLabel: 'My Rents',
     navAriaLabel: 'Navigation principale',
-    ctaLabel: 'Voir les options PRO',
+    ctaLabel: 'Voir les tarifs',
     languageLabel: 'Langue',
     languages: sharedLanguages,
   },
   primaryNav: [
     { label: 'Comment ça aide', hash: '#features' },
+    { label: 'Tarifs', hash: '/pricing' },
     { label: 'Centre de documents', hash: '#documents-center' },
     { label: 'Comment commencer', hash: '#how-to-start' },
     { label: 'Forum', hash: '#forum' },
-    { label: 'PRO', hash: '#pricing' },
-    { label: 'FAQ', hash: '#faq' },
   ],
   hero: {
     rating: 'Notée 4,8/5 sur Google Play',
@@ -3140,6 +3200,7 @@ const frOverride: SiteContentWithoutLegalPages = {
     contactCtaLabel: 'Nous contacter',
     snapshot: screenshotEn1,
     snapshotAlt: 'Capture du tableau de bord My Rents',
+    trustLabel: 'Plus de 5.000 propriétaires et entreprises nous font confiance',
     partnersLabel: 'Pensée pour les propriétaires qui ont dépassé la gestion bricolée',
     partners: [
       'Propriétaires avec revenu complémentaire',
@@ -3312,51 +3373,58 @@ const frOverride: SiteContentWithoutLegalPages = {
   },
   pricing: {
     intro: {
-      eyebrow: 'My Rents PRO',
-      title: 'Choisissez votre formule PRO',
+      eyebrow: 'My Rents',
+      title: 'Choisissez votre formule',
       description:
-        "PRO s'adresse aux propriétaires qui veulent des dossiers plus propres, des réponses plus rapides et moins de reconstruction chaque mois. Les formules 1 mois, 6 mois et 1 an débloquent les mêmes outils, et le montant exact est affiché dans l'app selon votre pays.",
+        'Chaque formule débloque les mêmes outils — choisissez la durée qui correspond à votre rythme.',
     },
     message: {
-      title: 'Un PRO, trois options',
+      title: 'Une formule, quatre options',
       description:
-        "Choisissez la durée qui correspond à votre rythme d'adoption. Après téléchargement, vous verrez le prix local exact pour 1 mois, 6 mois et 1 an avant de confirmer quoi que ce soit.",
+        "Choisissez la durée qui correspond à votre rythme d'adoption. Après téléchargement, vous verrez le prix local exact pour chaque option avant de confirmer quoi que ce soit.",
     },
     plans: [
       {
+        key: 'weekly',
+        name: 'Hebdomadaire',
+        summary:
+          "Idéal si vous voulez essayer My Rents pour une courte période et voir comment cela s'intègre dans votre façon de travailler.",
+        detail: 'Abonnement hebdomadaire',
+        subdetail: "Prix affiché dans l'app après téléchargement",
+        ctaLabel: 'Télécharger et voir le prix',
+      },
+      {
         key: 'monthly',
-        name: '1 mois',
-        badge: 'Flexible',
+        name: 'Mensuel',
         summary:
-          "Idéal si vous voulez commencer à utiliser PRO maintenant tout en gardant un engagement léger pendant que vous vérifiez l'adéquation avec votre façon de travailler.",
-        detail: 'Abonnement de 1 mois',
+          "Idéal si vous voulez commencer à utiliser My Rents maintenant tout en gardant un engagement léger pendant que vous vérifiez l'adéquation avec votre façon de travailler.",
+        detail: 'Abonnement mensuel',
         subdetail: "Prix affiché dans l'app après téléchargement",
         ctaLabel: 'Télécharger et voir le prix',
       },
       {
-        key: 'sixMonth',
-        name: '6 mois',
-        badge: 'Nouveau',
+        key: 'annual',
+        name: 'Annuel',
+        badge: 'Essai de 7 jours',
         summary:
-          "Un très bon choix si vous voulez plus de continuité avec moins de renouvellements, sans aller tout de suite jusqu'à une année complète.",
-        detail: 'Abonnement de 6 mois',
+          'Le meilleur choix si vous savez déjà que My Rents fait partie de votre routine et que vous voulez le prix le plus bas par mois.',
+        detail: 'Abonnement annuel',
         subdetail: "Prix affiché dans l'app après téléchargement",
         ctaLabel: 'Télécharger et voir le prix',
       },
       {
-        key: 'yearly',
-        name: '1 an',
-        badge: 'Plus de continuité',
+        key: 'lifetime',
+        name: 'Paiement unique',
         summary:
-          "Le meilleur choix si vous savez déjà que My Rents fait partie de votre routine et que vous voulez la durée la plus longue disponible aujourd'hui.",
-        detail: 'Abonnement de 1 an',
+          'Un seul paiement, sans renouvellement. Idéal si vous voulez un accès permanent à My Rents.',
+        detail: 'Paiement unique',
         subdetail: "Prix affiché dans l'app après téléchargement",
         ctaLabel: 'Télécharger et voir le prix',
       },
     ],
-    featuresTitle: 'Ce que PRO inclut',
+    featuresTitle: 'Ce qui est inclus',
     featuresDescription:
-      'Chaque option ci-dessous débloque exactement le même ensemble de fonctionnalités PRO. Seule la durée change.',
+      'Chaque option ci-dessous débloque exactement le même ensemble de fonctionnalités. Seule la durée change.',
     features: [
       {
         title: 'Portefeuilles illimités',
@@ -3387,16 +3455,16 @@ const frOverride: SiteContentWithoutLegalPages = {
       },
     ],
     storePricing: {
-      title: "Voyez votre prix PRO dans l'app",
+      title: "Voyez votre prix dans l'app",
       description:
-        "Le prix de PRO dépend du pays et apparaît dans My Rents. Téléchargez l'app, ouvrez l'écran PRO et vous verrez le montant exact pour 1 mois, 6 mois et 1 an dans votre région avant de payer.",
+        "Le prix dépend du pays et apparaît dans My Rents. Téléchargez l'app et vous verrez le montant exact pour votre région avant de payer.",
     },
     livePricing: {
       introDescription:
-        "PRO s'adresse aux propriétaires qui veulent des dossiers plus propres, des réponses plus rapides et moins de reconstruction chaque mois. Les prix ci-dessous viennent directement de Google Play pour le pays sélectionné sur cette page.",
+        'Chaque formule débloque les mêmes outils — choisissez la durée qui correspond à votre rythme. Les prix ci-dessous viennent directement de Google Play pour le pays sélectionné sur cette page.',
       messageDescription:
-        "Choisissez la durée qui correspond à votre rythme. Changez de pays pour voir le prix Google Play actuel pour 1 mois, 6 mois et 1 an avant de télécharger l'app.",
-      storeTitle: 'Consultez votre prix PRO par pays',
+        "Choisissez la durée qui correspond à votre rythme. Changez de pays pour voir le prix Google Play actuel pour les formules hebdomadaire, mensuelle, annuelle et de paiement unique avant de télécharger l'app.",
+      storeTitle: 'Consultez votre prix par pays',
       storeDescription:
         "Ces prix reflètent le montant Google Play du pays sélectionné. L'achat et la facturation se font toujours dans My Rents.",
       selectorLabel: 'Pays',
@@ -3406,8 +3474,7 @@ const frOverride: SiteContentWithoutLegalPages = {
     },
     singleUser: {
       title: 'Un utilisateur par formule',
-      description:
-        'Les offres PRO de cette page sont des achats mono-utilisateur pour un seul compte.',
+      description: 'Les offres de cette page sont des achats mono-utilisateur pour un seul compte.',
     },
     companies: {
       title: "Besoin de comptes d'équipe ?",
@@ -3417,6 +3484,14 @@ const frOverride: SiteContentWithoutLegalPages = {
     androidCtaLabel: 'Consulter le prix sur Android',
     iOSCtaLabel: 'Consulter le prix sur iOS',
     businessCtaLabel: 'Nous contacter pour des comptes entreprise',
+    popularLabel: 'Meilleure offre',
+    trialLabel: 'Essai gratuit de 7 jours',
+    trialCancelLabel: 'Annulez à tout moment',
+    freeModeTitle: 'Essayez My Rents gratuitement',
+    freeModeEyebrow: 'Aucun plan nécessaire',
+    freeModeCopy:
+      "Commencez avec notre mode gratuit limité pour tester l'application avec vos biens. Passez à un plan payant quand vous êtes prêt pour des portfolios illimités, la génération de factures et plus.",
+    countryNoteLabel: '*Prix affichés pour {country}',
   },
   process: {
     intro: {
@@ -3676,6 +3751,7 @@ const itOverride: SiteContentWithoutLegalPages = {
   meta: {
     routeTitles: {
       home: 'My Rents | App per la gestione degli affitti',
+      pricing: 'Prezzi | My Rents',
       terms: 'Termini di servizio | My Rents',
       privacy: 'Informativa sulla privacy | My Rents',
       eula: 'EULA | My Rents',
@@ -3686,17 +3762,16 @@ const itOverride: SiteContentWithoutLegalPages = {
   header: {
     brandLabel: 'My Rents',
     navAriaLabel: 'Navigazione principale',
-    ctaLabel: 'Vedi le opzioni PRO',
+    ctaLabel: 'Vedi i piani',
     languageLabel: 'Lingua',
     languages: sharedLanguages,
   },
   primaryNav: [
     { label: 'Come aiuta', hash: '#features' },
+    { label: 'Prezzi', hash: '/pricing' },
     { label: 'Centro documenti', hash: '#documents-center' },
     { label: 'Come iniziare', hash: '#how-to-start' },
     { label: 'Forum', hash: '#forum' },
-    { label: 'PRO', hash: '#pricing' },
-    { label: 'FAQ', hash: '#faq' },
   ],
   hero: {
     rating: 'Valutata 4,8/5 su Google Play',
@@ -3707,6 +3782,7 @@ const itOverride: SiteContentWithoutLegalPages = {
     contactCtaLabel: 'Contattaci',
     snapshot: screenshotEn1,
     snapshotAlt: 'Screenshot della dashboard di My Rents',
+    trustLabel: 'Oltre 5.000 proprietari e aziende si fidano di noi',
     partnersLabel: 'Pensata per proprietari che hanno superato la gestione fai-da-te',
     partners: [
       'Proprietari con reddito extra',
@@ -3879,51 +3955,58 @@ const itOverride: SiteContentWithoutLegalPages = {
   },
   pricing: {
     intro: {
-      eyebrow: 'My Rents PRO',
-      title: 'Scegli il tuo piano PRO',
+      eyebrow: 'My Rents',
+      title: 'Scegli il tuo piano',
       description:
-        "PRO è pensato per i proprietari che vogliono registri più puliti, risposte più rapide e meno ricostruzione mensile. I piani da 1 mese, 6 mesi e 1 anno sbloccano gli stessi strumenti e l'importo esatto viene mostrato dentro l'app in base al paese.",
+        'Ogni piano sblocca gli stessi strumenti — scegli la durata che meglio si adatta al tuo modo di lavorare.',
     },
     message: {
-      title: 'Un PRO, tre opzioni',
+      title: 'Un piano, quattro opzioni',
       description:
-        'Scegli la durata che meglio si adatta al tuo ritmo di adozione. Dopo il download vedrai il prezzo locale esatto per 1 mese, 6 mesi e 1 anno prima di confermare qualsiasi cosa.',
+        'Scegli la durata che meglio si adatta al tuo ritmo di adozione. Dopo il download vedrai il prezzo locale esatto per ogni opzione prima di confermare qualsiasi cosa.',
     },
     plans: [
       {
+        key: 'weekly',
+        name: 'Settimanale',
+        summary:
+          'Ideale se vuoi provare My Rents per un breve periodo e vedere come si adatta al tuo modo di lavorare.',
+        detail: 'Abbonamento settimanale',
+        subdetail: "Prezzo mostrato nell'app dopo il download",
+        ctaLabel: 'Scarica e controlla il prezzo',
+      },
+      {
         key: 'monthly',
-        name: '1 mese',
-        badge: 'Flessibile',
+        name: 'Mensile',
         summary:
-          "Ideale se vuoi iniziare a usare PRO subito e mantenere l'impegno leggero mentre capisci come si adatta al tuo modo di lavorare.",
-        detail: 'Abbonamento di 1 mese',
+          "Ideale se vuoi iniziare a usare My Rents subito e mantenere l'impegno leggero mentre capisci come si adatta al tuo modo di lavorare.",
+        detail: 'Abbonamento mensile',
         subdetail: "Prezzo mostrato nell'app dopo il download",
         ctaLabel: 'Scarica e controlla il prezzo',
       },
       {
-        key: 'sixMonth',
-        name: '6 mesi',
-        badge: 'Nuovo',
+        key: 'annual',
+        name: 'Annuale',
+        badge: 'Prova di 7 giorni',
         summary:
-          "Una scelta molto valida se vuoi più continuità con meno rinnovi, pur mantenendo l'abbonamento più corto di un anno intero.",
-        detail: 'Abbonamento di 6 mesi',
+          'La scelta migliore se sai già che My Rents fa parte del tuo flusso quotidiano e vuoi il prezzo più basso al mese.',
+        detail: 'Abbonamento annuale',
         subdetail: "Prezzo mostrato nell'app dopo il download",
         ctaLabel: 'Scarica e controlla il prezzo',
       },
       {
-        key: 'yearly',
-        name: '1 anno',
-        badge: 'Più continuità',
+        key: 'lifetime',
+        name: 'Pagamento unico',
         summary:
-          'La scelta migliore se sai già che My Rents fa parte del tuo flusso quotidiano e vuoi la durata più lunga disponibile oggi.',
-        detail: 'Abbonamento di 1 anno',
+          'Un solo pagamento, nessun rinnovo. Ideale se vuoi un accesso permanente a My Rents.',
+        detail: 'Pagamento unico',
         subdetail: "Prezzo mostrato nell'app dopo il download",
         ctaLabel: 'Scarica e controlla il prezzo',
       },
     ],
-    featuresTitle: 'Cosa include PRO',
+    featuresTitle: 'Cosa include',
     featuresDescription:
-      'Tutte le opzioni qui sotto sbloccano lo stesso set di funzioni PRO. Cambia solo la durata.',
+      'Tutte le opzioni qui sotto sbloccano lo stesso set di funzioni. Cambia solo la durata.',
     features: [
       {
         title: 'Portafogli illimitati',
@@ -3954,16 +4037,16 @@ const itOverride: SiteContentWithoutLegalPages = {
       },
     ],
     storePricing: {
-      title: "Guarda il tuo prezzo PRO nell'app",
+      title: "Guarda il tuo prezzo nell'app",
       description:
-        "Il prezzo di PRO dipende dal paese e appare dentro My Rents. Scarica l'app, apri la schermata PRO e vedrai l'importo esatto per 1 mese, 6 mesi e 1 anno nella tua regione prima di pagare.",
+        "Il prezzo dipende dal paese e appare dentro My Rents. Scarica l'app e vedrai l'importo esatto per la tua regione prima di pagare.",
     },
     livePricing: {
       introDescription:
-        'PRO è pensato per i proprietari che vogliono registri più puliti, risposte più rapide e meno ricostruzione mensile. I prezzi qui sotto arrivano direttamente da Google Play per il paese selezionato in questa pagina.',
+        'Ogni piano sblocca gli stessi strumenti — scegli la durata che meglio si adatta al tuo flusso. I prezzi qui sotto arrivano direttamente da Google Play per il paese selezionato in questa pagina.',
       messageDescription:
-        "Scegli la durata che meglio si adatta al tuo flusso. Cambia paese per vedere il prezzo Google Play attuale per 1 mese, 6 mesi e 1 anno prima di scaricare l'app.",
-      storeTitle: 'Guarda il prezzo PRO per paese',
+        "Scegli la durata che meglio si adatta al tuo flusso. Cambia paese per vedere il prezzo Google Play attuale per i piani settimanale, mensile, annuale e pagamento unico prima di scaricare l'app.",
+      storeTitle: 'Guarda il prezzo per paese',
       storeDescription:
         "Questi prezzi riflettono l'importo Google Play del paese selezionato. Acquisto e fatturazione avvengono comunque dentro My Rents.",
       selectorLabel: 'Paese',
@@ -3973,7 +4056,7 @@ const itOverride: SiteContentWithoutLegalPages = {
     },
     singleUser: {
       title: 'Un utente per piano',
-      description: 'Le opzioni PRO di questa pagina sono acquisti singoli per un solo account.',
+      description: 'Le opzioni di questa pagina sono acquisti singoli per un solo account.',
     },
     companies: {
       title: 'Hai bisogno di account di team?',
@@ -3983,6 +4066,14 @@ const itOverride: SiteContentWithoutLegalPages = {
     androidCtaLabel: 'Vedi prezzo su Android',
     iOSCtaLabel: 'Vedi prezzo su iOS',
     businessCtaLabel: 'Contattaci per account business',
+    popularLabel: 'Migliore opzione',
+    trialLabel: 'Prova gratuita di 7 giorni',
+    trialCancelLabel: 'Annulla in qualsiasi momento',
+    freeModeTitle: 'Prova My Rents gratis',
+    freeModeEyebrow: 'Nessun piano necessario',
+    freeModeCopy:
+      "Inizia con la nostra modalità gratuita limitata per provare l'app con le tue proprietà. Passa a un piano a pagamento quando sei pronto per portafogli illimitati, generazione di fatture e altro.",
+    countryNoteLabel: '*Prezzi mostrati per {country}',
   },
   process: {
     intro: {
@@ -4241,6 +4332,7 @@ const ptOverride: SiteContentWithoutLegalPages = {
   meta: {
     routeTitles: {
       home: 'My Rents | App de gestão de alugueres',
+      pricing: 'Preços | My Rents',
       terms: 'Termos de serviço | My Rents',
       privacy: 'Política de privacidade | My Rents',
       eula: 'EULA | My Rents',
@@ -4251,17 +4343,16 @@ const ptOverride: SiteContentWithoutLegalPages = {
   header: {
     brandLabel: 'My Rents',
     navAriaLabel: 'Navegação principal',
-    ctaLabel: 'Ver opções PRO',
+    ctaLabel: 'Ver preços',
     languageLabel: 'Idioma',
     languages: sharedLanguages,
   },
   primaryNav: [
     { label: 'Como ajuda', hash: '#features' },
+    { label: 'Preços', hash: '/pricing' },
     { label: 'Centro de documentos', hash: '#documents-center' },
     { label: 'Como começar', hash: '#how-to-start' },
     { label: 'Forum', hash: '#forum' },
-    { label: 'PRO', hash: '#pricing' },
-    { label: 'FAQ', hash: '#faq' },
   ],
   hero: {
     rating: 'Classificada com 4,8/5 no Google Play',
@@ -4272,6 +4363,7 @@ const ptOverride: SiteContentWithoutLegalPages = {
     contactCtaLabel: 'Contacte-nos',
     snapshot: screenshotEn1,
     snapshotAlt: 'Screenshot do painel My Rents',
+    trustLabel: 'Mais de 5.000 proprietários e empresas confiam em nós',
     partnersLabel: 'Pensada para proprietários que já ultrapassaram a gestão improvisada',
     partners: [
       'Proprietários com rendimento extra',
@@ -4444,51 +4536,58 @@ const ptOverride: SiteContentWithoutLegalPages = {
   },
   pricing: {
     intro: {
-      eyebrow: 'My Rents PRO',
-      title: 'Escolha o seu plano PRO',
+      eyebrow: 'My Rents',
+      title: 'Escolha o seu plano',
       description:
-        'O PRO foi pensado para proprietários que querem registos mais limpos, respostas mais rápidas e menos reconstrução mensal. Os planos de 1 mês, 6 meses e 1 ano desbloqueiam as mesmas ferramentas e o valor exato aparece dentro da app conforme o país.',
+        'Todos os planos desbloqueiam as mesmas ferramentas — escolha a duração que melhor se adapta à sua forma de trabalhar.',
     },
     message: {
-      title: 'Um PRO, três opções',
+      title: 'Um plano, quatro opções',
       description:
-        'Escolha a duração que melhor se adapta ao seu ritmo. Depois de transferir a app, verá o preço local exato para 1 mês, 6 meses e 1 ano antes de confirmar qualquer coisa.',
+        'Escolha a duração que melhor se adapta ao seu ritmo. Depois de transferir a app, verá o preço local exato para cada opção antes de confirmar qualquer coisa.',
     },
     plans: [
       {
+        key: 'weekly',
+        name: 'Semanal',
+        summary:
+          'Ideal se quer experimentar o My Rents por um curto período e ver como encaixa na sua forma de trabalhar.',
+        detail: 'Subscrição semanal',
+        subdetail: 'Preço mostrado na app após a transferência',
+        ctaLabel: 'Transferir e ver preço',
+      },
+      {
         key: 'monthly',
-        name: '1 mês',
-        badge: 'Flexível',
+        name: 'Mensal',
         summary:
-          'Ideal se quer começar a usar o PRO agora e manter o compromisso leve enquanto percebe como encaixa na sua forma de trabalhar.',
-        detail: 'Subscrição de 1 mês',
+          'Ideal se quer começar a usar o My Rents agora e manter o compromisso leve enquanto percebe como encaixa na sua forma de trabalhar.',
+        detail: 'Subscrição mensal',
         subdetail: 'Preço mostrado na app após a transferência',
         ctaLabel: 'Transferir e ver preço',
       },
       {
-        key: 'sixMonth',
-        name: '6 meses',
-        badge: 'Novo',
+        key: 'annual',
+        name: 'Anual',
+        badge: 'Teste de 7 dias',
         summary:
-          'Uma boa escolha se quer mais continuidade com menos renovações, mas sem ir já para um ano completo.',
-        detail: 'Subscrição de 6 meses',
+          'A melhor escolha se já sabe que o My Rents faz parte da sua rotina diária e quer o preço mais baixo por mês.',
+        detail: 'Subscrição anual',
         subdetail: 'Preço mostrado na app após a transferência',
         ctaLabel: 'Transferir e ver preço',
       },
       {
-        key: 'yearly',
-        name: '1 ano',
-        badge: 'Maior continuidade',
+        key: 'lifetime',
+        name: 'Pagamento único',
         summary:
-          'A melhor escolha se já sabe que o My Rents faz parte da sua rotina diária e quer a duração mais longa disponível neste momento.',
-        detail: 'Subscrição de 1 ano',
+          'Um só pagamento, sem renovações. Ideal se quer garantir acesso permanente ao My Rents.',
+        detail: 'Pagamento único',
         subdetail: 'Preço mostrado na app após a transferência',
         ctaLabel: 'Transferir e ver preço',
       },
     ],
-    featuresTitle: 'O que inclui o PRO',
+    featuresTitle: 'O que inclui',
     featuresDescription:
-      'Qualquer opção abaixo desbloqueia exatamente o mesmo conjunto de funcionalidades PRO. Só muda a duração.',
+      'Qualquer opção abaixo desbloqueia exatamente o mesmo conjunto de funcionalidades. Só muda a duração.',
     features: [
       {
         title: 'Portfólios ilimitados',
@@ -4519,16 +4618,16 @@ const ptOverride: SiteContentWithoutLegalPages = {
       },
     ],
     storePricing: {
-      title: 'Veja o seu preço PRO na app',
+      title: 'Veja o seu preço na app',
       description:
-        'O preço PRO depende do país e aparece dentro do My Rents. Transfira a app, abra o ecrã PRO e verá o valor exato para 1 mês, 6 meses e 1 ano na sua região antes de pagar.',
+        'O preço depende do país e aparece dentro do My Rents. Transfira a app e verá o valor exato para a sua região antes de pagar.',
     },
     livePricing: {
       introDescription:
-        'O PRO foi pensado para proprietários que querem registos mais limpos, respostas mais rápidas e menos reconstrução mensal. Os preços abaixo vêm diretamente do Google Play para o país selecionado nesta página.',
+        'Todos os planos desbloqueiam as mesmas ferramentas — escolha a duração que melhor se adapta à sua forma de trabalhar. Os preços abaixo vêm diretamente do Google Play para o país selecionado nesta página.',
       messageDescription:
-        'Escolha a duração que melhor se adapta ao seu fluxo. Mude de país para ver o preço atual do Google Play para 1 mês, 6 meses e 1 ano antes de transferir a app.',
-      storeTitle: 'Veja o seu preço PRO por país',
+        'Escolha a duração que melhor se adapta ao seu fluxo. Mude de país para ver o preço atual do Google Play para os planos semanal, mensal, anual e de pagamento único antes de transferir a app.',
+      storeTitle: 'Veja o seu preço por país',
       storeDescription:
         'Estes preços refletem o valor do Google Play para o país selecionado. A compra e a faturação continuam a acontecer dentro do My Rents.',
       selectorLabel: 'País',
@@ -4538,7 +4637,7 @@ const ptOverride: SiteContentWithoutLegalPages = {
     },
     singleUser: {
       title: 'Um utilizador por plano',
-      description: 'As opções PRO desta página são compras de utilizador único para uma só conta.',
+      description: 'As opções desta página são compras de utilizador único para uma só conta.',
     },
     companies: {
       title: 'Precisa de contas de equipa?',
@@ -4548,6 +4647,14 @@ const ptOverride: SiteContentWithoutLegalPages = {
     androidCtaLabel: 'Ver preço no Android',
     iOSCtaLabel: 'Ver preço no iOS',
     businessCtaLabel: 'Contacte-nos sobre contas empresariais',
+    popularLabel: 'Melhor opção',
+    trialLabel: 'Teste grátis de 7 dias',
+    trialCancelLabel: 'Cancele quando quiser',
+    freeModeTitle: 'Experimente My Rents grátis',
+    freeModeEyebrow: 'Sem planos necessários',
+    freeModeCopy:
+      'Comece com o nosso modo gratuito limitado para testar a aplicação com as suas propriedades. Atualize para um plano pago quando estiver pronto para portfólios ilimitados, geração de faturas e mais.',
+    countryNoteLabel: '*Preços mostrados para {country}',
   },
   process: {
     intro: {
@@ -4810,6 +4917,7 @@ export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
 
 const routeNames: AppRouteName[] = [
   'home',
+  'pricing',
   'terms',
   'privacy',
   'eula',

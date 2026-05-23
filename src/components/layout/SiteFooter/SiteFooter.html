@@ -30,7 +30,7 @@
         v-for="item in content.primaryNav"
         :key="item.hash"
         class="site-footer__link"
-        :to="{ name: 'home', hash: item.hash }"
+        :to="navLinkTo(item.hash)"
       >
         {{ item.label }}
       </RouterLink>

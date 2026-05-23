@@ -2,6 +2,8 @@
 
 <script setup lang="ts">
 import AppButton from '@/components/shared/AppButton/AppButton.vue'
+import StoreButton from '@/components/shared/StoreButton/StoreButton.vue'
+import TrustBadge from '@/components/shared/TrustBadge/TrustBadge.vue'
 import { useSiteContent } from '@/composables/useSiteContent'
 import { revealDirective as vReveal } from '@/directives/reveal'
 

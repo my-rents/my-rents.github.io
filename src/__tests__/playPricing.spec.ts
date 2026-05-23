@@ -33,9 +33,9 @@ const catalog: PlayPricingCatalog = {
       },
     },
     {
-      key: 'yearly',
+      key: 'annual',
       productId: 'pro',
-      basePlanId: 'yearly',
+      basePlanId: 'annual',
       billingPeriod: 'P1Y',
       regionalPrices: {
         ES: {

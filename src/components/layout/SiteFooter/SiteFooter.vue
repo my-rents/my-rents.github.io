@@ -1,6 +1,8 @@
 <template src="./SiteFooter.html"></template>
 
 <script setup lang="ts">
+import type { RouteLocationRaw } from 'vue-router'
+
 import SiteBrand from '@/components/shared/SiteBrand/SiteBrand.vue'
 import { type SiteLocale } from '@/content/siteContent'
 import { useLocale } from '@/composables/useLocale'
@@ -17,6 +19,23 @@ const handleLocaleChange = (event: Event) => {
   }
 
   setLocale(target.value as SiteLocale)
+}
+
+const navLinkTo = (hash: string): RouteLocationRaw => {
+  if (hash.startsWith('/')) {
+    const hashIndex = hash.indexOf('#')
+
+    if (hashIndex !== -1) {
+      return {
+        path: hash.slice(0, hashIndex),
+        hash: hash.slice(hashIndex),
+      }
+    }
+
+    return { path: hash }
+  }
+
+  return { name: 'home', hash }
 }
 </script>
 

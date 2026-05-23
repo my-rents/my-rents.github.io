@@ -1,0 +1,35 @@
+@use '@/styles/mixins' as *;
+
+.store-button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-s);
+  padding: var(--space-m) var(--space-xl);
+  border-radius: var(--radius-pill);
+  font-size: var(--text-body);
+  font-weight: 600;
+  text-decoration: none;
+
+  @include interactive-lift;
+
+  svg {
+    inline-size: var(--size-icon-large);
+    block-size: var(--size-icon-large);
+    flex-shrink: 0;
+  }
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+}
+
+.store-button--android {
+  background: var(--color-brand);
+  color: var(--color-brand-contrast);
+}
+
+.store-button--ios {
+  background: var(--color-surface);
+  color: var(--color-ink);
+  border: var(--card-border);
+}

@@ -7,6 +7,11 @@ const routes = [
     component: () => import('@/views/HomeView.vue'),
   },
   {
+    path: '/pricing',
+    name: 'pricing',
+    component: () => import('@/views/PricingView.vue'),
+  },
+  {
     path: '/terms-of-service',
     name: 'terms',
     component: () => import('@/views/LegalView.vue'),

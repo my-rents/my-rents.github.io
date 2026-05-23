@@ -3,10 +3,7 @@
     <div class="hero-section__panel">
       <div class="hero-section__content" v-reveal>
         <div class="hero-section__rating">
-          <ul class="hero-section__stars" aria-hidden="true">
-            <li v-for="index in 5" :key="index"></li>
-          </ul>
-          <span>{{ content.hero.rating }}</span>
+          <TrustBadge :label="content.hero.trustLabel" light />
         </div>
 
         <h1 class="hero-section__title">{{ content.hero.title }}</h1>
@@ -15,29 +12,23 @@
 
         <div class="hero-section__actions">
           <div class="hero-section__download">
-            <AppButton
+            <StoreButton
+              store="android"
               :label="content.hero.playStoreCtaLabel"
               :href="content.playStoreUrl"
-              variant="light"
-              size="large"
-              target="_blank"
-              rel="noopener noreferrer"
             />
-            <AppButton
+            <StoreButton
+              store="ios"
               :label="content.hero.appStoreCtaLabel"
               :href="content.appStoreUrl"
-              variant="light"
-              size="large"
-              target="_blank"
-              rel="noopener noreferrer"
-            />
-            <AppButton
-              :label="content.hero.contactCtaLabel"
-              size="large"
-              variant="ghost"
-              :to="{ name: 'home', hash: '#contact' }"
             />
           </div>
+          <AppButton
+            :label="content.hero.contactCtaLabel"
+            size="large"
+            variant="ghost"
+            :to="{ name: 'home', hash: '#contact' }"
+          />
         </div>
       </div>
 

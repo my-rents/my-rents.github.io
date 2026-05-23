@@ -7,16 +7,10 @@
         v-for="item in content.primaryNav"
         :key="item.hash"
         class="site-header__link"
-        :to="{ name: 'home', hash: item.hash }"
+        :to="navLinkTo(item.hash)"
       >
         {{ item.label }}
       </RouterLink>
     </nav>
-
-    <AppButton
-      class="site-header__cta"
-      :label="content.header.ctaLabel"
-      :to="{ name: 'home', hash: '#pricing' }"
-    />
   </div>
 </header>

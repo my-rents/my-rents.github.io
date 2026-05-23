@@ -1,0 +1,115 @@
+<main class="pricing-view">
+  <!-- Hero intro -->
+  <section class="pricing-view__hero">
+    <div class="section-shell">
+      <div class="pricing-view__hero-content" v-reveal>
+        <h1 class="pricing-view__hero-title">{{ content.pricing.intro.title }}</h1>
+        <p class="pricing-view__hero-copy">{{ content.pricing.intro.description }}</p>
+        <TrustBadge :label="content.hero.trustLabel" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Plans -->
+  <section class="pricing-view__plans">
+    <div class="section-shell">
+      <!-- Plan grid -->
+      <div class="pricing-view__grid">
+        <article
+          v-for="(plan, index) in displayPlans"
+          :key="plan.key"
+          class="pricing-view__card surface-card"
+          :class="{
+            'pricing-view__card--popular': plan.isPopular,
+            'pricing-view__card--unavailable': plan.isUnavailable,
+          }"
+          v-reveal="index * 100"
+        >
+          <div v-if="plan.isPopular" class="pricing-view__card-popular-badge">
+            <svg
+              class="pricing-view__star-icon"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+              />
+            </svg>
+            {{ content.pricing.popularLabel }}
+          </div>
+
+          <div class="pricing-view__card-header">
+            <div class="pricing-view__card-name-row">
+              <h3>{{ plan.name }}</h3>
+            </div>
+          </div>
+
+          <div class="pricing-view__card-price">
+            <strong>{{ plan.priceHeading }}</strong>
+          </div>
+
+          <p class="pricing-view__card-summary">{{ plan.summary }}</p>
+
+          <div v-if="plan.key === 'annual'" class="pricing-view__card-trial-badge">
+            {{ content.pricing.trialLabel }}
+          </div>
+        </article>
+      </div>
+
+      <!-- Country note -->
+      <p v-if="false" class="pricing-view__country-note">
+        {{ content.pricing.countryNoteLabel.replace('{country}', selectedCountryName ?? '') }}
+      </p>
+    </div>
+  </section>
+
+  <!-- Free mode section -->
+  <section class="pricing-view__free-mode">
+    <div class="section-shell">
+      <div class="pricing-view__free-mode-content" v-reveal>
+        <h2 class="pricing-view__free-mode-title">{{ content.pricing.freeModeTitle }}</h2>
+        <span class="pricing-view__free-mode-eyebrow">{{ content.pricing.freeModeEyebrow }}</span>
+        <p class="pricing-view__free-mode-copy">{{ content.pricing.freeModeCopy }}</p>
+        <div class="pricing-view__free-mode-buttons">
+          <StoreButton
+            store="android"
+            :label="content.hero.playStoreCtaLabel"
+            :href="content.playStoreUrl"
+          />
+          <StoreButton
+            store="ios"
+            :label="content.hero.appStoreCtaLabel"
+            :href="content.appStoreUrl"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="pricing-view__faq">
+    <div class="section-shell">
+      <div class="pricing-view__faq-grid">
+        <div class="pricing-view__faq-intro" v-reveal>
+          <SectionIntro
+            :eyebrow="content.faq.intro.eyebrow"
+            :title="content.faq.intro.title"
+            :description="content.faq.intro.description"
+          />
+        </div>
+
+        <div class="pricing-view__faq-list" v-reveal="120">
+          <AccordionItem
+            v-for="(item, index) in content.faq.items"
+            :key="item.question"
+            :question="item.question"
+            :answer="item.answer"
+            :expanded="faqOpenIndex === index"
+            @toggle="toggleFaq(index)"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

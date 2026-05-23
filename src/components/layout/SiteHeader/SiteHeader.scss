@@ -14,7 +14,7 @@
 .site-header__bar {
   display: grid;
   align-items: center;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto 1fr;
   gap: var(--space-m);
   padding-block: var(--space-m);
 }
@@ -43,10 +43,6 @@
   }
 }
 
-.site-header__cta {
-  justify-self: end;
-}
-
 @include below(medium) {
   .site-header__bar {
     grid-template-columns: auto 1fr;
@@ -55,16 +51,12 @@
   .site-header__nav {
     justify-content: flex-end;
   }
-
-  .site-header__cta {
-    grid-column: 1 / -1;
-  }
 }
 
 @include below(small) {
   .site-header__bar {
     grid-template-columns: minmax(0, 1fr);
-    justify-items: stretch;
+    justify-items: start;
     gap: var(--space-s);
   }
 
@@ -73,10 +65,6 @@
     grid-template-columns: repeat(3, max-content);
     gap: var(--space-s) var(--space-m);
     justify-content: flex-start;
-  }
-
-  .site-header__cta {
-    justify-self: start;
   }
 }
 

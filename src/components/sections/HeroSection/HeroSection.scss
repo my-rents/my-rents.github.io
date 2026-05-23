@@ -44,8 +44,8 @@
 
 .hero-section__download {
   display: flex;
-  flex-direction: column;
-  gap: var(--space-2xs);
+  flex-wrap: wrap;
+  gap: var(--space-s);
 }
 
 .hero-section__rating {
