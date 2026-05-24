@@ -1,5 +1,5 @@
-import screenshotEn1 from '@/assets/features/main_EN.jpg'
-import screenshotEs1 from '@/assets/features/main_ES.jpg'
+import screenshotEn1 from '@/assets/features/rent_EN.jpg'
+import screenshotEs1 from '@/assets/features/rent_ES.jpg'
 import calendarImage from '@/assets/features/calendar_EN.jpg'
 import contactsListImage from '@/assets/features/contacts_list_EN.jpg'
 
