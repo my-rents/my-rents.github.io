@@ -53,8 +53,8 @@
       <a class="site-footer__link" :href="`mailto:${content.contact.emailAddress}`"
         >{{ content.contact.emailAddress }}</a
       >
-      <a class="site-footer__link" :href="content.contact.forumUrl" target="_blank" rel="noreferrer"
-        >{{ content.footer.forumLinkLabel }}</a
+      <RouterLink class="site-footer__link" :to="{ name: 'forum' }"
+        >{{ content.footer.forumLinkLabel }}</RouterLink
       >
       <span class="site-footer__link">{{ content.footer.upgradePrompt }}</span>
     </div>

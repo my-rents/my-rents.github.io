@@ -7,7 +7,7 @@ export type SiteLocale = 'en' | 'es' | 'de' | 'fr' | 'it' | 'pt'
 
 export type LegalPageKey = 'terms' | 'privacy' | 'eula' | 'dataDeletion'
 
-export type AppRouteName = 'home' | 'pricing' | LegalPageKey | 'unsubscribe'
+export type AppRouteName = 'home' | 'pricing' | 'forum' | LegalPageKey | 'unsubscribe'
 
 export interface LanguageOption {
   code: SiteLocale
@@ -178,6 +178,27 @@ export interface UnsubscribePageContent {
   }
 }
 
+export interface ForumSection {
+  hero: {
+    title: string
+    description: string
+    ctaLabel: string
+    forumUrl: string
+  }
+  features: {
+    eyebrow: string
+    title: string
+    description: string
+    items: BenefitItem[]
+  }
+  faq: {
+    eyebrow: string
+    title: string
+    description: string
+    items: FaqItem[]
+  }
+}
+
 export interface SiteContent {
   playStoreUrl: string
   appStoreUrl: string
@@ -225,6 +246,7 @@ export interface SiteContent {
     statB: string
     avatars: string[]
   }
+  forum: ForumSection
   benefits: {
     intro: SectionIntroContent
     items: BenefitItem[]
@@ -293,6 +315,7 @@ export interface SiteContent {
       emailPlaceholder: string
       messageLabel: string
       messagePlaceholder: string
+      subjectLabel: string
       submitLabel: string
       success: string
     }
@@ -367,7 +390,7 @@ const documentsCenterContentByLocale: Record<SiteLocale, DocumentsCenterSection>
   en: {
     intro: {
       eyebrow: 'Documents Center',
-      title: 'Give every lease a shared tenant portal instead of another email thread',
+      title: 'Give every lease a shared tenant portal',
       description:
         'Documents Center publishes the lease documents, invoices, images, and expenses that belong to one lease in a secure route with role-specific passcodes.',
     },
@@ -415,7 +438,7 @@ const documentsCenterContentByLocale: Record<SiteLocale, DocumentsCenterSection>
   es: {
     intro: {
       eyebrow: 'Nuevo: Centro de documentos',
-      title: 'Da a cada contrato un portal del inquilino compartido en vez de otro hilo de correos',
+      title: 'Da a cada contrato un portal del inquilino compartido',
       description:
         'El Centro de documentos publica en una ruta segura los documentos, facturas, imágenes y gastos que pertenecen a un contrato, con claves separadas por rol.',
     },
@@ -467,7 +490,7 @@ const documentsCenterContentByLocale: Record<SiteLocale, DocumentsCenterSection>
   de: {
     intro: {
       eyebrow: 'Neu: Dokumentenzentrum',
-      title: 'Gib jedem Mietvertrag ein gemeinsames Mieterportal statt noch einer E-Mail-Kette',
+      title: 'Gib jedem Mietvertrag ein gemeinsames Mieterportal',
       description:
         'Das Dokumentenzentrum veröffentlicht die Dokumente, Rechnungen, Bilder und Ausgaben eines Mietvertrags in einer sicheren Route mit rollenbasierten Passcodes.',
     },
@@ -519,8 +542,7 @@ const documentsCenterContentByLocale: Record<SiteLocale, DocumentsCenterSection>
   fr: {
     intro: {
       eyebrow: 'Nouveau : Centre de documents',
-      title:
-        'Offrez à chaque bail un portail locataire partagé au lieu d’un nouvel échange d’e-mails',
+      title: 'Offrez à chaque bail un portail locataire partagé',
       description:
         'Le Centre de documents publie les documents, factures, images et dépenses liés à un bail dans une route sécurisée avec des codes d’accès par rôle.',
     },
@@ -568,8 +590,7 @@ const documentsCenterContentByLocale: Record<SiteLocale, DocumentsCenterSection>
   it: {
     intro: {
       eyebrow: 'Novità: Centro documenti',
-      title:
-        'Dai a ogni contratto un portale condiviso per l’inquilino invece di un’altra catena di email',
+      title: 'Dai a ogni contratto un portale condiviso per l’inquilino',
       description:
         'Il Centro documenti pubblica documenti, fatture, immagini e spese di uno specifico contratto in un percorso sicuro con passcode separati per ruolo.',
     },
@@ -621,8 +642,7 @@ const documentsCenterContentByLocale: Record<SiteLocale, DocumentsCenterSection>
   pt: {
     intro: {
       eyebrow: 'Novo: Centro de documentos',
-      title:
-        'Dê a cada contrato um portal partilhado para o inquilino em vez de mais uma cadeia de emails',
+      title: 'Dê a cada contrato um portal partilhado para o inquilino',
       description:
         'O Centro de documentos publica os documentos, faturas, imagens e despesas de um contrato numa rota segura com códigos de acesso por perfil.',
     },
@@ -685,6 +705,7 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
         privacy: 'Privacy Policy | My Rents',
         eula: 'EULA | My Rents',
         dataDeletion: 'Data Deletion | My Rents',
+        forum: 'Forum | My Rents',
         unsubscribe: 'Unsubscribe | My Rents',
       },
     },
@@ -700,7 +721,7 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
       { label: 'Pricing', hash: '/pricing' },
       { label: 'Documents Center', hash: '#documents-center' },
       { label: 'How to start', hash: '#how-to-start' },
-      { label: 'Forum', hash: '#forum' },
+      { label: 'Forum', hash: '/forum' },
     ],
     hero: {
       rating: '4.8/5 on Google Play',
@@ -836,11 +857,85 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
       description:
         'Use the public forum to ask questions, share workflows, meet people with similar investment ideas, and exchange practical information that helps improve rental decisions and results.',
       author: 'Open community for rental admin',
-      forumLabel: FORUM_URL,
+      forumLabel: 'Visit forum',
       forumUrl: FORUM_URL,
       statA: 'Shared ideas',
       statB: 'Support and networking',
       avatars: ['F', 'O', 'R', 'U', 'M'],
+    },
+    forum: {
+      hero: {
+        title: 'Join the rental property forum',
+        description:
+          'Connect with landlords, property managers, and real estate investors. Share workflows, ask questions, and exchange practical advice that improves your rental business.',
+        ctaLabel: 'Open forum',
+        forumUrl: FORUM_URL,
+      },
+      features: {
+        eyebrow: 'What you can do',
+        title: 'A community built for rental professionals',
+        description:
+          'Whether you manage one unit or a growing portfolio, the forum gives you direct access to people who face the same operational decisions every day.',
+        items: [
+          {
+            title: 'Ask and answer questions',
+            description:
+              'Post about lease management, tenant screening, maintenance workflows, tax preparation, and local regulations. Get answers from experienced landlords and investors.',
+          },
+          {
+            title: 'Share your workflow',
+            description:
+              'Describe how you track rent, handle repairs, organize documents, and prepare for tax season. Learn from others and refine your own process.',
+          },
+          {
+            title: 'Meet investors with similar goals',
+            description:
+              'Find people investing in the same markets, property types, or strategies. Exchange market insights and build your professional network.',
+          },
+          {
+            title: 'Stay updated on rental trends',
+            description:
+              'Follow discussions about rental laws, market shifts, financing options, and property management tools. Keep your knowledge current without chasing scattered sources.',
+          },
+          {
+            title: 'Get feedback on your setup',
+            description:
+              'Describe your current property admin stack and get suggestions from others who have already solved the same organizational problems.',
+          },
+          {
+            title: 'Access exclusive tips',
+            description:
+              'Read practical advice that comes from real-world experience — the kind of operational knowledge that is rarely published in articles or tutorials.',
+          },
+        ],
+      },
+      faq: {
+        eyebrow: 'Common questions',
+        title: 'How the forum works',
+        description: 'Everything you need to know about participating in the My Rents community.',
+        items: [
+          {
+            question: 'Is the forum free to join?',
+            answer:
+              'Yes, the public forum is open to everyone. You do not need a My Rents subscription to read discussions, ask questions, or share your experience.',
+          },
+          {
+            question: 'Do I need the app to participate?',
+            answer:
+              'No, the forum runs on a separate platform. You can access it from any browser on desktop or mobile without installing anything.',
+          },
+          {
+            question: 'What topics can I discuss?',
+            answer:
+              'Any topic related to rental property management: leases, tenants, maintenance, expenses, taxes, insurance, legal questions, market trends, and workflow tips. The community is focused on practical, operational knowledge.',
+          },
+          {
+            question: 'Can I promote my services?',
+            answer:
+              'The forum is a knowledge-sharing space, not a marketplace. Self-promotion is generally discouraged unless it directly answers a question or solves a specific problem shared by the community.',
+          },
+        ],
+      },
     },
     benefits: {
       intro: {
@@ -1218,6 +1313,7 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
         messageLabel: 'What do you need help with?',
         messagePlaceholder:
           'Tell us what you manage, what feels messy today, or which subscription option you are considering.',
+        subjectLabel: 'Website contact from',
         submitLabel: 'Open email draft',
         success:
           'Your email app should open with a prefilled draft. If it does not, write directly to info@myrents-app.com.',
@@ -1617,6 +1713,7 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
         eula: 'EULA | My Rents',
         dataDeletion: 'Eliminación de datos | My Rents',
         unsubscribe: 'Cancelar suscripción | My Rents',
+        forum: 'Foro | My Rents',
       },
     },
     header: {
@@ -1631,7 +1728,7 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
       { label: 'Precios', hash: '/pricing' },
       { label: 'Centro de documentos', hash: '#documents-center' },
       { label: 'Cómo empezar', hash: '#how-to-start' },
-      { label: 'Foro', hash: '#forum' },
+      { label: 'Foro', hash: '/forum' },
     ],
     hero: {
       rating: '4,8/5 en Google Play · Más de 5.000 descargas',
@@ -1767,11 +1864,85 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
       description:
         'Usa el foro público para resolver dudas, compartir formas de trabajo, conocer personas con ideas de inversión parecidas e intercambiar información útil para mejorar las decisiones y resultados de nuestros alquileres.',
       author: 'Comunidad abierta para gestión de alquileres',
-      forumLabel: FORUM_URL,
+      forumLabel: 'Visitar foro',
       forumUrl: FORUM_URL,
       statA: 'Ideas compartidas',
       statB: 'Contacto y aprendizaje',
       avatars: ['F', 'O', 'R', 'O', '+'],
+    },
+    forum: {
+      hero: {
+        title: 'Únete al foro de alquileres',
+        description:
+          'Conecta con propietarios, gestores e inversores inmobiliarios. Comparte flujos de trabajo, resuelve dudas e intercambia consejos prácticos que mejoran tu negocio de alquiler.',
+        ctaLabel: 'Abrir foro',
+        forumUrl: FORUM_URL,
+      },
+      features: {
+        eyebrow: 'Lo que puedes hacer',
+        title: 'Una comunidad creada para profesionales del alquiler',
+        description:
+          'Tanto si gestionas una unidad como un porfolio en crecimiento, el foro te da acceso directo a personas que se enfrentan a las mismas decisiones operativas cada día.',
+        items: [
+          {
+            title: 'Pregunta y responde',
+            description:
+              'Publica sobre gestión de contratos, selección de inquilinos, flujos de mantenimiento, preparación fiscal y normativa local. Recibe respuestas de propietarios e inversores con experiencia.',
+          },
+          {
+            title: 'Comparte tu forma de trabajar',
+            description:
+              'Describe cómo controlas los cobros, gestionas reparaciones, organizas documentos y te preparas para la declaración de impuestos. Aprende de otros y mejora tu propio proceso.',
+          },
+          {
+            title: 'Conoce inversores con objetivos similares',
+            description:
+              'Encuentra personas que invierten en los mismos mercados, tipos de propiedad o estrategias. Intercambia información del mercado y amplía tu red profesional.',
+          },
+          {
+            title: 'Mantente al día sobre tendencias de alquiler',
+            description:
+              'Sigue debates sobre leyes de alquiler, cambios del mercado, opciones de financiación y herramientas de gestión. Mantén tu conocimiento actualizado sin perseguir fuentes dispersas.',
+          },
+          {
+            title: 'Recibe opiniones sobre tu configuración',
+            description:
+              'Describe tu sistema actual de administración de propiedades y recibe sugerencias de quienes ya han resuelto los mismos problemas organizativos.',
+          },
+          {
+            title: 'Accede a consejos exclusivos',
+            description:
+              'Lee consejos prácticos que vienen de la experiencia real: el tipo de conocimiento operativo que rara vez se publica en artículos o tutoriales.',
+          },
+        ],
+      },
+      faq: {
+        eyebrow: 'Preguntas frecuentes',
+        title: 'Cómo funciona el foro',
+        description: 'Todo lo que necesitas saber para participar en la comunidad de My Rents.',
+        items: [
+          {
+            question: '¿Es gratis unirse al foro?',
+            answer:
+              'Sí, el foro público está abierto a todo el mundo. No necesitas una suscripción a My Rents para leer debates, hacer preguntas o compartir tu experiencia.',
+          },
+          {
+            question: '¿Necesito la app para participar?',
+            answer:
+              'No, el foro funciona en una plataforma independiente. Puedes acceder desde cualquier navegador en ordenador o móvil sin instalar nada.',
+          },
+          {
+            question: '¿Qué temas puedo tratar?',
+            answer:
+              'Cualquier tema relacionado con la gestión de alquileres: contratos, inquilinos, mantenimiento, gastos, impuestos, seguros, dudas legales, tendencias del mercado y consejos de flujo de trabajo. La comunidad se centra en el conocimiento práctico y operativo.',
+          },
+          {
+            question: '¿Puedo promocionar mis servicios?',
+            answer:
+              'El foro es un espacio para compartir conocimiento, no un mercado. La autopromoción no suele ser bien recibida a menos que responda directamente a una pregunta o resuelva un problema concreto planteado por la comunidad.',
+          },
+        ],
+      },
     },
     benefits: {
       intro: {
@@ -2143,6 +2314,7 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
         messageLabel: '¿En qué necesitas ayuda?',
         messagePlaceholder:
           'Cuéntanos qué gestionas, qué se te hace pesado hoy o qué duración de suscripción estás valorando.',
+        subjectLabel: 'Contacto desde la web de',
         submitLabel: 'Abrir borrador de email',
         success:
           'Tu aplicación de correo debería abrirse con un borrador preparado. Si no ocurre, escribe directamente a info@myrents-app.com.',
@@ -2592,6 +2764,7 @@ const deOverride: SiteContentWithoutLegalPages = {
       eula: 'EULA | My Rents',
       dataDeletion: 'Datenlöschung | My Rents',
       unsubscribe: 'Marketing-E-Mails abbestellen | My Rents',
+      forum: 'Forum | My Rents',
     },
   },
   header: {
@@ -2606,7 +2779,7 @@ const deOverride: SiteContentWithoutLegalPages = {
     { label: 'Preise', hash: '/pricing' },
     { label: 'Dokumentenzentrum', hash: '#documents-center' },
     { label: 'So startest du', hash: '#how-to-start' },
-    { label: 'Forum', hash: '#forum' },
+    { label: 'Forum', hash: '/forum' },
   ],
   hero: {
     rating: 'Mit 4,8/5 auf Google Play bewertet',
@@ -2742,11 +2915,85 @@ const deOverride: SiteContentWithoutLegalPages = {
     description:
       'Nutze das öffentliche Forum, um Fragen zu stellen, Arbeitsweisen zu teilen, Menschen mit ähnlichen Anlageideen kennenzulernen und praktische Informationen auszutauschen, die bessere Entscheidungen und Ergebnisse im Vermietungsalltag unterstützen.',
     author: 'Offene Community für Mietverwaltung',
-    forumLabel: FORUM_URL,
+    forumLabel: 'Forum besuchen',
     forumUrl: FORUM_URL,
     statA: 'Geteilte Ideen',
     statB: 'Support und Networking',
     avatars: ['F', 'O', 'R', 'U', 'M'],
+  },
+  forum: {
+    hero: {
+      title: 'Tritt dem Vermietungsforum bei',
+      description:
+        'Vernetze dich mit Vermietern, Verwaltern und Immobilieninvestoren. Teile Arbeitsabläufe, stelle Fragen und tausche praktische Tipps aus, die dein Vermietungsgeschäft voranbringen.',
+      ctaLabel: 'Forum öffnen',
+      forumUrl: FORUM_URL,
+    },
+    features: {
+      eyebrow: 'Was du tun kannst',
+      title: 'Eine Community für Vermietungsprofis',
+      description:
+        'Egal ob du eine Einheit oder ein wachsendes Portfolio verwaltest — das Forum gibt dir direkten Zugang zu Menschen, die täglich vor denselben operativen Entscheidungen stehen.',
+      items: [
+        {
+          title: 'Fragen stellen und beantworten',
+          description:
+            'Poste zu Mietverträgen, Mieterauswahl, Instandhaltungsabläufen, Steuervorbereitung und lokalen Vorschriften. Erhalte Antworten von erfahrenen Vermietern und Investoren.',
+        },
+        {
+          title: 'Deine Arbeitsweise teilen',
+          description:
+            'Beschreibe, wie du Mieten verfolgst, Reparaturen abwickelst, Dokumente organisierst und dich auf die Steuerzeit vorbereitest. Lerne von anderen und verbessere deinen eigenen Prozess.',
+        },
+        {
+          title: 'Investoren mit ähnlichen Zielen treffen',
+          description:
+            'Finde Leute, die in denselben Märkten, Immobilientypen oder Strategien investieren. Tausche Markteinblicke aus und baue dein berufliches Netzwerk auf.',
+        },
+        {
+          title: 'Über Miettrends auf dem Laufenden bleiben',
+          description:
+            'Verfolge Diskussionen zu Mietgesetzen, Marktveränderungen, Finanzierungsoptionen und Verwaltungstools. Halte dein Wissen aktuell, ohne verstreute Quellen zu durchsuchen.',
+        },
+        {
+          title: 'Feedback zu deinem Setup erhalten',
+          description:
+            'Beschreibe deinen aktuellen Verwaltungsstack und erhalte Vorschläge von anderen, die dieselben organisatorischen Probleme bereits gelöst haben.',
+        },
+        {
+          title: 'Exklusive Tipps entdecken',
+          description:
+            'Lies praktische Ratschläge aus echter Erfahrung — das operative Wissen, das selten in Artikeln oder Anleitungen veröffentlicht wird.',
+        },
+      ],
+    },
+    faq: {
+      eyebrow: 'Häufige Fragen',
+      title: 'So funktioniert das Forum',
+      description: 'Alles, was du über die Teilnahme an der My Rents Community wissen musst.',
+      items: [
+        {
+          question: 'Ist der Beitritt zum Forum kostenlos?',
+          answer:
+            'Ja, das öffentliche Forum steht allen offen. Du brauchst kein My Rents Abonnement, um Diskussionen zu lesen, Fragen zu stellen oder deine Erfahrungen zu teilen.',
+        },
+        {
+          question: 'Brauche ich die App, um mitzumachen?',
+          answer:
+            'Nein, das Forum läuft auf einer separaten Plattform. Du kannst von jedem Browser auf Desktop oder Mobilgerät darauf zugreifen, ohne etwas zu installieren.',
+        },
+        {
+          question: 'Welche Themen kann ich besprechen?',
+          answer:
+            'Jedes Thema rund um die Mietverwaltung: Mietverträge, Mieter, Instandhaltung, Ausgaben, Steuern, Versicherungen, Rechtsfragen, Markttrends und Workflow-Tipps. Die Community konzentriert sich auf praktisches, operatives Wissen.',
+        },
+        {
+          question: 'Kann ich meine Dienstleistungen bewerben?',
+          answer:
+            'Das Forum ist ein Raum zum Wissensaustausch, kein Marktplatz. Eigenwerbung ist grundsätzlich unerwünscht, es sei denn, sie beantwortet direkt eine Frage oder löst ein konkretes Problem der Community.',
+        },
+      ],
+    },
   },
   benefits: {
     intro: {
@@ -3088,6 +3335,7 @@ const deOverride: SiteContentWithoutLegalPages = {
       messageLabel: 'Wobei brauchst du Hilfe?',
       messagePlaceholder:
         'Sag uns, was du verwaltest, was heute unübersichtlich ist oder welche Laufzeit du gerade in Betracht ziehst.',
+      subjectLabel: 'Website-Kontakt von',
       submitLabel: 'E-Mail-Entwurf öffnen',
       success:
         'Deine E-Mail-App sollte sich mit einem vorausgefüllten Entwurf öffnen. Falls nicht, schreibe direkt an info@myrents-app.com.',
@@ -3175,6 +3423,7 @@ const frOverride: SiteContentWithoutLegalPages = {
       eula: 'EULA | My Rents',
       dataDeletion: 'Suppression des données | My Rents',
       unsubscribe: 'Désabonnement aux emails marketing | My Rents',
+      forum: 'Forum | My Rents',
     },
   },
   header: {
@@ -3189,7 +3438,7 @@ const frOverride: SiteContentWithoutLegalPages = {
     { label: 'Tarifs', hash: '/pricing' },
     { label: 'Centre de documents', hash: '#documents-center' },
     { label: 'Comment commencer', hash: '#how-to-start' },
-    { label: 'Forum', hash: '#forum' },
+    { label: 'Forum', hash: '/forum' },
   ],
   hero: {
     rating: 'Notée 4,8/5 sur Google Play',
@@ -3325,11 +3574,85 @@ const frOverride: SiteContentWithoutLegalPages = {
     description:
       "Utilisez le forum public pour poser des questions, partager vos méthodes, rencontrer des personnes avec des idées d'investissement proches et échanger des informations concrètes qui améliorent les décisions et les résultats locatifs.",
     author: 'Communauté ouverte pour la gestion locative',
-    forumLabel: FORUM_URL,
+    forumLabel: 'Visiter le forum',
     forumUrl: FORUM_URL,
     statA: 'Idées partagées',
     statB: 'Support et réseau',
     avatars: ['F', 'O', 'R', 'U', 'M'],
+  },
+  forum: {
+    hero: {
+      title: 'Rejoignez le forum de gestion locative',
+      description:
+        'Connectez-vous avec des propriétaires, gestionnaires et investisseurs immobiliers. Partagez vos méthodes de travail, posez des questions et échangez des conseils pratiques pour améliorer votre activité locative.',
+      ctaLabel: 'Ouvrir le forum',
+      forumUrl: 'https://drodriguez-support.com',
+    },
+    features: {
+      eyebrow: 'Ce que vous pouvez faire',
+      title: 'Une communauté conçue pour les professionnels de la location',
+      description:
+        'Que vous gériez un seul logement ou un portefeuille en croissance, le forum vous donne un accès direct à des personnes confrontées aux mêmes décisions opérationnelles chaque jour.',
+      items: [
+        {
+          title: 'Poser des questions et répondre',
+          description:
+            'Publiez sur la gestion des baux, la sélection des locataires, les processus de maintenance, la préparation fiscale et les réglementations locales. Obtenez des réponses de propriétaires et investisseurs expérimentés.',
+        },
+        {
+          title: 'Partagez votre méthode de travail',
+          description:
+            'Décrivez comment vous suivez les loyers, gérez les réparations, organisez les documents et préparez la saison fiscale. Apprenez des autres et améliorez votre propre processus.',
+        },
+        {
+          title: 'Rencontrez des investisseurs aux objectifs similaires',
+          description:
+            'Trouvez des personnes qui investissent dans les mêmes marchés, types de biens ou stratégies. Échangez des informations sur le marché et développez votre réseau professionnel.',
+        },
+        {
+          title: 'Restez informé des tendances locatives',
+          description:
+            'Suivez les discussions sur les lois locatives, les évolutions du marché, les options de financement et les outils de gestion. Gardez vos connaissances à jour sans chercher dans des sources éparpillées.',
+        },
+        {
+          title: 'Obtenez un retour sur votre configuration',
+          description:
+            'Décrivez votre système actuel de gestion immobilière et recevez des suggestions de ceux qui ont déjà résolu les mêmes problèmes organisationnels.',
+        },
+        {
+          title: 'Accédez à des conseils exclusifs',
+          description:
+            "Lisez des conseils pratiques issus de l'expérience réelle — le type de connaissance opérationnelle rarement publiée dans les articles ou tutoriels.",
+        },
+      ],
+    },
+    faq: {
+      eyebrow: 'Questions fréquentes',
+      title: 'Comment fonctionne le forum',
+      description: 'Tout ce que vous devez savoir pour participer à la communauté My Rents.',
+      items: [
+        {
+          question: "L'inscription au forum est-elle gratuite ?",
+          answer:
+            "Oui, le forum public est ouvert à tous. Vous n'avez pas besoin d'un abonnement My Rents pour lire les discussions, poser des questions ou partager votre expérience.",
+        },
+        {
+          question: "Ai-je besoin de l'application pour participer ?",
+          answer:
+            "Non, le forum fonctionne sur une plateforme séparée. Vous pouvez y accéder depuis n'importe quel navigateur sur ordinateur ou mobile sans rien installer.",
+        },
+        {
+          question: 'Quels sujets puis-je aborder ?',
+          answer:
+            'Tout sujet lié à la gestion locative : baux, locataires, maintenance, dépenses, impôts, assurances, questions juridiques, tendances du marché et conseils de workflow. La communauté se concentre sur les connaissances pratiques et opérationnelles.',
+        },
+        {
+          question: 'Puis-je promouvoir mes services ?',
+          answer:
+            "Le forum est un espace de partage de connaissances, pas un marché. L'autopromotion est généralement déconseillée, sauf si elle répond directement à une question ou résout un problème spécifique partagé par la communauté.",
+        },
+      ],
+    },
   },
   benefits: {
     intro: {
@@ -3670,6 +3993,7 @@ const frOverride: SiteContentWithoutLegalPages = {
       messageLabel: 'De quoi avez-vous besoin ?',
       messagePlaceholder:
         "Dites-nous ce que vous gérez, ce qui devient confus aujourd'hui ou quelle durée d'abonnement vous envisagez.",
+      subjectLabel: 'Contact site de',
       submitLabel: "Ouvrir le brouillon d'email",
       success:
         "Votre application email devrait s'ouvrir avec un brouillon prérempli. Sinon, écrivez directement à info@myrents-app.com.",
@@ -3757,6 +4081,7 @@ const itOverride: SiteContentWithoutLegalPages = {
       eula: 'EULA | My Rents',
       dataDeletion: 'Eliminazione dei dati | My Rents',
       unsubscribe: 'Disiscrizione dalle email marketing | My Rents',
+      forum: 'Forum | My Rents',
     },
   },
   header: {
@@ -3771,7 +4096,7 @@ const itOverride: SiteContentWithoutLegalPages = {
     { label: 'Prezzi', hash: '/pricing' },
     { label: 'Centro documenti', hash: '#documents-center' },
     { label: 'Come iniziare', hash: '#how-to-start' },
-    { label: 'Forum', hash: '#forum' },
+    { label: 'Forum', hash: '/forum' },
   ],
   hero: {
     rating: 'Valutata 4,8/5 su Google Play',
@@ -3907,11 +4232,85 @@ const itOverride: SiteContentWithoutLegalPages = {
     description:
       'Usa il forum pubblico per fare domande, condividere flussi di lavoro, incontrare persone con idee di investimento simili e scambiare informazioni pratiche che aiutano a migliorare decisioni e risultati.',
     author: 'Community aperta per la gestione degli affitti',
-    forumLabel: FORUM_URL,
+    forumLabel: 'Visita il forum',
     forumUrl: FORUM_URL,
     statA: 'Idee condivise',
     statB: 'Supporto e networking',
     avatars: ['F', 'O', 'R', 'U', 'M'],
+  },
+  forum: {
+    hero: {
+      title: 'Unisciti al forum degli affitti',
+      description:
+        'Connettiti con proprietari, gestori e investitori immobiliari. Condividi flussi di lavoro, fai domande e scambia consigli pratici che migliorano la tua attività di affitto.',
+      ctaLabel: 'Apri il forum',
+      forumUrl: 'https://drodriguez-support.com',
+    },
+    features: {
+      eyebrow: 'Cosa puoi fare',
+      title: 'Una comunità creata per i professionisti degli affitti',
+      description:
+        'Che tu gestisca una sola unità o un portafoglio in crescita, il forum ti dà accesso diretto a persone che affrontano le stesse decisioni operative ogni giorno.',
+      items: [
+        {
+          title: 'Fai domande e rispondi',
+          description:
+            'Pubblica su gestione dei contratti, selezione degli inquilini, flussi di manutenzione, preparazione fiscale e normative locali. Ricevi risposte da proprietari e investitori esperti.',
+        },
+        {
+          title: 'Condividi il tuo metodo di lavoro',
+          description:
+            'Descrivi come tieni traccia degli affitti, gestisci le riparazioni, organizzi i documenti e ti prepari per la dichiarazione dei redditi. Impara dagli altri e migliora il tuo processo.',
+        },
+        {
+          title: 'Incontra investitori con obiettivi simili',
+          description:
+            'Trova persone che investono negli stessi mercati, tipi di proprietà o strategie. Scambia informazioni di mercato e costruisci la tua rete professionale.',
+        },
+        {
+          title: 'Rimani aggiornato sulle tendenze degli affitti',
+          description:
+            'Segui le discussioni su leggi sugli affitti, cambiamenti del mercato, opzioni di finanziamento e strumenti di gestione. Mantieni le tue conoscenze aggiornate senza cercare fonti sparse.',
+        },
+        {
+          title: 'Ricevi feedback sulla tua configurazione',
+          description:
+            'Descrivi il tuo attuale sistema di gestione immobiliare e ricevi suggerimenti da chi ha già risolto gli stessi problemi organizzativi.',
+        },
+        {
+          title: 'Accedi a consigli esclusivi',
+          description:
+            "Leggi consigli pratici che derivano dall'esperienza reale — il tipo di conoscenza operativa che raramente viene pubblicata in articoli o tutorial.",
+        },
+      ],
+    },
+    faq: {
+      eyebrow: 'Domande frequenti',
+      title: 'Come funziona il forum',
+      description: 'Tutto ciò che devi sapere per partecipare alla community di My Rents.',
+      items: [
+        {
+          question: "L'iscrizione al forum è gratuita?",
+          answer:
+            'Sì, il forum pubblico è aperto a tutti. Non hai bisogno di un abbonamento My Rents per leggere le discussioni, fare domande o condividere la tua esperienza.',
+        },
+        {
+          question: "Ho bisogno dell'app per partecipare?",
+          answer:
+            'No, il forum funziona su una piattaforma separata. Puoi accedervi da qualsiasi browser su desktop o mobile senza installare nulla.',
+        },
+        {
+          question: 'Quali argomenti posso discutere?',
+          answer:
+            'Qualsiasi argomento legato alla gestione degli affitti: contratti, inquilini, manutenzione, spese, tasse, assicurazioni, questioni legali, tendenze di mercato e consigli sui flussi di lavoro. La community si concentra sulla conoscenza pratica e operativa.',
+        },
+        {
+          question: 'Posso promuovere i miei servizi?',
+          answer:
+            "Il forum è uno spazio di condivisione della conoscenza, non un mercato. L'autopromozione è generalmente sconsigliata, a meno che non risponda direttamente a una domanda o risolva un problema specifico condiviso dalla community.",
+        },
+      ],
+    },
   },
   benefits: {
     intro: {
@@ -4251,6 +4650,7 @@ const itOverride: SiteContentWithoutLegalPages = {
       messageLabel: 'Di cosa hai bisogno?',
       messagePlaceholder:
         'Raccontaci cosa gestisci, cosa oggi ti crea confusione o quale durata di abbonamento stai valutando.',
+      subjectLabel: 'Contatto dal sito di',
       submitLabel: 'Apri bozza email',
       success:
         'La tua app email dovrebbe aprirsi con una bozza precompilata. Se non succede, scrivi direttamente a info@myrents-app.com.',
@@ -4338,6 +4738,7 @@ const ptOverride: SiteContentWithoutLegalPages = {
       eula: 'EULA | My Rents',
       dataDeletion: 'Eliminação de dados | My Rents',
       unsubscribe: 'Cancelar subscrição dos emails de marketing | My Rents',
+      forum: 'Fórum | My Rents',
     },
   },
   header: {
@@ -4352,7 +4753,7 @@ const ptOverride: SiteContentWithoutLegalPages = {
     { label: 'Preços', hash: '/pricing' },
     { label: 'Centro de documentos', hash: '#documents-center' },
     { label: 'Como começar', hash: '#how-to-start' },
-    { label: 'Forum', hash: '#forum' },
+    { label: 'Forum', hash: '/forum' },
   ],
   hero: {
     rating: 'Classificada com 4,8/5 no Google Play',
@@ -4488,11 +4889,85 @@ const ptOverride: SiteContentWithoutLegalPages = {
     description:
       'Use o fórum público para colocar perguntas, partilhar formas de trabalhar, conhecer pessoas com ideias de investimento semelhantes e trocar informação prática que ajuda a melhorar decisões e resultados.',
     author: 'Comunidade aberta para gestão de arrendamentos',
-    forumLabel: FORUM_URL,
+    forumLabel: 'Visitar fórum',
     forumUrl: FORUM_URL,
     statA: 'Ideias partilhadas',
     statB: 'Suporte e networking',
     avatars: ['F', 'O', 'R', 'U', 'M'],
+  },
+  forum: {
+    hero: {
+      title: 'Junte-se ao fórum de alugueres',
+      description:
+        'Conecte-se com proprietários, gestores e investidores imobiliários. Partilhe fluxos de trabalho, faça perguntas e troque conselhos práticos que melhoram o seu negócio de arrendamento.',
+      ctaLabel: 'Abrir fórum',
+      forumUrl: 'https://drodriguez-support.com',
+    },
+    features: {
+      eyebrow: 'O que pode fazer',
+      title: 'Uma comunidade criada para profissionais de arrendamento',
+      description:
+        'Quer gira uma unidade ou um portfólio em crescimento, o fórum dá-lhe acesso direto a pessoas que enfrentam as mesmas decisões operacionais todos os dias.',
+      items: [
+        {
+          title: 'Faça perguntas e responda',
+          description:
+            'Publique sobre gestão de contratos, seleção de inquilinos, fluxos de manutenção, preparação fiscal e regulamentos locais. Obtenha respostas de proprietários e investidores experientes.',
+        },
+        {
+          title: 'Partilhe o seu método de trabalho',
+          description:
+            'Descreva como acompanha as rendas, gere as reparações, organiza os documentos e se prepara para a época fiscal. Aprenda com os outros e melhore o seu próprio processo.',
+        },
+        {
+          title: 'Conheça investidores com objetivos semelhantes',
+          description:
+            'Encontre pessoas que investem nos mesmos mercados, tipos de propriedade ou estratégias. Troque informações de mercado e construa a sua rede profissional.',
+        },
+        {
+          title: 'Mantenha-se atualizado sobre tendências de arrendamento',
+          description:
+            'Acompanhe discussões sobre leis de arrendamento, mudanças de mercado, opções de financiamento e ferramentas de gestão. Mantenha o seu conhecimento atualizado sem procurar em fontes dispersas.',
+        },
+        {
+          title: 'Receba feedback sobre a sua configuração',
+          description:
+            'Descreva o seu sistema atual de administração de propriedades e receba sugestões de quem já resolveu os mesmos problemas organizacionais.',
+        },
+        {
+          title: 'Aceda a dicas exclusivas',
+          description:
+            'Leia conselhos práticos que vêm da experiência real — o tipo de conhecimento operacional que raramente é publicado em artigos ou tutoriais.',
+        },
+      ],
+    },
+    faq: {
+      eyebrow: 'Perguntas frequentes',
+      title: 'Como funciona o fórum',
+      description: 'Tudo o que precisa de saber para participar na comunidade My Rents.',
+      items: [
+        {
+          question: 'A inscrição no fórum é gratuita?',
+          answer:
+            'Sim, o fórum público está aberto a todos. Não precisa de uma subscrição My Rents para ler as discussões, fazer perguntas ou partilhar a sua experiência.',
+        },
+        {
+          question: 'Preciso da aplicação para participar?',
+          answer:
+            'Não, o fórum funciona numa plataforma separada. Pode aceder a partir de qualquer navegador no computador ou telemóvel sem instalar nada.',
+        },
+        {
+          question: 'Que temas posso discutir?',
+          answer:
+            'Qualquer tema relacionado com a gestão de alugueres: contratos, inquilinos, manutenção, despesas, impostos, seguros, questões legais, tendências de mercado e dicas de fluxo de trabalho. A comunidade foca-se no conhecimento prático e operacional.',
+        },
+        {
+          question: 'Posso promover os meus serviços?',
+          answer:
+            'O fórum é um espaço de partilha de conhecimento, não um mercado. A autopromoção é geralmente desaconselhada, a menos que responda diretamente a uma pergunta ou resolva um problema específico partilhado pela comunidade.',
+        },
+      ],
+    },
   },
   benefits: {
     intro: {
@@ -4832,6 +5307,7 @@ const ptOverride: SiteContentWithoutLegalPages = {
       messageLabel: 'Em que precisa de ajuda?',
       messagePlaceholder:
         'Diga-nos o que gere, o que hoje está confuso ou que duração de subscrição está a considerar.',
+      subjectLabel: 'Contato do site de',
       submitLabel: 'Abrir rascunho de email',
       success:
         'A sua aplicação de email deverá abrir com um rascunho preenchido. Se isso não acontecer, escreva diretamente para info@myrents-app.com.',

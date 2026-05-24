@@ -5,7 +5,6 @@ import { computed, ref, onMounted } from 'vue'
 
 import AccordionItem from '@/components/shared/AccordionItem/AccordionItem.vue'
 import SectionIntro from '@/components/shared/SectionIntro/SectionIntro.vue'
-import StoreButton from '@/components/shared/StoreButton/StoreButton.vue'
 import TrustBadge from '@/components/shared/TrustBadge/TrustBadge.vue'
 import { useSiteContent } from '@/composables/useSiteContent'
 import { useStaticPricing, type PlanKey } from '@/composables/useStaticPricing'

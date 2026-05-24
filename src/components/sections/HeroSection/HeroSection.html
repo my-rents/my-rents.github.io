@@ -11,18 +11,6 @@
         <p class="hero-section__copy">{{ content.hero.copy }}</p>
 
         <div class="hero-section__actions">
-          <div class="hero-section__download">
-            <StoreButton
-              store="android"
-              :label="content.hero.playStoreCtaLabel"
-              :href="content.playStoreUrl"
-            />
-            <StoreButton
-              store="ios"
-              :label="content.hero.appStoreCtaLabel"
-              :href="content.appStoreUrl"
-            />
-          </div>
           <AppButton
             :label="content.hero.contactCtaLabel"
             size="large"

@@ -1,0 +1,206 @@
+@use '@/styles/breakpoints' as *;
+
+.forum-view {
+  padding-block-end: var(--section-space);
+}
+
+/* Hero */
+.forum-view__hero {
+  padding-block: var(--space-3xl) var(--space-2xl);
+  text-align: center;
+}
+
+.forum-view__hero-content {
+  display: grid;
+  gap: var(--space-m);
+  justify-items: center;
+}
+
+.forum-view__hero-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-display);
+  line-height: var(--line-tight);
+  letter-spacing: -0.04em;
+  text-wrap: balance;
+}
+
+.forum-view__hero-copy {
+  max-inline-size: var(--measure-hero-copy);
+  color: var(--color-ink-muted);
+  font-size: 1.125rem;
+  text-wrap: balance;
+}
+
+.forum-view__hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-m);
+  margin-top: var(--space-s);
+}
+
+/* Community */
+.forum-view__community {
+  padding-block: var(--section-space);
+}
+
+.forum-view__community-grid {
+  display: grid;
+  gap: var(--space-l);
+  align-items: stretch;
+  grid-template-columns: minmax(0, 0.42fr) minmax(0, 1fr);
+}
+
+.forum-view__community-visual {
+  display: grid;
+  align-content: end;
+  gap: var(--space-s);
+  padding: var(--space-xl);
+  border-radius: var(--radius-xl);
+  background: var(--color-brand);
+  color: var(--color-brand-contrast);
+}
+
+.forum-view__avatar-stack {
+  display: flex;
+}
+
+.forum-view__avatar-stack span {
+  display: inline-flex;
+  inline-size: var(--size-badge);
+  block-size: var(--size-badge);
+  align-items: center;
+  justify-content: center;
+  margin-inline-end: calc(var(--space-xs) * -1);
+  border: 2px solid var(--color-brand);
+  border-radius: var(--radius-circle);
+  background: var(--color-surface-warm);
+  color: var(--color-brand);
+  font-weight: 700;
+}
+
+.forum-view__community-label {
+  color: var(--color-contrast-muted);
+}
+
+.forum-view__community-card {
+  display: grid;
+  gap: var(--space-l);
+  padding: var(--space-xl);
+}
+
+.forum-view__community-quote {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 3vw, 3.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+.forum-view__community-description {
+  max-inline-size: 38rem;
+  color: var(--color-ink-muted);
+}
+
+.forum-view__community-author-block {
+  display: grid;
+  gap: var(--space-s);
+  justify-items: start;
+}
+
+.forum-view__community-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-s);
+}
+
+.forum-view__community-author {
+  font-weight: 600;
+}
+
+.forum-view__community-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-s);
+  color: var(--color-ink-muted);
+}
+
+/* Features */
+.forum-view__features {
+  padding-block: var(--section-space);
+  background: var(--color-surface-warm);
+}
+
+.forum-view__features-intro {
+  margin-block-end: var(--space-xl);
+}
+
+.forum-view__features-grid {
+  display: grid;
+  gap: var(--space-s);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.forum-view__feature {
+  display: grid;
+  gap: var(--space-xs);
+  padding: var(--space-l);
+}
+
+.forum-view__feature h3 {
+  font-size: var(--text-card-title);
+}
+
+.forum-view__feature p {
+  color: var(--color-ink-muted);
+}
+
+/* FAQ */
+.forum-view__faq {
+  padding-block: var(--section-space);
+}
+
+.forum-view__faq-intro {
+  margin-block-end: var(--space-xl);
+}
+
+.forum-view__faq-grid {
+  display: grid;
+  gap: var(--space-s);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.forum-view__faq-item {
+  display: grid;
+  gap: var(--space-xs);
+  padding: var(--space-l);
+}
+
+.forum-view__faq-question {
+  font-size: var(--text-card-title);
+}
+
+.forum-view__faq-answer {
+  color: var(--color-ink-muted);
+}
+
+@include below(medium) {
+  .forum-view__community-grid,
+  .forum-view__community-meta {
+    grid-template-columns: minmax(0, 1fr);
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .forum-view__features-grid,
+  .forum-view__faq-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@include below(small) {
+  .forum-view__features-grid,
+  .forum-view__faq-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

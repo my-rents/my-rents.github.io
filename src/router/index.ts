@@ -12,6 +12,11 @@ const routes = [
     component: () => import('@/views/PricingView.vue'),
   },
   {
+    path: '/forum',
+    name: 'forum',
+    component: () => import('@/views/ForumView.vue'),
+  },
+  {
     path: '/terms-of-service',
     name: 'terms',
     component: () => import('@/views/LegalView.vue'),

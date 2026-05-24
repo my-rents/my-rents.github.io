@@ -9,13 +9,7 @@
       />
 
       <div class="contact-section__actions">
-        <AppButton
-          :label="content.contact.forumCtaLabel"
-          :href="content.contact.forumUrl"
-          variant="light"
-          target="_blank"
-          rel="noreferrer"
-        />
+        <AppButton :label="content.contact.forumCtaLabel" :to="{ name: 'forum' }" variant="light" />
       </div>
     </div>
 

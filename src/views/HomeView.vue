@@ -7,7 +7,6 @@ import DocumentsCenterSection from '@/components/sections/DocumentsCenterSection
 import HeroSection from '@/components/sections/HeroSection/HeroSection.vue'
 import ImpactSection from '@/components/sections/ImpactSection/ImpactSection.vue'
 import ProcessSection from '@/components/sections/ProcessSection/ProcessSection.vue'
-import TestimonialSection from '@/components/sections/TestimonialSection/TestimonialSection.vue'
 </script>
 
 <style scoped src="./HomeView.scss" lang="scss"></style>

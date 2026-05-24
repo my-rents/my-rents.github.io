@@ -1,0 +1,93 @@
+<main class="forum-view">
+  <section class="forum-view__hero">
+    <div class="section-shell">
+      <div class="forum-view__hero-content" v-reveal>
+        <h1 class="forum-view__hero-title">{{ content.forum.hero.title }}</h1>
+        <p class="forum-view__hero-copy">{{ content.forum.hero.description }}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="forum-view__community">
+    <div class="section-shell">
+      <div class="forum-view__community-grid">
+        <div class="forum-view__community-visual" v-reveal>
+          <div class="forum-view__avatar-stack">
+            <span v-for="avatar in content.testimonial.avatars" :key="avatar">{{ avatar }}</span>
+          </div>
+          <p class="forum-view__community-label">{{ content.testimonial.communityLabel }}</p>
+        </div>
+
+        <article class="forum-view__community-card surface-card" v-reveal="120">
+          <h3 class="forum-view__community-quote">{{ content.testimonial.quote }}</h3>
+          <p class="forum-view__community-description">{{ content.testimonial.description }}</p>
+
+          <div class="forum-view__community-meta">
+            <div class="forum-view__community-author-block">
+              <span class="forum-view__community-author">{{ content.testimonial.author }}</span>
+              <AppButton
+                :label="content.forum.hero.ctaLabel"
+                :href="content.forum.hero.forumUrl"
+                variant="light"
+                size="medium"
+                target="_blank"
+                rel="noopener noreferrer"
+              />
+            </div>
+            <div class="forum-view__community-stats">
+              <span>{{ content.testimonial.statA }}</span>
+              <span>{{ content.testimonial.statB }}</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="forum-view__features">
+    <div class="section-shell">
+      <div class="forum-view__features-intro" v-reveal>
+        <SectionIntro
+          :eyebrow="content.forum.features.eyebrow"
+          :title="content.forum.features.title"
+          :description="content.forum.features.description"
+        />
+      </div>
+
+      <div class="forum-view__features-grid">
+        <article
+          v-for="(feature, index) in content.forum.features.items"
+          :key="feature.title"
+          class="forum-view__feature surface-card"
+          v-reveal="80 + index * 80"
+        >
+          <h3>{{ feature.title }}</h3>
+          <p>{{ feature.description }}</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="forum-view__faq">
+    <div class="section-shell">
+      <div class="forum-view__faq-intro" v-reveal>
+        <SectionIntro
+          :eyebrow="content.forum.faq.eyebrow"
+          :title="content.forum.faq.title"
+          :description="content.forum.faq.description"
+        />
+      </div>
+
+      <div class="forum-view__faq-grid" v-reveal="120">
+        <article
+          v-for="item in content.forum.faq.items"
+          :key="item.question"
+          class="forum-view__faq-item surface-card"
+        >
+          <h4 class="forum-view__faq-question">{{ item.question }}</h4>
+          <p class="forum-view__faq-answer">{{ item.answer }}</p>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>

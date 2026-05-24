@@ -29,13 +29,8 @@ const handleSubmit = () => {
     return
   }
 
-  const subject = `[My Rents] Website contact from ${form.name}`
-  const body = [
-    `${content.value.contact.form.nameLabel}: ${form.name}`,
-    `${content.value.contact.form.emailLabel}: ${form.email}`,
-    '',
-    form.message,
-  ].join('\n')
+  const subject = `[My Rents] ${content.value.contact.form.subjectLabel} ${form.name}`
+  const body = form.message
 
   if (typeof window !== 'undefined') {
     const params = new URLSearchParams({
@@ -43,7 +38,7 @@ const handleSubmit = () => {
       body,
     })
 
-    window.location.href = `mailto:${content.value.contact.emailAddress}?${params.toString()}`
+    window.location.href = `mailto:${content.value.contact.emailAddress}?${params.toString().replace(/\+/g, '%20')}`
   }
 
   submitted.value = true
