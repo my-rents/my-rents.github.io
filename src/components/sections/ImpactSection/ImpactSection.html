@@ -43,7 +43,32 @@
           v-reveal="index * 70"
         >
           <span class="impact-section__stat-copy">
-            <strong>{{ item.title }}</strong>
+            <strong class="impact-section__stat-title">
+              {{ item.title }}
+              <svg
+                class="impact-section__stat-eye"
+                viewBox="0 0 24 24"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M12 5C7 5 2.73 8.11 1 12c1.73 3.89 6 7 11 7s9.27-3.11 11-7c-1.73-3.89-6-7-11-7z"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="3"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </strong>
             <span>{{ item.description }}</span>
           </span>
         </button>
