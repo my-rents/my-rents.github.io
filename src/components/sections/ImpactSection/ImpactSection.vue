@@ -8,8 +8,7 @@ import { revealDirective as vReveal } from '@/directives/reveal'
 
 // Import images from src/assets/features
 
-// Use import.meta.glob to map all feature images
-const featureImageMap = import.meta.glob('@/assets/features/*.jpg', {
+const featureImageMap = import.meta.glob('@/assets/features/*.png', {
   eager: true,
   query: '?url',
   import: 'default',
@@ -19,33 +18,29 @@ const FEATURE_IMAGE_WIDTH = 1080
 const FEATURE_IMAGE_HEIGHT = 2400
 
 const featureImageBaseNames = [
-  { en: 'main', es: 'main' },
-  { en: 'rent', es: 'rent' },
-  { en: 'lease', es: 'lease' },
-  { en: 'rent2', es: 'rent2' },
-  { en: 'expense', es: 'expense' },
-  { en: 'portfolio_info', es: 'portfolio_info' },
-  { en: 'calendar', es: 'calendar' },
-  { en: 'contacts_list', es: 'contacts_list' },
+  'main',
+  'rent',
+  'lease',
+  'rent2',
+  'expense',
+  'portfolio_info',
+  'calendar',
+  'contacts_list',
 ] as const
 
-const getImageFromMap = (name: string, suffix: 'EN' | 'ES') => {
-  const imagePath = `/src/assets/features/${name}_${suffix}.jpg`
-  return featureImageMap[imagePath]
-}
+type SupportedLocale = 'DE' | 'EN' | 'ES' | 'FR' | 'IT' | 'PT'
 
 function getFeatureImage(idx: number, locale: string): string {
-  const imageNames =
+  const baseName =
     featureImageBaseNames[idx % featureImageBaseNames.length] || featureImageBaseNames[0]
-  const suffix = locale.toUpperCase() === 'ES' ? 'ES' : 'EN'
-  const localizedName = suffix === 'ES' ? imageNames.es : imageNames.en
+  const suffix = locale.toUpperCase() as SupportedLocale
 
-  const localizedImage = getImageFromMap(localizedName, suffix)
+  const localizedImage = featureImageMap[`/src/assets/features/${baseName}_${suffix}.png`]
   if (localizedImage) {
     return localizedImage
   }
 
-  return getImageFromMap(imageNames.en, 'EN') || ''
+  return featureImageMap[`/src/assets/features/${baseName}_EN.png`] || ''
 }
 
 const { content, locale } = useSiteContent()

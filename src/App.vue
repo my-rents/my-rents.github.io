@@ -1,4 +1,14 @@
-<template src="./App.html"></template>
+<template>
+  <div class="app-shell">
+    <SiteHeader />
+
+    <div class="app-shell__content">
+      <RouterView />
+    </div>
+
+    <SiteFooter />
+  </div>
+</template>
 
 <script setup lang="ts">
 import { watchEffect } from 'vue'

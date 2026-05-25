@@ -1,7 +1,22 @@
-import screenshotEn1 from '@/assets/features/rent_EN.jpg'
-import screenshotEs1 from '@/assets/features/rent_ES.jpg'
-import calendarImage from '@/assets/features/calendar_EN.jpg'
-import contactsListImage from '@/assets/features/contacts_list_EN.jpg'
+import rentDe from '@/assets/features/rent_DE.png'
+import rentEn from '@/assets/features/rent_EN.png'
+import rentEs from '@/assets/features/rent_ES.png'
+import rentFr from '@/assets/features/rent_FR.png'
+import rentIt from '@/assets/features/rent_IT.png'
+import rentPt from '@/assets/features/rent_PT.png'
+import calendarEn from '@/assets/features/calendar_EN.png'
+import calendarEs from '@/assets/features/calendar_ES.png'
+import contactsListEn from '@/assets/features/contacts_list_EN.png'
+import contactsListEs from '@/assets/features/contacts_list_ES.png'
+
+const heroSnapshots: Record<SiteLocale, string> = {
+  en: rentEn,
+  es: rentEs,
+  de: rentDe,
+  fr: rentFr,
+  it: rentIt,
+  pt: rentPt,
+}
 
 export type SiteLocale = 'en' | 'es' | 'de' | 'fr' | 'it' | 'pt'
 
@@ -352,7 +367,7 @@ const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=com.drodri
 const APP_STORE_URL = 'https://apps.apple.com/es/app/my-rents-property-manager-pro/id1537064606'
 const CONTACT_EMAIL = 'info@myrents-app.com'
 const FORUM_URL = 'https://drodriguez-support.com'
-const FEATURE_SPOTLIGHT_IMAGE = screenshotEs1
+const FEATURE_SPOTLIGHT_IMAGE = rentEs
 
 const createPlaceholder = (
   width: number,
@@ -730,7 +745,7 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
       playStoreCtaLabel: 'Download for Android',
       appStoreCtaLabel: 'Download for iOS',
       contactCtaLabel: 'Contact us',
-      snapshot: screenshotEn1,
+      snapshot: heroSnapshots.en,
       snapshotAlt: 'My Rents dashboard showing portfolio, payments, and lease management',
       trustLabel: 'Trusted by 5,000+ landlords and companies worldwide',
       partnersLabel: 'Built for landlords who have outgrown DIY admin',
@@ -1198,14 +1213,14 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
           title: 'Never miss an inspection or deadline again',
           description:
             'Repairs, inspections, reminders, and recurring tasks stay visible so critical follow-ups do not live only in your head.',
-          image: calendarImage,
+          image: calendarEn,
           imageAlt: 'Calendar and events screenshot',
         },
         {
           title: 'Find any contact when something breaks',
           description:
             'Keep tenants, suppliers, and advisors organised by property so you are not digging through chats when something breaks.',
-          image: contactsListImage,
+          image: contactsListEn,
           imageAlt: 'Contact list screenshot',
         },
       ],
@@ -1221,22 +1236,22 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
         {
           name: 'Independent Landlord',
           role: 'Solo owner',
-          image: screenshotEn1,
+          image: rentEn,
         },
         {
           name: 'Portfolio Owner',
           role: 'Growing rental portfolio',
-          image: screenshotEn1,
+          image: rentEn,
         },
         {
           name: 'Property Manager',
           role: 'Operational team lead',
-          image: screenshotEn1,
+          image: rentEn,
         },
         {
           name: 'Property Company',
           role: 'Professional management firm',
-          image: screenshotEn1,
+          image: rentEn,
         },
       ],
     },
@@ -1737,7 +1752,7 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
       playStoreCtaLabel: 'Descargar para Android',
       appStoreCtaLabel: 'Descargar para iOS',
       contactCtaLabel: 'Contactar con nosotros',
-      snapshot: screenshotEs1,
+      snapshot: heroSnapshots.es,
       snapshotAlt: 'Panel de My Rents mostrando portfolio, pagos y gestión de contratos',
       trustLabel: 'Más de 5.000 propietarios y empresas confían en nosotros',
       partnersLabel: 'Pensada para propietarios que ya han superado el sistema DIY',
@@ -2202,14 +2217,14 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
           title: 'Eventos',
           description:
             'Reparaciones, inspecciones, recordatorios y tareas recurrentes siguen visibles para que el seguimiento no viva solo en tu cabeza.',
-          image: calendarImage,
+          image: calendarEn,
           imageAlt: 'Captura en español del calendario y eventos',
         },
         {
           title: 'Contactos',
           description:
             'Mantén inquilinos, proveedores y asesores organizados por propiedad para no buscar entre chats cuando algo se rompe.',
-          image: contactsListImage,
+          image: contactsListEn,
           imageAlt: 'Captura en español de la lista de contactos',
         },
       ],
@@ -2225,22 +2240,22 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
         {
           name: 'Propietario independiente',
           role: 'Gestor individual',
-          image: screenshotEs1,
+          image: rentEs,
         },
         {
           name: 'Propietario de porfolio',
           role: 'Operador multivivienda',
-          image: screenshotEs1,
+          image: rentEs,
         },
         {
           name: 'Gestor de propiedad',
           role: 'Responsable operativo',
-          image: screenshotEs1,
+          image: rentEs,
         },
         {
           name: 'Empresa de gestión',
           role: 'Equipo profesional',
-          image: screenshotEs1,
+          image: rentEs,
         },
       ],
     },
@@ -2788,7 +2803,7 @@ const deOverride: SiteContentWithoutLegalPages = {
     playStoreCtaLabel: 'Für Android herunterladen',
     appStoreCtaLabel: 'Für iOS herunterladen',
     contactCtaLabel: 'Kontaktiere uns',
-    snapshot: screenshotEn1,
+    snapshot: heroSnapshots.de,
     snapshotAlt: 'Screenshot des My Rents Dashboards',
     trustLabel: 'Über 5.000 Vermieter und Unternehmen vertrauen uns',
     partnersLabel: 'Gemacht für Vermieter, die aus der DIY-Verwaltung herausgewachsen sind',
@@ -3252,14 +3267,14 @@ const deOverride: SiteContentWithoutLegalPages = {
         title: 'Ereignisse',
         description:
           'Reparaturen, Inspektionen, Erinnerungen und wiederkehrende Aufgaben bleiben sichtbar, damit wichtige Nachfassaktionen nicht nur in deinem Kopf existieren.',
-        image: calendarImage,
+        image: calendarEn,
         imageAlt: 'Screenshot von Kalender und Ereignissen',
       },
       {
         title: 'Kontakte',
         description:
           'Halte Mieter, Dienstleister und Berater nach Immobilie geordnet, damit du nicht in Chats suchen musst, wenn etwas kaputtgeht.',
-        image: contactsListImage,
+        image: contactsListEn,
         imageAlt: 'Screenshot der Kontaktliste',
       },
     ],
@@ -3447,7 +3462,7 @@ const frOverride: SiteContentWithoutLegalPages = {
     playStoreCtaLabel: 'Télécharger pour Android',
     appStoreCtaLabel: 'Télécharger pour iOS',
     contactCtaLabel: 'Nous contacter',
-    snapshot: screenshotEn1,
+    snapshot: heroSnapshots.fr,
     snapshotAlt: 'Capture du tableau de bord My Rents',
     trustLabel: 'Plus de 5.000 propriétaires et entreprises nous font confiance',
     partnersLabel: 'Pensée pour les propriétaires qui ont dépassé la gestion bricolée',
@@ -3910,14 +3925,14 @@ const frOverride: SiteContentWithoutLegalPages = {
         title: 'Événements',
         description:
           'Réparations, inspections, rappels et tâches récurrentes restent visibles pour que les suivis importants ne vivent pas seulement dans votre tête.',
-        image: calendarImage,
+        image: calendarEn,
         imageAlt: 'Capture du calendrier et des événements',
       },
       {
         title: 'Contacts',
         description:
           'Gardez locataires, prestataires et conseillers organisés par bien pour ne pas fouiller dans vos discussions quand quelque chose casse.',
-        image: contactsListImage,
+        image: contactsListEn,
         imageAlt: 'Capture de la liste de contacts',
       },
     ],
@@ -4105,7 +4120,7 @@ const itOverride: SiteContentWithoutLegalPages = {
     playStoreCtaLabel: 'Scarica per Android',
     appStoreCtaLabel: 'Scarica per iOS',
     contactCtaLabel: 'Contattaci',
-    snapshot: screenshotEn1,
+    snapshot: heroSnapshots.it,
     snapshotAlt: 'Screenshot della dashboard di My Rents',
     trustLabel: 'Oltre 5.000 proprietari e aziende si fidano di noi',
     partnersLabel: 'Pensata per proprietari che hanno superato la gestione fai-da-te',
@@ -4568,14 +4583,14 @@ const itOverride: SiteContentWithoutLegalPages = {
         title: 'Eventi',
         description:
           'Riparazioni, ispezioni, promemoria e attività ricorrenti restano visibili così i follow-up importanti non vivono solo nella tua testa.',
-        image: calendarImage,
+        image: calendarEn,
         imageAlt: 'Screenshot di calendario ed eventi',
       },
       {
         title: 'Contatti',
         description:
           'Mantieni inquilini, fornitori e consulenti organizzati per immobile così non devi scavare nelle chat quando qualcosa si rompe.',
-        image: contactsListImage,
+        image: contactsListEn,
         imageAlt: 'Screenshot della lista contatti',
       },
     ],
@@ -4762,7 +4777,7 @@ const ptOverride: SiteContentWithoutLegalPages = {
     playStoreCtaLabel: 'Transferir para Android',
     appStoreCtaLabel: 'Transferir para iOS',
     contactCtaLabel: 'Contacte-nos',
-    snapshot: screenshotEn1,
+    snapshot: heroSnapshots.pt,
     snapshotAlt: 'Screenshot do painel My Rents',
     trustLabel: 'Mais de 5.000 proprietários e empresas confiam em nós',
     partnersLabel: 'Pensada para proprietários que já ultrapassaram a gestão improvisada',
@@ -5225,14 +5240,14 @@ const ptOverride: SiteContentWithoutLegalPages = {
         title: 'Eventos',
         description:
           'Reparações, inspeções, lembretes e tarefas recorrentes mantêm-se visíveis para que os seguimentos importantes não vivam só na sua cabeça.',
-        image: calendarImage,
+        image: calendarEn,
         imageAlt: 'Screenshot do calendário e dos eventos',
       },
       {
         title: 'Contactos',
         description:
           'Mantenha inquilinos, fornecedores e consultores organizados por imóvel para não ter de procurar em conversas quando algo se estraga.',
-        image: contactsListImage,
+        image: contactsListEn,
         imageAlt: 'Screenshot da lista de contactos',
       },
     ],
