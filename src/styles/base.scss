@@ -125,3 +125,14 @@ ol {
     transform: none;
   }
 }
+
+@media (max-width: 36rem) {
+  .section-shell,
+  .section-shell--narrow {
+    width: min(calc(100% - (var(--space-m) * 2)), var(--container-width));
+  }
+
+  .section-shell--narrow {
+    width: min(calc(100% - (var(--space-m) * 2)), var(--container-narrow));
+  }
+}

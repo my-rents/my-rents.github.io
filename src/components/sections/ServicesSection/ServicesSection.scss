@@ -40,6 +40,8 @@
 }
 
 .services-section__card {
+  display: grid;
+  grid-template-rows: auto 1fr;
   overflow: hidden;
   flex: 0 0
     calc((100% - (var(--carousel-gap) * (var(--cards-per-view) - 1))) / var(--cards-per-view));
@@ -80,11 +82,23 @@
 
 .services-section__description {
   color: var(--color-ink-muted);
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
 
 @include below(small) {
   .services-section__header {
     flex-direction: column;
     align-items: stretch;
+  }
+
+  .services-section__body {
+    padding: var(--space-m);
+  }
+}
+
+@include below(xsmall) {
+  .services-section__body {
+    padding: var(--space-s);
   }
 }

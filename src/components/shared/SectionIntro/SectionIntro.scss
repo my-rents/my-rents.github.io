@@ -19,10 +19,15 @@
   font-size: var(--text-title);
   line-height: 1.2;
   letter-spacing: -0.03em;
+  text-wrap: balance;
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
 
 .section-intro__description {
   color: var(--color-ink-muted);
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
 
 .section-intro--light {
@@ -30,5 +35,11 @@
 
   .section-intro__description {
     color: var(--color-contrast-muted);
+  }
+}
+
+@include below(xsmall) {
+  .section-intro__title {
+    font-size: clamp(1.8rem, 8vw, 2.4rem);
   }
 }

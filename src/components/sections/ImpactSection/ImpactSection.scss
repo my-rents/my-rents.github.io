@@ -99,6 +99,8 @@
 .impact-section__stat-copy {
   display: grid;
   gap: var(--space-2xs);
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
 
 .impact-section__stat-copy span {
@@ -133,5 +135,19 @@
   .impact-section__grid,
   .impact-section__stats {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .impact-section__stat {
+    padding: var(--space-m);
+  }
+
+  .impact-section__stat-title {
+    font-size: clamp(1.3rem, 5vw, 1.75rem);
+  }
+}
+
+@include below(xsmall) {
+  .impact-section__stat {
+    padding: var(--space-s);
   }
 }
