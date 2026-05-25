@@ -5,9 +5,7 @@ import rentFr from '@/assets/features/rent_FR.png'
 import rentIt from '@/assets/features/rent_IT.png'
 import rentPt from '@/assets/features/rent_PT.png'
 import calendarEn from '@/assets/features/calendar_EN.png'
-import calendarEs from '@/assets/features/calendar_ES.png'
 import contactsListEn from '@/assets/features/contacts_list_EN.png'
-import contactsListEs from '@/assets/features/contacts_list_ES.png'
 
 const heroSnapshots: Record<SiteLocale, string> = {
   en: rentEn,
