@@ -1,4 +1,3 @@
-import weeklyRaw from '@/content/pricing/weekly_subscription.md?raw'
 import monthlyRaw from '@/content/pricing/monthly_subscription.md?raw'
 import annualRaw from '@/content/pricing/annual_subscription.md?raw'
 import lifetimeRaw from '@/content/pricing/lifetime_payment.md?raw'
@@ -12,7 +11,6 @@ export interface StaticPriceEntry {
 
 export interface StaticPricingData {
   countryName: string
-  weekly: StaticPriceEntry | null
   monthly: StaticPriceEntry | null
   annual: StaticPriceEntry | null
   lifetime: StaticPriceEntry | null
@@ -90,24 +88,17 @@ const parsePricingFile = (raw: string): Map<string, StaticPriceEntry> => {
   return map
 }
 
-const weeklyMap = parsePricingFile(weeklyRaw)
 const monthlyMap = parsePricingFile(monthlyRaw)
 const annualMap = parsePricingFile(annualRaw)
 const lifetimeMap = parsePricingFile(lifetimeRaw)
 
-const allCountryNames = new Set([
-  ...weeklyMap.keys(),
-  ...monthlyMap.keys(),
-  ...annualMap.keys(),
-  ...lifetimeMap.keys(),
-])
+const allCountryNames = new Set([...monthlyMap.keys(), ...annualMap.keys(), ...lifetimeMap.keys()])
 
 const pricingByCountry = new Map<string, StaticPricingData>()
 
 for (const countryName of allCountryNames) {
   pricingByCountry.set(countryName, {
     countryName,
-    weekly: weeklyMap.get(countryName) ?? null,
     monthly: monthlyMap.get(countryName) ?? null,
     annual: annualMap.get(countryName) ?? null,
     lifetime: lifetimeMap.get(countryName) ?? null,

@@ -4,7 +4,7 @@ import type { StaticPricingData } from '@/lib/staticPricing'
 import { getPricingForCountry } from '@/lib/staticPricing'
 import { useIpGeolocation } from '@/composables/useIpGeolocation'
 
-export type PlanKey = 'weekly' | 'monthly' | 'annual' | 'lifetime'
+export type PlanKey = 'monthly' | 'annual' | 'lifetime'
 
 const selectedCountryName = ref<string | null>(null)
 const selectedCountryCode = ref<string | null>(null)

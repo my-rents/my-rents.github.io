@@ -86,7 +86,7 @@ export interface DocumentsCenterSection {
   note: string
 }
 
-export type PricingPlanKey = 'weekly' | 'monthly' | 'annual' | 'lifetime'
+export type PricingPlanKey = 'monthly' | 'annual' | 'lifetime'
 
 export interface LivePricingContent {
   introDescription: string
@@ -1004,15 +1004,6 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
       },
       plans: [
         {
-          key: 'weekly',
-          name: 'Weekly',
-          summary:
-            'Best if you want to try My Rents for a short period and see how it fits your workflow.',
-          detail: 'Weekly subscription',
-          subdetail: 'Price shown inside the app after download',
-          ctaLabel: 'Download and check price',
-        },
-        {
           key: 'monthly',
           name: 'Monthly',
           summary:
@@ -1087,7 +1078,7 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
         introDescription:
           'Every plan unlocks the same tools — pick the duration that fits your workflow. All prices come directly from Google Play based on your country.',
         messageDescription:
-          'Choose the duration that matches your workflow. Switch country below to preview the current Google Play prices for weekly, monthly, annual, and lifetime plans.',
+          'Choose the duration that matches your workflow. Switch country below to preview the current Google Play prices for monthly, annual, and lifetime plans.',
         storeTitle: 'Prices by country',
         storeDescription:
           "These prices reflect the selected country's Google Play amount. Purchase and billing still happen inside My Rents.",
@@ -1282,7 +1273,7 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
             'Yes. Annual subscriptions include a 7-day free trial. You can test with your real properties and see if the workflow fits before being charged.',
         },
         {
-          question: 'What changes between the weekly, monthly, annual, and lifetime plans?',
+          question: 'What changes between the monthly, annual, and lifetime plans?',
           answer: 'Only the subscription length changes. The tools are the same in every option.',
         },
         {
@@ -2010,15 +2001,6 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
           'Elige la duración que mejor encaje con tu ritmo de adopción. Después de descargar la app verás el precio local exacto para cada opción antes de confirmar nada.',
       },
       plans: [
-        {
-          key: 'weekly',
-          name: 'Semanal',
-          summary:
-            'Ideal si quieres probar My Rents por un periodo corto y ver cómo encaja en tu forma de trabajar.',
-          detail: 'Suscripción semanal',
-          subdetail: 'El precio aparece dentro de la app tras descargarla',
-          ctaLabel: 'Descargar y ver precio',
-        },
         {
           key: 'monthly',
           name: 'Mensual',
@@ -3062,15 +3044,6 @@ const deOverride: SiteContentWithoutLegalPages = {
     },
     plans: [
       {
-        key: 'weekly',
-        name: 'Wöchentlich',
-        summary:
-          'Ideal, wenn du My Rents für einen kurzen Zeitraum ausprobieren und sehen willst, wie es in deinen Ablauf passt.',
-        detail: 'Wöchentliches Abonnement',
-        subdetail: 'Preis wird nach dem Download in der App angezeigt',
-        ctaLabel: 'Herunterladen und Preis prüfen',
-      },
-      {
         key: 'monthly',
         name: 'Monatlich',
         summary:
@@ -3141,7 +3114,7 @@ const deOverride: SiteContentWithoutLegalPages = {
       introDescription:
         'Jeder Plan schaltet dieselben Werkzeuge frei — wähle die Laufzeit, die zu deinem Ablauf passt. Die Preise unten kommen direkt von Google Play für das Land, das du auf dieser Seite auswählst.',
       messageDescription:
-        'Wähle die Laufzeit, die zu deinem Ablauf passt. Wechsle das Land, um den aktuellen Google-Play-Preis für wöchentliche, monatliche, jährliche und einmalige Pläne zu sehen, bevor die App heruntergeladen wird.',
+        'Wähle die Laufzeit, die zu deinem Ablauf passt. Wechsle das Land, um den aktuellen Google-Play-Preis für monatliche, jährliche und einmalige Pläne zu sehen, bevor die App heruntergeladen wird.',
       storeTitle: 'Sieh deinen Preis nach Land',
       storeDescription:
         'Diese Preise entsprechen dem Google-Play-Betrag für das ausgewählte Land. Kauf und Abrechnung erfolgen weiterhin in My Rents.',
@@ -3721,15 +3694,6 @@ const frOverride: SiteContentWithoutLegalPages = {
     },
     plans: [
       {
-        key: 'weekly',
-        name: 'Hebdomadaire',
-        summary:
-          "Idéal si vous voulez essayer My Rents pour une courte période et voir comment cela s'intègre dans votre façon de travailler.",
-        detail: 'Abonnement hebdomadaire',
-        subdetail: "Prix affiché dans l'app après téléchargement",
-        ctaLabel: 'Télécharger et voir le prix',
-      },
-      {
         key: 'monthly',
         name: 'Mensuel',
         summary:
@@ -3799,7 +3763,7 @@ const frOverride: SiteContentWithoutLegalPages = {
       introDescription:
         'Chaque formule débloque les mêmes outils — choisissez la durée qui correspond à votre rythme. Les prix ci-dessous viennent directement de Google Play pour le pays sélectionné sur cette page.',
       messageDescription:
-        "Choisissez la durée qui correspond à votre rythme. Changez de pays pour voir le prix Google Play actuel pour les formules hebdomadaire, mensuelle, annuelle et de paiement unique avant de télécharger l'app.",
+        "Choisissez la durée qui correspond à votre rythme. Changez de pays pour voir le prix Google Play actuel pour les formules mensuelle, annuelle et de paiement unique avant de télécharger l'app.",
       storeTitle: 'Consultez votre prix par pays',
       storeDescription:
         "Ces prix reflètent le montant Google Play du pays sélectionné. L'achat et la facturation se font toujours dans My Rents.",
@@ -4379,15 +4343,6 @@ const itOverride: SiteContentWithoutLegalPages = {
     },
     plans: [
       {
-        key: 'weekly',
-        name: 'Settimanale',
-        summary:
-          'Ideale se vuoi provare My Rents per un breve periodo e vedere come si adatta al tuo modo di lavorare.',
-        detail: 'Abbonamento settimanale',
-        subdetail: "Prezzo mostrato nell'app dopo il download",
-        ctaLabel: 'Scarica e controlla il prezzo',
-      },
-      {
         key: 'monthly',
         name: 'Mensile',
         summary:
@@ -4457,7 +4412,7 @@ const itOverride: SiteContentWithoutLegalPages = {
       introDescription:
         'Ogni piano sblocca gli stessi strumenti — scegli la durata che meglio si adatta al tuo flusso. I prezzi qui sotto arrivano direttamente da Google Play per il paese selezionato in questa pagina.',
       messageDescription:
-        "Scegli la durata che meglio si adatta al tuo flusso. Cambia paese per vedere il prezzo Google Play attuale per i piani settimanale, mensile, annuale e pagamento unico prima di scaricare l'app.",
+        "Scegli la durata che meglio si adatta al tuo flusso. Cambia paese per vedere il prezzo Google Play attuale per i piani mensile, annuale e pagamento unico prima di scaricare l'app.",
       storeTitle: 'Guarda il prezzo per paese',
       storeDescription:
         "Questi prezzi riflettono l'importo Google Play del paese selezionato. Acquisto e fatturazione avvengono comunque dentro My Rents.",
@@ -5036,15 +4991,6 @@ const ptOverride: SiteContentWithoutLegalPages = {
     },
     plans: [
       {
-        key: 'weekly',
-        name: 'Semanal',
-        summary:
-          'Ideal se quer experimentar o My Rents por um curto período e ver como encaixa na sua forma de trabalhar.',
-        detail: 'Subscrição semanal',
-        subdetail: 'Preço mostrado na app após a transferência',
-        ctaLabel: 'Transferir e ver preço',
-      },
-      {
         key: 'monthly',
         name: 'Mensal',
         summary:
@@ -5114,7 +5060,7 @@ const ptOverride: SiteContentWithoutLegalPages = {
       introDescription:
         'Todos os planos desbloqueiam as mesmas ferramentas — escolha a duração que melhor se adapta à sua forma de trabalhar. Os preços abaixo vêm diretamente do Google Play para o país selecionado nesta página.',
       messageDescription:
-        'Escolha a duração que melhor se adapta ao seu fluxo. Mude de país para ver o preço atual do Google Play para os planos semanal, mensal, anual e de pagamento único antes de transferir a app.',
+        'Escolha a duração que melhor se adapta ao seu fluxo. Mude de país para ver o preço atual do Google Play para os planos mensal, anual e de pagamento único antes de transferir a app.',
       storeTitle: 'Veja o seu preço por país',
       storeDescription:
         'Estes preços refletem o valor do Google Play para o país selecionado. A compra e a faturação continuam a acontecer dentro do My Rents.',
