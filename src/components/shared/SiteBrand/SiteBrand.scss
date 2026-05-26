@@ -4,10 +4,11 @@
   display: inline-flex;
   align-items: center;
   gap: var(--space-s);
-  font-family: var(--font-heading);
+  font-family: var(--font-brand);
   font-size: var(--size-brand-mark);
   line-height: 1;
-  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
 
   &:focus-visible {
     @include focus-ring;

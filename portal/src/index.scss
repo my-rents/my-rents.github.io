@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'Trebuchet MS';
+  src: url('/fonts/trebuc.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
 
 :root {
@@ -144,9 +152,10 @@ button {
 }
 
 .brand__copy strong {
-  // font-family: 'Fraunces', serif;
+  font-family: 'Trebuchet MS', 'DM Sans', sans-serif;
   font-size: 1.1rem;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
 }
 
 .language-switch {

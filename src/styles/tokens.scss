@@ -1,4 +1,13 @@
+@font-face {
+  font-family: 'Trebuchet MS';
+  src: url('/fonts/trebuc.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
+  --font-brand: 'Trebuchet MS', 'DM Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   --font-heading: 'DM Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   --font-body: 'DM Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 

@@ -714,10 +714,10 @@ function PortalShell({
         <header className="masthead">
           <Link className="brand" to="/">
             <span className="brand__mark">
-              <img src={appIcon} alt="My Rents" width={52} height={52} />
+              <img src={appIcon} alt="MY RENTS" width={52} height={52} />
             </span>
             <span className="brand__copy">
-              <strong>My Rents</strong>
+              <strong>MY RENTS</strong>
               <span>{copy.brandSubtitle}</span>
             </span>
           </Link>
