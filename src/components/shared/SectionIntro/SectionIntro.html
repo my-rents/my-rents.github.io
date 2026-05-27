@@ -1,6 +1,6 @@
 <header class="section-intro" :class="`section-intro--${tone}`">
   <div class="section-intro__content">
-    <h2 class="section-intro__title">{{ title }}</h2>
+    <h2 v-if="title" class="section-intro__title">{{ title }}</h2>
     <p v-if="description" class="section-intro__description">{{ description }}</p>
   </div>
 </header>

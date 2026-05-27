@@ -17,6 +17,9 @@
 }
 
 .impact-section__visual {
+  position: sticky;
+  top: 6rem;
+  align-self: start;
   overflow: hidden;
   padding: var(--space-s);
 }
@@ -135,6 +138,10 @@
   .impact-section__grid,
   .impact-section__stats {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .impact-section__visual {
+    position: static;
   }
 
   .impact-section__stat {

@@ -20,7 +20,6 @@ describe('App', () => {
     await flushPromises()
 
     expect(wrapper.text()).toContain('One app. All your rentals. No chaos.')
-    expect(wrapper.text()).toContain('Why landlords switch to My Rents')
     expect(wrapper.text()).toContain('Trusted by 5,000+ landlords')
   })
 
@@ -68,7 +67,6 @@ describe('App', () => {
     await flushPromises()
 
     expect(wrapper.text()).toContain('Una sola app. Todos tus alquileres. Sin caos.')
-    expect(wrapper.text()).toContain('Por qué se complica')
   })
 
   it('renders german copy when the locale is set to german', async () => {
@@ -85,7 +83,6 @@ describe('App', () => {
     await flushPromises()
 
     expect(wrapper.text()).toContain('Schluss mit dem Verwaltungschaos bei Vermietungen')
-    expect(wrapper.text()).toContain('Warum es unübersichtlich wird')
     expect(document.documentElement.lang).toBe('de')
   })
 

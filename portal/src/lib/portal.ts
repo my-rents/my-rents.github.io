@@ -1,5 +1,5 @@
 import { httpsCallable } from 'firebase/functions'
-import { functions } from './firebase'
+import { getFirebaseFunctions } from './firebase'
 
 export type PortalRole = 'landlord' | 'tenant'
 
@@ -69,7 +69,7 @@ export async function loginToPortal(
   passcode: string,
 ): Promise<PortalLoginResult> {
   const callPortalLogin = httpsCallable<PortalLoginRequest, PortalLoginResult>(
-    functions,
+    getFirebaseFunctions(),
     'portalLogin',
   )
 

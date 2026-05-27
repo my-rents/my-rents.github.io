@@ -34,7 +34,7 @@ export interface NavItem {
 
 export interface SectionIntroContent {
   eyebrow: string
-  title: string
+  title?: string
   description?: string
 }
 
@@ -301,6 +301,9 @@ export interface SiteContent {
   process: {
     intro: SectionIntroContent
     steps: ProcessStep[]
+  }
+  about: {
+    intro: SectionIntroContent
   }
   impact: {
     intro: SectionIntroContent
@@ -731,9 +734,10 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
     },
     primaryNav: [
       { label: 'How it helps', hash: '#features' },
+      { label: 'Compare', hash: '/switch' },
       { label: 'Pricing', hash: '/pricing' },
-      { label: 'Documents Center', hash: '#documents-center' },
-      { label: 'How to start', hash: '#how-to-start' },
+      { label: 'Documents Center', hash: '/portal' },
+      { label: 'How to start', hash: '/how-to-start' },
       { label: 'Forum', hash: '/forum' },
     ],
     hero: {
@@ -1148,10 +1152,17 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
         },
       ],
     },
+    about: {
+      intro: {
+        eyebrow: 'Built for rental management',
+        description:
+          'My Rents replaces spreadsheets, bank statements, and scattered messaging with a single app where every property, lease, payment, expense, and document is connected. From solo landlords to small property managers — if you manage between 2 and 50 units and need rent tracking, lease management, and tax-ready records without extra software, this is built for you.',
+      },
+    },
     impact: {
       intro: {
         eyebrow: 'What changes',
-        title: 'How My Rents helps you run rentals with less friction',
+        title: 'How My Rents helps',
         description:
           'Each feature is built to answer a landlord question faster instead of creating another place to check.',
       },
@@ -1729,9 +1740,10 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
     },
     primaryNav: [
       { label: 'Cómo ayuda', hash: '#features' },
+      { label: 'Comparar', hash: '/switch' },
       { label: 'Precios', hash: '/pricing' },
-      { label: 'Centro de documentos', hash: '#documents-center' },
-      { label: 'Cómo empezar', hash: '#how-to-start' },
+      { label: 'Centro de documentos', hash: '/portal' },
+      { label: 'Cómo empezar', hash: '/how-to-start' },
       { label: 'Foro', hash: '/forum' },
     ],
     hero: {
@@ -2141,6 +2153,13 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
             'Cuando quieras revisar rentabilidad, deudas, impuestos o documentación de apoyo, la información ya estará ligada al inmueble correcto.',
         },
       ],
+    },
+    about: {
+      intro: {
+        eyebrow: 'Gestión de alquileres simplificada',
+        description:
+          'My Rents sustituye hojas de cálculo, extractos bancarios y mensajes dispersos por una sola aplicación donde cada propiedad, contrato, cobro, gasto y documento está conectado. Desde propietarios autónomos hasta pequeños gestores inmobiliarios — si gestionas entre 2 y 50 unidades y necesitas control de alquileres, gestión de contratos y registros listos para impuestos sin programas adicionales, esta app está pensada para ti.',
+      },
     },
     impact: {
       intro: {
@@ -2771,9 +2790,10 @@ const deOverride: SiteContentWithoutLegalPages = {
   },
   primaryNav: [
     { label: "So hilft's", hash: '#features' },
+    { label: 'Vergleich', hash: '/switch' },
     { label: 'Preise', hash: '/pricing' },
-    { label: 'Dokumentenzentrum', hash: '#documents-center' },
-    { label: 'So startest du', hash: '#how-to-start' },
+    { label: 'Dokumentenzentrum', hash: '/portal' },
+    { label: 'So startest du', hash: '/how-to-start' },
     { label: 'Forum', hash: '/forum' },
   ],
   hero: {
@@ -3184,6 +3204,13 @@ const deOverride: SiteContentWithoutLegalPages = {
       },
     ],
   },
+  about: {
+    intro: {
+      eyebrow: 'Mietverwaltung vereinfacht',
+      description:
+        'My Rents ersetzt Tabellen, Kontoauszüge und verstreute Nachrichten durch eine einzige App, in der alle Immobilien, Mietverträge, Zahlungen, Ausgaben und Dokumente miteinander verbunden sind. Für private Vermieter bis hin zu kleinen Hausverwaltungen — wenn du zwischen 2 und 50 Einheiten verwaltest und eine App für Mietzahlungen, Vertragsverwaltung und steuerfertige Unterlagen ohne Zusatzsoftware brauchst, wurde My Rents für dich entwickelt.',
+    },
+  },
   impact: {
     intro: {
       eyebrow: 'Was sich verändert',
@@ -3421,9 +3448,10 @@ const frOverride: SiteContentWithoutLegalPages = {
   },
   primaryNav: [
     { label: 'Comment ça aide', hash: '#features' },
+    { label: 'Comparer', hash: '/switch' },
     { label: 'Tarifs', hash: '/pricing' },
-    { label: 'Centre de documents', hash: '#documents-center' },
-    { label: 'Comment commencer', hash: '#how-to-start' },
+    { label: 'Centre de documents', hash: '/portal' },
+    { label: 'Comment commencer', hash: '/how-to-start' },
     { label: 'Forum', hash: '/forum' },
   ],
   hero: {
@@ -3833,6 +3861,13 @@ const frOverride: SiteContentWithoutLegalPages = {
       },
     ],
   },
+  about: {
+    intro: {
+      eyebrow: 'Gestion locative simplifiée',
+      description:
+        "My Rents remplace les tableurs, les relevés bancaires et les messages éparpillés par une seule application où chaque bien, bail, paiement, dépense et document est connecté. Du propriétaire indépendant au petit gestionnaire immobilier — si vous gérez entre 2 et 50 logements et avez besoin d'un suivi des loyers, d'une gestion des baux et de registres prêts pour les impôts sans logiciel supplémentaire, cette application est conçue pour vous.",
+    },
+  },
   impact: {
     intro: {
       eyebrow: 'Ce qui change',
@@ -4070,9 +4105,10 @@ const itOverride: SiteContentWithoutLegalPages = {
   },
   primaryNav: [
     { label: 'Come aiuta', hash: '#features' },
+    { label: 'Confronta', hash: '/switch' },
     { label: 'Prezzi', hash: '/pricing' },
-    { label: 'Centro documenti', hash: '#documents-center' },
-    { label: 'Come iniziare', hash: '#how-to-start' },
+    { label: 'Centro documenti', hash: '/portal' },
+    { label: 'Come iniziare', hash: '/how-to-start' },
     { label: 'Forum', hash: '/forum' },
   ],
   hero: {
@@ -4482,6 +4518,13 @@ const itOverride: SiteContentWithoutLegalPages = {
       },
     ],
   },
+  about: {
+    intro: {
+      eyebrow: 'Gestione affitti semplificata',
+      description:
+        "My Rents sostituisce fogli di calcolo, estratti conto e messaggi sparsi con un'unica app dove ogni immobile, contratto, pagamento, spesa e documento è collegato. Dai proprietari indipendenti ai piccoli gestori immobiliari — se gestisci tra 2 e 50 unità e hai bisogno di controllo affitti, gestione contratti e registri pronti per le tasse senza altri software, questa app è pensata per te.",
+    },
+  },
   impact: {
     intro: {
       eyebrow: 'Cosa cambia',
@@ -4718,9 +4761,10 @@ const ptOverride: SiteContentWithoutLegalPages = {
   },
   primaryNav: [
     { label: 'Como ajuda', hash: '#features' },
+    { label: 'Comparar', hash: '/switch' },
     { label: 'Preços', hash: '/pricing' },
-    { label: 'Centro de documentos', hash: '#documents-center' },
-    { label: 'Como começar', hash: '#how-to-start' },
+    { label: 'Centro de documentos', hash: '/portal' },
+    { label: 'Como começar', hash: '/how-to-start' },
     { label: 'Forum', hash: '/forum' },
   ],
   hero: {
@@ -5129,6 +5173,13 @@ const ptOverride: SiteContentWithoutLegalPages = {
           'Quando quiser verificar rentabilidade, dívidas, impostos ou documentos de apoio, a informação já estará ligada ao imóvel certo.',
       },
     ],
+  },
+  about: {
+    intro: {
+      eyebrow: 'Gestão de aluguel simplificada',
+      description:
+        'O My Rents substitui folhas de cálculo, extratos bancários e mensagens dispersas por uma única app onde cada imóvel, contrato, pagamento, despesa e documento está ligado. De proprietários independentes a pequenos gestores imobiliários — se gere entre 2 e 50 unidades e precisa de controlo de rendas, gestão de contratos e registos prontos para impostos sem software adicional, esta app foi criada para si.',
+    },
   },
   impact: {
     intro: {

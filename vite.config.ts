@@ -15,15 +15,16 @@ function shouldServePortalHtml(url: string | undefined): boolean {
 
   const pathname = url.split('?')[0]
 
-  if (!pathname.startsWith('/portal')) {
+  if (!pathname.startsWith('/portal/demo')) {
     return false
   }
 
-  if (pathname === '/portal' || pathname === '/portal/') {
+  const portalSubpath = pathname.slice('/portal/demo'.length)
+
+  if (portalSubpath === '' || portalSubpath === '/') {
     return true
   }
 
-  const portalSubpath = pathname.slice('/portal/'.length)
   return portalSubpath.length > 0 && !portalSubpath.includes('.')
 }
 

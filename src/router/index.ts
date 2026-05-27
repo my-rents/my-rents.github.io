@@ -12,9 +12,24 @@ const routes = [
     component: () => import('@/views/PricingView.vue'),
   },
   {
+    path: '/switch',
+    name: 'switch',
+    component: () => import('@/views/ComparisonView.vue'),
+  },
+  {
+    path: '/how-to-start',
+    name: 'howToStart',
+    component: () => import('@/views/ProcessView.vue'),
+  },
+  {
     path: '/forum',
     name: 'forum',
     component: () => import('@/views/ForumView.vue'),
+  },
+  {
+    path: '/portal',
+    name: 'portal',
+    component: () => import('@/views/PortalView.vue'),
   },
   {
     path: '/terms-of-service',

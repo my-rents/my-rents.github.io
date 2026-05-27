@@ -1,0 +1,11 @@
+@use '@/styles/breakpoints' as *;
+
+.about-section {
+  padding-block: var(--section-space);
+  background: var(--color-surface-soft);
+}
+
+.about-section__shell {
+  display: grid;
+  gap: var(--space-xl);
+}

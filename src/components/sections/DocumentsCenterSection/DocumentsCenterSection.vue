@@ -5,7 +5,7 @@ import AppButton from '@/components/shared/AppButton/AppButton.vue'
 import { useSiteContent } from '@/composables/useSiteContent'
 import { revealDirective as vReveal } from '@/directives/reveal'
 
-const portalDemoUrl = '/portal'
+const portalDemoUrl = '/portal/demo'
 
 const { content } = useSiteContent()
 </script>

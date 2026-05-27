@@ -34,10 +34,11 @@ import {
 const trimmedBaseUrl = import.meta.env.BASE_URL.endsWith('/')
   ? import.meta.env.BASE_URL.slice(0, -1)
   : import.meta.env.BASE_URL
-const portalBasePath = `${trimmedBaseUrl || ''}/portal`
+const portalBasePath = `${trimmedBaseUrl || ''}/portal/demo`
+const portalAssetBase = `${trimmedBaseUrl || ''}/portal`
 
 function resolvePortalPublicAsset(fileName: string) {
-  return `${portalBasePath}/${fileName.replace(/^\//, '')}`
+  return `${portalAssetBase}/${fileName.replace(/^\//, '')}`
 }
 
 const demoLeaseId = 'demo'

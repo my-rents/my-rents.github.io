@@ -3,12 +3,13 @@
 <script setup lang="ts">
 interface Props {
   eyebrow: string
-  title: string
+  title?: string
   description?: string
   tone?: 'default' | 'light'
 }
 
 withDefaults(defineProps<Props>(), {
+  title: undefined,
   description: undefined,
   tone: 'default',
 })
