@@ -69,6 +69,10 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
+        pricing: resolve(__dirname, 'pricing/index.html'),
+        switch: resolve(__dirname, 'switch/index.html'),
+        howToStart: resolve(__dirname, 'how-to-start/index.html'),
+        forum: resolve(__dirname, 'forum/index.html'),
         portal: resolve(__dirname, 'portal/index.html'),
         privacy: resolve(__dirname, 'privacy-policy/index.html'),
         terms: resolve(__dirname, 'terms-of-service/index.html'),
