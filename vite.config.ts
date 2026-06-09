@@ -15,17 +15,22 @@ function shouldServePortalHtml(url: string | undefined): boolean {
 
   const pathname = url.split('?')[0]
 
-  if (!pathname.startsWith('/portal/demo')) {
-    return false
+  if (pathname.startsWith('/portal/demo')) {
+    const portalSubpath = pathname.slice('/portal/demo'.length)
+
+    if (portalSubpath === '' || portalSubpath === '/') {
+      return true
+    }
+
+    return portalSubpath.length > 0 && !portalSubpath.includes('.')
   }
 
-  const portalSubpath = pathname.slice('/portal/demo'.length)
-
-  if (portalSubpath === '' || portalSubpath === '/') {
-    return true
+  if (pathname.startsWith('/portal/') && !pathname.startsWith('/portal/demo')) {
+    const leaseId = pathname.slice('/portal/'.length)
+    return leaseId.length > 0 && !leaseId.includes('.')
   }
 
-  return portalSubpath.length > 0 && !portalSubpath.includes('.')
+  return false
 }
 
 function portalRouteFallbackPlugin(): Plugin {

@@ -34,7 +34,7 @@ import {
 const trimmedBaseUrl = import.meta.env.BASE_URL.endsWith('/')
   ? import.meta.env.BASE_URL.slice(0, -1)
   : import.meta.env.BASE_URL
-const portalBasePath = `${trimmedBaseUrl || ''}/portal/demo`
+const portalBasePath = `${trimmedBaseUrl || ''}/portal`
 const portalAssetBase = `${trimmedBaseUrl || ''}/portal`
 
 function resolvePortalPublicAsset(fileName: string) {
@@ -155,12 +155,27 @@ function App() {
           element={<LandingPage copy={copy} language={language} onLanguageChange={setLanguage} />}
         />
         <Route
+          path="/demo"
+          element={<DemoPage copy={copy} language={language} onLanguageChange={setLanguage} />}
+        />
+        <Route
           path="/:leaseId"
           element={<PortalPage copy={copy} language={language} onLanguageChange={setLanguage} />}
         />
       </Routes>
     </BrowserRouter>
   )
+}
+
+function DemoPage({ copy, language, onLanguageChange }: SharedAppProps) {
+  const [searchParams] = useSearchParams()
+  const isDemoMode = searchParams.get('demo') === '1'
+
+  if (isDemoMode) {
+    return <PortalPage copy={copy} language={language} onLanguageChange={onLanguageChange} />
+  }
+
+  return <LandingPage copy={copy} language={language} onLanguageChange={onLanguageChange} />
 }
 
 function LandingPage({ copy, language, onLanguageChange }: SharedAppProps) {
@@ -1038,6 +1053,10 @@ function humanizeError(error: unknown, fallback: string, copy: PortalCopy): stri
 
   if (code.includes('unauthenticated')) {
     return copy.sessionExpired
+  }
+
+  if (code.includes('internal') || code.includes('unavailable')) {
+    return copy.internalError
   }
 
   if (message.startsWith('Firebase: ')) {

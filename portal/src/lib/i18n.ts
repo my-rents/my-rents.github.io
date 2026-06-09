@@ -51,6 +51,7 @@ export interface PortalCopy {
   galleryZipFailed: string
   heroSubtitleFallback: string
   incompleteLeaseLink: string
+  internalError: string
   invalidPasscode: string
   invoice: string
   landlord: string
@@ -174,6 +175,7 @@ export const portalTranslations: Record<PortalLanguage, PortalCopy> = {
     heroSubtitleFallback:
       'Use the role-specific passcode from the Documents Center to load this lease.',
     incompleteLeaseLink: 'The lease link or passcode was incomplete.',
+    internalError: 'Something went wrong on our end. Please try again in a moment.',
     invalidPasscode: 'The passcode does not match this lease or role.',
     invoice: 'Invoice',
     landlord: 'Landlord',
@@ -298,6 +300,7 @@ export const portalTranslations: Record<PortalLanguage, PortalCopy> = {
     heroSubtitleFallback:
       'Usa el código del Centro de Documentos correspondiente al rol para cargar este contrato.',
     incompleteLeaseLink: 'Falta información en el enlace del contrato o en el código.',
+    internalError: 'Algo salió mal en nuestro lado. Por favor, inténtalo de nuevo en un momento.',
     invalidPasscode: 'El código no coincide con este contrato o rol.',
     invoice: 'Factura',
     landlord: 'Propietario',
@@ -425,6 +428,8 @@ export const portalTranslations: Record<PortalLanguage, PortalCopy> = {
     heroSubtitleFallback:
       'Verwende den rollenbezogenen Code aus dem Dokumentenzentrum, um diesen Vertrag zu laden.',
     incompleteLeaseLink: 'Der Mietlink oder der Code war unvollstandig.',
+    internalError:
+      'Auf unserer Seite ist ein Fehler aufgetreten. Bitte versuchen Sie es in einem Moment erneut.',
     invalidPasscode: 'Der Code passt nicht zu diesem Vertrag oder dieser Rolle.',
     invoice: 'Rechnung',
     landlord: 'Vermieter',
@@ -554,6 +559,7 @@ export const portalTranslations: Record<PortalLanguage, PortalCopy> = {
     heroSubtitleFallback:
       'Utilisez le code correspondant au role depuis le centre de documents pour charger ce bail.',
     incompleteLeaseLink: 'Le lien du bail ou le code etait incomplet.',
+    internalError: "Une erreur s'est produite de notre cote. Veuillez reessayer dans un instant.",
     invalidPasscode: 'Le code ne correspond pas a ce bail ou a ce role.',
     invoice: 'Facture',
     landlord: 'Proprietaire',
@@ -681,6 +687,7 @@ export const portalTranslations: Record<PortalLanguage, PortalCopy> = {
     heroSubtitleFallback:
       'Usa il codice relativo al ruolo dal centro documenti per caricare questo contratto.',
     incompleteLeaseLink: 'Il link del contratto o il codice erano incompleti.',
+    internalError: 'Qualcosa è andato storto dalla nostra parte. Riprova tra un momento.',
     invalidPasscode: 'Il codice non corrisponde a questo contratto o ruolo.',
     invoice: 'Fattura',
     landlord: 'Proprietario',
@@ -807,6 +814,8 @@ export const portalTranslations: Record<PortalLanguage, PortalCopy> = {
     heroSubtitleFallback:
       'Use o codigo do Centro de Documentos correspondente ao papel para carregar este contrato.',
     incompleteLeaseLink: 'O link do contrato ou o codigo estavam incompletos.',
+    internalError:
+      'Algo correu mal do nosso lado. Por favor, tente novamente dentro de um momento.',
     invalidPasscode: 'O codigo nao corresponde a este contrato ou papel.',
     invoice: 'Fatura',
     landlord: 'Senhorio',
