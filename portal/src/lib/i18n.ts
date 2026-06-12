@@ -7,6 +7,7 @@ export const portalLanguageOptions = [
   { code: 'fr', label: 'Français' },
   { code: 'it', label: 'Italiano' },
   { code: 'pt', label: 'Português' },
+  { code: 'nl', label: 'Nederlands' },
 ] as const
 
 export type PortalLanguage = (typeof portalLanguageOptions)[number]['code']
@@ -897,6 +898,133 @@ export const portalTranslations: Record<PortalLanguage, PortalCopy> = {
     whatYouWillSee: 'O que vai ver',
     whatYouWillSeeSubtitle: 'Ambos os papeis leem o mesmo resumo do contrato.',
   },
+  nl: {
+    activeTenant: 'Actieve huurder',
+    brandSubtitle: 'Huurportaal',
+    checkingAccess: 'Toegang controleren',
+    clipboardUnavailable: 'Klembord is niet beschikbaar in deze browser.',
+    closePreview: 'Voorbeeld sluiten',
+    copyLeaseLink: 'Huurkoppeling kopiëren',
+    dateRangeSeparator: 'tot',
+    documents: 'Documenten',
+    download: 'Downloaden',
+    downloadZip: 'ZIP downloaden',
+    end: 'Einde',
+    expenseInvoicesAria: 'Uitgavefacturen',
+    expenseSchedule: 'Frequentie',
+    expenses: 'Uitgaven',
+    factGallery: 'Gedeelde afbeeldingen met voorbeeld-, open- en downloadacties.',
+    factMetadata: 'Huurderinlog worden geregistreerd voor de verhuurder in de portaal metadata.',
+    factPayments: 'De volgende betaaldatum en of de huur betaald of achterstallig is.',
+    factSharedDocuments: 'Gedeelde documenten beschikbaar om te openen in een nieuw tabblad.',
+    featurePasscodeText:
+      'Verhuurder en huurder gebruiken aparte codes. Geen persoonlijk account, e-mailinlog of registratie nodig.',
+    featurePasscodeTitle: 'Toegang via code',
+    featureRentVisibilityText:
+      'Het portaal toont de volgende betaaldatum en of de huur volledig betaald of achterstallig is.',
+    featureRentVisibilityTitle: 'Huurzichtbaarheid',
+    featureSharedText:
+      'Elke portaalroute hoort bij één huurcontract, zodat documenten, afbeeldingen en uitgaven bij de juiste huurderrelatie blijven.',
+    featureSharedTitle: 'Gedeeld per contract',
+    frequencyBiWeekly: 'Tweewekelijks',
+    frequencyDaily: 'Dagelijks',
+    frequencyMonthly: 'Maandelijks',
+    frequencyOneOff: 'Eenmalige betaling',
+    frequencyQuarterly: 'Per kwartaal',
+    frequencySixMonths: 'Om de 6 maanden',
+    frequencyUniquePayment: 'Eenmalige betaling',
+    frequencyWeekly: 'Wekelijks',
+    frequencyYearly: 'Jaarlijks',
+    gallery: 'Galerij',
+    galleryDownloadFailed: 'Deze afbeelding kon niet worden gedownload.',
+    galleryImage: 'Galerijafbeelding',
+    galleryZipFailed:
+      'De ZIP kon niet worden voorbereid. Sommige externe afbeeldingen blokkeren browser downloads.',
+    heroSubtitleFallback: 'Gebruik de rolcode van het Documentencentrum om dit contract te laden.',
+    incompleteLeaseLink: 'De huurkoppeling of de code was onvolledig.',
+    internalError: 'Er is iets misgegaan aan onze kant. Probeer het over een moment opnieuw.',
+    invalidPasscode: 'De code komt niet overeen met dit contract of deze rol.',
+    invoice: 'Factuur',
+    landlord: 'Verhuurder',
+    languageLabel: 'Taal',
+    landingIntro:
+      'My Rents stuurt elk contract een eigen portaal-link en codes. Open de exacte URL uit de herinneringsmail, kies je rol en log in met de code die bij dit contract hoort.',
+    landingTitle: 'Je huurportaal.',
+    leaseIdLabel: 'Contract-ID',
+    leaseIdPlaceholder: 'Plak de contract-ID uit de portaal-link',
+    leaseLinkMissing: 'De huurkoppeling mist een geldige contract-ID.',
+    leaseWorkspace: 'Contractwerkruimte',
+    leaseOverview: 'Contractoverzicht',
+    leaseOverviewLandlordSubtitle:
+      'Deze ruimte weerspiegelt wat de huurder kan zien voor dit contract.',
+    leaseWindow: 'Contractperiode',
+    linkCopied: 'Link gekopieerd',
+    loadingLeaseText:
+      'Gedeelde bestanden, afbeeldingen, uitgaven en betalingsstatus zijn onderweg.',
+    loadingLeaseTitle: 'Contractoverzicht laden',
+    localQaShortcut: 'Lokale QA-sneltoets',
+    nextImage: 'Volgende afbeelding',
+    nextPayday: 'Volgende betaaldatum',
+    noDocumentsText:
+      'De verhuurder heeft nog geen contractdocumenten gepubliceerd voor dit portaal.',
+    noDocumentsTitle: 'Nog geen gedeelde documenten',
+    noExpensesText: 'Dit contract toont momenteel geen uitgaven via het portaal.',
+    noExpensesTitle: 'Geen gedeelde uitgaven',
+    noGalleryText: 'Afbeeldingen verschijnen hier nadat ze zijn gepubliceerd voor dit contract.',
+    noGalleryTitle: 'Geen gedeelde galerij',
+    notAvailable: 'Niet beschikbaar',
+    notLoaded: 'Niet geladen',
+    notRecordedYet: 'Nog niet geregistreerd',
+    notSpecified: 'Niet opgegeven',
+    open: 'Openen',
+    openDemoPortal: 'Demoportaal openen',
+    openPortal: 'Portaal openen',
+    paidDetail: 'Dit contract is momenteel gemarkeerd als volledig betaald.',
+    paidUp: 'Betaald',
+    passcode: 'Code',
+    passcodePlaceholder: 'Voer de code van het Documentencentrum in',
+    paymentOverdue: 'Betaling achterstallig',
+    paymentOverdueDetail: (date) => `De volgende huur was verschuldigd op ${date}.`,
+    paymentStatus: 'Betalingsstatus',
+    paymentStatusLoadingDetail: 'De huurstatus verschijnt nadat het portaal is geladen.',
+    portalLinkCopyFailed: 'De portaal-link kon niet worden gekopieerd.',
+    portalUnavailable: 'Portaal niet beschikbaar',
+    portalUpdated: 'Portaal bijgewerkt',
+    portalUpdatedDetail: 'Laatste inlog huurder',
+    preparingZip: 'ZIP voorbereiden...',
+    previousImage: 'Vorige afbeelding',
+    published: 'Gepubliceerd',
+    rentAmount: 'Huurbedrag',
+    rentAmountLoadingDetail: 'Wordt getoond zodra het contractoverzicht is geladen.',
+    restoringSessionText: 'Het portaal controleert of deze browser al toegang heeft.',
+    restoringSessionTitle: 'Contractsessie herstellen',
+    roleBasedAccess: 'Rolgebaseerde toegang',
+    scheduleUnavailable: 'Frequentie niet beschikbaar',
+    scheduleUnavailableDetail: 'De volgende betaaldatum is nog niet gepubliceerd in het portaal.',
+    secureLeasePortal: 'Beveiligd huurportaal',
+    sessionExpired: 'Deze contractsessie is verlopen. Log opnieuw in met de code.',
+    sharedExpenseTotal: 'Totaal gedeelde uitgaven',
+    sharedItems: 'Gedeelde items',
+    sharedItemsDetail: 'Documenten en afbeeldingen zichtbaar voor dit contract.',
+    sharedLeasePortal: 'Gedeeld huurportaal',
+    signInDescription:
+      'Kies de rol die bij je code past. Verhuurder en huurder gebruiken verschillende codes, zelfs bij hetzelfde contract.',
+    signInToLease: (leaseId) => `Inloggen bij contract ${leaseId}`,
+    signOut: 'Uitloggen',
+    start: 'Start',
+    tenant: 'Huurder',
+    tenantCheckInDetail:
+      'Dit tijdstempel wordt bijgewerkt wanneer een huurder in het portaal inlogt.',
+    tenantLabel: 'Huurder',
+    tenantLastCheckIn: 'Laatste inlog huurder',
+    unlockLeasePortal: 'Contractportaal openen',
+    upcomingPayment: 'Aankomende betaling',
+    upcomingPaymentDetail: (date) => `De volgende huur staat gepland voor ${date}.`,
+    untitledExpense: 'Uitgave zonder titel',
+    waitingForSignIn: 'Wachtend op inlog',
+    whatYouWillSee: 'Wat je zult zien',
+    whatYouWillSeeSubtitle: 'Beide rollen lezen hetzelfde contractoverzicht.',
+  },
 }
 
 export function resolvePortalLanguage(value?: string | null): PortalLanguage {
@@ -920,6 +1048,10 @@ export function resolvePortalLanguage(value?: string | null): PortalLanguage {
 
   if (normalized.startsWith('pt')) {
     return 'pt'
+  }
+
+  if (normalized.startsWith('nl')) {
+    return 'nl'
   }
 
   return 'en'

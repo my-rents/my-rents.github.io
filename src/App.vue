@@ -29,6 +29,7 @@ const documentLanguageByLocale: Record<SiteLocale, string> = {
   fr: 'fr',
   it: 'it',
   pt: 'pt-PT',
+  nl: 'nl',
 }
 
 watchEffect(() => {

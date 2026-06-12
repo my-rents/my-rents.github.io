@@ -14,9 +14,10 @@ const heroSnapshots: Record<SiteLocale, string> = {
   fr: rentFr,
   it: rentIt,
   pt: rentPt,
+  nl: rentEn,
 }
 
-export type SiteLocale = 'en' | 'es' | 'de' | 'fr' | 'it' | 'pt'
+export type SiteLocale = 'en' | 'es' | 'de' | 'fr' | 'it' | 'pt' | 'nl'
 
 export type LegalPageKey = 'terms' | 'privacy' | 'eula' | 'dataDeletion'
 
@@ -360,7 +361,7 @@ export interface SiteContent {
   }
 }
 
-export const supportedLocales = ['en', 'es', 'de', 'fr', 'it', 'pt'] as const
+export const supportedLocales = ['en', 'es', 'de', 'fr', 'it', 'pt', 'nl'] as const
 
 export const defaultLocale: SiteLocale = 'en'
 
@@ -386,6 +387,7 @@ const sharedLanguages: LanguageOption[] = [
   { code: 'fr', label: 'Français' },
   { code: 'it', label: 'Italiano' },
   { code: 'pt', label: 'Português' },
+  { code: 'nl', label: 'Nederlands' },
 ]
 
 const englishLegalLinks: FooterLink[] = [
@@ -707,6 +709,58 @@ const documentsCenterContentByLocale: Record<SiteLocale, DocumentsCenterSection>
     demoCtaLabel: 'Abrir demo ao vivo',
     note: 'A demo abre uma vista de exemplo para o inquilino para que possa ver a experiência partilhada antes de enviar um contrato real.',
   },
+  nl: {
+    intro: {
+      eyebrow: 'Nieuw: Documentencentrum',
+      title: 'Geef elk huurcontract een gedeeld huurdersportaal',
+      description:
+        'Het Documentencentrum publiceert de huurdocumenten, facturen, afbeeldingen en uitgaven van een huurcontract op een beveiligde route met rol-specifieke toegangscodes.',
+    },
+    detail:
+      'Verhuurders hoeven niet meer dezelfde bestanden via WhatsApp en e-mail te versturen, huurders krijgen één overzichtelijke plek om belangrijke zaken te bekijken, en de verhuurder kan nog steeds de volgende betaaldatum zien en wanneer de huurder voor het laatst het portaal heeft bezocht.',
+    benefits: [
+      {
+        title: 'Eén link per huurcontract',
+        description:
+          "Deel één route in plaats van PDF's, screenshots en vervolgberichten over verschillende gesprekken te verspreiden.",
+      },
+      {
+        title: 'Documenten, afbeeldingen en uitgaven blijven samen',
+        description:
+          'Contracten, facturen, galerijitems en gepubliceerde uitgaven blijven gekoppeld aan het juiste huurcontract.',
+      },
+      {
+        title: 'Zichtbaarheid voor de verhuurder zonder steeds achteraan te zitten',
+        description:
+          'Bekijk de volgende betaaldatum, de betalingsstatus en het laatste bezoek van de huurder zonder steeds te vragen of de bestanden zijn geopend.',
+      },
+    ],
+    preview: {
+      eyebrow: 'Demo van het huurdersportaal',
+      title: 'Wat het Documentencentrum in één oogopslag toont',
+      metrics: [
+        { label: 'Volgende betaaldatum', value: '5 apr 2026' },
+        { label: 'Laatste bezoek huurder', value: '28 mrt 2026 · 18:20' },
+        { label: 'Toegang', value: 'Link + roltoegangscodes' },
+      ],
+      collections: [
+        {
+          label: 'Documenten en facturering',
+          items: ['Ondertekend huuroverzicht', 'Inchecklijst bij intrek', 'Waterfactuur apr 2026'],
+        },
+        {
+          label: 'Gedeelde huurcontext',
+          items: [
+            '3 gepubliceerde afbeeldingen',
+            '2 zichtbare uitgaven',
+            'Betalingsstatus van dit contract',
+          ],
+        },
+      ],
+    },
+    demoCtaLabel: 'Live demo openen',
+    note: 'De demo opent een voorbeeldweergave van de huurder zodat je de gedeelde ervaring kunt zien voordat je een echt huurcontract deelt.',
+  },
 }
 
 const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
@@ -747,7 +801,7 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
       playStoreCtaLabel: 'Download for Android',
       appStoreCtaLabel: 'Download for iOS',
       contactCtaLabel: 'Contact us',
-      snapshot: heroSnapshots.en,
+      snapshot: heroSnapshots.nl,
       snapshotAlt: 'My Rents dashboard showing portfolio, payments, and lease management',
       trustLabel: 'Trusted by 5,000+ landlords and companies worldwide',
       partnersLabel: 'Built for landlords who have outgrown DIY admin',
@@ -5393,12 +5447,674 @@ const ptOverride: SiteContentWithoutLegalPages = {
   },
 }
 
+const nlOverride: SiteContentWithoutLegalPages = {
+  playStoreUrl: PLAY_STORE_URL,
+  appStoreUrl: APP_STORE_URL,
+  meta: {
+    routeTitles: {
+      home: 'MY RENTS | Vastgoedbeheer-app voor verhuurders',
+      pricing: 'Prijzen | MY RENTS',
+      terms: 'Gebruiksvoorwaarden | MY RENTS',
+      privacy: 'Privacybeleid | MY RENTS',
+      eula: 'EULA | MY RENTS',
+      dataDeletion: 'Gegevensverwijdering | MY RENTS',
+      unsubscribe: 'Afmelden voor marketing-e-mails | MY RENTS',
+      forum: 'Forum | MY RENTS',
+    },
+  },
+  header: {
+    brandLabel: 'MY RENTS',
+    navAriaLabel: 'Hoofdnavigatie',
+    ctaLabel: 'Bekijk prijzen',
+    languageLabel: 'Taal',
+    languages: sharedLanguages,
+  },
+  primaryNav: [
+    { label: 'Hoe het helpt', hash: '#features' },
+    { label: 'Vergelijken', hash: '/switch' },
+    { label: 'Prijzen', hash: '/pricing' },
+    { label: 'Documentencentrum', hash: '/portal' },
+    { label: 'Aan de slag', hash: '/how-to-start' },
+    { label: 'Forum', hash: '/forum' },
+  ],
+  hero: {
+    rating: '4,8/5 op Google Play',
+    title: 'Eén app. Al je verhuur. Geen chaos.',
+    copy: 'Stop met schakelen tussen spreadsheets, WhatsApp, bankafschriften en kalenders. Houd huur, uitgaven, contracten en documenten bij vanaf je telefoon — zodat belastingaangifte een controle is, geen wederopbouw.',
+    playStoreCtaLabel: 'Download voor Android',
+    appStoreCtaLabel: 'Download voor iOS',
+    contactCtaLabel: 'Neem contact op',
+    snapshot: heroSnapshots.en,
+    snapshotAlt: 'My Rents dashboard met portefeuille, betalingen en huurbeheer',
+    trustLabel: 'Vertrouwd door meer dan 5.000 verhuurders en bedrijven wereldwijd',
+    partnersLabel: 'Gemaakt voor verhuurders die uit de DIY-administratie zijn gegroeid',
+    partners: [
+      'Verhuurders met neveninkomsten',
+      '2 tot 10 huurwoningen',
+      'Zelf beherende eigenaren',
+      'Kleine investeerders',
+      'Groeiende portefeuilles',
+    ],
+  },
+  comparison: {
+    intro: {
+      eyebrow: 'Vóór en na',
+      title: 'Waarom verhuurders overstappen naar My Rents',
+      description:
+        'De wrijving is niet één dramatische gebeurtenis. Het is de dagelijkse kosten van zoeken wat bij welk pand hoort, onthouden wie betaald heeft, en het opnieuw opbouwen van administratie voor de belastingaangifte.',
+    },
+    columns: [
+      {
+        label: 'Zonder My Rents',
+        tone: 'muted',
+        items: [
+          {
+            badge: 'RG',
+            title: 'Huurcontrole wordt een gokspel',
+            description:
+              'Te late of gedeeltelijke betalingen across verschillende accounts dwingen je om handmatig in elkaar te zetten wie wat verschuldigd is.',
+          },
+          {
+            badge: 'RC',
+            title: 'Bonnetjes en facturen raken kwijt',
+            description:
+              'Reparatierekeningen, leveranciersfacturen en screenshots zwerven rond in je auto, WhatsApp en e-mail — onvindbaar maanden later.',
+          },
+          {
+            badge: 'LD',
+            title: 'Contractdatums zorgen voor last-minute paniek',
+            description:
+              "Verlengingen, inspecties en deadlines leven in PDF's, chats en geheugen in plaats van één tijdlijn.",
+          },
+          {
+            badge: 'TX',
+            title: 'Belastingaangifte is een wederopbouwproject',
+            description:
+              'Je verspilt dagen aan het reconstrueren van het jaar uit bankafschriften en losse mappen, omdat niets met elkaar verbonden was.',
+          },
+        ],
+      },
+      {
+        label: 'Met My Rents',
+        tone: 'brand',
+        items: [
+          {
+            badge: 'PH',
+            title: ' Elk pand vertelt zijn eigen verhaal',
+            description:
+              'Contracten, betalingen, uitgaven, bestanden en contacten blijven gekoppeld aan elk pand — context is altijd één tik verwijderd.',
+          },
+          {
+            badge: 'PS',
+            title: 'Weet in seconden wie betaald heeft',
+            description:
+              'Bekijk betaald, achterstallig en openstaand in één oogopslag. Geen spreadsheets, geen geheugenspelletjes.',
+          },
+          {
+            badge: 'EV',
+            title: 'Geen gemiste deadlines meer',
+            description:
+              'Inspecties, verlengingen en herinneringen blijven verbonden met elk pand in plaats van alleen in je hoofd te bestaan.',
+          },
+          {
+            badge: 'RP',
+            title: 'Het hele jaar belastingklaar',
+            description:
+              'Cijfers, exports en ondersteunende documenten zijn al georganiseerd wanneer je ze nodig hebt — of het nu voor de belastingaangifte is of een snelle winstcheck.',
+          },
+        ],
+      },
+    ],
+  },
+  documentsCenter: documentsCenterContentByLocale.nl,
+  services: {
+    intro: {
+      eyebrow: 'App-tour',
+      title: 'Zo helpt My Rents je om verhuur met minder wrijving te beheren',
+      description:
+        'Kernwerkprocessen voor eigenaren die vastgoed-, facturering-, huurder- en rapportagedetails op één plek willen.',
+    },
+    items: [
+      {
+        eyebrow: 'Portefeuillebeheer',
+        title: 'Voeg panden toe en organiseer ze in portefeuilles',
+        description:
+          'Maak elk pand aan met locatie, type en belangrijke details, en groepeer bezittingen per stad, strategie of portefeuillestructuur.',
+        image: createPlaceholder(960, 720, '281b60', 'f4efff', 'Portefeuillestructuur'),
+      },
+      {
+        eyebrow: 'Huur & Facturering',
+        title: 'Volg contracten, betaaldatums en facturen',
+        description:
+          'Beheer meerdere contracten per pand, controleer de betalingsstatus en neem contact op via WhatsApp, e-mail of directe telefoontjes.',
+        image: createPlaceholder(960, 720, '3a2a81', 'f4efff', 'Contracten en facturering'),
+      },
+      {
+        eyebrow: 'Operaties',
+        title: 'Leg uitgaven, gebeurtenissen, taken en belangrijke contacten vast',
+        description:
+          'Houd reparaties, nutsvoorzieningen, inspecties, herinneringen en de monteurs, elektriciens of adviseurs bij die je op elk moment nodig kunt hebben.',
+        image: createPlaceholder(960, 720, '4b33a0', 'f4efff', 'Operationeel centrum'),
+      },
+      {
+        eyebrow: 'Rapportage',
+        title: 'Bekijk rapporten, belasting, schulden en CSV-exports',
+        description:
+          'Houd rendement, schulden, uitgaven, belastingberekeningen en CSV-exports in de gaten zodat beslissingen gebaseerd zijn op echte portefeuilledata.',
+        image: createPlaceholder(960, 720, '5d45bc', 'f4efff', 'Rapporten en belasting'),
+      },
+    ],
+  },
+  testimonial: {
+    communityLabel: 'Eigenaren, beheerders en investeerders',
+    quote: 'Ontmoet andere eigenaren en investeerders in het forum',
+    description:
+      'Gebruik het openbare forum om vragen te stellen, werkprocessen te delen, mensen met vergelijkbare investeringsideeën te leren kennen en praktische informatie uit te wisselen die betere verhuurbeslissingen en -resultaten ondersteunt.',
+    author: 'Open community voor verhuuradministratie',
+    forumLabel: 'Bezoek forum',
+    forumUrl: FORUM_URL,
+    statA: 'Gedeelde ideeën',
+    statB: 'Ondersteuning en netwerken',
+    avatars: ['F', 'O', 'R', 'U', 'M'],
+  },
+  forum: {
+    hero: {
+      title: 'Word lid van het verhuurforum',
+      description:
+        'Verbind met verhuurders, vastgoedbeheerders en vastgoedinvesteerders. Deel werkprocessen, stel vragen en wissel praktische tips uit die je verhuurbedrijf vooruit helpen.',
+      ctaLabel: 'Forum openen',
+      forumUrl: FORUM_URL,
+    },
+    features: {
+      eyebrow: 'Wat je kunt doen',
+      title: 'Een community gebouwd voor verhuurprofessionals',
+      description:
+        'Of je nu één eenheid of een groeiende portefeuille beheert — het forum geeft je directe toegang tot mensen die dagelijks voor dezelfde operationele beslissingen staan.',
+      items: [
+        {
+          title: 'Vragen stellen en beantwoorden',
+          description:
+            'Post over huurcontractbeheer, huurderselectie, onderhoudsprocessen, belastingvoorbereiding en lokale regelgeving. Krijg antwoorden van ervaren verhuurders en investeerders.',
+        },
+        {
+          title: 'Deel je werkproces',
+          description:
+            'Beschrijf hoe je huur bijhoudt, reparaties afhandelt, documenten organiseert en je voorbereidt op de belastingaangifte. Leer van anderen en verbeter je eigen proces.',
+        },
+        {
+          title: 'Ontmoet investeerders met vergelijkbare doelen',
+          description:
+            'Vind mensen die investeren in dezelfde markten, pandtypen of strategieën. Wissel marktinzichten uit en bouw je professionele netwerk op.',
+        },
+        {
+          title: 'Blijf op de hoogte van huurtrends',
+          description:
+            'Volg discussies over huurwetten, marktveranderingen, financieringsmogelijkheden en beheertools. Houd je kennis actueel zonder verspreide bronnen af te speuren.',
+        },
+        {
+          title: 'Krijg feedback op je opstelling',
+          description:
+            'Beschrijf je huidige beheerstack en krijg suggesties van anderen die dezelfde organisatieproblemen al hebben opgelost.',
+        },
+        {
+          title: 'Ontdek exclusieve tips',
+          description:
+            'Lees praktische adviezen uit echte ervaring — de operationele kennis die zelden in artikelen of tutorials wordt gepubliceerd.',
+        },
+      ],
+    },
+    faq: {
+      eyebrow: 'Veelgestelde vragen',
+      title: 'Hoe het forum werkt',
+      description: 'Alles wat je moet weten over deelname aan de My Rents community.',
+      items: [
+        {
+          question: 'Is het forum gratis om lid te worden?',
+          answer:
+            'Ja, het openbare forum staat voor iedereen open. Je hebt geen My Rents-abonnement nodig om discussies te lezen, vragen te stellen of je ervaringen te delen.',
+        },
+        {
+          question: 'Heb ik de app nodig om deel te nemen?',
+          answer:
+            'Nee, het forum draait op een apart platform. Je kunt vanuit elke browser op desktop of mobiel toegang krijgen zonder iets te installeren.',
+        },
+        {
+          question: 'Welke onderwerpen kan ik bespreken?',
+          answer:
+            ' elk onderwerp dat verband houdt met vastgoedbeheer: huurcontracten, huurders, onderhoud, uitgaven, belastingen, verzekeringen, juridische vragen, markttrends en werktiptips. De community richt zich op praktische, operationele kennis.',
+        },
+        {
+          question: 'Kan ik mijn diensten promoten?',
+          answer:
+            'Het forum is een ruimte voor kennisuitwisseling, geen marktplaats. Zelfpromotie wordt over het algemeen ontmoedigd tenzij het direct een vraag beantwoordt of een specifiek probleem oplost dat door de community wordt gedeeld.',
+        },
+      ],
+    },
+  },
+  benefits: {
+    intro: {
+      eyebrow: 'Functies',
+      title: 'Alles wat verhuurders nodig hebben om georganiseerd en op de hoogte te blijven',
+      description:
+        'Ontworpen voor de operationele details die anders verloren gaan tussen contracten, uitgaven, onderhoud en papierwerk.',
+    },
+    items: [
+      {
+        title: 'Portefeuillestructuur',
+        description:
+          'Bekijk je panden zoals je ze echt beheert, of dat nu één eenheid, één gebouw of een bredere portefeuille is.',
+      },
+      {
+        title: 'Contractoverzicht',
+        description:
+          'Houd huurbedragen, betaaldatums, status en meerdere contracten per pand eenvoudig bij.',
+      },
+      {
+        title: 'Leg uitgaven vast voordat je ze vergeet',
+        description:
+          'Vast onderhoudskosten, nutsrekeningen en eenmalige aankopen zonder de financiële context te verliezen.',
+      },
+      {
+        title: 'Documentenkluis',
+        description:
+          'Bewaar contracten, inspectierapporten en ander papierwerk waar je ze weer kunt vinden wanneer je ze nodig hebt.',
+      },
+      {
+        title: 'Fotobewijzen',
+        description:
+          'Bouw een visueel verslag van kamers, meubels en pandconditie bij intrek, inspectie of overdracht.',
+      },
+      {
+        title: 'Rapporten en belastinginstellingen',
+        description:
+          'Werk met rendement, schulden, exports en aanpasbare belastinginstellingen die passen bij je lokale proces.',
+      },
+    ],
+  },
+  pricing: {
+    intro: {
+      eyebrow: 'My Rents',
+      title: 'Kies je plan',
+      description:
+        'Elk plan ontsluit dezelfde tools — kies de looptijd die past bij je werkproces.',
+    },
+    message: {
+      title: 'Eén plan, vier opties',
+      description:
+        'Kies de looptijd die past bij je werkproces. Na het downloaden van de app zie je de exacte lokale prijs voor elke optie voordat je iets bevestigt.',
+    },
+    plans: [
+      {
+        key: 'monthly',
+        name: 'Maandelijks',
+        summary:
+          'Ideaal als je My Rents nu wilt gaan gebruiken en de verbinding licht wilt houden terwijl je test hoe goed het in je workflow past.',
+        detail: 'Maandelijks abonnement',
+        subdetail: 'Prijs wordt na download in de app getoond',
+        ctaLabel: 'Download en bekijk prijs',
+      },
+      {
+        key: 'annual',
+        name: 'Jaarlijks',
+        badge: '7-daagse proefperiode',
+        summary:
+          'Het beste als je al weet dat My Rents deel uitmaakt van je workflow en je de laagste prijs per maand wilt.',
+        detail: 'Jaarlijks abonnement',
+        subdetail: 'Prijs wordt na download in de app getoond',
+        ctaLabel: 'Download en bekijk prijs',
+      },
+      {
+        key: 'lifetime',
+        name: 'Eenmalig',
+        summary:
+          'Eén betaling, geen verlenging. Het beste als je permanent toegang tot My Rents wilt veiligstellen.',
+        detail: 'Eenmalige betaling',
+        subdetail: 'Prijs wordt na download in de app getoond',
+        ctaLabel: 'Download en bekijk prijs',
+      },
+    ],
+    featuresTitle: 'Wat er in PRO zit',
+    featuresDescription:
+      'Alle betalingsopties hieronder ontsluiten dezelfde PRO-functieset. Alleen de looptijd wijzigt.',
+    features: [
+      {
+        title: 'Onbeperkte portefeuilles',
+        description:
+          'Maak zoveel groepen als je nodig hebt om je investeringen te zien zoals je ze echt beheert.',
+      },
+      {
+        title: 'Onbeperkte panden',
+        description: 'Geen limiet op het aantal huurwoningen of eenheden dat je kunt toevoegen.',
+      },
+      {
+        title: 'Factuurgenerator',
+        description: 'Maak huurfacturen en extra kosten aan in een paar tikken.',
+      },
+      {
+        title: 'CSV-exports',
+        description:
+          'Exporteer je cijfers wanneer je maar een duidelijker extern overzicht nodig hebt of met andere rapporten wilt werken.',
+      },
+      {
+        title: 'Persoonlijke en directe ondersteuning',
+        description:
+          'Geen bots. Geen uitbesteed wachtend. Je praat direct met de persoon die My Rents bouwt.',
+      },
+      {
+        title: 'Documentencentrum',
+        description:
+          "Houd huurdocumenten, facturen, foto's en uitgavenoverzichten gegroepeerd per huurcontract in een beveiligd gedeeld portaal, zodat verhuurders en huurders de juiste bestanden kunnen openen zonder e-mailthreads.",
+      },
+      {
+        title: 'Geen advertenties',
+        description: 'Werk zonder onderbrekingen of promotionele rommel.',
+      },
+    ],
+    storePricing: {
+      title: 'Bekijk je PRO-prijs in de app',
+      description:
+        'PRO-prijzen zijn afhankelijk van het land en verschijnen in My Rents. Download de app, open het PRO-scherm en je ziet het exacte 1-maands-, 6-maands- en 1-jaarsbedrag voor je regio voordat je betaalt.',
+    },
+    livePricing: {
+      introDescription:
+        'Elk plan ontsluit dezelfde tools — kies de looptijd die past bij je werkproces. Alle prijzen komen direct van Google Play op basis van je land.',
+      messageDescription:
+        'Kies de looptijd die past bij je werkproces. Wissel van land om de huidige Google Play-prijzen voor maandelijkse, jaarlijkse en eenmalige plannen te bekijken.',
+      storeTitle: 'Prijzen per land',
+      storeDescription:
+        'Deze prijzen weerspiegelen het Google Play-bedrag van het geselecteerde land. Aankoop en facturering vinden nog steeds plaats in My Rents.',
+      selectorLabel: 'Land',
+      selectedCountryLabel: 'Google Play-prijs voor {country}',
+      loadingLabel: 'Prijs laden...',
+      unavailableLabel: 'Prijs niet beschikbaar voor dit land',
+    },
+    singleUser: {
+      title: 'Eén gebruiker per plan',
+      description: 'De opties op deze pagina zijn enkele gebruikersaankopen voor één account.',
+    },
+    companies: {
+      title: 'Heb je teamaccounts nodig?',
+      description:
+        'Als je bedrijf meerdere gebruikers, gescheiden accounts of een andere opstelling nodig heeft, neem dan contact met ons op en we helpen je bij de beste optie.',
+    },
+    androidCtaLabel: 'Bekijk prijs op Android',
+    iOSCtaLabel: 'Bekijk prijs op iOS',
+    businessCtaLabel: 'Neem contact op over zakelijke accounts',
+    popularLabel: 'Beste keuze',
+    trialLabel: '7-daagse gratis proefperiode',
+    trialCancelLabel: 'Altijd opzegbaar',
+    freeModeTitle: 'Test My Rents gratis',
+    freeModeEyebrow: 'Geen plan nodig',
+    freeModeCopy:
+      'Begin met onze beperkte gratis modus en test de app met je eigen panden. Wissel naar een betaald plan wanneer je klaar bent voor onbeperkte portefeuilles, facturering en meer.',
+    countryNoteLabel: '*Prijzen weergegeven voor {country}',
+  },
+  process: {
+    intro: {
+      eyebrow: 'Zo krijgen verhuurders de controle terug',
+      title: 'Zo begin je',
+      description:
+        'Je hebt geen perfect migratieproject nodig. Begin met de panden, contracten en documenten die je vandaag nodig hebt, en houd daarna elke nieuwe betaling, uitgave en herinnering georganiseerd.',
+    },
+    steps: [
+      {
+        index: '01',
+        title: 'Download de app en test hem met je echte situatie',
+        description:
+          'Gebruik de 7-daagse proef met echte panden in plaats van dummy-data, zodat je snel ziet of de structuur bij je manier van werken past.',
+      },
+      {
+        index: '02',
+        title: 'Voeg eerst je panden en eenheden toe',
+        description:
+          'Bouw de ruggengraat van je portefeuille op, zodat elke betaling, elk document en elke herinnering een duidelijke plek heeft.',
+      },
+      {
+        index: '03',
+        title: 'Voeg actieve contracten en documenten toe die je altijd zoekt',
+        description:
+          'Bewaar contracten, verzekeringen, facturen en belangrijke documenten die anders in mappen, e-mailketens of screenshots verdwijnen.',
+      },
+      {
+        index: '04',
+        title: 'Leg betalingen, uitgaven en gebeurtenissen vast op één plek',
+        description:
+          'Houd achterstallige huur, reparaties, lopende rekeningen en leveranciersactiviteiten in de gaten, zonder elke maand hetzelfde verhaal opnieuw in elkaar te zetten.',
+      },
+      {
+        index: '05',
+        title: 'Bekijk rapporten en exports wanneer je antwoorden nodig hebt',
+        description:
+          'Als je rendement, schulden, belastingen of bonnen wilt controleren, is alles al met het juiste pand verbonden.',
+      },
+    ],
+  },
+  about: {
+    intro: {
+      eyebrow: 'Verhuuradministratie vereenvoudigd',
+      description:
+        'My Rents vervangt spreadsheets, bankafschriften en losse berichten door één app waarin alle panden, huurcontracten, betalingen, uitgaven en documenten met elkaar verbonden zijn. Voor particuliere verhuurders tot kleine vastgoedbeheerders — als je tussen 2 en 50 eenheden beheert en een app nodig hebt voor huurbetalingen, contractbeheer en belastingklare documenten zonder extra software, dan is My Rents voor jou gemaakt.',
+    },
+  },
+  impact: {
+    intro: {
+      eyebrow: 'Wat er verandert',
+      title: 'Zo helpt My Rents',
+      description:
+        'My Rents blijft functioneel rijk, maar de echte waarde is dat elke functie een verhuurdersvraag sneller beantwoordt in plaats van nog een plek om te zoeken toe te voegen.',
+    },
+    items: [
+      {
+        title: 'Portefeuilleoverzicht',
+        description:
+          'Schakel van portefeuilleoverzicht naar panddetails, waarbij contracten, contacten, bestanden en notities al gekoppeld zijn.',
+        image: FEATURE_SPOTLIGHT_IMAGE,
+        imageAlt: 'Screenshot van het portefeuille-overzicht van My Rents',
+      },
+      {
+        title: 'Betalingsstatus',
+        description:
+          'Volg huurstatus, facturen en vervolgacties, zonder te moeten raden welke huurder twee weken te laat is en wie slechts een deelbedrag heeft betaald.',
+        image: FEATURE_SPOTLIGHT_IMAGE,
+        imageAlt: 'Screenshot van het pand-overzicht van My Rents',
+      },
+      {
+        title: 'Contractdetails',
+        description:
+          'Bekijk het actieve contract, betaaldatums en het factureringsoverzicht in dezelfde dataset, in plaats van te springen tussen contracten en spreadsheets.',
+        image: FEATURE_SPOTLIGHT_IMAGE,
+        imageAlt: 'Screenshot van het huurcontract- en betaalproces in My Rents',
+      },
+      {
+        title: 'Panddetails',
+        description:
+          'Panddetails, eenheden, notities en gekoppelde gegevens blijven samen, zodat je een pand ook na dagen of weken snel weer begrijpt.',
+        image: FEATURE_SPOTLIGHT_IMAGE,
+        imageAlt: 'Screenshot van het uitgaven- en rapportage-overzicht van My Rents',
+      },
+      {
+        title: 'Uitgaven vastleggen',
+        description:
+          'Leg reparaties, nutsvoorzieningen en ad hoc-kosten vast zolang ze vers zijn, zodat de cijfers kloppen en het bewijs gekoppeld blijft.',
+        image: FEATURE_SPOTLIGHT_IMAGE,
+        imageAlt: 'Screenshot van het documenten- en foto-overzicht van My Rents',
+      },
+      {
+        title: 'Rapporten',
+        description:
+          'Gebruik rapporten, schuldenoverzicht, rendementsoverzichten en exports, zonder het jaar uit bankafschriften opnieuw te hoeven opbouwen.',
+        image: FEATURE_SPOTLIGHT_IMAGE,
+        imageAlt: 'Screenshot van belasting-, kaart- en contacttools in My Rents',
+      },
+      {
+        title: 'Gebeurtenissen',
+        description:
+          'Reparaties, inspecties, herinneringen en terugkerende taken blijven zichtbaar, zodat belangrijke vervolgacties niet alleen in je hoofd bestaan.',
+        image: calendarEn,
+        imageAlt: 'Screenshot van kalender en gebeurtenissen',
+      },
+      {
+        title: 'Contacten',
+        description:
+          'Houd huurders, leveranciers en adviseurs per pand geordend, zodat je niet in chats hoeft te zoeken wanneer er iets kapot gaat.',
+        image: contactsListEn,
+        imageAlt: 'Screenshot van de contactenlijst',
+      },
+    ],
+  },
+  appLanguages: {
+    intro: {
+      eyebrow: 'Taalsupport',
+      title: 'Beschikbaar in 7 talen',
+      description: 'Gebruik My Rents in de taal die het beste past bij je verhuuractiviteiten.',
+    },
+    listLabel: 'Beschikbaar in de app',
+    languages: ['Español', 'English', 'Italiano', 'Deutsch', 'Français', 'Português', 'Nederlands'],
+    summary:
+      'Ondersteund in de app: Spaans, Engels, Italiaans, Duits, Frans, Portugees en Nederlands.',
+    note: 'De My Rents website en app ondersteunen alle zeven hier opgesomde talen.',
+  },
+  faq: {
+    intro: {
+      eyebrow: 'FAQ',
+      title: 'Veelgestelde vragen',
+      description: 'Duidelijke antwoorden over prijzen, werkprocessen, rapporten en ondersteuning.',
+    },
+    items: [
+      {
+        question: 'Kan My Rents spreadsheets vervangen voor een kleine portefeuille?',
+        answer:
+          'Daarvoor gebruiken veel eigenaren het. My Rents helpt je om huur, uitgaven, documenten, herinneringen en pandnotities niet langer over aparte spreadsheets en mappen te verspreiden.',
+      },
+      {
+        question: 'Wat verandert er tussen 1 maand, 6 maanden en 1 jaar?',
+        answer:
+          'Alleen de looptijd van het lidmaatschap verandert. De PRO-functies zijn in elke optie gelijk.',
+      },
+      {
+        question: 'Hoe zie ik de prijs voor mijn land?',
+        answer:
+          'Selecteer je land in het PRO-gedeelte van deze website om de huidige Google Play-prijs te zien. Dezelfde lokale prijs kun je voor aankoop nogmaals in My Rents bevestigen.',
+      },
+      {
+        question: 'Is de PRO-prijs voor één persoon of voor een bedrijf?',
+        answer:
+          'De PRO-prijs op deze pagina geldt voor één gebruikersaccount. Als je bedrijf meerdere accounts of een andere opstelling nodig heeft, neem dan direct contact met ons op.',
+      },
+      {
+        question: 'Kan ik uitgaven en eenmalige facturen vastleggen',
+        answer:
+          'Ja. My Rents is bedoeld om doorlopende kosten zoals nutsvoorzieningen en onderhoud vast te leggen, evenals eenmalige aankopen, meubels of dringende reparaties.',
+      },
+      {
+        question: 'Helpt de app bij huurcontracten en huurherinneringen?',
+        answer:
+          'Ja. Je kunt meerdere contracten per pand opslaan, betaaldatums en betalingsstatus controleren en via WhatsApp, e-mail of directe telefoontjes contact opnemen.',
+      },
+    ],
+  },
+  contact: {
+    emailAddress: CONTACT_EMAIL,
+    forumUrl: FORUM_URL,
+    intro: {
+      eyebrow: 'Beheer je verhuur nog via te veel plekken?',
+      title: 'Vertel ons wat onoverzichtelijk is',
+      description:
+        'Als betalingen, documenten, uitgaven of contractgegevens over meerdere tools verspreid zijn, vertel ons wat vandaag onoverzichtelijk is en we laten je het beste opstelling in My Rents zien.',
+    },
+    forumPrefix: 'Openbaar forum',
+    forumCtaLabel: 'Openbaar forum openen',
+    form: {
+      nameLabel: 'Naam',
+      namePlaceholder: 'Je naam',
+      emailLabel: 'E-mail',
+      emailPlaceholder: 'jij@voorbeeld.com',
+      messageLabel: 'Waarmee heb je hulp nodig?',
+      messagePlaceholder:
+        'Vertel ons wat je beheert, wat vandaag onoverzichtelijk is of welke looptijd je momenteel overweegt.',
+      subjectLabel: 'Websitecontact van',
+      submitLabel: 'E-mailconcept openen',
+      success:
+        'Je e-mail-app zou moeten openen met een vooringevuld concept. Zo niet, stuur dan rechtstreeks naar info@myrents-app.com.',
+    },
+  },
+  footer: {
+    summary:
+      'Vastgoedbeheer voor verhuurders die het volledige verhaal van elk pand op één plek willen hebben.',
+    menuHeading: 'Menu',
+    legalHeading: 'Juridisch',
+    contactHeading: 'Contact',
+    legalLinks: [
+      { label: 'Gebruiksvoorwaarden', routeKey: 'terms' },
+      { label: 'Privacybeleid', routeKey: 'privacy' },
+      { label: 'EULA', routeKey: 'eula' },
+      { label: 'Gegevensverwijdering', routeKey: 'dataDeletion' },
+    ],
+    upgradePrompt: 'Vragen voordat je upgrade? Neem contact op.',
+    forumLinkLabel: 'Forum',
+    privacyLinkLabel: 'Privacy',
+    dataDeletionLinkLabel: 'Gegevensverwijdering',
+    bottomLabel: 'Copyright © 2026 MY RENTS',
+  },
+  legalUi: {
+    backHomeLabel: 'Terug naar home',
+    lastUpdatedPrefix: 'Laatst bijgewerkt',
+  },
+  unsubscribe: {
+    eyebrow: 'E-mailinstellingen',
+    title: 'Afmelden voor My Rents marketing-e-mails',
+    intro:
+      'Voer het e-mailadres in waarop je marketing-e-mails van My Rents ontvangt, en we zetten het op onze blokkeringslijst voor toekomstige marketingcampagnes.',
+    form: {
+      emailLabel: 'E-mailadres',
+      emailPlaceholder: 'jij@voorbeeld.com',
+      helper:
+        'Deze pagina geldt alleen voor marketing-e-mails. Gebruik hetzelfde adres waarop je berichten van My Rents ontvangt.',
+      note: 'Service-, facturerings- of accountgerelateerde e-mails kunnen doorgestuurd worden als ze nodig zijn voor de werking van My Rents of de ondersteuning van je account.',
+      submitLabel: 'Dit e-mailadres afmelden',
+    },
+    homeLabel: 'Terug naar home',
+    contactLabel: 'Neem contact op met support',
+    states: {
+      submitting: {
+        title: 'Je verzoek wordt opgeslagen',
+        description: 'We voegen dit adres nu toe aan de blokkeringslijst van My Rents.',
+      },
+      success: {
+        title: 'Dit e-mailadres is afgemeld',
+        description:
+          'We hebben dit adres op de blokkeringslijst van My Rents gezet voor toekomstige marketing-e-mails. Als je net een voorbereide campagne hebt ontvangen, kan er een korte vertraging zijn.',
+      },
+      invalidEmail: {
+        title: 'Voer een geldig e-mailadres in',
+        description:
+          'We konden dit e-mailadres niet gebruiken. Controleer de spelling en probeer het opnieuw met het adres dat marketing-e-mails van My Rents heeft ontvangen.',
+      },
+      unavailable: {
+        title: 'Afmelden is nog niet ingesteld',
+        description:
+          'De website mist de juiste Firebase-configuratie om afmeldverzoeken op te slaan. Neem contact op met support, dan melden we je handmatig af.',
+      },
+      error: {
+        title: 'We konden je verzoek niet opslaan',
+        description:
+          'Er is iets misgegaan bij het opslaan van deze afmelding. Probeer het opnieuw of neem contact op met support zodat we het adres handmatig verwijderen.',
+      },
+    },
+  },
+  controls: {
+    previousLabel: 'Vorige',
+    nextLabel: 'Volgende',
+  },
+}
+
 export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
   ...baseSiteContentByLocale,
   de: createLocalizedSiteContent(deOverride),
   fr: createLocalizedSiteContent(frOverride),
   it: createLocalizedSiteContent(itOverride),
   pt: createLocalizedSiteContent(ptOverride),
+  nl: createLocalizedSiteContent(nlOverride),
 }
 
 const routeNames: AppRouteName[] = [

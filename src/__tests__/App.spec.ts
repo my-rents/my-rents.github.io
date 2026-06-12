@@ -99,7 +99,7 @@ describe('App', () => {
 
     const languageSelect = wrapper.get('.site-footer__language-select')
 
-    expect(languageSelect.findAll('option')).toHaveLength(6)
+    expect(languageSelect.findAll('option')).toHaveLength(7)
 
     await languageSelect.setValue('pt')
     await flushPromises()
