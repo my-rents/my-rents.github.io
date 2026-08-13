@@ -1,4 +1,5 @@
 @use '@/styles/breakpoints' as *;
+@use '@/styles/mixins' as *;
 
 .hero-section {
   padding-block: var(--space-s) var(--section-space-hero);
@@ -10,18 +11,25 @@
 }
 
 .hero-section__panel {
+  --hero-panel-pad: var(--hero-shell-padding);
   display: grid;
   position: relative;
   overflow: hidden;
-  align-items: center;
-  gap: var(--space-2xl);
-  grid-template-columns: minmax(0, 2fr) minmax(0, 0.88fr);
-  padding: var(--hero-shell-padding);
+  gap: var(--space-l);
+  grid-template-columns: minmax(0, 1fr);
+  padding: var(--hero-panel-pad);
   border-radius: var(--radius-xl);
   background:
     var(--gradient-hero-accent),
     linear-gradient(135deg, var(--color-brand-deep), var(--color-brand-soft));
   box-shadow: var(--shadow-panel);
+}
+
+.hero-section__banner {
+  inline-size: 100%;
+  block-size: auto;
+  border-radius: var(--radius-l);
+  box-shadow: var(--shadow-card);
 }
 
 .hero-section__content {
@@ -46,6 +54,26 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-s);
+}
+
+.hero-section__store-link {
+  display: inline-flex;
+  align-items: center;
+  overflow: hidden;
+  border: var(--border-inverse);
+  border-radius: var(--radius-s);
+  background: var(--color-surface-inverse-soft);
+
+  @include interactive-lift;
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+
+  img {
+    inline-size: auto;
+    block-size: 3.1rem;
+  }
 }
 
 .hero-section__rating {
@@ -92,24 +120,6 @@
   color: var(--color-contrast-body);
 }
 
-.hero-section__visual {
-  position: relative;
-  min-block-size: var(--hero-visual-height);
-}
-
-.hero-section__image-frame {
-  inline-size: var(--hero-main-image-size);
-  block-size: 100%;
-  margin-inline-start: auto;
-  overflow: hidden;
-  border-radius: var(--radius-xl);
-}
-
-.hero-section__image-frame img {
-  block-size: 100%;
-  object-fit: cover;
-}
-
 .hero-section__partners {
   display: flex;
   flex-wrap: wrap;
@@ -141,14 +151,19 @@
 
 @include below(small) {
   .hero-section__panel {
+    --hero-panel-pad: var(--space-l);
     grid-template-columns: minmax(0, 1fr);
     gap: var(--space-l);
-    padding: var(--space-l);
   }
 
   .hero-section__actions {
     flex-direction: column;
     align-items: stretch;
+  }
+
+  .hero-section__download {
+    flex-direction: column;
+    align-items: center;
   }
 
   .hero-section__rating {
@@ -160,15 +175,11 @@
     max-inline-size: 100%;
     font-size: clamp(2.3rem, 10.5vw, 3.9rem);
   }
-
-  .hero-section__image-frame {
-    inline-size: 100%;
-  }
 }
 
 @include below(xsmall) {
   .hero-section__panel {
-    padding: var(--space-m);
+    --hero-panel-pad: var(--space-m);
   }
 
   .hero-section__rating {

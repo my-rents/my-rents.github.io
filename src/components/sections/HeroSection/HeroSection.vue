@@ -5,9 +5,11 @@ import AppButton from '@/components/shared/AppButton/AppButton.vue'
 import TrustBadge from '@/components/shared/TrustBadge/TrustBadge.vue'
 import { useSiteContent } from '@/composables/useSiteContent'
 import { revealDirective as vReveal } from '@/directives/reveal'
+import storeAndroid from '@/assets/store_android.avif'
+import storeIos from '@/assets/store_ios.avif'
 
-const HERO_SNAPSHOT_WIDTH = 1080
-const HERO_SNAPSHOT_HEIGHT = 2400
+const HERO_BANNER_WIDTH = 1024
+const HERO_BANNER_HEIGHT = 500
 
 const { content } = useSiteContent()
 </script>

@@ -1,20 +1,23 @@
-import rentDe from '@/assets/features/rent_DE.png'
 import rentEn from '@/assets/features/rent_EN.png'
 import rentEs from '@/assets/features/rent_ES.png'
-import rentFr from '@/assets/features/rent_FR.png'
-import rentIt from '@/assets/features/rent_IT.png'
-import rentPt from '@/assets/features/rent_PT.png'
 import calendarEn from '@/assets/features/calendar_EN.png'
 import contactsListEn from '@/assets/features/contacts_list_EN.png'
+import bannerEn from '@/assets/banners/banner_EN.png'
+import bannerEs from '@/assets/banners/banner_ES.png'
+import bannerDe from '@/assets/banners/banner_DE.png'
+import bannerFr from '@/assets/banners/banner_FR.png'
+import bannerIt from '@/assets/banners/banner_IT.png'
+import bannerPt from '@/assets/banners/banner_PT.png'
+import bannerNl from '@/assets/banners/banner_NL.png'
 
-const heroSnapshots: Record<SiteLocale, string> = {
-  en: rentEn,
-  es: rentEs,
-  de: rentDe,
-  fr: rentFr,
-  it: rentIt,
-  pt: rentPt,
-  nl: rentEn,
+const heroBanners: Record<SiteLocale, string> = {
+  en: bannerEn,
+  es: bannerEs,
+  de: bannerDe,
+  fr: bannerFr,
+  it: bannerIt,
+  pt: bannerPt,
+  nl: bannerNl,
 }
 
 export type SiteLocale = 'en' | 'es' | 'de' | 'fr' | 'it' | 'pt' | 'nl'
@@ -235,8 +238,7 @@ export interface SiteContent {
     appStoreCtaLabel: string
     contactCtaLabel: string
     trustLabel: string
-    snapshot: string
-    snapshotAlt: string
+    banner: string
     partnersLabel: string
     partners: string[]
   }
@@ -801,8 +803,7 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
       playStoreCtaLabel: 'Download for Android',
       appStoreCtaLabel: 'Download for iOS',
       contactCtaLabel: 'Contact us',
-      snapshot: heroSnapshots.nl,
-      snapshotAlt: 'My Rents dashboard showing portfolio, payments, and lease management',
+      banner: heroBanners.en,
       trustLabel: 'Trusted by 5,000+ landlords and companies worldwide',
       partnersLabel: 'Built for landlords who have outgrown DIY admin',
       partners: [
@@ -1807,8 +1808,7 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
       playStoreCtaLabel: 'Descargar para Android',
       appStoreCtaLabel: 'Descargar para iOS',
       contactCtaLabel: 'Contactar con nosotros',
-      snapshot: heroSnapshots.es,
-      snapshotAlt: 'Panel de My Rents mostrando portfolio, pagos y gestión de contratos',
+      banner: heroBanners.es,
       trustLabel: 'Más de 5.000 propietarios y empresas confían en nosotros',
       partnersLabel: 'Pensada para propietarios que ya han superado el sistema DIY',
       partners: [
@@ -2857,8 +2857,7 @@ const deOverride: SiteContentWithoutLegalPages = {
     playStoreCtaLabel: 'Für Android herunterladen',
     appStoreCtaLabel: 'Für iOS herunterladen',
     contactCtaLabel: 'Kontaktiere uns',
-    snapshot: heroSnapshots.de,
-    snapshotAlt: 'Screenshot des My Rents Dashboards',
+    banner: heroBanners.de,
     trustLabel: 'Über 5.000 Vermieter und Unternehmen vertrauen uns',
     partnersLabel: 'Gemacht für Vermieter, die aus der DIY-Verwaltung herausgewachsen sind',
     partners: [
@@ -3515,8 +3514,7 @@ const frOverride: SiteContentWithoutLegalPages = {
     playStoreCtaLabel: 'Télécharger pour Android',
     appStoreCtaLabel: 'Télécharger pour iOS',
     contactCtaLabel: 'Nous contacter',
-    snapshot: heroSnapshots.fr,
-    snapshotAlt: 'Capture du tableau de bord My Rents',
+    banner: heroBanners.fr,
     trustLabel: 'Plus de 5.000 propriétaires et entreprises nous font confiance',
     partnersLabel: 'Pensée pour les propriétaires qui ont dépassé la gestion bricolée',
     partners: [
@@ -4172,8 +4170,7 @@ const itOverride: SiteContentWithoutLegalPages = {
     playStoreCtaLabel: 'Scarica per Android',
     appStoreCtaLabel: 'Scarica per iOS',
     contactCtaLabel: 'Contattaci',
-    snapshot: heroSnapshots.it,
-    snapshotAlt: 'Screenshot della dashboard di My Rents',
+    banner: heroBanners.it,
     trustLabel: 'Oltre 5.000 proprietari e aziende si fidano di noi',
     partnersLabel: 'Pensata per proprietari che hanno superato la gestione fai-da-te',
     partners: [
@@ -4828,8 +4825,7 @@ const ptOverride: SiteContentWithoutLegalPages = {
     playStoreCtaLabel: 'Transferir para Android',
     appStoreCtaLabel: 'Transferir para iOS',
     contactCtaLabel: 'Contacte-nos',
-    snapshot: heroSnapshots.pt,
-    snapshotAlt: 'Screenshot do painel My Rents',
+    banner: heroBanners.pt,
     trustLabel: 'Mais de 5.000 proprietários e empresas confiam em nós',
     partnersLabel: 'Pensada para proprietários que já ultrapassaram a gestão improvisada',
     partners: [
@@ -5484,8 +5480,7 @@ const nlOverride: SiteContentWithoutLegalPages = {
     playStoreCtaLabel: 'Download voor Android',
     appStoreCtaLabel: 'Download voor iOS',
     contactCtaLabel: 'Neem contact op',
-    snapshot: heroSnapshots.en,
-    snapshotAlt: 'My Rents dashboard met portefeuille, betalingen en huurbeheer',
+    banner: heroBanners.nl,
     trustLabel: 'Vertrouwd door meer dan 5.000 verhuurders en bedrijven wereldwijd',
     partnersLabel: 'Gemaakt voor verhuurders die uit de DIY-administratie zijn gegroeid',
     partners: [
