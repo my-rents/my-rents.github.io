@@ -1,6 +1,17 @@
 <section class="hero-section">
   <div class="hero-section__shell section-shell">
     <div class="hero-section__panel">
+      <img
+        class="hero-section__banner"
+        :src="content.hero.banner"
+        alt=""
+        aria-hidden="true"
+        :width="HERO_BANNER_WIDTH"
+        :height="HERO_BANNER_HEIGHT"
+        decoding="async"
+        fetchpriority="high"
+      />
+
       <div class="hero-section__content" v-reveal>
         <div class="hero-section__rating">
           <TrustBadge :label="content.hero.trustLabel" light />
@@ -17,19 +28,42 @@
             variant="ghost"
             :to="{ name: 'home', hash: '#contact' }"
           />
-        </div>
-      </div>
 
-      <div class="hero-section__visual" v-reveal="140">
-        <div class="hero-section__image-frame">
-          <img
-            :src="content.hero.snapshot"
-            :alt="content.hero.snapshotAlt"
-            :width="HERO_SNAPSHOT_WIDTH"
-            :height="HERO_SNAPSHOT_HEIGHT"
-            decoding="async"
-            fetchpriority="high"
-          />
+          <div class="hero-section__download">
+            <a
+              class="hero-section__store-link"
+              :href="content.playStoreUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+              :aria-label="content.hero.playStoreCtaLabel"
+            >
+              <img
+                :src="storeAndroid"
+                :alt="content.hero.playStoreCtaLabel"
+                width="256"
+                height="84"
+                decoding="async"
+                loading="lazy"
+              />
+            </a>
+
+            <a
+              class="hero-section__store-link"
+              :href="content.appStoreUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+              :aria-label="content.hero.appStoreCtaLabel"
+            >
+              <img
+                :src="storeIos"
+                :alt="content.hero.appStoreCtaLabel"
+                width="256"
+                height="84"
+                decoding="async"
+                loading="lazy"
+              />
+            </a>
+          </div>
         </div>
       </div>
     </div>
