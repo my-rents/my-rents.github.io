@@ -1,9 +1,10 @@
 <template src="./ImpactSection.html"></template>
 
 <script setup lang="ts">
-import { computed, ref, watch } from 'vue'
+import { computed, nextTick, ref, watch } from 'vue'
 import SectionIntro from '@/components/shared/SectionIntro/SectionIntro.vue'
 import { useSiteContent } from '@/composables/useSiteContent'
+import { useViewport } from '@/composables/useViewport'
 import { revealDirective as vReveal } from '@/directives/reveal'
 
 // Import images from src/assets/features
@@ -54,6 +55,8 @@ const featureItems = computed(() => {
   }))
 })
 const activeFeatureIndex = ref(0)
+const visualRef = ref<HTMLElement | null>(null)
+const { isMobile } = useViewport()
 
 watch(
   featureItems,
@@ -71,6 +74,14 @@ const activeFeature = computed(
 
 const selectFeature = (index: number) => {
   activeFeatureIndex.value = index
+
+  if (!isMobile.value) {
+    return
+  }
+
+  nextTick(() => {
+    visualRef.value?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  })
 }
 </script>
 
