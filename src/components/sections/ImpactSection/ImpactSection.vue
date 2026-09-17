@@ -80,7 +80,16 @@ const selectFeature = (index: number) => {
   }
 
   nextTick(() => {
-    visualRef.value?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    const visual = visualRef.value
+    if (!visual) {
+      return
+    }
+
+    const header = document.querySelector<HTMLElement>('.site-header')
+    const headerOffset = (header?.offsetHeight ?? 80) + 16
+    const top = visual.getBoundingClientRect().top + window.scrollY - headerOffset
+
+    window.scrollTo({ top: Math.max(top, 0), behavior: 'smooth' })
   })
 }
 </script>
