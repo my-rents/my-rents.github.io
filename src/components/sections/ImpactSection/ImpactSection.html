@@ -8,7 +8,12 @@
     />
 
     <div class="impact-section__grid">
-      <div class="impact-section__visual surface-card" v-reveal="100">
+      <div
+        id="feature-visual"
+        ref="visualRef"
+        class="impact-section__visual surface-card"
+        v-reveal="100"
+      >
         <Transition name="impact-feature" mode="out-in">
           <figure
             v-if="activeFeature"

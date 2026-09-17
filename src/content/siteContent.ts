@@ -1384,7 +1384,7 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
         messagePlaceholder:
           'Tell us what you manage, what feels messy today, or which subscription option you are considering.',
         subjectLabel: 'Website contact from',
-        submitLabel: 'Open email draft',
+        submitLabel: 'Send email',
         success:
           'Your email app should open with a prefilled draft. If it does not, write directly to info@myrents-app.com.',
       },
@@ -2383,7 +2383,7 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
         messagePlaceholder:
           'Cuéntanos qué gestionas, qué se te hace pesado hoy o qué duración de suscripción estás valorando.',
         subjectLabel: 'Contacto desde la web de',
-        submitLabel: 'Abrir borrador de email',
+        submitLabel: 'Enviar email',
         success:
           'Tu aplicación de correo debería abrirse con un borrador preparado. Si no ocurre, escribe directamente a info@myrents-app.com.',
       },
@@ -3402,7 +3402,7 @@ const deOverride: SiteContentWithoutLegalPages = {
       messagePlaceholder:
         'Sag uns, was du verwaltest, was heute unübersichtlich ist oder welche Laufzeit du gerade in Betracht ziehst.',
       subjectLabel: 'Website-Kontakt von',
-      submitLabel: 'E-Mail-Entwurf öffnen',
+      submitLabel: 'E-Mail senden',
       success:
         'Deine E-Mail-App sollte sich mit einem vorausgefüllten Entwurf öffnen. Falls nicht, schreibe direkt an info@myrents-app.com.',
     },
@@ -4058,7 +4058,7 @@ const frOverride: SiteContentWithoutLegalPages = {
       messagePlaceholder:
         "Dites-nous ce que vous gérez, ce qui devient confus aujourd'hui ou quelle durée d'abonnement vous envisagez.",
       subjectLabel: 'Contact site de',
-      submitLabel: "Ouvrir le brouillon d'email",
+      submitLabel: 'Envoyer un email',
       success:
         "Votre application email devrait s'ouvrir avec un brouillon prérempli. Sinon, écrivez directement à info@myrents-app.com.",
     },
@@ -4713,7 +4713,7 @@ const itOverride: SiteContentWithoutLegalPages = {
       messagePlaceholder:
         'Raccontaci cosa gestisci, cosa oggi ti crea confusione o quale durata di abbonamento stai valutando.',
       subjectLabel: 'Contatto dal sito di',
-      submitLabel: 'Apri bozza email',
+      submitLabel: 'Invia email',
       success:
         'La tua app email dovrebbe aprirsi con una bozza precompilata. Se non succede, scrivi direttamente a info@myrents-app.com.',
     },
@@ -5368,7 +5368,7 @@ const ptOverride: SiteContentWithoutLegalPages = {
       messagePlaceholder:
         'Diga-nos o que gere, o que hoje está confuso ou que duração de subscrição está a considerar.',
       subjectLabel: 'Contato do site de',
-      submitLabel: 'Abrir rascunho de email',
+      submitLabel: 'Enviar email',
       success:
         'A sua aplicação de email deverá abrir com um rascunho preenchido. Se isso não acontecer, escreva diretamente para info@myrents-app.com.',
     },
@@ -6028,7 +6028,7 @@ const nlOverride: SiteContentWithoutLegalPages = {
       messagePlaceholder:
         'Vertel ons wat je beheert, wat vandaag onoverzichtelijk is of welke looptijd je momenteel overweegt.',
       subjectLabel: 'Websitecontact van',
-      submitLabel: 'E-mailconcept openen',
+      submitLabel: 'E-mail verzenden',
       success:
         'Je e-mail-app zou moeten openen met een vooringevuld concept. Zo niet, stuur dan rechtstreeks naar info@myrents-app.com.',
     },
