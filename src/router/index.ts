@@ -32,6 +32,11 @@ const routes = [
     component: () => import('@/views/PortalView.vue'),
   },
   {
+    path: '/blog',
+    name: 'blog',
+    component: () => import('@/views/BlogView.vue'),
+  },
+  {
     path: '/terms-of-service',
     name: 'terms',
     component: () => import('@/views/LegalView.vue'),

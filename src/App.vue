@@ -35,6 +35,15 @@ const documentLanguageByLocale: Record<SiteLocale, string> = {
 watchEffect(() => {
   document.documentElement.lang = documentLanguageByLocale[locale.value]
   document.title = getRouteTitle(locale.value, route.name)
+
+  let canonicalEl = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null
+  if (!canonicalEl) {
+    canonicalEl = document.createElement('link')
+    canonicalEl.setAttribute('rel', 'canonical')
+    document.head.appendChild(canonicalEl)
+  }
+  const cleanPath = route.path === '/' ? '/' : `${route.path.replace(/\/+$/, '')}/`
+  canonicalEl.setAttribute('href', `https://myrents-app.com${cleanPath}`)
 })
 </script>
 

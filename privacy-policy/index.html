@@ -3,34 +3,71 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <link rel="icon" type="image/png" href="/src/assets/icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Privacy Policy | MY RENTS</title>
     <meta
       name="description"
       content="Read the My Rents privacy policy for information about data handling, account use, and contact details."
     />
+    <link rel="canonical" href="https://myrents-app.com/privacy-policy/" />
+
+    <!-- Google Consent Mode v2 -->
+    <script>
+      window.dataLayer = window.dataLayer || []
+      function gtag() {
+        dataLayer.push(arguments)
+      }
+      gtag('consent', 'default', {
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        analytics_storage: 'denied',
+      })
+    </script>
+
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://myrents-app.com/privacy-policy/" />
     <meta property="og:title" content="Privacy Policy | MY RENTS" />
     <meta
       property="og:description"
       content="Read the My Rents privacy policy for information about data handling, account use, and contact details."
     />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:image" content="https://myrents-app.com/og-image.png" />
+    <meta property="og:image:width" content="1024" />
+    <meta property="og:image:height" content="500" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:alt" content="MY RENTS Privacy Policy" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://myrents-app.com/privacy-policy/" />
     <meta name="twitter:title" content="Privacy Policy | MY RENTS" />
     <meta
       name="twitter:description"
       content="Read the My Rents privacy policy for information about data handling, account use, and contact details."
     />
+    <meta name="twitter:image" content="https://myrents-app.com/og-image.png" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif:opsz@12..24&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <title>Privacy Policy | MY RENTS</title>
   </head>
 
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <header style="display: none">
+        <a href="/">Home</a>
+      </header>
+      <footer style="display: none">
+        <a href="https://axislabs.eu/my-rents/policy">Official Axis Labs Privacy Policy</a>
+        <a href="https://axislabs.eu/my-rents/terms-and-conditions">Terms of Service</a>
+      </footer>
+    </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
