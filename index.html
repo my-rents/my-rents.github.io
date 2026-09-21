@@ -5,27 +5,178 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <link rel="icon" type="image/png" href="/src/assets/icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MY RENTS | Property Manager App for Landlords</title>
     <meta
       name="description"
       content="My Rents is the all-in-one property manager app for landlords. Track rent, expenses, leases, and documents from your phone. Stop using spreadsheets — manage your rental properties in one place."
     />
+    <link rel="canonical" href="https://myrents-app.com/" />
+
+    <!-- Google Consent Mode v2 -->
+    <script>
+      window.dataLayer = window.dataLayer || []
+      function gtag() {
+        dataLayer.push(arguments)
+      }
+      gtag('consent', 'default', {
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        analytics_storage: 'denied',
+      })
+    </script>
+
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://myrents-app.com/" />
     <meta property="og:title" content="MY RENTS | Property Manager App for Landlords" />
     <meta
       property="og:description"
-      content="The all-in-one rental property management app. Track rent, expenses, leases, and documents. Trusted by over 5,000 landlords worldwide. Available in 6 languages."
+      content="The all-in-one rental property management app. Track rent, expenses, leases, and documents. Trusted by over 5,000 landlords worldwide. Available in 7 languages."
     />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:image" content="https://myrents-app.com/og-image.png" />
+    <meta property="og:image:width" content="1024" />
+    <meta property="og:image:height" content="500" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:alt" content="MY RENTS - Property Manager App for Landlords" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://myrents-app.com/" />
     <meta name="twitter:title" content="MY RENTS | Property Manager App for Landlords" />
     <meta
       name="twitter:description"
-      content="The all-in-one rental property management app. Track rent, expenses, leases, and documents. Trusted by over 5,000 landlords worldwide. Available in 6 languages."
+      content="The all-in-one rental property management app. Track rent, expenses, leases, and documents. Trusted by over 5,000 landlords worldwide. Available in 7 languages."
     />
-    <title>MY RENTS | Property Manager App for Landlords</title>
+    <meta name="twitter:image" content="https://myrents-app.com/og-image.png" />
+
+    <!-- JSON-LD Structured Data: SoftwareApplication -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "My Rents",
+        "operatingSystem": "iOS, Android",
+        "applicationCategory": "BusinessApplication",
+        "description": "The all-in-one rental property management app for landlords. Track rent payments, expenses, lease contracts, and tenant documents.",
+        "url": "https://myrents-app.com/",
+        "image": "https://myrents-app.com/og-image.png",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "description": "7-day free trial"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "ratingCount": "5000",
+          "bestRating": "5",
+          "worstRating": "1"
+        },
+        "author": {
+          "@type": "Organization",
+          "name": "Axis Labs",
+          "url": "https://axislabs.eu"
+        }
+      }
+    </script>
+
+    <!-- JSON-LD Structured Data: Organization & WebSite -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "My Rents",
+        "legalName": "Axis Labs",
+        "url": "https://myrents-app.com/",
+        "logo": "https://myrents-app.com/og-image.png",
+        "sameAs": ["https://axislabs.eu", "https://github.com/my-rents"]
+      }
+    </script>
+
+    <!-- JSON-LD Structured Data: FAQPage -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is My Rents?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "My Rents is an all-in-one mobile property management application designed for DIY landlords and independent property managers to track rent, expenses, leases, and tenant documents in one place."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does My Rents work offline?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. My Rents features an offline-first architecture allowing you to record payments, take photos of repair receipts, and view lease details without an active internet connection."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does the tenant portal work in My Rents?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The Documents Center enables landlords to create a secure, passcode-protected link for any lease. Tenants can view active lease terms, invoices, and payment receipts from any web browser without downloading an app."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does My Rents replace spreadsheets?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "My Rents replaces fragile spreadsheets with automated overdue alerts, on-site receipt photo capture, organized tax categorization, and single-tap financial export reports."
+            }
+          }
+        ]
+      }
+    </script>
   </head>
 
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <!-- Pre-render fallback for SEO and non-JavaScript crawlers -->
+      <header style="display: none">
+        <nav aria-label="Main Navigation">
+          <a href="/">Home</a>
+          <a href="/pricing/">Pricing</a>
+          <a href="/switch/">Compare</a>
+          <a href="/how-to-start/">How to Start</a>
+          <a href="/blog/">Blog</a>
+          <a href="/portal/">Documents Center</a>
+          <a href="/forum/">Forum</a>
+        </nav>
+      </header>
+      <footer style="display: none">
+        <nav aria-label="Legal and Resources">
+          <a href="https://axislabs.eu/my-rents/policy">Privacy Policy</a>
+          <a href="https://axislabs.eu/my-rents/terms-and-conditions">Terms of Service</a>
+          <a href="/privacy-policy/">In-App Privacy Policy</a>
+          <a href="/terms-of-service/">In-App Terms of Service</a>
+          <a href="/eula/">EULA</a>
+          <a href="/data-deletion/">Data Deletion</a>
+          <a href="/blog/">Landlord Blog &amp; Guides</a>
+        </nav>
+      </footer>
+    </div>
+    <noscript>
+      <footer class="noscript-footer">
+        <p>Manage rental properties with My Rents. Available on iOS and Android.</p>
+        <p>
+          <a href="https://axislabs.eu/my-rents/policy">Privacy Policy</a> |
+          <a href="https://axislabs.eu/my-rents/terms-and-conditions">Terms of Service</a> |
+          <a href="/privacy-policy/">In-App Privacy Policy</a> |
+          <a href="/terms-of-service/">In-App Terms of Service</a> |
+          <a href="/pricing/">Pricing</a> | <a href="/blog/">Blog &amp; Guides</a> |
+          <a href="/how-to-start/">How to Start</a>
+        </p>
+      </footer>
+    </noscript>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

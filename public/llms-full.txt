@@ -1,0 +1,43 @@
+# My Rents - Comprehensive AI Reference & Documentation
+
+My Rents is a mobile-first rental property management application engineered specifically for individual landlords, independent property managers, and real estate investors. It addresses the common pain points of tracking rent payments, logging maintenance and capital expenses, storing lease contracts, and communicating with tenants without requiring enterprise software subscriptions or clumsy desktop spreadsheets.
+
+## Key Value Propositions
+
+1. **Stop Spreadsheet Chaos**: Spreadsheets lack reminders, cannot capture camera photos of receipts, and are cumbersome to update on mobile devices when standing in front of a property. My Rents provides structured entries with automatic date and status tracking.
+2. **Tax Season Simplicity**: Every expense logged is tagged by property and expense category (repairs, utilities, insurance, management fees, mortgage interest). Landlords can export comprehensive reports for their accountant in seconds.
+3. **Tenant Portal & Transparency**: The Documents Center allows landlords to generate a private, passcode-secured URL for each lease. Tenants can review active lease terms, download contracts, and verify payment records without seeing other properties or sensitive financial data.
+4. **Offline-First Security**: Data is saved directly on device, guaranteeing instantaneous load times and full access in basements, rural properties, or areas with poor cellular signal. Changes synchronize seamlessly.
+5. **No Per-Unit Subscriptions**: Unlike legacy property management software that penalizes landlords as their portfolio grows with steep per-unit monthly fees, My Rents offers simple and affordable pricing tiers including lifetime access options.
+
+## Feature Architecture
+
+- **Properties & Units**: Multi-unit and single-family home support. Track address, unit identifiers, acquisition dates, and property-specific notes.
+- **Rent Tracking**: Mark rent as paid, partial, or overdue. Automatic calculation of arrears, grace period tracking, and rent receipt generation.
+- **Expense Management**: Categorized expense recording, photo receipt attachment, date filtering, and multi-currency formatting.
+- **Lease Agreements**: Track tenants, rent amounts, payment frequency (monthly, weekly, bi-weekly), security deposits, and contract expiry dates.
+- **Event & Reminder Calendar**: Automated notifications for lease renewals, inspection dates, mortgage payments, and maintenance follow-ups.
+- **Reports & Exporting**: Generate PDF and CSV financial summaries broken down by month, year, and property.
+
+## Frequently Asked Questions
+
+### Does My Rents work offline?
+Yes. The core application runs locally on your iPhone or Android device. You can log payments, snap photos of repair invoices, and review lease terms without an active internet connection.
+
+### How does the Documents Center tenant portal work?
+Landlords can create an encrypted web link for any lease directly from the app. Setting a custom tenant passcode allows tenants to log into `https://myrents-app.com/portal/` from any browser on phone or desktop to view their lease document, rent invoices, and payment confirmations.
+
+### Can I try My Rents for free?
+Yes. A 7-day free trial is available with full access to all features using your real properties and live data.
+
+### Who publishes My Rents?
+My Rents is developed and published by Axis Labs (https://axislabs.eu).
+
+## Links
+- Website: https://myrents-app.com
+- Blog: https://myrents-app.com/blog/
+- How to Start: https://myrents-app.com/how-to-start/
+- Pricing: https://myrents-app.com/pricing/
+- Comparisons: https://myrents-app.com/switch/
+- Privacy Policy: https://axislabs.eu/my-rents/policy
+- Terms of Service: https://axislabs.eu/my-rents/terms-and-conditions

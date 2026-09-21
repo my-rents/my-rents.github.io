@@ -38,14 +38,24 @@
 
     <div class="site-footer__column">
       <p class="site-footer__heading">{{ content.footer.legalHeading }}</p>
-      <RouterLink
-        v-for="link in content.footer.legalLinks"
-        :key="link.routeKey"
-        class="site-footer__link"
-        :to="{ name: link.routeKey }"
-      >
-        {{ link.label }}
-      </RouterLink>
+      <template v-for="link in content.footer.legalLinks" :key="link.label">
+        <a
+          v-if="link.href"
+          class="site-footer__link"
+          :href="link.href"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {{ link.label }}
+        </a>
+        <RouterLink
+          v-else-if="link.routeKey"
+          class="site-footer__link"
+          :to="{ name: link.routeKey }"
+        >
+          {{ link.label }}
+        </RouterLink>
+      </template>
     </div>
 
     <div class="site-footer__column">

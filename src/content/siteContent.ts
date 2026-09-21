@@ -9,6 +9,7 @@ import bannerFr from '@/assets/banners/banner_FR.png'
 import bannerIt from '@/assets/banners/banner_IT.png'
 import bannerPt from '@/assets/banners/banner_PT.png'
 import bannerNl from '@/assets/banners/banner_NL.png'
+import { type BlogSectionContent, defaultBlogContent } from './blogContent'
 
 const heroBanners: Record<SiteLocale, string> = {
   en: bannerEn,
@@ -24,7 +25,7 @@ export type SiteLocale = 'en' | 'es' | 'de' | 'fr' | 'it' | 'pt' | 'nl'
 
 export type LegalPageKey = 'terms' | 'privacy' | 'eula' | 'dataDeletion'
 
-export type AppRouteName = 'home' | 'pricing' | 'forum' | LegalPageKey | 'unsubscribe'
+export type AppRouteName = 'home' | 'pricing' | 'forum' | 'blog' | LegalPageKey | 'unsubscribe'
 
 export interface LanguageOption {
   code: SiteLocale
@@ -165,7 +166,8 @@ export interface LegalPage {
 
 export interface FooterLink {
   label: string
-  routeKey: LegalPageKey
+  routeKey?: LegalPageKey
+  href?: string
 }
 
 export interface UnsubscribeStateContent {
@@ -361,6 +363,7 @@ export interface SiteContent {
     previousLabel: string
     nextLabel: string
   }
+  blog: BlogSectionContent
 }
 
 export const supportedLocales = ['en', 'es', 'de', 'fr', 'it', 'pt', 'nl'] as const
@@ -393,15 +396,15 @@ const sharedLanguages: LanguageOption[] = [
 ]
 
 const englishLegalLinks: FooterLink[] = [
-  { label: 'Terms of Service', routeKey: 'terms' },
-  { label: 'Privacy Policy', routeKey: 'privacy' },
+  { label: 'Terms of Service', href: 'https://axislabs.eu/my-rents/terms-and-conditions' },
+  { label: 'Privacy Policy', href: 'https://axislabs.eu/my-rents/policy' },
   { label: 'EULA', routeKey: 'eula' },
   { label: 'Data Deletion', routeKey: 'dataDeletion' },
 ]
 
 const spanishLegalLinks: FooterLink[] = [
-  { label: 'Términos del servicio', routeKey: 'terms' },
-  { label: 'Política de privacidad', routeKey: 'privacy' },
+  { label: 'Términos del servicio', href: 'https://axislabs.eu/my-rents/terms-and-conditions' },
+  { label: 'Política de privacidad', href: 'https://axislabs.eu/my-rents/policy' },
   { label: 'EULA', routeKey: 'eula' },
   { label: 'Eliminación de datos', routeKey: 'dataDeletion' },
 ]
@@ -779,6 +782,7 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
         dataDeletion: 'Data Deletion | MY RENTS',
         forum: 'Forum | MY RENTS',
         unsubscribe: 'Unsubscribe | MY RENTS',
+        blog: 'Blog & Landlord Guides | MY RENTS',
       },
     },
     header: {
@@ -794,6 +798,7 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
       { label: 'Pricing', hash: '/pricing' },
       { label: 'Documents Center', hash: '/portal' },
       { label: 'How to start', hash: '/how-to-start' },
+      { label: 'Blog', hash: '/blog' },
       { label: 'Forum', hash: '/forum' },
     ],
     hero: {
@@ -1770,6 +1775,7 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
       previousLabel: 'Previous',
       nextLabel: 'Next',
     },
+    blog: defaultBlogContent,
   },
   es: {
     playStoreUrl: PLAY_STORE_URL,
@@ -1784,6 +1790,7 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
         dataDeletion: 'Eliminación de datos | MY RENTS',
         unsubscribe: 'Cancelar suscripción | MY RENTS',
         forum: 'Foro | MY RENTS',
+        blog: 'Blog y guías para propietarios | MY RENTS',
       },
     },
     header: {
@@ -1799,6 +1806,7 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
       { label: 'Precios', hash: '/pricing' },
       { label: 'Centro de documentos', hash: '/portal' },
       { label: 'Cómo empezar', hash: '/how-to-start' },
+      { label: 'Blog', hash: '/blog' },
       { label: 'Foro', hash: '/forum' },
     ],
     hero: {
@@ -2809,14 +2817,16 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
       previousLabel: 'Anterior',
       nextLabel: 'Siguiente',
     },
+    blog: defaultBlogContent,
   },
 }
 
-type SiteContentWithoutLegalPages = Omit<SiteContent, 'legalPages'>
+type SiteContentWithoutLegalPages = Omit<SiteContent, 'legalPages' | 'blog'>
 const localizedLegalPages = baseSiteContentByLocale.en.legalPages
 
 const createLocalizedSiteContent = (content: SiteContentWithoutLegalPages): SiteContent => ({
   ...content,
+  blog: defaultBlogContent,
   legalPages: localizedLegalPages,
 })
 
@@ -2833,6 +2843,7 @@ const deOverride: SiteContentWithoutLegalPages = {
       dataDeletion: 'Datenlöschung | MY RENTS',
       unsubscribe: 'Marketing-E-Mails abbestellen | MY RENTS',
       forum: 'Forum | MY RENTS',
+      blog: 'Blog & Ratgeber | MY RENTS',
     },
   },
   header: {
@@ -2848,6 +2859,7 @@ const deOverride: SiteContentWithoutLegalPages = {
     { label: 'Preise', hash: '/pricing' },
     { label: 'Dokumentenzentrum', hash: '/portal' },
     { label: 'So startest du', hash: '/how-to-start' },
+    { label: 'Blog', hash: '/blog' },
     { label: 'Forum', hash: '/forum' },
   ],
   hero: {
@@ -3414,8 +3426,8 @@ const deOverride: SiteContentWithoutLegalPages = {
     legalHeading: 'Rechtliches',
     contactHeading: 'Kontakt',
     legalLinks: [
-      { label: 'Nutzungsbedingungen', routeKey: 'terms' },
-      { label: 'Datenschutzerklärung', routeKey: 'privacy' },
+      { label: 'Nutzungsbedingungen', href: 'https://axislabs.eu/my-rents/terms-and-conditions' },
+      { label: 'Datenschutzerklärung', href: 'https://axislabs.eu/my-rents/policy' },
       { label: 'EULA', routeKey: 'eula' },
       { label: 'Datenlöschung', routeKey: 'dataDeletion' },
     ],
@@ -3490,6 +3502,7 @@ const frOverride: SiteContentWithoutLegalPages = {
       dataDeletion: 'Suppression des données | MY RENTS',
       unsubscribe: 'Désabonnement aux emails marketing | MY RENTS',
       forum: 'Forum | MY RENTS',
+      blog: 'Blog & Guides pour propriétaires | MY RENTS',
     },
   },
   header: {
@@ -3505,6 +3518,7 @@ const frOverride: SiteContentWithoutLegalPages = {
     { label: 'Tarifs', hash: '/pricing' },
     { label: 'Centre de documents', hash: '/portal' },
     { label: 'Comment commencer', hash: '/how-to-start' },
+    { label: 'Blog', hash: '/blog' },
     { label: 'Forum', hash: '/forum' },
   ],
   hero: {
@@ -4070,8 +4084,11 @@ const frOverride: SiteContentWithoutLegalPages = {
     legalHeading: 'Légal',
     contactHeading: 'Contact',
     legalLinks: [
-      { label: "Conditions d'utilisation", routeKey: 'terms' },
-      { label: 'Politique de confidentialité', routeKey: 'privacy' },
+      {
+        label: "Conditions d'utilisation",
+        href: 'https://axislabs.eu/my-rents/terms-and-conditions',
+      },
+      { label: 'Politique de confidentialité', href: 'https://axislabs.eu/my-rents/policy' },
       { label: 'EULA', routeKey: 'eula' },
       { label: 'Suppression des données', routeKey: 'dataDeletion' },
     ],
@@ -4146,6 +4163,7 @@ const itOverride: SiteContentWithoutLegalPages = {
       dataDeletion: 'Eliminazione dei dati | MY RENTS',
       unsubscribe: 'Disiscrizione dalle email marketing | MY RENTS',
       forum: 'Forum | MY RENTS',
+      blog: 'Blog e guide per proprietari | MY RENTS',
     },
   },
   header: {
@@ -4161,6 +4179,7 @@ const itOverride: SiteContentWithoutLegalPages = {
     { label: 'Prezzi', hash: '/pricing' },
     { label: 'Centro documenti', hash: '/portal' },
     { label: 'Come iniziare', hash: '/how-to-start' },
+    { label: 'Blog', hash: '/blog' },
     { label: 'Forum', hash: '/forum' },
   ],
   hero: {
@@ -4725,8 +4744,8 @@ const itOverride: SiteContentWithoutLegalPages = {
     legalHeading: 'Legale',
     contactHeading: 'Contatto',
     legalLinks: [
-      { label: 'Termini di servizio', routeKey: 'terms' },
-      { label: 'Informativa sulla privacy', routeKey: 'privacy' },
+      { label: 'Termini di servizio', href: 'https://axislabs.eu/my-rents/terms-and-conditions' },
+      { label: 'Informativa sulla privacy', href: 'https://axislabs.eu/my-rents/policy' },
       { label: 'EULA', routeKey: 'eula' },
       { label: 'Eliminazione dei dati', routeKey: 'dataDeletion' },
     ],
@@ -4801,6 +4820,7 @@ const ptOverride: SiteContentWithoutLegalPages = {
       dataDeletion: 'Eliminação de dados | MY RENTS',
       unsubscribe: 'Cancelar subscrição dos emails de marketing | MY RENTS',
       forum: 'Fórum | MY RENTS',
+      blog: 'Blog e guias para senhorios | MY RENTS',
     },
   },
   header: {
@@ -4816,6 +4836,7 @@ const ptOverride: SiteContentWithoutLegalPages = {
     { label: 'Preços', hash: '/pricing' },
     { label: 'Centro de documentos', hash: '/portal' },
     { label: 'Como começar', hash: '/how-to-start' },
+    { label: 'Blog', hash: '/blog' },
     { label: 'Forum', hash: '/forum' },
   ],
   hero: {
@@ -5380,8 +5401,8 @@ const ptOverride: SiteContentWithoutLegalPages = {
     legalHeading: 'Legal',
     contactHeading: 'Contacto',
     legalLinks: [
-      { label: 'Termos de serviço', routeKey: 'terms' },
-      { label: 'Política de privacidade', routeKey: 'privacy' },
+      { label: 'Termos de serviço', href: 'https://axislabs.eu/my-rents/terms-and-conditions' },
+      { label: 'Política de privacidade', href: 'https://axislabs.eu/my-rents/policy' },
       { label: 'EULA', routeKey: 'eula' },
       { label: 'Eliminação de dados', routeKey: 'dataDeletion' },
     ],
@@ -5456,6 +5477,7 @@ const nlOverride: SiteContentWithoutLegalPages = {
       dataDeletion: 'Gegevensverwijdering | MY RENTS',
       unsubscribe: 'Afmelden voor marketing-e-mails | MY RENTS',
       forum: 'Forum | MY RENTS',
+      blog: 'Blog & Gidsen voor verhuurders | MY RENTS',
     },
   },
   header: {
@@ -5471,6 +5493,7 @@ const nlOverride: SiteContentWithoutLegalPages = {
     { label: 'Prijzen', hash: '/pricing' },
     { label: 'Documentencentrum', hash: '/portal' },
     { label: 'Aan de slag', hash: '/how-to-start' },
+    { label: 'Blog', hash: '/blog' },
     { label: 'Forum', hash: '/forum' },
   ],
   hero: {
@@ -6040,8 +6063,8 @@ const nlOverride: SiteContentWithoutLegalPages = {
     legalHeading: 'Juridisch',
     contactHeading: 'Contact',
     legalLinks: [
-      { label: 'Gebruiksvoorwaarden', routeKey: 'terms' },
-      { label: 'Privacybeleid', routeKey: 'privacy' },
+      { label: 'Gebruiksvoorwaarden', href: 'https://axislabs.eu/my-rents/terms-and-conditions' },
+      { label: 'Privacybeleid', href: 'https://axislabs.eu/my-rents/policy' },
       { label: 'EULA', routeKey: 'eula' },
       { label: 'Gegevensverwijdering', routeKey: 'dataDeletion' },
     ],
@@ -6119,6 +6142,8 @@ const routeNames: AppRouteName[] = [
   'privacy',
   'eula',
   'dataDeletion',
+  'forum',
+  'blog',
   'unsubscribe',
 ]
 

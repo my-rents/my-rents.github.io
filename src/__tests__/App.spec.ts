@@ -108,4 +108,37 @@ describe('App', () => {
     expect(window.localStorage.getItem('my-rents-locale')).toBe('pt')
     expect(document.documentElement.lang).toBe('pt-PT')
   })
+
+  it('renders the blog page and articles', async () => {
+    await router.push('/blog')
+
+    const wrapper = mount(App, {
+      global: {
+        plugins: [router],
+      },
+    })
+
+    await flushPromises()
+
+    expect(wrapper.text()).toContain('Practical Guides & Tips for Independent Landlords')
+    expect(wrapper.text()).toContain('How to Organize Rental Property Receipts for Tax Season')
+  })
+
+  it('renders external legal links in footer', async () => {
+    await router.push('/')
+
+    const wrapper = mount(App, {
+      global: {
+        plugins: [router],
+      },
+    })
+
+    await flushPromises()
+
+    const links = wrapper.findAll('.site-footer__link')
+    const hrefs = links.map((link) => link.attributes('href'))
+
+    expect(hrefs).toContain('https://axislabs.eu/my-rents/policy')
+    expect(hrefs).toContain('https://axislabs.eu/my-rents/terms-and-conditions')
+  })
 })

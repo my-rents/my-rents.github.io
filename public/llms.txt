@@ -1,0 +1,34 @@
+# My Rents
+
+> The all-in-one property management app designed for DIY landlords and independent property managers. Track rent, expenses, leases, tenant records, and documents from iOS and Android.
+
+## Overview
+My Rents is a mobile-first rental property management application created by Axis Labs. It eliminates the chaos of juggling spreadsheets, chat apps, and scattered folders by unifying the full lifecycle of rental administration into one structured, intuitive system. Trusted by over 5,000 landlords worldwide, My Rents is available in 7 languages (English, Spanish, German, French, Italian, Portuguese, and Dutch).
+
+## Core Capabilities
+- [Rent Tracking & Payment History](https://myrents-app.com/#features): Log incoming rent payments, track overdue balances, generate payment receipts, and maintain a clear audit trail per lease.
+- [Expense Tracking & Tax Organization](https://myrents-app.com/#features): Categorize rental expenses by property, attach photo receipts, calculate net rental yields, and export clean summaries for tax season.
+- [Lease & Tenant Administration](https://myrents-app.com/#features): Store active and past contracts, track lease start and expiration dates, manage security deposits, and link tenant contact details.
+- [Documents Center & Tenant Portal](https://myrents-app.com/portal): Publish read-only tenant portals protected by role-specific passcodes, allowing tenants to view their lease terms, payment history, and invoices.
+- [Offline-First Reliability](https://myrents-app.com/how-to-start): Complete on-device speed and full functionality even without an internet connection, with automatic background synchronization.
+
+## Guides & Resources
+- [Landlord Blog & Content Hub](https://myrents-app.com/blog): In-depth landlord guides covering receipt organization for tax season, lease renewals, rent increase notices, and software comparisons.
+- [How to Get Started Guide](https://myrents-app.com/how-to-start): Step-by-step walkthrough on setting up properties, attaching leases, and onboarding tenants.
+- [Software Comparison Hub](https://myrents-app.com/switch): Side-by-side comparison of My Rents vs spreadsheets, Stessa, RentRedi, and Buildium.
+- [Pricing & Subscription Options](https://myrents-app.com/pricing): Transparent pricing with a 7-day free trial, flexible monthly and annual plans, and one-time lifetime license.
+- [Landlord Community Forum](https://myrents-app.com/forum): Public discussion hub for sharing best practices, requesting features, and getting help.
+
+## Legal & Compliance
+- [Privacy Policy](https://axislabs.eu/my-rents/policy): Official Axis Labs privacy policy detailing data privacy, account security, and GDPR/CCPA compliance.
+- [Terms of Service](https://axislabs.eu/my-rents/terms-and-conditions): Legal terms of service governing app usage, purchases, and subscriptions.
+- [In-App Privacy Policy](https://myrents-app.com/privacy-policy/): Detailed web privacy overview.
+- [In-App Terms of Service](https://myrents-app.com/terms-of-service/): Detailed web terms overview.
+- [EULA](https://myrents-app.com/eula/): End User License Agreement.
+- [Data Deletion Request](https://myrents-app.com/data-deletion/): Data deletion and GDPR erasure procedure.
+
+## Technical Details
+- Operating Systems: iOS 15.0+, Android 8.0+
+- Web: https://myrents-app.com
+- Publisher: Axis Labs (https://axislabs.eu)
+- Contact: info@myrents-app.com

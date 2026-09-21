@@ -1,0 +1,100 @@
+<main class="blog-view">
+  <section class="blog-view__hero">
+    <div class="section-shell blog-view__hero-shell">
+      <div class="blog-view__copy">
+        <p class="blog-view__eyebrow">{{ content.blog.eyebrow }}</p>
+        <h1 v-if="activeArticle">{{ activeArticle.title }}</h1>
+        <h1 v-else>{{ content.blog.title }}</h1>
+        <p v-if="activeArticle" class="blog-view__meta">
+          <span>{{ activeArticle.category }}</span> · <span>{{ activeArticle.readingTime }}</span> ·
+          <span>{{ activeArticle.date }}</span>
+        </p>
+        <p v-else>{{ content.blog.description }}</p>
+      </div>
+
+      <AppButton
+        v-if="activeArticle"
+        :label="content.blog.backToArticlesLabel"
+        variant="light"
+        @click="clearArticle"
+      />
+      <AppButton
+        v-else
+        :label="content.legalUi.backHomeLabel"
+        variant="light"
+        :to="{ name: 'home' }"
+      />
+    </div>
+  </section>
+
+  <section class="blog-view__body">
+    <div class="section-shell section-shell--narrow">
+      <!-- Full article view -->
+      <article v-if="activeArticle" class="blog-view__article surface-card">
+        <p class="blog-view__lead">{{ activeArticle.content.lead }}</p>
+
+        <section
+          v-for="subheading in activeArticle.content.subheadings"
+          :key="subheading.title"
+          class="blog-view__section"
+        >
+          <h2>{{ subheading.title }}</h2>
+          <p v-for="paragraph in subheading.paragraphs" :key="paragraph">{{ paragraph }}</p>
+          <ul
+            v-if="subheading.takeaways && subheading.takeaways.length"
+            class="blog-view__takeaways"
+          >
+            <li v-for="takeaway in subheading.takeaways" :key="takeaway">{{ takeaway }}</li>
+          </ul>
+        </section>
+
+        <aside class="blog-view__summary-box">
+          <h3>{{ activeArticle.content.summaryBox.title }}</h3>
+          <p>{{ activeArticle.content.summaryBox.text }}</p>
+        </aside>
+
+        <div class="blog-view__article-actions">
+          <AppButton
+            :label="content.blog.backToArticlesLabel"
+            variant="secondary"
+            @click="clearArticle"
+          />
+          <AppButton :label="content.header.ctaLabel" variant="primary" :to="{ name: 'pricing' }" />
+        </div>
+      </article>
+
+      <!-- Articles list view -->
+      <div v-else class="blog-view__grid">
+        <article
+          v-for="article in content.blog.articles"
+          :key="article.slug"
+          class="blog-view__card surface-card"
+        >
+          <div class="blog-view__card-meta">
+            <span class="blog-view__badge">{{ article.category }}</span>
+            <span class="blog-view__time">{{ article.readingTime }}</span>
+          </div>
+
+          <h2 class="blog-view__card-title">
+            <button
+              type="button"
+              class="blog-view__title-button"
+              @click="selectArticle(article.slug)"
+            >
+              {{ article.title }}
+            </button>
+          </h2>
+
+          <p class="blog-view__card-excerpt">{{ article.excerpt }}</p>
+
+          <div class="blog-view__card-footer">
+            <span class="blog-view__card-date">{{ article.date }}</span>
+            <button type="button" class="blog-view__card-link" @click="selectArticle(article.slug)">
+              {{ content.blog.readMoreLabel }} →
+            </button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
