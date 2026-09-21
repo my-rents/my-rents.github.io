@@ -39,5 +39,5 @@ My Rents is developed and published by Axis Labs (https://axislabs.eu).
 - How to Start: https://myrents-app.com/how-to-start/
 - Pricing: https://myrents-app.com/pricing/
 - Comparisons: https://myrents-app.com/switch/
-- Privacy Policy: https://axislabs.eu/my-rents/policy
-- Terms of Service: https://axislabs.eu/my-rents/terms-and-conditions
+- Privacy Policy: https://myrents-app.com/privacy-policy/
+- Terms of Service: https://myrents-app.com/terms-of-service/

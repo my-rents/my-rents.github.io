@@ -124,7 +124,27 @@ describe('App', () => {
     expect(wrapper.text()).toContain('How to Organize Rental Property Receipts for Tax Season')
   })
 
-  it('renders external legal links in footer', async () => {
+  it('renders localized blog articles when switching locale', async () => {
+    window.localStorage.setItem('my-rents-locale', 'es')
+
+    await router.push('/blog')
+
+    const wrapper = mount(App, {
+      global: {
+        plugins: [router],
+      },
+    })
+
+    await flushPromises()
+
+    expect(wrapper.text()).toContain('Guías prácticas y consejos para propietarios particulares')
+    expect(wrapper.text()).toContain(
+      'Cómo organizar los recibos de tus alquileres para la declaración de la renta',
+    )
+  })
+
+  it('renders internal legal links in footer', async () => {
+    window.localStorage.removeItem('my-rents-locale')
     await router.push('/')
 
     const wrapper = mount(App, {
@@ -138,7 +158,27 @@ describe('App', () => {
     const links = wrapper.findAll('.site-footer__link')
     const hrefs = links.map((link) => link.attributes('href'))
 
-    expect(hrefs).toContain('https://axislabs.eu/my-rents/policy')
-    expect(hrefs).toContain('https://axislabs.eu/my-rents/terms-and-conditions')
+    expect(hrefs).toContain('/privacy-policy')
+    expect(hrefs).toContain('/terms-of-service')
+    expect(hrefs).toContain('/eula')
+    expect(hrefs).toContain('/data-deletion')
+  })
+
+  it('renders copyright link in footer pointing to Axis Labs', async () => {
+    await router.push('/')
+
+    const wrapper = mount(App, {
+      global: {
+        plugins: [router],
+      },
+    })
+
+    await flushPromises()
+
+    const copyrightLink = wrapper.find('.site-footer__copyright-link')
+
+    expect(copyrightLink.exists()).toBe(true)
+    expect(copyrightLink.attributes('href')).toBe('https://axislabs.eu/')
+    expect(copyrightLink.text()).toContain('Copyright © 2026 MY RENTS')
   })
 })

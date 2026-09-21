@@ -71,7 +71,16 @@
   </div>
 
   <div class="site-footer__bottom section-shell">
-    <p>{{ content.footer.bottomLabel }}</p>
+    <p>
+      <a
+        class="site-footer__copyright-link"
+        :href="content.footer.copyrightUrl || 'https://axislabs.eu/'"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {{ content.footer.bottomLabel }}
+      </a>
+    </p>
     <div class="site-footer__socials">
       <!-- <a
         class="site-footer__social-link"

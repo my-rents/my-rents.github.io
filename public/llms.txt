@@ -20,10 +20,8 @@ My Rents is a mobile-first rental property management application created by Axi
 - [Landlord Community Forum](https://myrents-app.com/forum): Public discussion hub for sharing best practices, requesting features, and getting help.
 
 ## Legal & Compliance
-- [Privacy Policy](https://axislabs.eu/my-rents/policy): Official Axis Labs privacy policy detailing data privacy, account security, and GDPR/CCPA compliance.
-- [Terms of Service](https://axislabs.eu/my-rents/terms-and-conditions): Legal terms of service governing app usage, purchases, and subscriptions.
-- [In-App Privacy Policy](https://myrents-app.com/privacy-policy/): Detailed web privacy overview.
-- [In-App Terms of Service](https://myrents-app.com/terms-of-service/): Detailed web terms overview.
+- [Privacy Policy](https://myrents-app.com/privacy-policy/): Privacy policy detailing data privacy, account security, and GDPR/CCPA compliance.
+- [Terms of Service](https://myrents-app.com/terms-of-service/): Legal terms of service governing app usage, purchases, and subscriptions.
 - [EULA](https://myrents-app.com/eula/): End User License Agreement.
 - [Data Deletion Request](https://myrents-app.com/data-deletion/): Data deletion and GDPR erasure procedure.
 

@@ -9,7 +9,8 @@ import bannerFr from '@/assets/banners/banner_FR.png'
 import bannerIt from '@/assets/banners/banner_IT.png'
 import bannerPt from '@/assets/banners/banner_PT.png'
 import bannerNl from '@/assets/banners/banner_NL.png'
-import { type BlogSectionContent, defaultBlogContent } from './blogContent'
+import { type BlogSectionContent, blogContentByLocale } from './blogContent'
+import { legalPagesByLocale } from './legal'
 
 const heroBanners: Record<SiteLocale, string> = {
   en: bannerEn,
@@ -352,6 +353,7 @@ export interface SiteContent {
     privacyLinkLabel: string
     dataDeletionLinkLabel: string
     bottomLabel: string
+    copyrightUrl?: string
   }
   legalUi: {
     backHomeLabel: string
@@ -396,15 +398,15 @@ const sharedLanguages: LanguageOption[] = [
 ]
 
 const englishLegalLinks: FooterLink[] = [
-  { label: 'Terms of Service', href: 'https://axislabs.eu/my-rents/terms-and-conditions' },
-  { label: 'Privacy Policy', href: 'https://axislabs.eu/my-rents/policy' },
+  { label: 'Terms of Service', routeKey: 'terms' },
+  { label: 'Privacy Policy', routeKey: 'privacy' },
   { label: 'EULA', routeKey: 'eula' },
   { label: 'Data Deletion', routeKey: 'dataDeletion' },
 ]
 
 const spanishLegalLinks: FooterLink[] = [
-  { label: 'Términos del servicio', href: 'https://axislabs.eu/my-rents/terms-and-conditions' },
-  { label: 'Política de privacidad', href: 'https://axislabs.eu/my-rents/policy' },
+  { label: 'Términos del servicio', routeKey: 'terms' },
+  { label: 'Política de privacidad', routeKey: 'privacy' },
   { label: 'EULA', routeKey: 'eula' },
   { label: 'Eliminación de datos', routeKey: 'dataDeletion' },
 ]
@@ -1405,6 +1407,7 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
       privacyLinkLabel: 'Privacy',
       dataDeletionLinkLabel: 'Data Deletion',
       bottomLabel: 'Copyright © 2026 MY RENTS',
+      copyrightUrl: 'https://axislabs.eu/',
     },
     legalUi: {
       backHomeLabel: 'Back to home',
@@ -1775,7 +1778,7 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
       previousLabel: 'Previous',
       nextLabel: 'Next',
     },
-    blog: defaultBlogContent,
+    blog: blogContentByLocale.en,
   },
   es: {
     playStoreUrl: PLAY_STORE_URL,
@@ -2408,6 +2411,7 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
       privacyLinkLabel: 'Privacidad',
       dataDeletionLinkLabel: 'Eliminación de datos',
       bottomLabel: 'Copyright © 2026 MY RENTS',
+      copyrightUrl: 'https://axislabs.eu/',
     },
     legalUi: {
       backHomeLabel: 'Volver al inicio',
@@ -2817,17 +2821,19 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
       previousLabel: 'Anterior',
       nextLabel: 'Siguiente',
     },
-    blog: defaultBlogContent,
+    blog: blogContentByLocale.es,
   },
 }
 
 type SiteContentWithoutLegalPages = Omit<SiteContent, 'legalPages' | 'blog'>
-const localizedLegalPages = baseSiteContentByLocale.en.legalPages
 
-const createLocalizedSiteContent = (content: SiteContentWithoutLegalPages): SiteContent => ({
+const createLocalizedSiteContent = (
+  content: SiteContentWithoutLegalPages,
+  locale: 'de' | 'fr' | 'it' | 'pt' | 'nl',
+): SiteContent => ({
   ...content,
-  blog: defaultBlogContent,
-  legalPages: localizedLegalPages,
+  blog: blogContentByLocale[locale],
+  legalPages: legalPagesByLocale[locale] ?? baseSiteContentByLocale.en.legalPages,
 })
 
 const deOverride: SiteContentWithoutLegalPages = {
@@ -3426,8 +3432,8 @@ const deOverride: SiteContentWithoutLegalPages = {
     legalHeading: 'Rechtliches',
     contactHeading: 'Kontakt',
     legalLinks: [
-      { label: 'Nutzungsbedingungen', href: 'https://axislabs.eu/my-rents/terms-and-conditions' },
-      { label: 'Datenschutzerklärung', href: 'https://axislabs.eu/my-rents/policy' },
+      { label: 'Nutzungsbedingungen', routeKey: 'terms' },
+      { label: 'Datenschutzerklärung', routeKey: 'privacy' },
       { label: 'EULA', routeKey: 'eula' },
       { label: 'Datenlöschung', routeKey: 'dataDeletion' },
     ],
@@ -3436,6 +3442,7 @@ const deOverride: SiteContentWithoutLegalPages = {
     privacyLinkLabel: 'Datenschutz',
     dataDeletionLinkLabel: 'Datenlöschung',
     bottomLabel: 'Copyright © 2026 MY RENTS',
+    copyrightUrl: 'https://axislabs.eu/',
   },
   legalUi: {
     backHomeLabel: 'Zurück zur Startseite',
@@ -4086,9 +4093,9 @@ const frOverride: SiteContentWithoutLegalPages = {
     legalLinks: [
       {
         label: "Conditions d'utilisation",
-        href: 'https://axislabs.eu/my-rents/terms-and-conditions',
+        routeKey: 'terms',
       },
-      { label: 'Politique de confidentialité', href: 'https://axislabs.eu/my-rents/policy' },
+      { label: 'Politique de confidentialité', routeKey: 'privacy' },
       { label: 'EULA', routeKey: 'eula' },
       { label: 'Suppression des données', routeKey: 'dataDeletion' },
     ],
@@ -4097,6 +4104,7 @@ const frOverride: SiteContentWithoutLegalPages = {
     privacyLinkLabel: 'Confidentialité',
     dataDeletionLinkLabel: 'Suppression des données',
     bottomLabel: 'Copyright © 2026 MY RENTS',
+    copyrightUrl: 'https://axislabs.eu/',
   },
   legalUi: {
     backHomeLabel: "Retour à l'accueil",
@@ -4744,8 +4752,8 @@ const itOverride: SiteContentWithoutLegalPages = {
     legalHeading: 'Legale',
     contactHeading: 'Contatto',
     legalLinks: [
-      { label: 'Termini di servizio', href: 'https://axislabs.eu/my-rents/terms-and-conditions' },
-      { label: 'Informativa sulla privacy', href: 'https://axislabs.eu/my-rents/policy' },
+      { label: 'Termini di servizio', routeKey: 'terms' },
+      { label: 'Informativa sulla privacy', routeKey: 'privacy' },
       { label: 'EULA', routeKey: 'eula' },
       { label: 'Eliminazione dei dati', routeKey: 'dataDeletion' },
     ],
@@ -4754,6 +4762,7 @@ const itOverride: SiteContentWithoutLegalPages = {
     privacyLinkLabel: 'Privacy',
     dataDeletionLinkLabel: 'Eliminazione dei dati',
     bottomLabel: 'Copyright © 2026 MY RENTS',
+    copyrightUrl: 'https://axislabs.eu/',
   },
   legalUi: {
     backHomeLabel: 'Torna alla home',
@@ -5401,8 +5410,8 @@ const ptOverride: SiteContentWithoutLegalPages = {
     legalHeading: 'Legal',
     contactHeading: 'Contacto',
     legalLinks: [
-      { label: 'Termos de serviço', href: 'https://axislabs.eu/my-rents/terms-and-conditions' },
-      { label: 'Política de privacidade', href: 'https://axislabs.eu/my-rents/policy' },
+      { label: 'Termos de serviço', routeKey: 'terms' },
+      { label: 'Política de privacidade', routeKey: 'privacy' },
       { label: 'EULA', routeKey: 'eula' },
       { label: 'Eliminação de dados', routeKey: 'dataDeletion' },
     ],
@@ -5411,6 +5420,7 @@ const ptOverride: SiteContentWithoutLegalPages = {
     privacyLinkLabel: 'Privacidade',
     dataDeletionLinkLabel: 'Eliminação de dados',
     bottomLabel: 'Copyright © 2026 MY RENTS',
+    copyrightUrl: 'https://axislabs.eu/',
   },
   legalUi: {
     backHomeLabel: 'Voltar ao início',
@@ -6063,8 +6073,8 @@ const nlOverride: SiteContentWithoutLegalPages = {
     legalHeading: 'Juridisch',
     contactHeading: 'Contact',
     legalLinks: [
-      { label: 'Gebruiksvoorwaarden', href: 'https://axislabs.eu/my-rents/terms-and-conditions' },
-      { label: 'Privacybeleid', href: 'https://axislabs.eu/my-rents/policy' },
+      { label: 'Gebruiksvoorwaarden', routeKey: 'terms' },
+      { label: 'Privacybeleid', routeKey: 'privacy' },
       { label: 'EULA', routeKey: 'eula' },
       { label: 'Gegevensverwijdering', routeKey: 'dataDeletion' },
     ],
@@ -6073,6 +6083,7 @@ const nlOverride: SiteContentWithoutLegalPages = {
     privacyLinkLabel: 'Privacy',
     dataDeletionLinkLabel: 'Gegevensverwijdering',
     bottomLabel: 'Copyright © 2026 MY RENTS',
+    copyrightUrl: 'https://axislabs.eu/',
   },
   legalUi: {
     backHomeLabel: 'Terug naar home',
@@ -6128,11 +6139,11 @@ const nlOverride: SiteContentWithoutLegalPages = {
 
 export const siteContentByLocale: Record<SiteLocale, SiteContent> = {
   ...baseSiteContentByLocale,
-  de: createLocalizedSiteContent(deOverride),
-  fr: createLocalizedSiteContent(frOverride),
-  it: createLocalizedSiteContent(itOverride),
-  pt: createLocalizedSiteContent(ptOverride),
-  nl: createLocalizedSiteContent(nlOverride),
+  de: createLocalizedSiteContent(deOverride, 'de'),
+  fr: createLocalizedSiteContent(frOverride, 'fr'),
+  it: createLocalizedSiteContent(itOverride, 'it'),
+  pt: createLocalizedSiteContent(ptOverride, 'pt'),
+  nl: createLocalizedSiteContent(nlOverride, 'nl'),
 }
 
 const routeNames: AppRouteName[] = [
