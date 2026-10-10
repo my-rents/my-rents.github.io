@@ -1,17 +1,6 @@
 <section class="hero-section">
   <div class="hero-section__shell section-shell">
     <div class="hero-section__panel">
-      <img
-        class="hero-section__banner"
-        :src="content.hero.banner"
-        alt=""
-        aria-hidden="true"
-        :width="HERO_BANNER_WIDTH"
-        :height="HERO_BANNER_HEIGHT"
-        decoding="async"
-        fetchpriority="high"
-      />
-
       <div class="hero-section__content" v-reveal>
         <div class="hero-section__rating">
           <TrustBadge :label="content.hero.trustLabel" light />
@@ -66,6 +55,24 @@
           </div>
         </div>
       </div>
+
+      <iframe
+        class="hero-section__video"
+        src="https://www.youtube.com/embed/NgkzksyO1PU"
+        title="My Rents: Property Manager"
+        loading="lazy"
+        allow="
+          accelerometer;
+          autoplay;
+          clipboard-write;
+          encrypted-media;
+          gyroscope;
+          picture-in-picture;
+          web-share;
+        "
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      ></iframe>
     </div>
 
     <div class="hero-section__partners" v-reveal="220">
