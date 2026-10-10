@@ -15,8 +15,9 @@
   display: grid;
   position: relative;
   overflow: hidden;
-  gap: var(--space-l);
-  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-xl);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
   padding: var(--hero-panel-pad);
   border-radius: var(--radius-xl);
   background:
@@ -25,9 +26,11 @@
   box-shadow: var(--shadow-panel);
 }
 
-.hero-section__banner {
+.hero-section__video {
+  display: block;
   inline-size: 100%;
-  block-size: auto;
+  aspect-ratio: 16 / 9;
+  border: 0;
   border-radius: var(--radius-l);
   box-shadow: var(--shadow-card);
 }
@@ -149,11 +152,16 @@
   font-weight: 600;
 }
 
+@include below(medium) {
+  .hero-section__panel {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-l);
+  }
+}
+
 @include below(small) {
   .hero-section__panel {
     --hero-panel-pad: var(--space-l);
-    grid-template-columns: minmax(0, 1fr);
-    gap: var(--space-l);
   }
 
   .hero-section__actions {
