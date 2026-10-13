@@ -51,3 +51,11 @@ freewheel.tv, 536359-r-523319, RESELLER
 
 # Adagio - Adform
 adform.com, 3354, RESELLER, 9f5210a2f0999e32
+
+onetag.com, 982b8153cf01c03, DIRECT
+onetag.com, 982b8153cf01c03-OB, DIRECT
+appnexus.com, 13099, RESELLER
+pubmatic.com, 161593, RESELLER, 5d62403b186f2ace
+rubiconproject.com, 11006, RESELLER, 0bfd66d529a55807
+video.unrulymedia.com, 586616193, RESELLER
+smartadserver.com, 4111, RESELLER
