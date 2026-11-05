@@ -2,10 +2,14 @@ import { beforeEach, describe, expect, it } from 'vitest'
 import { flushPromises, mount } from '@vue/test-utils'
 
 import App from '@/App.vue'
+import { useLocale } from '@/composables/useLocale'
 import router from '@/router'
 
 describe('App', () => {
   beforeEach(async () => {
+    window.localStorage.clear()
+    const { setLocale } = useLocale()
+    setLocale('en')
     await router.push('/')
     await router.isReady()
   })
@@ -107,6 +111,40 @@ describe('App', () => {
     expect(wrapper.text()).toContain('Acabe com o caos administrativo dos alugueres')
     expect(window.localStorage.getItem('my-rents-locale')).toBe('pt')
     expect(document.documentElement.lang).toBe('pt-PT')
+  })
+
+  it('updates the hero video embed URL when switching locale', async () => {
+    window.localStorage.removeItem('my-rents-locale')
+    await router.push('/')
+
+    const wrapper = mount(App, {
+      global: {
+        plugins: [router],
+      },
+    })
+
+    await flushPromises()
+
+    expect(wrapper.get('.hero-section__video').attributes('src')).toBe(
+      'https://www.youtube.com/embed/NgkzksyO1PU',
+    )
+
+    const languageSelect = wrapper.get('.site-footer__language-select')
+    const expectedVideos: Record<string, string> = {
+      es: 'https://www.youtube.com/embed/VhIZ0U1GvKQ',
+      it: 'https://www.youtube.com/embed/tIQloOESyCg',
+      de: 'https://www.youtube.com/embed/qXrJJY8IYH0',
+      fr: 'https://www.youtube.com/embed/1E0g66BVprA',
+      pt: 'https://www.youtube.com/embed/9GxiQNlfFP4',
+      nl: 'https://www.youtube.com/embed/AvqpwC_Txpo',
+      en: 'https://www.youtube.com/embed/NgkzksyO1PU',
+    }
+
+    for (const [code, expectedSrc] of Object.entries(expectedVideos)) {
+      await languageSelect.setValue(code)
+      await flushPromises()
+      expect(wrapper.get('.hero-section__video').attributes('src')).toBe(expectedSrc)
+    }
   })
 
   it('renders the blog page and articles', async () => {

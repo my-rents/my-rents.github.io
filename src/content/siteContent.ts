@@ -22,6 +22,16 @@ const heroBanners: Record<SiteLocale, string> = {
   nl: bannerNl,
 }
 
+const heroVideos: Record<SiteLocale, string> = {
+  en: 'https://www.youtube.com/embed/NgkzksyO1PU',
+  es: 'https://www.youtube.com/embed/VhIZ0U1GvKQ',
+  de: 'https://www.youtube.com/embed/qXrJJY8IYH0',
+  fr: 'https://www.youtube.com/embed/1E0g66BVprA',
+  it: 'https://www.youtube.com/embed/tIQloOESyCg',
+  pt: 'https://www.youtube.com/embed/9GxiQNlfFP4',
+  nl: 'https://www.youtube.com/embed/AvqpwC_Txpo',
+}
+
 export type SiteLocale = 'en' | 'es' | 'de' | 'fr' | 'it' | 'pt' | 'nl'
 
 export type LegalPageKey = 'terms' | 'privacy' | 'eula' | 'dataDeletion'
@@ -242,6 +252,7 @@ export interface SiteContent {
     contactCtaLabel: string
     trustLabel: string
     banner: string
+    videoUrl: string
     partnersLabel: string
     partners: string[]
   }
@@ -811,6 +822,7 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
       appStoreCtaLabel: 'Download for iOS',
       contactCtaLabel: 'Contact us',
       banner: heroBanners.en,
+      videoUrl: heroVideos.en,
       trustLabel: 'Trusted by 5,000+ landlords and companies worldwide',
       partnersLabel: 'Built for landlords who have outgrown DIY admin',
       partners: [
@@ -1820,6 +1832,7 @@ const baseSiteContentByLocale: Record<'en' | 'es', SiteContent> = {
       appStoreCtaLabel: 'Descargar para iOS',
       contactCtaLabel: 'Contactar con nosotros',
       banner: heroBanners.es,
+      videoUrl: heroVideos.es,
       trustLabel: 'Más de 5.000 propietarios y empresas confían en nosotros',
       partnersLabel: 'Pensada para propietarios que ya han superado el sistema DIY',
       partners: [
@@ -2876,6 +2889,7 @@ const deOverride: SiteContentWithoutLegalPages = {
     appStoreCtaLabel: 'Für iOS herunterladen',
     contactCtaLabel: 'Kontaktiere uns',
     banner: heroBanners.de,
+    videoUrl: heroVideos.de,
     trustLabel: 'Über 5.000 Vermieter und Unternehmen vertrauen uns',
     partnersLabel: 'Gemacht für Vermieter, die aus der DIY-Verwaltung herausgewachsen sind',
     partners: [
@@ -3536,6 +3550,7 @@ const frOverride: SiteContentWithoutLegalPages = {
     appStoreCtaLabel: 'Télécharger pour iOS',
     contactCtaLabel: 'Nous contacter',
     banner: heroBanners.fr,
+    videoUrl: heroVideos.fr,
     trustLabel: 'Plus de 5.000 propriétaires et entreprises nous font confiance',
     partnersLabel: 'Pensée pour les propriétaires qui ont dépassé la gestion bricolée',
     partners: [
@@ -4198,6 +4213,7 @@ const itOverride: SiteContentWithoutLegalPages = {
     appStoreCtaLabel: 'Scarica per iOS',
     contactCtaLabel: 'Contattaci',
     banner: heroBanners.it,
+    videoUrl: heroVideos.it,
     trustLabel: 'Oltre 5.000 proprietari e aziende si fidano di noi',
     partnersLabel: 'Pensata per proprietari che hanno superato la gestione fai-da-te',
     partners: [
@@ -4856,6 +4872,7 @@ const ptOverride: SiteContentWithoutLegalPages = {
     appStoreCtaLabel: 'Transferir para iOS',
     contactCtaLabel: 'Contacte-nos',
     banner: heroBanners.pt,
+    videoUrl: heroVideos.pt,
     trustLabel: 'Mais de 5.000 proprietários e empresas confiam em nós',
     partnersLabel: 'Pensada para proprietários que já ultrapassaram a gestão improvisada',
     partners: [
@@ -5514,6 +5531,7 @@ const nlOverride: SiteContentWithoutLegalPages = {
     appStoreCtaLabel: 'Download voor iOS',
     contactCtaLabel: 'Neem contact op',
     banner: heroBanners.nl,
+    videoUrl: heroVideos.nl,
     trustLabel: 'Vertrouwd door meer dan 5.000 verhuurders en bedrijven wereldwijd',
     partnersLabel: 'Gemaakt voor verhuurders die uit de DIY-administratie zijn gegroeid',
     partners: [
