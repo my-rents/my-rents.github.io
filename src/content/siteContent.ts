@@ -23,7 +23,7 @@ const heroBanners: Record<SiteLocale, string> = {
 }
 
 const heroVideos: Record<SiteLocale, string> = {
-  en: 'https://www.youtube.com/embed/NgkzksyO1PU',
+  en: 'https://www.youtube.com/embed/Ed7hEQSB8gc',
   es: 'https://www.youtube.com/embed/VhIZ0U1GvKQ',
   de: 'https://www.youtube.com/embed/qXrJJY8IYH0',
   fr: 'https://www.youtube.com/embed/1E0g66BVprA',

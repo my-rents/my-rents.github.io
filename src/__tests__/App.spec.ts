@@ -126,7 +126,7 @@ describe('App', () => {
     await flushPromises()
 
     expect(wrapper.get('.hero-section__video').attributes('src')).toBe(
-      'https://www.youtube.com/embed/NgkzksyO1PU',
+      'https://www.youtube.com/embed/Ed7hEQSB8gc',
     )
 
     const languageSelect = wrapper.get('.site-footer__language-select')
@@ -137,7 +137,7 @@ describe('App', () => {
       fr: 'https://www.youtube.com/embed/1E0g66BVprA',
       pt: 'https://www.youtube.com/embed/9GxiQNlfFP4',
       nl: 'https://www.youtube.com/embed/AvqpwC_Txpo',
-      en: 'https://www.youtube.com/embed/NgkzksyO1PU',
+      en: 'https://www.youtube.com/embed/Ed7hEQSB8gc',
     }
 
     for (const [code, expectedSrc] of Object.entries(expectedVideos)) {
