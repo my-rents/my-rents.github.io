@@ -759,6 +759,11 @@ button {
   margin: 0;
 }
 
+.form-error.portal-notice {
+  border-radius: 16px;
+  width: 100%;
+}
+
 .spin {
   animation: spin 1s linear infinite;
 }

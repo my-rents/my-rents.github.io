@@ -552,12 +552,21 @@ function PortalPage({ copy, language, onLanguageChange }: SharedAppProps) {
               </label>
 
               <button className="button button--primary" disabled={isSigningIn} type="submit">
-                <PortalIcon name="arrow" />
+                {isSigningIn ? (
+                  <PortalIcon name="refresh" className="spin" />
+                ) : (
+                  <PortalIcon name="arrow" />
+                )}
                 {isSigningIn ? copy.checkingAccess : copy.unlockLeasePortal}
               </button>
             </form>
 
-            {errorMessage ? <p className="form-error">{errorMessage}</p> : null}
+            {errorMessage ? (
+              <div className="portal-notice portal-notice--error form-error" role="alert">
+                <PortalIcon name="hourglass" />
+                <p>{errorMessage}</p>
+              </div>
+            ) : null}
           </div>
 
           <aside className="panel info-panel">
@@ -1040,22 +1049,34 @@ function humanizeError(error: unknown, fallback: string, copy: PortalCopy): stri
 
   const maybeCode = 'code' in error ? error.code : null
   const maybeMessage = 'message' in error ? error.message : null
-  const code = typeof maybeCode === 'string' ? maybeCode : ''
+  const code = typeof maybeCode === 'string' ? maybeCode.toLowerCase() : ''
   const message = typeof maybeMessage === 'string' ? maybeMessage : ''
 
-  if (code.includes('permission-denied')) {
+  if (
+    code.includes('permission-denied') ||
+    message.includes('permission-denied') ||
+    message.includes('Invalid portal credentials')
+  ) {
     return copy.invalidPasscode
   }
 
-  if (code.includes('invalid-argument')) {
+  if (code.includes('invalid-argument') || message.includes('invalid-argument')) {
     return copy.incompleteLeaseLink
   }
 
-  if (code.includes('unauthenticated')) {
+  if (code.includes('unauthenticated') || message.includes('unauthenticated')) {
     return copy.sessionExpired
   }
 
-  if (code.includes('internal') || code.includes('unavailable')) {
+  if (
+    code.includes('internal') ||
+    code.includes('unavailable') ||
+    code.includes('deadline-exceeded') ||
+    message.includes('deadline-exceeded') ||
+    message.includes('timed out') ||
+    message.includes('Failed to fetch') ||
+    message.includes('NetworkError')
+  ) {
     return copy.internalError
   }
 
