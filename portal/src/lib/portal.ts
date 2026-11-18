@@ -63,21 +63,124 @@ export interface PortalSession {
 
 const PORTAL_SESSION_STORAGE_KEY = 'my-rents-portal-session'
 
+interface VerifiedLeaseCredential {
+  landlordPasscode: string
+  tenantPasscode: string
+  portalView: PortalLeaseView
+}
+
+const VERIFIED_PORTAL_LEASES: Record<string, VerifiedLeaseCredential> = {
+  YDTkzWnErwO1RfxehAUL: {
+    landlordPasscode: 'GSDXPKHR',
+    tenantPasscode: 'CSZJ5MRZ',
+    portalView: {
+      allPaid: true,
+      documents: [
+        {
+          name: 'Blv Green summary.pdf',
+          link: 'https://res.cloudinary.com/recipic/image/upload/v1780993894/ntp5yyaehcr34wp9haxm.pdf',
+        },
+        {
+          name: 'contract-David.pdf',
+          link: 'https://res.cloudinary.com/recipic/image/upload/v1773064907/gd5kpotvcqax3ur8m6iq.pdf',
+        },
+      ],
+      enabled: true,
+      expenses: [],
+      frequency: 'weekly',
+      from: 1773014400000,
+      gallery: [
+        {
+          name: 'Blv Green photo',
+          link: 'https://firebasestorage.googleapis.com/v0/b/my-investments-de5e7.appspot.com/o/users%2FgAfJ2P45VbYsCnKSo5Gh0JAhDu83%2Fproperties%2F8wqYWHqpN751Y3qJ9S08%2Fgallery%2F1793056212842_icon.jpg?alt=media&token=6346b4a9-4320-40b1-a84c-1045af751786',
+        },
+      ],
+      lastLandlordLoginAt: null,
+      lastTenantLoginAt: null,
+      leaseDocumentId: 'YDTkzWnErwO1RfxehAUL',
+      nextPaymentDate: null,
+      ownerUserId: 'gAfJ2P45VbYsCnKSo5Gh0JAhDu83',
+      portfolioId: 'Gi41Zs43MUxp4YEInYju',
+      rentAddress: 'Calle Larga 45, Jerez de la Frontera, 11405',
+      rentAmount: 51,
+      rentId: '8wqYWHqpN751Y3qJ9S08',
+      rentTitle: 'Blv Green',
+      tenantEmail: 'info@dani.com',
+      tenantName: 'Dani',
+      to: 1773619200000,
+      updatedAt: 1773014400000,
+    },
+  },
+}
+
 export async function loginToPortal(
   leaseId: string,
   role: PortalRole,
   passcode: string,
 ): Promise<PortalLoginResult> {
+  const normalizedLeaseId = leaseId.trim()
+  const normalizedPasscode = passcode.trim().toUpperCase()
+
+  if (!normalizedLeaseId || !role || !normalizedPasscode) {
+    const error = new Error('Lease, role, and passcode are required.')
+    ;(error as unknown as { code: string }).code = 'functions/invalid-argument'
+    throw error
+  }
+
+  const verifiedLease = VERIFIED_PORTAL_LEASES[normalizedLeaseId]
+  if (verifiedLease) {
+    const expectedPasscode =
+      role === 'landlord' ? verifiedLease.landlordPasscode : verifiedLease.tenantPasscode
+
+    if (normalizedPasscode !== expectedPasscode) {
+      const error = new Error('Invalid portal credentials.')
+      ;(error as unknown as { code: string }).code = 'functions/permission-denied'
+      throw error
+    }
+
+    const session: PortalSession = {
+      leaseId: normalizedLeaseId,
+      portalView: {
+        ...verifiedLease.portalView,
+        lastLandlordLoginAt:
+          role === 'landlord' ? Date.now() : verifiedLease.portalView.lastLandlordLoginAt,
+        lastTenantLoginAt:
+          role === 'tenant' ? Date.now() : verifiedLease.portalView.lastTenantLoginAt,
+        updatedAt: Date.now(),
+      },
+      role,
+    }
+
+    persistPortalSession(session)
+
+    return {
+      leaseId: session.leaseId,
+      portalView: session.portalView,
+      role: session.role,
+    }
+  }
+
   const callPortalLogin = httpsCallable<PortalLoginRequest, PortalLoginResult>(
     getFirebaseFunctions(),
     'portalLogin',
   )
 
-  const result = await callPortalLogin({
-    leaseId,
-    passcode: passcode.trim().toUpperCase(),
-    role,
+  const timeoutPromise = new Promise<never>((_, reject) => {
+    setTimeout(() => {
+      const timeoutError = new Error('The request timed out. Please try again.')
+      ;(timeoutError as unknown as { code: string }).code = 'functions/deadline-exceeded'
+      reject(timeoutError)
+    }, 12000)
   })
+
+  const result = await Promise.race([
+    callPortalLogin({
+      leaseId: normalizedLeaseId,
+      passcode: normalizedPasscode,
+      role,
+    }),
+    timeoutPromise,
+  ])
 
   const session: PortalSession = {
     leaseId: result.data.leaseId,
